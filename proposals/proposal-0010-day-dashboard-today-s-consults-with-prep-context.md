@@ -39,4 +39,6 @@ not weekly chore.
 
 ## Depends on
 
-P-008 (agenda), P-003 (patient context — done), consult flow.
+P-008 (agenda — reads through the calendar port, so synced
+Google/Outlook events appear alongside KTB-created appointments),
+P-003 (patient context — done), consult flow.
