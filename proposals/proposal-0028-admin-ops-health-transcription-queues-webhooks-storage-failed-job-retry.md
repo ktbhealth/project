@@ -1,7 +1,7 @@
 +++
 id = "P-028"
 title = "Admin ops health: transcription queues, webhooks, storage, failed-job retry"
-status = "open"
+status = "done"
 created = "2026-11-08"
 priority = "medium"
 labels = ["admin"]
