@@ -1,7 +1,7 @@
 +++
 id = "ADR-0001"
 title = "Transcription sources as a port"
-status = "in-progress"
+status = "done"
 created = "2026-11-06"
 priority = "medium"
 +++
