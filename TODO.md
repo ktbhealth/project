@@ -6,3 +6,4 @@
 - [ ] T-026 Set up peregrin as CI · pri:high · created:2026-11-08
 - [ ] T-027 Onboard luisfuturist.com zone to Cloudflare account, then re-enable domain in storybook/alchemy.run.ts (storybook.ktb.luisfuturist.com) · created:2026-11-08
 - [ ] T-028 Update branding: new logo, favicon, and related assets · owner:human:charles · created:2026-11-08
+- [ ] T-030 Configure GitHub Actions CI; later integrate Peregrin as CI orchestrator inside GHA · owner:human:emanuel · created:2026-11-08 · #github-actions
