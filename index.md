@@ -1,4 +1,4 @@
-# project/ — project work ledger
+# project/ — ktbhealth org work ledger
 
 Markdown here is canonical; `myco` verbs are the write path.
 
