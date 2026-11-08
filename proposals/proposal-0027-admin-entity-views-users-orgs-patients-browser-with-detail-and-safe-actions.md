@@ -1,7 +1,7 @@
 +++
 id = "P-027"
 title = "Admin entity views: users, orgs, patients browser with detail and safe actions"
-status = "open"
+status = "done"
 created = "2026-11-08"
 priority = "medium"
 labels = ["admin"]
