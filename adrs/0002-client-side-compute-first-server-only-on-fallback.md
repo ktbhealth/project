@@ -1,7 +1,7 @@
 +++
 id = "ADR-0002"
 title = "Client-side compute first, server only on fallback"
-status = "open"
+status = "in-progress"
 created = "2026-11-06"
 priority = "medium"
 +++
