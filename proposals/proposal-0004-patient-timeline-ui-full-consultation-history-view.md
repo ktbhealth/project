@@ -11,7 +11,7 @@ labels = ["v2"]
 
 Visão cronológica completa do paciente: todas as consultas como
 linha do tempo visual (data, queixa, conduta, documentos), não só
-o resumo das últimas 3 visitas do T-009.
+o resumo das últimas 3 visitas.
 
 ## Escopo provável
 
@@ -21,7 +21,7 @@ o resumo das últimas 3 visitas do T-009.
 
 ## Depende de
 
-T-009 (patient_id estável + agregação de histórico).
+Modelo de paciente estável (patient_id + agregação de histórico).
 
 ## Cuidados
 

@@ -28,4 +28,4 @@ escreveu.
 
 ## Depende de
 
-T-009 (contexto de paciente estável).
+Contexto de paciente estável (modelo paciente↔consultas).

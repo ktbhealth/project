@@ -28,4 +28,4 @@ acessos suas consultas — o "prontuário portátil" da KTB.
 
 ## Depende de
 
-T-009 (modelo paciente↔consultas maduro).
+Modelo paciente↔consultas maduro.
