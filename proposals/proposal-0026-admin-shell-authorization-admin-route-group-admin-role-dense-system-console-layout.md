@@ -1,7 +1,7 @@
 +++
 id = "P-026"
 title = "Admin shell & authorization: /admin route group, admin role, dense system-console layout"
-status = "open"
+status = "done"
 created = "2026-11-08"
 priority = "high"
 labels = ["admin"]
