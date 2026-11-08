@@ -10,3 +10,4 @@
 - [ ] T-032 Admin panel: system console implementation (P-025 umbrella) · pri:high · created:2026-11-08 · #admin · epic:admin
   - [ ] T-033 Admin shell & authz: /admin route group, server-side admin role check (env allowlist first), dense sidebar layout (P-026) · pri:high · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
   - [ ] T-034 Admin entity views: users/orgs/patients tables + detail, suspend/reactivate actions (P-027) · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
+  - [ ] T-035 Admin ops health: queue/job status, webhook delivery, storage usage, failed-job retry (P-028) · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
