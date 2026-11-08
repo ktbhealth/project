@@ -4,6 +4,7 @@ title = "Patient history sharing across clinics (consent-scoped)"
 status = "open"
 created = "2026-11-08"
 priority = "medium"
+labels = ["v2"]
 +++
 
 ## Ideia
