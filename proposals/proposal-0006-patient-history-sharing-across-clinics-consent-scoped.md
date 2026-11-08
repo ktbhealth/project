@@ -7,25 +7,25 @@ priority = "medium"
 labels = ["v2"]
 +++
 
-## Ideia
+## Idea
 
-Compartilhamento de histórico do paciente: paciente autoriza
-(mesmo consentimento LGPD da captura) que outras clínicas/médicos
-acessos suas consultas — o "prontuário portátil" da KTB.
+Patient history sharing: the patient authorizes (same LGPD
+consent as capture) that other clinics/physicians access their
+consults — KTB's "portable medical record".
 
-## Superfície
+## Surface
 
-- Escopo de consentimento por paciente (ler vs. escrever)
-- Link/token de acesso com expiração
-- Auditoria de quem acessou o quê
-- Multi-tenant: dados de clínicas diferentes no mesmo paciente
+- Per-patient consent scope (read vs. write)
+- Access link/token with expiration
+- Audit of who accessed what
+- Multi-tenant: data from different clinics on the same patient
 
-## Cuidados
+## Cautions
 
-- LGPD: consentimento granular e revogável; minimização
-- Nunca compartilhar dados entre médicos sem consent explícito
-- Começar read-only; escrita compartilhada é fase posterior
+- LGPD: granular, revocable consent; minimization
+- Never share data between physicians without explicit consent
+- Start read-only; shared write is a later phase
 
-## Depende de
+## Depends on
 
-Modelo paciente↔consultas maduro.
+Mature patient↔consults model.

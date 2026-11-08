@@ -6,38 +6,42 @@ created = "2026-11-06"
 priority = "medium"
 +++
 
-# ADR-0002: Compute client-side primeiro, servidor só no fallback
+# ADR-0002: Client-side compute first, server only on fallback
 
 ## Decision
 
-STT roda no cliente sempre que possível; o servidor só processa
-áudio quando a qualidade do lado barato falha. Fontes separadas
-dão speaker labels sem diarização:
+STT runs on the client whenever possible; the server only
+processes audio when the cheap side's quality fails. Separate
+sources give speaker labels without diarization:
 
-- `WebSpeechTranscriber` — mic do médico (grátis, nativo, pt-BR)
-- `TabAudioTranscriber` — áudio da aba da teleconsulta via
-  Whisper WASM (transformers.js) → lado "Paciente"
-- `MediaRecorder` — gravação local; sobe ao server APENAS se
-  confidence baixa/gaps → Whisper/Deepgram re-processa o trecho
+- `WebSpeechTranscriber` — physician's mic (free, native, pt-BR)
+- `TabAudioTranscriber` — teleconsult tab audio via
+  Whisper WASM (transformers.js) → "Patient" side
+- `MediaRecorder` — local recording; uploads to the server ONLY
+  if confidence is low/gaps → Whisper/Deepgram re-processes the
+  excerpt
 
 ## Rationale
 
-Custo: caminho feliz ~grátis (compute do cliente), server pago só
-nos casos ruins — undercuta concorrentes que cobram STT sempre.
-LGPD: áudio do paciente nunca sai do dispositivo no caso comum;
-sobe só por demanda ("quando necessário"), que segue vendável.
+Cost: the happy path is ~free (client compute), paid server only
+on the bad cases — undercuts competitors that always charge for
+STT. LGPD: patient audio never leaves the device in the common
+case; it only uploads on demand ("when necessary"), which remains
+sellable.
 
 ## Constraints
 
-- Web Speech API é mic-only — não aceita MediaStream; tab audio
-  exige Whisper WASM (~40-75MB, CPU pesada). Trade-off aceito.
-- "Ambos os lados instalarem" foi rejeitado: paciente não instala
-  nada — só o médico roda o app.
-- Fallback pressupõe gravação local retida até a confiança ser
-  avaliada — descartar após aprovação (data minimization).
+- Web Speech API is mic-only — it doesn't accept MediaStream; tab
+  audio requires Whisper WASM (~40-75MB, heavy CPU). Accepted
+  trade-off.
+- "Both sides install it" was rejected: the patient installs
+  nothing — only the physician runs the app.
+- Fallback assumes local recording is retained until confidence
+  is evaluated — discard after approval (data minimization).
 
 ## Consequences
 
-Port `Transcriber` ganha múltiplas instâncias por fonte; merge por
-speaker label na entrada do pipeline. Meeting bot (ADR-0001) fica
-como opção p/ calls fora do browser do médico ou sem tab audio.
+The `Transcriber` port gains multiple per-source instances; merge
+by speaker label at pipeline input. Meeting bot (ADR-0001) remains
+an option for calls outside the physician's browser or without
+tab audio.

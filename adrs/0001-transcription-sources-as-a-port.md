@@ -6,32 +6,32 @@ created = "2026-11-06"
 priority = "medium"
 +++
 
-# ADR-0001: Fontes de transcrição como port
+# ADR-0001: Transcription sources as a port
 
 ## Decision
 
-Toda fonte de áudio converte para o mesmo stream de
-`TranscriptEvent`s e entra na mesma pipeline
-(`AnamnesisExtractor` → revisão médica). Adapters:
+Every audio source converts into the same stream of
+`TranscriptEvent`s and enters the same pipeline
+(`AnamnesisExtractor` → physician review). Adapters:
 
-- `WebSpeechTranscriber` (MVP): browser, presencial, client-side.
-- `MeetingBotTranscriber` (futuro): bot entra na chamada
-  Meet/Zoom/Teams via meeting-bot-as-a-service (Recall.ai et al.),
-  transcript chega por webhook server-side.
-- `UploadTranscriber` (futuro): upload de gravação → Whisper.
+- `WebSpeechTranscriber` (MVP): browser, in-person, client-side.
+- `MeetingBotTranscriber` (future): a bot joins the
+  Meet/Zoom/Teams call via meeting-bot-as-a-service (Recall.ai
+  et al.), transcript arrives by server-side webhook.
+- `UploadTranscriber` (future): recording upload → Whisper.
 
 ## Rationale
 
-Teleconsulta é o caso de uso natural (a consulta já é digital),
-mas construir bot próprio (Puppeteer + captura de áudio) é
-semana(s) de trabalho frágil. Bot-as-a-service custa ~$0.70–1/h
-por chamada — vira linha de pricing (presencial grátis, bot por
-consulta). Bônus LGPD: o bot visível na chamada É o consentimento.
+Teleconsult is the natural use case (the consult is already
+digital), but building our own bot (Puppeteer + audio capture) is
+week(s) of fragile work. Bot-as-a-service costs ~$0.70–1/h per
+call — becomes a pricing line (in-person free, bot per consult).
+LGPD bonus: the bot visible in the call IS the consent.
 
 ## Consequences
 
-`Transcriber` client e server convergem conceitualmente — o que
-importa é o stream de eventos entrando no pipeline, não o lado
-onde o adapter roda. `consulta/nova` (live browser) é um caso
-especial de "fonte". O consentimento é por-design: fonte bot =
-visível; fonte browser/upload = médico declara consentimento.
+Client and server `Transcriber`s converge conceptually — what
+matters is the event stream entering the pipeline, not the side
+where the adapter runs. `consulta/nova` (live browser) is a
+special case of "source". Consent is by-design: bot source =
+visible; browser/upload source = physician declares consent.

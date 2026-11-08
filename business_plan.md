@@ -1,120 +1,122 @@
-# Business Plan — Anamnese AI
+# Business Plan — Anamnesis AI
 
-*Status: draft — a validar nas decisões abertas no fim.*
+*Status: draft — pending validation of the open decisions at the end.*
 
-## Problema
+## Problem
 
-Médico brasileiro gasta ~40% da consulta documentando. Anamnese mal
-registrada = erro clínico, exposição jurídica, e consulta de 15min
-vira 25min de prontuário. EMRs brasileiros são ruins de UX — o médico
-digita olhando pra tela, não pro paciente.
+Brazilian doctors spend ~40% of the consult documenting. Poorly
+recorded anamnesis = clinical error, legal exposure, and a 15-min
+consult turning into 25 min of charting. Brazilian EMRs have bad
+UX — the physician types looking at the screen, not at the patient.
 
-## Solução
+## Solution
 
-Ambient scribe: app grava a consulta → transcreve (PT-BR) → estrutura
-anamnese clínica (QP, HDA, antecedentes, exame físico, hipóteses,
-conduta) → médico revisa e aprova → exporta pra prontuário/EMR.
+Ambient scribe: the app records the consult → transcribes (PT-BR)
+→ structures the clinical anamnesis (CC, HPI, background, physical
+exam, hypotheses, plan) → physician reviews and approves →
+exports to the medical record/EMR.
 
-## Quem paga
+## Who pays
 
-- **MVP**: médico individual (B2C) — self-serve, modelo Freed
-  (~R$99–149/mês, product-led, CAC baixo)
-- **Alvo**: clínicas pequenas/médias (B2B) — assinatura por cadeira
+- **MVP**: individual physician (B2C) — self-serve, Freed-style
+  model (~R$99–149/month, product-led, low CAC)
+- **Target**: small/medium clinics (B2B) — per-seat subscription
 
-## Concorrência
+## Competition
 
-- **Global**: Abridge (~$5B val), Nuance DAX (Microsoft), Nabla,
-  Heidi, Ambience, Freed, Suki — guerra com centenas de milhões em
-  funding.
-- **Brasil**: menos maduro, mas EMRs (Feegow/Doctoralia, iClinic,
-  Amplimed, MV, Tasy) correm pra embutir scribe — risco de virar
-  feature do prontuário.
-- **Commoditização**: Whisper + LLM fazem 80% disso num fim de
-  semana — o produto não pode ser só "transcreve".
+- **Global**: Abridge (~$5B valuation), Nuance DAX (Microsoft),
+  Nabla, Heidi, Ambience, Freed, Suki — a war with hundreds of
+  millions in funding.
+- **Brazil**: less mature, but EMRs (Feegow/Doctoralia, iClinic,
+  Amplimed, MV, Tasy) are racing to embed scribe — risk of it
+  becoming a medical-record feature.
+- **Commoditization**: Whisper + LLM do 80% of this in a weekend —
+  the product can't be just "transcribes".
 
-## Diferenciação (escolher 1–2, não todas)
+## Differentiation (pick 1–2, not all)
 
-1. **PT-BR clínico profundo** — taxonomia de anamnese brasileira,
-   CID-10, semântica local; corpus proprietário vira moat.
-2. **Especialidade-first** — uma especialidade com template rico
-   (psiquiatria, dermato, cardio…), onde a estrutura da anamnese é
-   o valor, não a transcrição.
-3. **LGPD-native** — consentimento do paciente, anonimização/edge,
-   trilha de auditoria — argumento de venda institucional.
-4. **Integração EMR** — escrever nos prontuários existentes
-   (Feegow, iClinic…) em vez de competir com eles.
+1. **Deep clinical PT-BR** — Brazilian anamnesis taxonomy, CID-10,
+   local semantics; a proprietary corpus becomes the moat.
+2. **Specialty-first** — one specialty with a rich template
+   (psychiatry, derm, cardio…), where the anamnesis structure is
+   the value, not the transcription.
+3. **LGPD-native** — patient consent, anonymization/edge, audit
+   trail — an institutional selling point.
+4. **EMR integration** — write into existing medical records
+   (Feegow, iClinic…) instead of competing with them.
 
-## Modelo
+## Model
 
-- Freemium: N consultas/mês grátis → R$99–299/mês por médico.
-- B2B: por cadeira/mês + onboarding; per-consult em volume alto.
-- Margem: transcrição (~$0.006/min) + LLM ≈ centavos/consulta →
-  margem SaaS normal.
+- Freemium: N free consults/month → R$99–299/month per physician.
+- B2B: per seat/month + onboarding; per-consult at high volume.
+- Margin: transcription (~$0.006/min) + LLM ≈ cents per consult →
+  normal SaaS margin.
 
-## Riscos principais
+## Main risks
 
-- **Regulatório**: LGPD — dados sensíveis de saúde (consentimento,
-  DPO, minimização). CFM não exige certificação pra documentação
-  auxiliar hoje, mas erro do modelo = liability do médico que
-  respinga em nós.
-- **Competição de plataforma**: EMR embute scribe de graça →
-  precisamos ser melhores ou integrar.
-- **Precisão clínica**: alucinação em anamnese não é bug, é
-  incidente — todo campo precisa apontar pro trecho do áudio que
-  o fundamenta (source-linking).
+- **Regulatory**: LGPD — sensitive health data (consent, DPO,
+  minimization). CFM does not require certification for auxiliary
+  documentation today, but a model error = liability that splashes
+  onto us through the physician.
+- **Platform competition**: EMR embeds scribe for free → we need
+  to be better or integrate.
+- **Clinical accuracy**: hallucination in an anamnesis isn't a
+  bug, it's an incident — every field must point to the audio
+  excerpt that grounds it (source-linking).
 
-## MVP (hipótese)
+## MVP (hypothesis)
 
-Upload/gravação de áudio → transcrição PT-BR → anamnese estruturada
-editável (1 especialidade) → exportar/copiar → métricas: % campos
-aceitos sem edição, tempo economizado declarado, D7 retention de
-médicos pagantes.
+Audio upload/recording → PT-BR transcription → editable structured
+anamnesis (1 specialty) → export/copy → metrics: % of fields
+accepted without editing, self-reported time saved, D7 retention
+of paying physicians.
 
 ## Kill / validate
 
-10 médicos usando por 2 semanas: se ninguém paga, ou se tempo de
-edição > tempo de digitação, morre.
+10 physicians using it for 2 weeks: if nobody pays, or editing
+time > typing time, it dies.
 
-## Decisões (2026-11-06)
+## Decisions (2026-11-06)
 
-- **Modelo**: Freed — self-serve, médico individual, product-led.
-- **Posicionamento**: ferramenta de documentação, NUNCA suporte à
-  decisão — toda anamnese é rascunho revisado/aprovado pelo médico.
-  Fora de SaMD/ANVISA; human-in-the-loop é o escudo de liability.
-- **Telemedicina-first**: teleconsulta é o modo fácil — canais de
-  áudio por participante = speaker labels grátis (diarização
-  resolvida) + bot visível = consentimento embutido.
-- **Presencial = modo ditado**: médico narra sozinho pós-consulta
-  (mono-falante — Web Speech basta). Diarização em mic único é
-  problema conhecido e NÃO prioridade.
-- **Moat**: não é tech (tudo é commodity) — é canal + contexto
-  acumulado do paciente entre consultas + embedding no workflow.
+- **Model**: Freed — self-serve, individual physician, product-led.
+- **Positioning**: documentation tool, NEVER decision support —
+  every anamnesis is a draft reviewed/approved by the physician.
+  Outside SaMD/ANVISA; human-in-the-loop is the liability shield.
+- **Telemedicine-first**: teleconsult is the easy mode — per-participant
+  audio channels = free speaker labels (diarization solved) +
+  visible bot = built-in consent.
+- **In-person = dictation mode**: physician narrates alone
+  post-consult (single speaker — Web Speech is enough). Diarization
+  on a single mic is a known problem and NOT a priority.
+- **Moat**: not tech (it's all commodity) — it's the channel +
+  accumulated patient context across consults + embedding in the
+  workflow.
 
-## Sinal de validação (2026-11-06)
+## Validation signal (2026-11-06)
 
-Entrevistas informais: médicos dizem "relevante", JÁ TESTARAM
-concorrentes (provável gringo, USD) e acharam caro. Leitura: dor
-real + consciência de mercado + sensibilidade a preço = abertura
-pra undercut local (R$99–149 vs. ~R$500+ dos gringos). Ainda não é
-prova de compra — validar via piloto: 2 semanas grátis com os
-mesmos médicos, perguntando (1) qual concorrente testaram,
-(2) preço+idioma ou só preço foi o problema, (3) quanto pagariam.
+Informal interviews: physicians say "relevant", ALREADY TRIED
+competitors (likely foreign, USD) and found them expensive.
+Reading: real pain + market awareness + price sensitivity = opening
+for a local undercut (R$99–149 vs. ~R$500+ for the foreign ones).
+Still not proof of purchase — validate via pilot: 2 weeks free with
+the same physicians, asking (1) which competitor they tried,
+(2) whether price+language or only price was the problem,
+(3) how much they would pay.
 
-## Pesquisa de canal (2026-11-06)
+## Channel research (2026-11-06)
 
-Realidade BR: WhatsApp domina o atendimento remoto (~69% dos
-médicos — APM) e é INCAPTURÁVEL (sem bot, sem aba). Browser-based
-calls (Meet/Zoom/Doctoralia-vídeo) são minoria capturável por
-tab audio/bot. Consequência: ditado pós-consulta + upload de
-gravação viram o caminho primário; tab audio/bot cobrem o
-segmento browser. A integração de rotina decisiva é "copiar pro
-EMR" (clipboard), não API. Pergunta-chave do piloto: "em que app
-roda a consulta?"
+BR reality: WhatsApp dominates remote care (~69% of physicians —
+APM) and is UNCAPTURABLE (no bot, no tab). Browser-based calls
+(Meet/Zoom/Doctoralia-video) are the capturable minority via tab
+audio/bot. Consequence: post-consult dictation + recording upload
+become the primary path; tab audio/bot cover the browser segment.
+The decisive routine integration is "copy to the EMR" (clipboard),
+not API. Key pilot question: "which app does the consult run on?"
 
-## Decisões abertas
+## Open decisions
 
-1. **Especialidade do MVP** — a que tivermos acesso a médicos reais.
-2. **LGPD como feature** — auditável/on-prem desde o dia 1, ou
-   compliance mínimo no MVP?
-3. **Stack de transcrição** — bot teleconsulta (Recall.ai) vs.
-   upload+Whisper vs. Deepgram com diarização.
+1. **MVP specialty** — whichever we get access to real physicians in.
+2. **LGPD as a feature** — auditable/on-prem from day 1, or
+   minimal compliance in the MVP?
+3. **Transcription stack** — teleconsult bot (Recall.ai) vs.
+   upload+Whisper vs. Deepgram with diarization.

@@ -7,24 +7,24 @@ priority = "medium"
 labels = ["v2"]
 +++
 
-## Ideia
+## Idea
 
-Visão cronológica completa do paciente: todas as consultas como
-linha do tempo visual (data, queixa, conduta, documentos), não só
-o resumo das últimas 3 visitas.
+Full chronological patient view: all consults as a visual
+timeline (date, complaint, plan, documents), not just a summary
+of the last 3 visits.
 
-## Escopo provável
+## Likely scope
 
-- Lista/página por paciente com todas as consultas ordenadas
-- Cada entrada: data, anamnese resumida, link para a consulta
-- Filtros por período/tipo se fizer sentido
+- Per-patient list/page with all consults ordered chronologically
+- Each entry: date, summarized anamnesis, link to the consult
+- Filters by period/type if it makes sense
 
-## Depende de
+## Depends on
 
-Modelo de paciente estável (patient_id + agregação de histórico).
+Stable patient model (patient_id + history aggregation).
 
-## Cuidados
+## Cautions
 
-- Volume: pacientes com muitas consultas precisam paginação/agregação
-- Posicionamento: é visualização de registro, não decisão —
-  sem badges de "risco" ou "atrasado"
+- Volume: patients with many consults need pagination/aggregation
+- Positioning: it's record visualization, not decision —
+  no "risk" or "overdue" badges

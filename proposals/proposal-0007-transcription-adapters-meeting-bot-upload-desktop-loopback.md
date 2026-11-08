@@ -6,27 +6,27 @@ created = "2026-11-08"
 priority = "medium"
 +++
 
-## Ideia
+## Idea
 
-Expandir as fontes de transcrição além do browser (ver ADR-0001,
-que define o port `TranscriptEvent` → pipeline única):
+Expand transcription sources beyond the browser (see ADR-0001,
+which defines the `TranscriptEvent` port → single pipeline):
 
-- `MeetingBotTranscriber` — bot entra na call Meet/Zoom/Teams via
-  meeting-bot-as-a-service (Recall.ai et al.); transcript chega
-  por webhook server-side. ~$0.70–1/h por chamada → linha de
-  pricing; bot visível = consentimento embutido (LGPD).
-- `UploadTranscriber` — upload de gravação → Whisper server-side.
-- `SystemAudioTranscriber` — loopback desktop (Tauri, ver T-013
-  no backlog) capturando qualquer app de call.
+- `MeetingBotTranscriber` — a bot joins Meet/Zoom/Teams calls via
+  meeting-bot-as-a-service (Recall.ai et al.); the transcript
+  arrives by server-side webhook. ~$0.70–1/h per call → pricing
+  line; visible bot = built-in consent (LGPD).
+- `UploadTranscriber` — recording upload → server-side Whisper.
+- `SystemAudioTranscriber` — desktop loopback (Tauri, see T-013
+  in the backlog) capturing any call app.
 
-## Notas
+## Notes
 
-- ADR-0001 já fixou o contrato: adapters emitem o mesmo stream;
-  pipeline/anamnesis/review não mudam.
-- Bot é a resposta para calls fora do browser do médico.
-- Upload é o fallback universal e base para demos/gravações.
+- ADR-0001 already fixed the contract: adapters emit the same
+  stream; pipeline/anamnesis/review don't change.
+- The bot is the answer for calls outside the physician's browser.
+- Upload is the universal fallback and the base for demos/recordings.
 
-## Depende de
+## Depends on
 
-Nada bloqueia começar pelo upload (mais simples); bot e desktop
-são maiores.
+Nothing blocks starting with upload (simplest); bot and desktop
+are bigger.

@@ -7,25 +7,25 @@ priority = "medium"
 labels = ["v2"]
 +++
 
-## Ideia
+## Idea
 
-Alertas de retorno: "paciente X deveria voltar" baseado em
-conduta registrada (ex.: "retornar em 30 dias", "rever exame").
+Return reminders: "patient X should come back" based on the
+recorded plan (e.g. "return in 30 days", "review the exam").
 
-## Tensão de posicionamento
+## Positioning tension
 
-Beira de decisão clínica: o sistema estaria sugerindo conduta de
-retorno. Versão segura: **o médico registra a data de retorno na
-conduta** (já é documentação), e o app apenas *lembra* — lista de
-retornos do dia, sem inferir nem sugerir datas que o médico não
-escreveu.
+Edges into clinical decision: the system would be suggesting a
+return plan. Safe version: **the physician records the return date
+in the plan** (that's already documentation), and the app merely
+*reminds* — a list of the day's returns, without inferring or
+suggesting dates the physician didn't write.
 
-## Escopo provável
+## Likely scope
 
-- Campo estruturado "retorno em" na conduta da anamnese
-- Dashboard/lista de retornos pendentes
-- Sem NLP inferindo prazo a partir do texto livre (fase 2, se houver)
+- Structured "return in" field in the anamnesis plan
+- Dashboard/pending-returns list
+- No NLP inferring deadlines from free text (phase 2, if any)
 
-## Depende de
+## Depends on
 
-Contexto de paciente estável (modelo paciente↔consultas).
+Stable patient context (patient↔consults model).

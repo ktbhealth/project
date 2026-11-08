@@ -4,61 +4,62 @@ title = "Own call platform: be the channel, not the capturer"
 status = "open"
 created = "2026-11-06"
 priority = "high"
-labels = ["estrategia"]
+labels = ["strategy"]
 +++
 
-# P-001: Própria call platform — ser o canal, não capturar
+# P-001: Own call platform — be the channel, not the capturer
 
-## Ideia
+## Idea
 
-Em vez de capturar calls alheias (matriz frágil: tab audio, WASM,
-bot, loopback), o produto vira a sala de teleconsulta:
+Instead of capturing other people's calls (fragile matrix: tab
+audio, WASM, bot, loopback), the product becomes the teleconsult
+room:
 
-- médico manda link por WhatsApp (a rotina já é essa)
-- paciente entra na nossa call via browser (zero install)
-- médico no nosso app
-- pernas de áudio separadas nativamente = labels perfeitos,
-  zero diarização, consent vira banner, LGPD limpa
+- the physician sends a link via WhatsApp (that's already the routine)
+- the patient joins our call via browser (zero install)
+- the physician is in our app
+- natively separated audio legs = perfect labels,
+  zero diarization, consent becomes a banner, clean LGPD
 
 ## Trade-offs
 
-**Pró**: elimina TODA a matriz de captura; qualidade controlada;
-cobre WhatsApp/telefone/browsers sem exceção; moat — a call E a
-documentação vivem no mesmo lugar.
+**Pros**: eliminates the ENTIRE capture matrix; controlled
+quality; covers WhatsApp/phone/browsers without exception; moat —
+the call AND the documentation live in the same place.
 
-**Contra**: deixa de ser scribe-alongside → vira plataforma de
-teleconsulta (scheduling, waiting room, vídeo confiável); compete
-com Doctoralia-vídeo/Conexa no canal.
+**Cons**: stops being scribe-alongside → becomes a teleconsult
+platform (scheduling, waiting room, reliable video); competes
+with Doctoralia-video/Conexa on the channel.
 
-## Caminho
+## Path
 
-LiveKit/Daily/Twilio pra infra (weeks, não months). Estratégia:
-scribe-alongside como wedge → se piloto mostrar que médico topa
-mandar NOSSO link em vez do link do Meet, a plataforma vence.
-Pergunta de validação nas entrevistas: "mandaria nosso link?"
+LiveKit/Daily/Twilio for infra (weeks, not months). Strategy:
+scribe-alongside as the wedge → if the pilot shows physicians are
+willing to send OUR link instead of the Meet link, the platform
+wins. Validation question in interviews: "would you send our link?"
 
-## Veredito (2026-11-06)
+## Verdict (2026-11-06)
 
-Endgame, não wedge. Risco: video call é problema impiedoso — se
-cai, a culpa é nossa. Mitigação: **audio-only first** (voz sem
-vídeo — muita anamnese não precisa de vídeo, 10x mais confiável/
-barata de operar). Gate: piloto confirma que médico manda nosso
-link; se não, scribe-alongside é o teto.
+Endgame, not wedge. Risk: video calls are a merciless problem —
+if it drops, the blame is ours. Mitigation: **audio-only first**
+(voice without video — much anamnesis doesn't need video, 10x more
+reliable/cheaper to operate). Gate: pilot confirms physicians send
+our link; if not, scribe-alongside is the ceiling.
 
-## Fases
+## Phases
 
-1. validar via piloto (pergunta do link)
-2. call audio-only 1:1 (LiveKit/vonage voice) + scribe por perna
-3. vídeo opcional + scheduling + waiting room + prontuário
+1. validate via pilot (the link question)
+2. audio-only 1:1 call (LiveKit/vonage voice) + scribe per leg
+3. optional video + scheduling + waiting room + medical record
 
-## Posicionamento (2026-11-06)
+## Positioning (2026-11-06)
 
-Não inovar na call — call é commodity por design, genérica-e-
-confiável é o objetivo. A inovação é o que a call PRODUZ: a call
-alheia termina em silêncio documental; a nossa termina com a
-anamnese revisada. Diferenciais: pré-consulta assíncrona (triagem
-por chat → anamnese pré-preenchida), assist durante a call,
-contexto longitudinal por paciente (moat que compõe), e
-transcrição+evidência como registro jurídico. Framing:
-"telemedicina genérica por fora, documentação inteligente por
-dentro" — a call é o gancho, o registro é o negócio.
+Don't innovate on the call — the call is commodity by design,
+generic-and-reliable is the goal. The innovation is what the call
+PRODUCES: someone else's call ends in documentary silence; ours
+ends with the reviewed anamnesis. Differentiators: async
+pre-consult (chat triage → pre-filled anamnesis), assist during
+the call, longitudinal per-patient context (compounding moat), and
+transcription+evidence as a legal record. Framing:
+"generic telemedicine on the outside, smart documentation on the
+inside" — the call is the hook, the record is the business.
