@@ -1,7 +1,7 @@
 +++
 id = "P-030"
 title = "Admin audit log: append-only record of admin mutations and sensitive reads"
-status = "open"
+status = "done"
 created = "2026-11-08"
 priority = "medium"
 labels = ["admin"]
