@@ -1,0 +1,29 @@
++++
+id = "P-004"
+title = "Patient timeline UI: full consultation history view"
+status = "open"
+created = "2026-11-08"
+priority = "medium"
++++
+
+## Ideia
+
+Visão cronológica completa do paciente: todas as consultas como
+linha do tempo visual (data, queixa, conduta, documentos), não só
+o resumo das últimas 3 visitas do T-009.
+
+## Escopo provável
+
+- Lista/página por paciente com todas as consultas ordenadas
+- Cada entrada: data, anamnese resumida, link para a consulta
+- Filtros por período/tipo se fizer sentido
+
+## Depende de
+
+T-009 (patient_id estável + agregação de histórico).
+
+## Cuidados
+
+- Volume: pacientes com muitas consultas precisam paginação/agregação
+- Posicionamento: é visualização de registro, não decisão —
+  sem badges de "risco" ou "atrasado"
