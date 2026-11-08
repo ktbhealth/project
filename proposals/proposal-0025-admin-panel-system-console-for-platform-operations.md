@@ -1,7 +1,7 @@
 +++
 id = "P-025"
 title = "Admin panel: system console for platform operations"
-status = "open"
+status = "done"
 created = "2026-11-08"
 priority = "high"
 labels = ["admin"]
