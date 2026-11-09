@@ -7,6 +7,7 @@
 - [ ] T-028 Update branding: new logo, favicon, and related assets · owner:human:charles · created:2026-11-08
 - [ ] T-030 Configure GitHub Actions CI; later integrate Peregrin as CI orchestrator inside GHA · owner:human:emanuel · created:2026-11-08 · #github-actions
   - [ ] T-047 product: coverage thresholds (100%) fail on main — lines 95.69, functions 93.95, branches 92.92; 'bun run test' exits 1 so ci.yml test step is red. Raise coverage, lower thresholds, or run test without coverage in CI · pri:high · owner:human:emanuel · created:2026-11-09 · #github-actions · blocks:T-030
+    - [ ] T-048 product: tests for the 8 files under 50% line coverage — apps/web/src/server.ts (0%), plugins/consultations form-page.tsx (0%), routes/api/cdn (15%), routes/patients index+new (29%), anamnesis-llm cleanup.ts (20%) · pri:high · owner:human:emanuel · created:2026-11-09 · #coverage · blocks:T-047
 - [ ] T-031 Platform QoL features around core consult flow: scheduling/agenda, reminders, patient follow-up nudges, quick notes — doctor-facing conveniences that increase daily value beyond documentation · owner:human:vini · created:2026-11-08 · #platform-qol
 - [ ] T-032 Admin panel: system console implementation (P-025 umbrella) · pri:high · created:2026-11-08 · #admin · epic:admin
   - [ ] T-033 Admin shell & authz: /admin route group, server-side admin role check (env allowlist first), dense sidebar layout (P-026) · pri:high · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
