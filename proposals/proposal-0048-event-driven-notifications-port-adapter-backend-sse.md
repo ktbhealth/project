@@ -1,7 +1,7 @@
 +++
 id = "P-048"
 title = "Event-driven notifications: port-adapter backend + SSE"
-status = "open"
+status = "in-progress"
 created = "2026-11-09"
 priority = "medium"
 +++
