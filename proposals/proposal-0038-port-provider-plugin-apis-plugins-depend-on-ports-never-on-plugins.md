@@ -1,7 +1,7 @@
 +++
 id = "P-038"
 title = "Port/provider plugin APIs: plugins depend on ports, never on plugins"
-status = "open"
+status = "deferred"
 created = "2026-11-09"
 owner = "devin"
 priority = "high"
