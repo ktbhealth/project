@@ -11,6 +11,7 @@
     - [ ] T-049 product: tests for plugin entry/api gaps — plugins/groups, notifications, dashboard index.ts/api.ts; platform.tsx; audio-jobs.ts (functions 64%); app-host index.ts · pri:high · owner:human:emanuel · created:2026-11-09 · #coverage · blocks:T-047
     - [ ] T-050 product: close residual branch/line gaps in the remaining ~30 files (ai.ts, fns.ts, jobs.ts, patients index.ts, ...) until global 100% thresholds pass; no v8-ignore or excludes without approval · pri:high · owner:human:emanuel · created:2026-11-09 · #coverage · blocks:T-047
   - [ ] T-052 ui: add real CI checks — typecheck/test scripts so the install-only workflow verifies something; vue duplicate fixed in T-046 · owner:human:emanuel · created:2026-11-09 · #github-actions
+  - [ ] T-053 CI deploy workflows: plan/deploy via cuora + alchemy for storybook, website-draft, product; decide secrets strategy (deferred from T-030) · owner:human:emanuel · created:2026-11-09 · #github-actions
 - [ ] T-031 Platform QoL features around core consult flow: scheduling/agenda, reminders, patient follow-up nudges, quick notes — doctor-facing conveniences that increase daily value beyond documentation · owner:human:vini · created:2026-11-08 · #platform-qol
 - [ ] T-032 Admin panel: system console implementation (P-025 umbrella) · pri:high · created:2026-11-08 · #admin · epic:admin
   - [ ] T-033 Admin shell & authz: /admin route group, server-side admin role check (env allowlist first), dense sidebar layout (P-026) · pri:high · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
