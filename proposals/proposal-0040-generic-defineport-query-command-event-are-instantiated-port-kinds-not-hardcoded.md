@@ -1,7 +1,7 @@
 +++
 id = "P-040"
 title = "Generic definePort: query/command/event are instantiated port kinds, not hardcoded"
-status = "open"
+status = "deferred"
 created = "2026-11-09"
 owner = "devin"
 priority = "high"
