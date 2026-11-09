@@ -1,7 +1,7 @@
 +++
 id = "P-049"
 title = "App-wide CQRS buses + middleware"
-status = "in-progress"
+status = "done"
 created = "2026-11-09"
 priority = "low"
 +++
