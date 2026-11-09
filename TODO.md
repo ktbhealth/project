@@ -14,4 +14,3 @@
   - [ ] T-036 Admin billing views: subscriptions, invoices, plan overrides (P-029, needs P-024) · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
   - [ ] T-037 Admin audit log: admin\_audit table + write helper + /admin/audit view (P-030) · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
 - [ ] T-040 Patients plugin: add /platform/patients item to platform panel sidebar (P-031) · owner:devin · created:2026-11-09 · #admin
-- [ ] T-039 Kernel: Plugin.panel.sidebar contribution field for panel nav (P-031) · status:in-progress · pri:high · owner:devin · created:2026-11-09 · #admin
