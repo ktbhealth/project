@@ -1,7 +1,7 @@
 +++
 id = "P-041"
 title = "Standard port archetypes: definePort.query/command/event with entity-derived signatures"
-status = "open"
+status = "deferred"
 created = "2026-11-09"
 owner = "devin"
 priority = "high"
