@@ -15,3 +15,4 @@
   - [ ] T-037 Admin audit log: admin\_audit table + write helper + /admin/audit view (P-030) · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
 - [ ] T-038 Platform panel host: plugins/platform owns /admin shell + sidebar slot (P-031) · pri:high · owner:devin · created:2026-11-09 · #admin
 - [ ] T-039 Kernel: Plugin.panel.sidebar contribution field for admin nav (P-031) · pri:high · owner:devin · created:2026-11-09 · #admin
+- [ ] T-040 Patients plugin: add /admin/patients item to platform panel sidebar (P-031) · owner:devin · created:2026-11-09 · #admin
