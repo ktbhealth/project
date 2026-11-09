@@ -1,7 +1,7 @@
 +++
 id = "P-039"
 title = "Independent query/command/event plugin kinds — per-kind ports and providers"
-status = "open"
+status = "deferred"
 created = "2026-11-09"
 owner = "devin"
 priority = "high"
