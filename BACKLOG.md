@@ -4,3 +4,4 @@
 - T-013 Desktop app (Tauri): SystemAudioTranscriber via loopback to capture ANY call app (WhatsApp Desktop, Zoom, Teams), pro tier, post-pilot · pri:low · owner:devin · created:2026-11-06 · #audio · epic:mvp
 - T-029 Buy a custom domain for KTB Health services (zone in the KTB Health Cloudflare account), then attach it to the web/storybook/landing Workers · owner:human:luis · created:2026-11-08 · #infra
 - T-027 Onboard luisfuturist.com zone to Cloudflare account, then re-enable domain in storybook/alchemy.run.ts (storybook.ktb.luisfuturist.com) · created:2026-11-08
+- T-067 CI: scheduled nightly run on main (e2e + audit) to catch breakage from dependencies · pri:low · owner:human:emanuel · created:2026-11-09 · #ci-hardening · #github-actions
