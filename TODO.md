@@ -6,7 +6,6 @@
 - [ ] T-026 Set up peregrin as CI · pri:high · created:2026-11-08
 - [ ] T-028 Update branding: new logo, favicon, and related assets · owner:human:charles · created:2026-11-08
 - [ ] T-030 Configure GitHub Actions CI; later integrate Peregrin as CI orchestrator inside GHA · owner:human:emanuel · created:2026-11-08 · #github-actions
-  - [ ] T-044 storybook: build fails — @ktbhealth/ui/components/job-status unresolved in src/blocks/JobsBoard.tsx (pinned ui#v0.1.2 lacks it); tag new ui release + bump dep · pri:high · owner:human:emanuel · created:2026-11-09 · #github-actions · blocks:T-030
   - [ ] T-045 product: commit package.json trustedDependencies (onnxruntime-node, protobufjs) — formatted with vp fmt, needed for vp check to pass · owner:human:emanuel · created:2026-11-09 · #github-actions · blocks:T-030
   - [ ] T-046 ui: remove duplicate "vue" dependency in package.json (lines 69 and 86, bun install warns) · pri:low · owner:human:emanuel · created:2026-11-09 · #github-actions · blocks:T-030
   - [ ] T-047 product: coverage thresholds (100%) fail on main — lines 95.69, functions 93.95, branches 92.92; 'bun run test' exits 1 so ci.yml test step is red. Raise coverage, lower thresholds, or run test without coverage in CI · pri:high · owner:human:emanuel · created:2026-11-09 · #github-actions · blocks:T-030
