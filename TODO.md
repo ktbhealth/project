@@ -13,3 +13,4 @@
   - [ ] T-035 Admin ops health: queue/job status, webhook delivery, storage usage, failed-job retry (P-028) · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
   - [ ] T-036 Admin billing views: subscriptions, invoices, plan overrides (P-029, needs P-024) · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
   - [ ] T-037 Admin audit log: admin\_audit table + write helper + /admin/audit view (P-030) · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
+- [ ] T-041 Interview doctors: run roteiro (mom test) + ask 'which app runs the consult?' + 'would you send our link?' — pilot signal · pri:high · owner:human:luis · created:2026-11-09 · #validacao
