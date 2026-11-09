@@ -19,3 +19,4 @@
   - [ ] T-037 Admin audit log: admin\_audit table + write helper + /admin/audit view (P-030) · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
 - [ ] T-041 Interview doctors: run roteiro (mom test) + ask 'which app runs the consult?' + 'would you send our link?' — pilot signal · pri:high · owner:human:luis · created:2026-11-09 · #validacao
 - [ ] T-042 Create synthetic dataset: pt-BR consult transcripts (multi-specialty, diarized, noisy) for extractor eval + demo · owner:devin · created:2026-11-09 · #dataset
+- [ ] T-051 ui: Calendar defaults to host locale when locale is undefined (formatMonthDropdown uses locale?.code) — default to en-US; release new tag, bump product · owner:human:emanuel · created:2026-11-09 · #ui-bug
