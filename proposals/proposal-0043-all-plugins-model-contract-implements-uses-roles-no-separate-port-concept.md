@@ -1,7 +1,7 @@
 +++
 id = "P-043"
 title = "All-plugins model: contract/implements/uses roles — no separate port concept"
-status = "open"
+status = "deferred"
 created = "2026-11-09"
 owner = "devin"
 priority = "high"
