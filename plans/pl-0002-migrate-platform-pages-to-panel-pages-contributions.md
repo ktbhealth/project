@@ -1,7 +1,7 @@
 +++
 id = "PL-002"
 title = "Migrate /platform pages to panel.pages contributions"
-status = "open"
+status = "in-progress"
 created = "2026-11-09"
 priority = "medium"
 +++
