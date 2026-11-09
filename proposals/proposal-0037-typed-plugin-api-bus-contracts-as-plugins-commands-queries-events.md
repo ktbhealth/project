@@ -1,7 +1,7 @@
 +++
 id = "P-037"
 title = "Typed plugin API bus: contracts as plugins — commands, queries, events"
-status = "open"
+status = "deferred"
 created = "2026-11-09"
 owner = "devin"
 priority = "high"
