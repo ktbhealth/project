@@ -1,7 +1,7 @@
 +++
 id = "P-036"
 title = "Plugin APIs: commands, queries, events — cross-plugin registries"
-status = "open"
+status = "deferred"
 created = "2026-11-09"
 owner = "devin"
 priority = "high"
