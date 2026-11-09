@@ -1,7 +1,7 @@
 +++
 id = "P-044"
 title = "API plugins as buses: plugins expose/consume apis via bus registration in service layers"
-status = "open"
+status = "deferred"
 created = "2026-11-09"
 owner = "devin"
 priority = "high"
