@@ -13,6 +13,7 @@
   - [ ] T-052 ui: add real CI checks — typecheck/test scripts so the install-only workflow verifies something; vue duplicate fixed in T-046 · owner:human:emanuel · created:2026-11-09 · #github-actions
   - [ ] T-053 CI deploy workflows: plan/deploy via cuora + alchemy for storybook, website-draft, product; decide secrets strategy (deferred from T-030) · owner:human:emanuel · created:2026-11-09 · #github-actions
   - [ ] T-054 GitHub: protect main in all repos — require the ci check on PRs (after CI PRs merge and product tests are green) · owner:human:emanuel · created:2026-11-09 · #github-actions
+    - [ ] T-057 product: guard the 100% coverage gate — require the ci check via branch protection (T-054) and add CODEOWNERS on vitest.config.ts so thresholds can't be lowered without review · pri:high · owner:human:emanuel · created:2026-11-09 · #coverage · #github-actions
   - [ ] T-055 product CI: evaluate vp run cache hit rate on GitHub (actions/cache of node\_modules/.vite/task-cache) and tune cache.input/untrackedEnv · pri:low · owner:human:emanuel · created:2026-11-09 · #github-actions
 - [ ] T-031 Platform QoL features around core consult flow: scheduling/agenda, reminders, patient follow-up nudges, quick notes — doctor-facing conveniences that increase daily value beyond documentation · owner:human:vini · created:2026-11-08 · #platform-qol
 - [ ] T-032 Admin panel: system console implementation (P-025 umbrella) · pri:high · created:2026-11-08 · #admin · epic:admin
