@@ -1,7 +1,7 @@
 +++
 id = "P-042"
 title = "Composable port fragments: definePort + compose, consumers/providers bind fragments"
-status = "open"
+status = "deferred"
 created = "2026-11-09"
 owner = "devin"
 priority = "high"
