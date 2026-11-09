@@ -6,3 +6,4 @@
 - T-027 Onboard luisfuturist.com zone to Cloudflare account, then re-enable domain in storybook/alchemy.run.ts (storybook.ktb.luisfuturist.com) · created:2026-11-08
 - T-043 Upgrade @effect-server-utils/cqrs to stable · created:2026-11-09
 - T-044 Add LICENSE to all org repos — decide product license explicitly; add MIT LICENSE file to ui (declared but missing) · created:2026-11-09
+- T-045 Add SECURITY.md org-wide + enable GitHub private vulnerability reporting — health-tech handling patient data · created:2026-11-09
