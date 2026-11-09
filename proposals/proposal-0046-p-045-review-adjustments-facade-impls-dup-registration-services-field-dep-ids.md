@@ -1,7 +1,7 @@
 +++
 id = "P-046"
 title = "P-045 review adjustments: facade impls, dup-registration, services field, dep ids"
-status = "open"
+status = "deferred"
 created = "2026-11-09"
 owner = "devin"
 priority = "high"
