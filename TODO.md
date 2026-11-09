@@ -26,3 +26,4 @@
 - [ ] T-042 Create synthetic dataset: pt-BR consult transcripts (multi-specialty, diarized, noisy) for extractor eval + demo · owner:devin · created:2026-11-09 · #dataset
 - [ ] T-051 ui: Calendar defaults to host locale when locale is undefined (formatMonthDropdown uses locale?.code) — default to en-US; release new tag, bump product · owner:human:emanuel · created:2026-11-09 · #ui-bug
 - [ ] T-056 myco ledger: project branch diverged from origin (9 ahead / 14 behind) — rebase and push; fix myco check errors (P-045/P-046 duplicate numbering, missing AGENTS.md in worktree) · owner:human:emanuel · created:2026-11-09 · #myco
+- [ ] T-058 CI: AI PR reviewer after the pipeline — PRs open as draft, an AI agent reviews the diff once CI is green and approves/rejects with cited technical evidence (plan PL-003: design, security for public repos, rubric, phases, acceptance criteria) · owner:human:emanuel · created:2026-11-09 · #ai-review · #github-actions
