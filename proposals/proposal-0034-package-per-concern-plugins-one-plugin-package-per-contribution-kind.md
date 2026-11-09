@@ -1,7 +1,7 @@
 +++
 id = "P-034"
 title = "Package-per-concern plugins: one plugin package per contribution kind"
-status = "open"
+status = "deferred"
 created = "2026-11-09"
 owner = "devin"
 priority = "medium"
