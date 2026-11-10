@@ -15,3 +15,4 @@
   - [ ] T-037 Admin audit log: admin\_audit table + write helper + /admin/audit view (P-030) · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
 - [ ] T-041 Interview doctors: run roteiro (mom test) + ask 'which app runs the consult?' + 'would you send our link?' — pilot signal · pri:high · owner:human:luis · created:2026-11-09 · #validacao
 - [ ] T-042 Create synthetic dataset: pt-BR consult transcripts (multi-specialty, diarized, noisy) for extractor eval + demo · owner:devin · created:2026-11-09 · #dataset
+- [ ] T-048 Docs: add screenshots/GIFs to doctors tutorials and key flows (consent→record→review→export, pipeline states, troubleshooting) — embed in en + pt-BR MDX; revisit after pilot UI stabilizes · pri:low · created:2026-11-10
