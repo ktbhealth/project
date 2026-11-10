@@ -1,6 +1,6 @@
 +++
 id = "P-053"
-title = "Tenant plugin: request-scoped tenancy resolution and tenant-aware authz"
+title = "Tenant plugin: generic request-scoped tenancy for any kernel app"
 status = "open"
 created = "2026-11-10"
 owner = "devin"
@@ -11,33 +11,43 @@ epic = "platform"
 
 ## Context
 
-Every owned entity hangs off a single user: `patients.ownerId`, `consultations.userId`, and `rulesFor` in `@ktb/authz` grants only the owner. P-032 adds the generic groups/memberships primitive (`kind: "clinic" | "org" | "cohort"`) but nothing resolves *which* tenant a request acts in, and no domain plugin scopes rows to one. Clinics are the first real multi-user tenant — without a tenant primitive every domain plugin will bolt on its own scoping, inconsistently.
+The kernel/plugin architecture (P-031–P-050) gives every app the same primitives: plugins, CQRS APIs, request-scoped `Principal`, permix authz. What it lacks is tenancy — nothing resolves *which* tenant a request acts in, and nothing scopes data to one. Today `ktbhealth/product` works around this with per-user ownership (`patients.ownerId`, `rulesFor` in `@ktb/authz` grants only the owner), which does not scale to clinics/orgs — and every future app on the kernel would reinvent it.
+
+This proposal is deliberately **generic**: the capability lives in the platform layer and any app opts in. KTB Health is the first consumer, not the design target.
 
 ## Proposal
 
-New `plugins/tenant` package (`@ktb/tenant`) contributing:
+A `@ktb/tenant` package (`packages/tenant`) providing domain-agnostic tenancy primitives:
 
-**Concept** — a tenant is a `groups` row with a tenant-ish `kind` (`"clinic"`, `"org"`); membership and roles come from `group_members` (`role`: owner/admin/member). No new membership tables.
+**Tenant context** — `Tenant` `Context.Reference`: `{ id, kind, slug, role } | null`, bound per request by the composition root next to `Principal`. `null` = personal scope; system contexts (webhooks, jobs) stay `null`. Apps may extend the payload via a generic `meta` slot — the package knows nothing about clinics or patients.
 
-**Tenant context** — a `Context.Reference` alongside `Principal` in `@ktb/authz` (or `@ktb/tenant`): `{ id, slug, kind, role } | null`, bound per request by `runAs` in `@ktb/app-host`. `null` = personal scope; system contexts (webhooks, jobs, bot channels) stay `null`.
+**Resolution port** — `TenantResolver` Effect service (port): given the request context, returns the active tenant. Ships with composable strategies the app wires at the edge:
 
-**Resolution** — explicit selector first (`?tenant=` param / header / subdomain — pick one), then the user's memberships, then personal default. `TenantQueries.resolve` / `listMine` via `@effect-server-utils/cqrs`, same pattern as the groups plugin.
+- explicit selector (`?tenant=` param / header / subdomain — app picks transport),
+- membership lookup (defaults to a `TenantDirectory` port the app implements — e.g. backed by the groups plugin's API, never imported directly),
+- fallback policy (personal default vs deny).
 
-**Scoped data** — add nullable `tenant_id` to owned tables (patients, consultations, …); repos gain a tenant-scope filter layered on `ownerId`. Personal rows stay `tenant_id = null`. Backfill/migration strategy is an open decision.
+**Scoped data** — a `tenantScope` combinator/helper: repos declare `tenant_id` (convention over configuration) and queries get the predicate injected; personal rows keep `tenant_id = null`. Works for any table shape — no per-domain code in the package.
 
-**Authz** — extend the permix `Def`/rules: tenant members read/update tenant-scoped rows per role; owner-only actions (billing, member management, tenant settings) gate on `role = "owner"`. `Forbidden` semantics unchanged.
+**Authz factory** — `tenantAuthz(rules)` builds permix rules from a role→action matrix the *app* supplies; the package owns role semantics (owner/admin/member) and `Forbidden` behavior.
 
-**Platform surface** — tenant admin page via `panel.pages` (P-050): members, roles, invites.
+**Optional plugin surface** — a `plugins/tenant` contribution exposing `TenantQueries`/`TenantCommands` (resolve, listMine, switch) via `@effect-server-utils/cqrs`, plus a generic `panel.pages` admin page (members, roles, invites) any app can mount or hide.
+
+## Application to ktbhealth/product
+
+- `patients`, `consultations`, … gain nullable `tenant_id`; `rulesFor` swaps owner-only checks for the tenant-aware factory.
+- Tenant kinds: `"clinic"`, `"org"`; membership/roles ride on P-032 `groups`/`group_members` through the `TenantDirectory` port.
+- Selector transport + default-tenant policy decided at the composition root.
 
 ## Why this shape
 
-- Reuses the P-032 primitive — tenants are rows + metadata, not a parallel hierarchy.
-- Request-scoped context mirrors `Principal`; zero changes to how plugins bind authz today.
-- Domain plugins consume the `Tenant` reference and `tenantScope` helpers — no cross-plugin imports (port rule holds).
+- Port-adapter throughout: package defines ports (`TenantResolver`, `TenantDirectory`); apps and plugins provide adapters. No plugin→plugin imports.
+- Mirrors `Principal`/`runAs` — one more request-scoped reference, zero changes to existing binding.
+- Generic by construction: kinds, roles matrix, selectors, and tables are all app-supplied; the package only owns resolution, scoping, and authz mechanics.
 
 ## Open decisions
 
-- Tenant = `groups` row vs dedicated `tenants` table (slugs, billing binding).
-- Selection mechanism: header vs subdomain vs session-persisted choice.
-- Backfill: dual-read period vs one-shot migration of existing `ownerId` rows.
-- Extend `Principal` with `tenantId` vs separate `Tenant` reference.
+- Package (`packages/tenant`) vs plugin-only (`plugins/tenant`) split — likely both: package = ports/helpers, plugin = CQRS + admin page.
+- Selector transport: header vs subdomain vs session-persisted choice.
+- Whether `Tenant` folds into `Principal` or stays a separate reference.
+- Backfill/migration strategy for apps with existing owner-scoped rows (product's `ownerId` data).
