@@ -8,3 +8,4 @@
 - T-044 Add LICENSE to all org repos — decide product license explicitly; add MIT LICENSE file to ui (declared but missing) · created:2026-11-09
 - T-045 Add SECURITY.md org-wide + enable GitHub private vulnerability reporting — health-tech handling patient data · created:2026-11-09
 - T-046 Review + post upstream issue: TanStack/router duplicate-React in Cloudflare SSR (draft in handoff) · pri:low · created:2026-11-10 · #tanstack · #upstream
+- T-047 Reshape WorkerSpec for true provider-agnosticism (spike findings) · created:2026-11-10 · #architecture
