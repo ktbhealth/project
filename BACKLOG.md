@@ -12,3 +12,4 @@
 - T-047 Reshape WorkerSpec for true provider-agnosticism (spike findings) · created:2026-11-10 · #architecture
 - T-084 Plugin lazy-loading: non-eager import.meta.glob for client manifests so disabled plugins code-split out of the browser bundle (P-058 phase-2 bundle cost) · pri:low · created:2026-11-11 · #plugins · links:P-058,P-060 · epic:platform
 - T-085 Plugin-owned table DDL: today tables are host-owned in @ktb/db (cycle fix); if plugins should self-register schema again, needs a dep-free composition (e.g. codegen'd schema entry or registry pattern) · pri:low · created:2026-11-11 · #plugins · links:P-058,P-061 · epic:platform
+- T-087 Clarify packages/ vs plugins/ boundary: packages=ports/adapters/domain (drivers/options/env wiring), plugins=registry contributions; decide if plugins/platform (host infra: admin gate, console, plugin\_state) should move to packages/platform · pri:low · created:2026-11-11 · #plugins · links:P-058 · epic:platform
