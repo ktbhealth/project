@@ -1,7 +1,7 @@
 +++
 id = "P-059"
 title = "Generic pages contribution: plugin-declared pages at arbitrary paths (supersedes panel.pages scope)"
-status = "in-progress"
+status = "done"
 created = "2026-11-11"
 priority = "med"
 labels = ["plugins"]
