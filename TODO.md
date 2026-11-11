@@ -4,7 +4,6 @@
 - [ ] T-025 Localize consultations plugin views (NewConsultationPage, ConsultationDetailPage, ConsultationsPage ~1.5k strings) — needs paraglide output or messages port reachable from plugins/ (arch lint blocks plugins → apps imports) · pri:low · created:2026-11-08
 - [ ] T-026 Set up peregrin as CI · pri:high · created:2026-11-08
 - [ ] T-028 Update branding: new logo, favicon, and related assets · owner:human:charles · created:2026-11-08
-  - [ ] T-075 Brand assets in ui (packages/brand: logo lockups + Meet backgrounds, from the current product icon) and a /brand page in storybook with downloads. Interim until the new logo of T-028 lands; regenerate with 'bun run build' in packages/brand. Needs a ui release then a storybook bump. · owner:human:emanuel · created:2026-11-11 · #branding
 - [ ] T-030 Configure GitHub Actions CI; later integrate Peregrin as CI orchestrator inside GHA · owner:human:emanuel · created:2026-11-08 · #github-actions
   - [ ] T-052 ui: add real CI checks — typecheck/test scripts so the install-only workflow verifies something; vue duplicate fixed in T-046 · owner:human:emanuel · created:2026-11-09 · #github-actions
   - [ ] T-053 CI deploy workflows: plan/deploy via cuora + alchemy for storybook, website-draft, product; decide secrets strategy (deferred from T-030) · owner:human:emanuel · created:2026-11-09 · #github-actions
