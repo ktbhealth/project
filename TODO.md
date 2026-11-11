@@ -5,7 +5,6 @@
 - [ ] T-026 Set up peregrin as CI · pri:high · created:2026-11-08
 - [ ] T-028 Update branding: new logo, favicon, and related assets · owner:human:charles · created:2026-11-08
 - [ ] T-030 Configure GitHub Actions CI; later integrate Peregrin as CI orchestrator inside GHA · owner:human:emanuel · created:2026-11-08 · #github-actions
-  - [ ] T-052 ui: add real CI checks — typecheck/test scripts so the install-only workflow verifies something; vue duplicate fixed in T-046 · owner:human:emanuel · created:2026-11-09 · #github-actions
   - [ ] T-053 CI deploy workflows: plan/deploy via cuora + alchemy for storybook, website-draft, product; decide secrets strategy (deferred from T-030) · owner:human:emanuel · created:2026-11-09 · #github-actions
   - [ ] T-054 GitHub: main protection applied org-wide (2026-11-11) — direct push allowed for all members, no PR gate (decision: CI can't gate direct pushes); rulesets on all 8 repos block deletion + non-fast-forward; luisfuturist bypass actor (always). Residual: revisit CI gating if PR workflow returns · owner:human:emanuel · created:2026-11-09 · #github-actions
     - [ ] T-057 product: guard the 100% coverage gate — add CODEOWNERS on vitest.config.ts so thresholds can't be lowered without review (branch-protection PR gate dropped, see T-054) · pri:high · owner:human:emanuel · created:2026-11-09 · #coverage · #github-actions
