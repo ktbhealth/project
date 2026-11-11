@@ -1,7 +1,7 @@
 +++
 id = "P-054"
 title = "Role plugin: dynamic roles assignable to users and groups"
-status = "in-progress"
+status = "done"
 created = "2026-11-10"
 owner = "devin"
 priority = "high"
