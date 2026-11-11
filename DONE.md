@@ -23,3 +23,4 @@
 - T-077 product: set VITE\_DOCS\_URL at build time for the landing persona links (falls back to localhost:5173 otherwise; see product#8) · owner:human:emanuel · created:2026-11-11 · #github-actions
 - T-034 Admin entity views: users/orgs/patients tables + detail, suspend/reactivate actions (P-027) · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
 - T-035 Admin ops health: queue/job status, webhook delivery, storage usage, failed-job retry (P-028) · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
+- T-037 Admin audit log: admin\_audit table + write helper + /admin/audit view (P-030) · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
