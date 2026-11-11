@@ -31,3 +31,4 @@
 - [ ] T-058 CI: AI PR reviewer after the pipeline — PRs open as draft, an AI agent reviews the diff once CI is green and approves/rejects with cited technical evidence (plan PL-004: design, security for public repos, rubric, phases, acceptance criteria) · owner:human:emanuel · created:2026-11-09 · #ai-review · #github-actions
 - [ ] T-048 Docs: add screenshots/GIFs to doctors tutorials and key flows (consent→record→review→export, pipeline states, troubleshooting) — embed in en + pt-BR MDX; revisit after pilot UI stabilizes · pri:low · created:2026-11-10
 - [ ] T-077 product: set VITE\_DOCS\_URL at build time for the landing persona links (falls back to localhost:5173 otherwise; see product#8) · owner:human:emanuel · created:2026-11-11 · #github-actions
+- [ ] T-079 Product landing: persona selector in the nav (doctors/patients/developers/business, kept in ?persona=) with pitch-aligned copy · owner:human:emanuel · created:2026-11-11 · #landing
