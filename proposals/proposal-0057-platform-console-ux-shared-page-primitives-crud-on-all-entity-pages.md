@@ -1,7 +1,7 @@
 +++
 id = "P-057"
 title = "Platform console UX: shared page primitives + CRUD on all entity pages"
-status = "in-progress"
+status = "done"
 created = "2026-11-11"
 owner = "devin"
 priority = "high"
