@@ -32,3 +32,4 @@
 - [ ] T-048 Docs: add screenshots/GIFs to doctors tutorials and key flows (consent→record→review→export, pipeline states, troubleshooting) — embed in en + pt-BR MDX; revisit after pilot UI stabilizes · pri:low · created:2026-11-10
 - [ ] T-077 product: set VITE\_DOCS\_URL at build time for the landing persona links (falls back to localhost:5173 otherwise; see product#8) · owner:human:emanuel · created:2026-11-11 · #github-actions
 - [ ] T-081 ui: merge release PR ui#5 (v0.1.4) with a merge commit so the tagged commit 3632165 is on main (main is ruleset-protected; direct push declined) · pri:high · owner:human:emanuel · created:2026-11-11 · #release
+- [ ] T-082 Copy decisions across deck/website/docs: 'a KTB Health' vs 'o KTB Health' (pt-BR), and '100% on-premise' vs 'self-hosting by arrangement' · owner:human:emanuel · created:2026-11-11 · #landing
