@@ -1,7 +1,7 @@
 +++
 id = "P-053"
 title = "Tenant plugin: generic request-scoped tenancy for any kernel app"
-status = "open"
+status = "in-progress"
 created = "2026-11-10"
 owner = "devin"
 priority = "high"
