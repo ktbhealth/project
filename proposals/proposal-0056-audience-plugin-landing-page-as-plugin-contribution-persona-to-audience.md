@@ -1,7 +1,7 @@
 +++
 id = "P-056"
 title = "Audience plugin: landing page as plugin contribution (persona to audience)"
-status = "in-progress"
+status = "done"
 created = "2026-11-11"
 owner = "devin"
 priority = "med"
