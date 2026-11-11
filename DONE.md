@@ -19,3 +19,4 @@
 - T-078 Website-draft landing and docs aligned with the pitch (sourced problem data, 4-step flow, never-does, privacy, KTB name meaning; en/pt-BR/es) · owner:human:emanuel · created:2026-11-11 · #landing
 - T-079 Product landing: persona selector in the nav (doctors/patients/developers/business, kept in ?persona=) with pitch-aligned copy · owner:human:emanuel · created:2026-11-11 · #landing
 - T-080 Fix red main CI in ui (vue typecheck), docs (paraglide before types:check) and website-draft (fmt ignores vendored agent skills) · pri:high · owner:human:emanuel · created:2026-11-11 · #github-actions
+- T-081 ui: merge release PR ui#5 (v0.1.4) with a merge commit so the tagged commit 3632165 is on main (main is ruleset-protected; direct push declined) · pri:high · owner:human:emanuel · created:2026-11-11 · #release
