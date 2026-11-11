@@ -21,7 +21,7 @@
 - [ ] T-032 Admin panel: system console implementation (P-025 umbrella) · pri:high · created:2026-11-08 · #admin · epic:admin
   - [ ] T-033 Admin shell & authz: /admin route group, server-side admin role check (env allowlist first), dense sidebar layout (P-026) · pri:high · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
   - [ ] T-036 Admin billing views: subscriptions, invoices, plan overrides (P-029, needs P-024) · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
-  - [ ] T-037 Admin audit log: admin\_audit table + write helper + /admin/audit view (P-030) · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
+  - [ ] T-037 Admin audit log: admin\_audit table + write helper + /admin/audit view (P-030) · status:in-progress · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
 - [ ] T-041 Interview doctors: run roteiro (mom test) + ask 'which app runs the consult?' + 'would you send our link?' — pilot signal · pri:high · owner:human:luis · created:2026-11-09 · #validacao
 - [ ] T-042 Create synthetic dataset: pt-BR consult transcripts (multi-specialty, diarized, noisy) for extractor eval + demo · owner:devin · created:2026-11-09 · #dataset
 - [ ] T-051 ui: Calendar defaults to host locale when locale is undefined (formatMonthDropdown uses locale?.code) — default to en-US; release new tag, bump product · owner:human:emanuel · created:2026-11-09 · #ui-bug
