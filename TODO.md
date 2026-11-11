@@ -20,7 +20,6 @@
 - [ ] T-031 Platform QoL features around core consult flow: scheduling/agenda, reminders, patient follow-up nudges, quick notes — doctor-facing conveniences that increase daily value beyond documentation · owner:human:vini · created:2026-11-08 · #platform-qol
 - [ ] T-032 Admin panel: system console implementation (P-025 umbrella) · pri:high · created:2026-11-08 · #admin · epic:admin
   - [ ] T-033 Admin shell & authz: /admin route group, server-side admin role check (env allowlist first), dense sidebar layout (P-026) · pri:high · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
-  - [ ] T-034 Admin entity views: users/orgs/patients tables + detail, suspend/reactivate actions (P-027) · status:in-progress · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
   - [ ] T-035 Admin ops health: queue/job status, webhook delivery, storage usage, failed-job retry (P-028) · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
   - [ ] T-036 Admin billing views: subscriptions, invoices, plan overrides (P-029, needs P-024) · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
   - [ ] T-037 Admin audit log: admin\_audit table + write helper + /admin/audit view (P-030) · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
