@@ -8,3 +8,4 @@
 - T-039 Kernel: Plugin.panel.sidebar contribution field for panel nav (P-031) · pri:high · owner:devin · created:2026-11-09 · #admin
 - T-040 Patients plugin: add /platform/patients item to platform panel sidebar (P-031) · owner:devin · created:2026-11-09 · #admin
 - T-001 Cover slide: add real team photos and names — 4 people. Currently placeholder circles; swap in photos and real names before recording. · owner:human:emanuel · created:2026-11-08
+- T-068 product: main is red on the coverage gate (99.77% lines) after the plugin-owned routes / server-fns refactor — 8 files below 100%: routes/api/bots.ts, server-fns/runtime.ts, consultations fns.ts + index.ts + api-routes/patients.$id.export.ts, patients fns.ts + guard.ts + routes/new.tsx · pri:high · owner:human:emanuel · created:2026-11-09 · #coverage · #github-actions · blocks:T-059
