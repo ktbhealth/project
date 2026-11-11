@@ -22,3 +22,4 @@
 - T-081 ui: merge release PR ui#5 (v0.1.4) with a merge commit so the tagged commit 3632165 is on main (main is ruleset-protected; direct push declined) · pri:high · owner:human:emanuel · created:2026-11-11 · #release
 - T-077 product: set VITE\_DOCS\_URL at build time for the landing persona links (falls back to localhost:5173 otherwise; see product#8) · owner:human:emanuel · created:2026-11-11 · #github-actions
 - T-034 Admin entity views: users/orgs/patients tables + detail, suspend/reactivate actions (P-027) · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
+- T-035 Admin ops health: queue/job status, webhook delivery, storage usage, failed-job retry (P-028) · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
