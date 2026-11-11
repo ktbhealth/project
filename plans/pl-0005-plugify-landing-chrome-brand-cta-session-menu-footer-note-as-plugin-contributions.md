@@ -1,7 +1,7 @@
 +++
 id = "PL-005"
 title = "Plugify landing chrome: brand, CTA, session menu, footer note as plugin contributions"
-status = "open"
+status = "deferred"
 created = "2026-11-11"
 priority = "med"
 labels = ["plugins"]
