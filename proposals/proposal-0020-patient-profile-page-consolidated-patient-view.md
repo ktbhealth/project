@@ -3,7 +3,7 @@ id = "P-020"
 title = "Patient profile page: consolidated patient view"
 status = "open"
 created = "2026-11-08"
-priority = "medium"
+priority = "med"
 labels = ["directory"]
 epic = "directory"
 +++

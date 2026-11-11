@@ -3,7 +3,7 @@ id = "P-008"
 title = "Doctor agenda: scheduling and appointment management"
 status = "open"
 created = "2026-11-08"
-priority = "medium"
+priority = "med"
 labels = ["platform-qol"]
 +++
 

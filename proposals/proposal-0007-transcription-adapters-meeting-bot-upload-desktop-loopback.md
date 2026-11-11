@@ -3,7 +3,7 @@ id = "P-007"
 title = "Transcription adapters: meeting bot, upload, desktop loopback"
 status = "open"
 created = "2026-11-08"
-priority = "medium"
+priority = "med"
 +++
 
 ## Idea

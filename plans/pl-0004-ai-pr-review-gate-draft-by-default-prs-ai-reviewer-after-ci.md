@@ -4,7 +4,7 @@ title = "AI PR review gate: draft-by-default PRs + AI reviewer after CI"
 status = "open"
 created = "2026-11-09"
 owner = "human:emanuel"
-priority = "medium"
+priority = "med"
 labels = ["ai-review", "github-actions"]
 +++
 

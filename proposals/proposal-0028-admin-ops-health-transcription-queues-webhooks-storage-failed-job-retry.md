@@ -3,7 +3,7 @@ id = "P-028"
 title = "Admin ops health: transcription queues, webhooks, storage, failed-job retry"
 status = "done"
 created = "2026-11-08"
-priority = "medium"
+priority = "med"
 labels = ["admin"]
 epic = "admin"
 +++

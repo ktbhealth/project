@@ -4,7 +4,7 @@ title = "GitHub Actions CI across org repos (T-030)"
 status = "open"
 created = "2026-11-09"
 owner = "human:emanuel"
-priority = "medium"
+priority = "med"
 labels = ["github-actions"]
 +++
 

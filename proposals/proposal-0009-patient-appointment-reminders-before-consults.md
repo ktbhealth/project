@@ -3,7 +3,7 @@ id = "P-009"
 title = "Patient appointment reminders before consults"
 status = "open"
 created = "2026-11-08"
-priority = "medium"
+priority = "med"
 labels = ["platform-qol"]
 +++
 

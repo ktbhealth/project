@@ -3,7 +3,7 @@ id = "P-017"
 title = "LLM transcript cleanup: corrected text alongside original"
 status = "open"
 created = "2026-11-08"
-priority = "medium"
+priority = "med"
 labels = ["audio-pipeline"]
 epic = "audio-pipeline"
 +++

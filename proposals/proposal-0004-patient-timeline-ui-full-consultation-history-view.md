@@ -3,7 +3,7 @@ id = "P-004"
 title = "Patient timeline UI: full consultation history view"
 status = "open"
 created = "2026-11-08"
-priority = "medium"
+priority = "med"
 labels = ["v2"]
 +++
 

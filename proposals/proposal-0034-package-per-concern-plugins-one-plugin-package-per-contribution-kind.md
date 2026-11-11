@@ -4,7 +4,7 @@ title = "Package-per-concern plugins: one plugin package per contribution kind"
 status = "deferred"
 created = "2026-11-09"
 owner = "devin"
-priority = "medium"
+priority = "med"
 epic = "platform"
 +++
 

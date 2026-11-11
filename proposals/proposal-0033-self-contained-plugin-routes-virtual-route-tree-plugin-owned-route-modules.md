@@ -4,7 +4,7 @@ title = "Self-contained plugin routes: virtual route tree + plugin-owned route m
 status = "done"
 created = "2026-11-09"
 owner = "devin"
-priority = "medium"
+priority = "med"
 epic = "platform"
 +++
 

@@ -4,7 +4,7 @@ title = "Domain packages, concern-level plugin objects: deps target plugin ids"
 status = "open"
 created = "2026-11-09"
 owner = "devin"
-priority = "medium"
+priority = "med"
 epic = "platform"
 +++
 

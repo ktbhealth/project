@@ -3,7 +3,7 @@ id = "P-003"
 title = "Patient context: anamnesis references previous consultations"
 status = "done"
 created = "2026-11-08"
-priority = "medium"
+priority = "med"
 +++
 
 ## Problem

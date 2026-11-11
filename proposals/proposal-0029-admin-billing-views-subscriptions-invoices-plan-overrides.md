@@ -3,7 +3,7 @@ id = "P-029"
 title = "Admin billing views: subscriptions, invoices, plan overrides"
 status = "done"
 created = "2026-11-08"
-priority = "medium"
+priority = "med"
 labels = ["admin"]
 epic = "admin"
 +++

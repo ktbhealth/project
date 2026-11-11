@@ -3,7 +3,7 @@ id = "ADR-0001"
 title = "Transcription sources as a port"
 status = "done"
 created = "2026-11-06"
-priority = "medium"
+priority = "med"
 +++
 
 # ADR-0001: Transcription sources as a port

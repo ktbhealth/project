@@ -3,7 +3,7 @@ id = "P-005"
 title = "Follow-up return reminders from recorded conduct"
 status = "open"
 created = "2026-11-08"
-priority = "medium"
+priority = "med"
 labels = ["v2"]
 +++
 

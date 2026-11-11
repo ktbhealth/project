@@ -4,7 +4,7 @@ title = "Generic groups entity: groups + memberships primitive"
 status = "open"
 created = "2026-11-09"
 owner = "devin"
-priority = "medium"
+priority = "med"
 epic = "platform"
 +++
 

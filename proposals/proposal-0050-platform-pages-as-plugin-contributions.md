@@ -3,7 +3,7 @@ id = "P-050"
 title = "Platform pages as plugin contributions"
 status = "done"
 created = "2026-11-09"
-priority = "medium"
+priority = "med"
 +++
 
 ## Context

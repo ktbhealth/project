@@ -3,7 +3,7 @@ id = "P-018"
 title = "Transcript UI: original vs corrected tabs with processing status"
 status = "open"
 created = "2026-11-08"
-priority = "medium"
+priority = "med"
 labels = ["audio-pipeline"]
 epic = "audio-pipeline"
 +++

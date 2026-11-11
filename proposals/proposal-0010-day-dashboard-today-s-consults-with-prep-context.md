@@ -3,7 +3,7 @@ id = "P-010"
 title = "Day dashboard: today's consults with prep context"
 status = "open"
 created = "2026-11-08"
-priority = "medium"
+priority = "med"
 labels = ["platform-qol"]
 +++
 

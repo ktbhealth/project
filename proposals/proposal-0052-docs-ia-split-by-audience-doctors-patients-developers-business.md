@@ -3,7 +3,7 @@ id = "P-052"
 title = "Docs IA: split by audience (doctors/patients/developers/business)"
 status = "open"
 created = "2026-11-10"
-priority = "medium"
+priority = "med"
 labels = ["docs"]
 +++
 

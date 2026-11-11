@@ -3,7 +3,7 @@ id = "ADR-0002"
 title = "Client-side compute first, server only on fallback"
 status = "done"
 created = "2026-11-06"
-priority = "medium"
+priority = "med"
 +++
 
 # ADR-0002: Client-side compute first, server only on fallback
