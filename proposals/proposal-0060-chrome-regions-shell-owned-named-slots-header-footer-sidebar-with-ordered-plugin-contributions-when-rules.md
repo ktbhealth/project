@@ -1,7 +1,7 @@
 +++
 id = "P-060"
 title = "Chrome regions: shell-owned named slots (header/footer/sidebar) with ordered plugin contributions + when-rules"
-status = "in-progress"
+status = "done"
 created = "2026-11-11"
 priority = "med"
 labels = ["plugins"]
