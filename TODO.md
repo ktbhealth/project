@@ -17,7 +17,6 @@
     - [ ] T-064 Cross-repo CI: when ui changes, build storybook and product against the ui ref (integration check) before tagging; add real checks to ui (see T-052) · pri:high · owner:human:emanuel · created:2026-11-09 · #ci-hardening · #github-actions
     - [ ] T-065 PR hygiene CI (org-wide via ktbhealth/.github): PR template requiring the myco T-NNN reference, conventional-commit title lint · owner:human:emanuel · created:2026-11-09 · #ci-hardening · #github-actions
     - [ ] T-066 product e2e (Playwright test:e2e): opt-in only — local script plus manual workflow\_dispatch / label trigger; NOT in the default CI because it is slow · pri:low · owner:human:emanuel · created:2026-11-09 · #ci-hardening · #github-actions
-  - [ ] T-080 Fix red main CI in ui (vue typecheck), docs (paraglide before types:check) and website-draft (fmt ignores vendored agent skills) · pri:high · owner:human:emanuel · created:2026-11-11 · #github-actions
 - [ ] T-031 Platform QoL features around core consult flow: scheduling/agenda, reminders, patient follow-up nudges, quick notes — doctor-facing conveniences that increase daily value beyond documentation · owner:human:vini · created:2026-11-08 · #platform-qol
 - [ ] T-032 Admin panel: system console implementation (P-025 umbrella) · pri:high · created:2026-11-08 · #admin · epic:admin
   - [ ] T-033 Admin shell & authz: /admin route group, server-side admin role check (env allowlist first), dense sidebar layout (P-026) · pri:high · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
