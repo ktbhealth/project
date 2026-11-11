@@ -1,5 +1,5 @@
 +++
-id = "PL-002"
+id = "PL-003"
 title = "GitHub Actions CI across org repos (T-030)"
 status = "open"
 created = "2026-11-09"

@@ -1,5 +1,5 @@
 +++
-id = "PL-003"
+id = "PL-004"
 title = "AI PR review gate: draft-by-default PRs + AI reviewer after CI"
 status = "open"
 created = "2026-11-09"
@@ -12,7 +12,7 @@ labels = ["ai-review", "github-actions"]
 
 ## Context
 CI is being rolled out across the org (T-030, PL-002) and the product repo now enforces a
-100% coverage gate (T-047..T-050). The next step is to put a technical reviewer at the end
+100% coverage gate (T-073, T-074, T-049, T-050). The next step is to put a technical reviewer at the end
 of the pipeline: PRs open as **draft**, CI runs, and when CI is green an **AI agent reviews
 the diff and approves or rejects it with technical grounds** (cited file/line, rule
 violated, severity). A human still merges.
