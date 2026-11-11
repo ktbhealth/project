@@ -1,7 +1,7 @@
 +++
 id = "P-058"
 title = "Dynamic plugin enable/config: /platform/plugins manager + plugin_state"
-status = "in-progress"
+status = "done"
 created = "2026-11-11"
 priority = "med"
 labels = ["plugins"]
