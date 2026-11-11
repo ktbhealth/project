@@ -5,7 +5,7 @@ status = "open"
 created = "2026-11-10"
 owner = "devin"
 priority = "high"
-links = ["P-031", "P-032", "P-050", "P-006"]
+links = ["P-006", "P-031", "P-032", "P-050"]
 epic = "platform"
 +++
 
