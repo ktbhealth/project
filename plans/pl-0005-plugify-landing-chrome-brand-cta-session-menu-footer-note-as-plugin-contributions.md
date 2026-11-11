@@ -5,7 +5,7 @@ status = "open"
 created = "2026-11-11"
 priority = "med"
 labels = ["plugins"]
-links = ["P-058"]
+links = ["P-058", "P-060"]
 epic = "platform"
 +++
 
