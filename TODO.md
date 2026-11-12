@@ -29,3 +29,4 @@
 - [ ] T-082 Copy decisions across deck/website/docs: 'a KTB Health' vs 'o KTB Health' (pt-BR), and '100% on-premise' vs 'self-hosting by arrangement' · owner:human:emanuel · created:2026-11-11 · #landing
 - [ ] T-083 Custom pages plugin: DB-stored pages + sidebar items rendered via pages/chrome contributions (P-058 escape hatch, P-059 mechanism) · created:2026-11-11 · #plugins · links:P-058,P-059,P-060 · epic:platform
 - [ ] T-086 Extract packageable apps/web/src/lib/\* (chrome/pages/plugin-state collection) into @ktb/app-host/client parameterized by registry; apps keep only app-bound composition+config · created:2026-11-11 · #plugins · links:P-058,P-059,P-060 · epic:platform
+- [ ] T-088 Move plugins/platform host infrastructure to packages/platform (thin plugins/ wrapper keeps registry contributions) · created:2026-11-12
