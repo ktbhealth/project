@@ -27,3 +27,4 @@
 - T-051 ui: Calendar defaults to host locale when locale is undefined (formatMonthDropdown uses locale?.code) — default to en-US; release new tag, bump product · owner:human:emanuel · created:2026-11-09 · #ui-bug
 - T-088 Move plugins/platform host infrastructure to packages/platform (thin plugins/ wrapper keeps registry contributions) · created:2026-11-12
 - T-083 Custom pages plugin: DB-stored pages + sidebar items rendered via pages/chrome contributions (P-058 escape hatch, P-059 mechanism) · created:2026-11-11 · #plugins · links:P-058,P-059,P-060 · epic:platform
+- T-056 myco ledger: project branch diverged from origin (9 ahead / 14 behind) — rebase and push; fix myco check errors (P-045/P-046 duplicate numbering, missing AGENTS.md in worktree) · owner:human:emanuel · created:2026-11-09 · #myco
