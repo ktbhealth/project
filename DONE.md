@@ -35,3 +35,4 @@
 - T-032 Admin panel: system console implementation (P-025 umbrella) · pri:high · created:2026-11-08 · #admin · epic:admin
   - T-033 Admin shell & authz: /admin route group, server-side admin role check (env allowlist first), dense sidebar layout (P-026) · pri:high · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
   - T-036 Admin billing views: subscriptions, invoices, plan overrides (P-029, needs P-024) · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
+- T-017 HackBrasil: record and upload presentation video (~3 min) · pri:high · owner:human:team · created:2026-11-07 · epic:hackbrasil
