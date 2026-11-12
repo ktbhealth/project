@@ -1,7 +1,7 @@
 +++
 id = "P-015"
 title = "Consultation audio storage: R2 bucket + authenticated upload/fetch"
-status = "open"
+status = "in-progress"
 created = "2026-11-08"
 priority = "high"
 labels = ["audio-pipeline"]
