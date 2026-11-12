@@ -1,7 +1,7 @@
 +++
 id = "P-031"
 title = "Platform panel host: console as plugin with /platform shell and sidebar API"
-status = "open"
+status = "in-progress"
 created = "2026-11-09"
 owner = "devin"
 priority = "high"
