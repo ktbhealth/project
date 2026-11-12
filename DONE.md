@@ -28,3 +28,4 @@
 - T-088 Move plugins/platform host infrastructure to packages/platform (thin plugins/ wrapper keeps registry contributions) · created:2026-11-12
 - T-083 Custom pages plugin: DB-stored pages + sidebar items rendered via pages/chrome contributions (P-058 escape hatch, P-059 mechanism) · created:2026-11-11 · #plugins · links:P-058,P-059,P-060 · epic:platform
 - T-056 myco ledger: project branch diverged from origin (9 ahead / 14 behind) — rebase and push; fix myco check errors (P-045/P-046 duplicate numbering, missing AGENTS.md in worktree) · owner:human:emanuel · created:2026-11-09 · #myco
+- T-061 product CI: drift checks inside the check job — drizzle migrations (db:generate must produce no diff) and worker-configuration.d.ts (cf-typegen), plus knip (script exists, not in CI) · pri:high · owner:human:emanuel · created:2026-11-09 · #ci-hardening · #github-actions
