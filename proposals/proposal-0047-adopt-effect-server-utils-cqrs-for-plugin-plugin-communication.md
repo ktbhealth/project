@@ -1,7 +1,7 @@
 +++
 id = "P-047"
 title = "Adopt @effect-server-utils/cqrs for plugin-plugin communication"
-status = "open"
+status = "in-progress"
 created = "2026-11-09"
 owner = "devin"
 priority = "high"
