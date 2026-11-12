@@ -1,7 +1,7 @@
 +++
 id = "P-051"
 title = "Restart-persistent local queue for dev:node (SQLite-backed)"
-status = "open"
+status = "in-progress"
 created = "2026-11-10"
 priority = "med"
 labels = ["devx"]
