@@ -1,7 +1,7 @@
 +++
 id = "P-061"
 title = "Plugin-owned table schemas via generated db-schema composition (undo host-owned DDL)"
-status = "in-progress"
+status = "done"
 created = "2026-11-11"
 priority = "med"
 labels = ["plugins"]
