@@ -28,4 +28,3 @@
 - [ ] T-048 Docs: add screenshots/GIFs to doctors tutorials and key flows (consent→record→review→export, pipeline states, troubleshooting) — embed in en + pt-BR MDX; revisit after pilot UI stabilizes · pri:low · created:2026-11-10
 - [ ] T-082 Copy decisions across deck/website/docs: 'a KTB Health' vs 'o KTB Health' (pt-BR), and '100% on-premise' vs 'self-hosting by arrangement' · owner:human:emanuel · created:2026-11-11 · #landing
 - [ ] T-086 Extract packageable apps/web/src/lib/\* (chrome/pages/plugin-state collection) into @ktb/app-host/client parameterized by registry; apps keep only app-bound composition+config · created:2026-11-11 · #plugins · links:P-058,P-059,P-060 · epic:platform
-- [ ] T-083 Custom pages plugin: DB-stored pages + sidebar items rendered via pages/chrome contributions (P-058 escape hatch, P-059 mechanism) · status:in-progress · created:2026-11-11 · #plugins · links:P-058,P-059,P-060 · epic:platform

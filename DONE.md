@@ -26,3 +26,4 @@
 - T-037 Admin audit log: admin\_audit table + write helper + /admin/audit view (P-030) · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
 - T-051 ui: Calendar defaults to host locale when locale is undefined (formatMonthDropdown uses locale?.code) — default to en-US; release new tag, bump product · owner:human:emanuel · created:2026-11-09 · #ui-bug
 - T-088 Move plugins/platform host infrastructure to packages/platform (thin plugins/ wrapper keeps registry contributions) · created:2026-11-12
+- T-083 Custom pages plugin: DB-stored pages + sidebar items rendered via pages/chrome contributions (P-058 escape hatch, P-059 mechanism) · created:2026-11-11 · #plugins · links:P-058,P-059,P-060 · epic:platform
