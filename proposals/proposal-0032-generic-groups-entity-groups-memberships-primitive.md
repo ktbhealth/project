@@ -1,7 +1,7 @@
 +++
 id = "P-032"
 title = "Generic groups entity: groups + memberships primitive"
-status = "in-progress"
+status = "done"
 created = "2026-11-09"
 owner = "devin"
 priority = "med"
