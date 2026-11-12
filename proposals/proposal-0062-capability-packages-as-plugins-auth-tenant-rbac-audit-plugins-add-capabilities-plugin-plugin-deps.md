@@ -1,7 +1,7 @@
 +++
 id = "P-062"
 title = "Capability packages as plugins: auth/tenant/rbac audit — plugins add capabilities + plugin-plugin deps"
-status = "in-progress"
+status = "done"
 created = "2026-11-11"
 priority = "med"
 labels = ["plugins"]
