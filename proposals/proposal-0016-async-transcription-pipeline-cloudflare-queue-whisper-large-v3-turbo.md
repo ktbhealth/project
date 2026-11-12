@@ -1,7 +1,7 @@
 +++
 id = "P-016"
 title = "Async transcription pipeline: Cloudflare Queue + Whisper large-v3-turbo"
-status = "open"
+status = "in-progress"
 created = "2026-11-08"
 priority = "high"
 labels = ["audio-pipeline"]
