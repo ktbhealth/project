@@ -1,6 +1,5 @@
 # TODO — ktbhealth org board
 
-- [ ] T-017 HackBrasil: record and upload presentation video (~3 min) · pri:high · owner:human:team · created:2026-11-07 · epic:hackbrasil
 - [ ] T-026 Set up peregrin as CI · pri:high · created:2026-11-08
 - [ ] T-028 Update branding: new logo, favicon, and related assets · owner:human:charles · created:2026-11-08
 - [ ] T-030 Configure GitHub Actions CI; later integrate Peregrin as CI orchestrator inside GHA · owner:human:emanuel · created:2026-11-08 · #github-actions
@@ -20,3 +19,4 @@
 - [ ] T-058 CI: AI PR reviewer after the pipeline — PRs open as draft, an AI agent reviews the diff once CI is green and approves/rejects with cited technical evidence (plan PL-004: design, security for public repos, rubric, phases, acceptance criteria) · owner:human:emanuel · created:2026-11-09 · #ai-review · #github-actions
 - [ ] T-048 Docs: add screenshots/GIFs to doctors tutorials and key flows (consent→record→review→export, pipeline states, troubleshooting) — embed in en + pt-BR MDX; revisit after pilot UI stabilizes · pri:low · created:2026-11-10
 - [ ] T-082 Copy decisions across deck/website/docs: 'a KTB Health' vs 'o KTB Health' (pt-BR), and '100% on-premise' vs 'self-hosting by arrangement' · owner:human:emanuel · created:2026-11-11 · #landing
+- [ ] T-017 HackBrasil: record and upload presentation video (~3 min) · status:in-progress · pri:high · owner:human:team · created:2026-11-07 · epic:hackbrasil
