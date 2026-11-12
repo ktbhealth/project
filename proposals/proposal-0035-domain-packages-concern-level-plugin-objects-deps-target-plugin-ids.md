@@ -1,7 +1,7 @@
 +++
 id = "P-035"
 title = "Domain packages, concern-level plugin objects: deps target plugin ids"
-status = "open"
+status = "in-progress"
 created = "2026-11-09"
 owner = "devin"
 priority = "med"
