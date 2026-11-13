@@ -5,7 +5,7 @@ status = "open"
 created = "2026-11-09"
 owner = "human:emanuel"
 priority = "med"
-labels = ["ai-review", "github-actions"]
+labels = ["ai-review", "devops", "github-actions"]
 +++
 
 # Plan: AI PR review gate — draft-by-default PRs + AI reviewer after CI
