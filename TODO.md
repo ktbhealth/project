@@ -29,3 +29,4 @@
 - [ ] T-103 DevSecOps: production secrets/config rollout — OTEL\_EXPORTER\_OTLP\_ENDPOINT, OTEL\_EXPORTER\_OTLP\_HEADERS, METRICS\_SCRAPE\_TOKEN via Cuora/Alchemy · created:2026-11-13 · #devsecops · #observability · links:T-099
 - [ ] T-104 Observability: investigate ktb\_app\_invocations\_total exporting IsMonotonic=false via Effect OtlpMetrics counter mapping · pri:low · created:2026-11-13 · #observability · links:T-099
 - [ ] T-105 Observability: route http.access logs through Effect logger so they reach OTLP exporters (currently console.info → Workers Logs only) · created:2026-11-13 · #observability · links:T-099
+- [ ] T-106 Observability: complete telemetry ENV\_KEYS forwarding in node-cloudflare-workers (export interval, batch size, shutdown timeout, client flag, log level, resource attributes, compression, per-signal endpoints) · pri:low · created:2026-11-13 · #observability · links:T-099
