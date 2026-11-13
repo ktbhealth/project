@@ -36,3 +36,4 @@
   - T-033 Admin shell & authz: /admin route group, server-side admin role check (env allowlist first), dense sidebar layout (P-026) · pri:high · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
   - T-036 Admin billing views: subscriptions, invoices, plan overrides (P-029, needs P-024) · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
 - T-017 HackBrasil: record and upload presentation video (~3 min) · pri:high · owner:human:team · created:2026-11-07 · epic:hackbrasil
+- T-093 CRITICAL: pdfkit leaks into client bundle via /api/consultations/\$id/pdf route in routeTree.gen.ts — crashes on every page, kills hydration, entire app non-interactive in browser. Fix: lazy-import @ktb/export-pdf inside GET handler (or exclude api-routes from client route tree). Audit found 2026-11-12 · pri:crit · owner:devin · created:2026-11-13 · #bug · links:P-065
