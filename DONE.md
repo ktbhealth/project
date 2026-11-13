@@ -47,3 +47,4 @@
 - T-104 Observability: investigate ktb\_app\_invocations\_total exporting IsMonotonic=false via Effect OtlpMetrics counter mapping · pri:low · created:2026-11-13 · #observability · links:T-099
 - T-105 Observability: route http.access logs through Effect logger so they reach OTLP exporters (currently console.info → Workers Logs only) · created:2026-11-13 · #observability · links:T-099
 - T-106 Observability: complete telemetry ENV\_KEYS forwarding in node-cloudflare-workers (export interval, batch size, shutdown timeout, client flag, log level, resource attributes, compression, per-signal endpoints) · pri:low · created:2026-11-13 · #observability · links:T-099
+- T-108 Observability: wire ktb\_telemetry\_errors\_total into flush/ingest failure paths or remove the dead metric · pri:low · created:2026-11-13 · #observability · links:T-102
