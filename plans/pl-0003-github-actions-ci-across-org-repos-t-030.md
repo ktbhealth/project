@@ -5,7 +5,7 @@ status = "open"
 created = "2026-11-09"
 owner = "human:emanuel"
 priority = "med"
-labels = ["github-actions"]
+labels = ["devops", "github-actions"]
 +++
 
 # Plan: GitHub Actions CI for the ktbhealth platform (T-030)
