@@ -1,7 +1,7 @@
 +++
 id = "P-066"
 title = "Self-hosted LGTM observability backend behind Cloudflare"
-status = "open"
+status = "done"
 created = "2026-11-13"
 priority = "high"
 labels = ["infra", "observability"]
