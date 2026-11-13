@@ -25,3 +25,4 @@
 - [ ] T-095 Demo env docs: AI\_STUB=1 / AI\_BASE\_URL local-AI-server options for running golden path without Workers AI (wrangler.dev.jsonc already documents; surface in demo runbook) · owner:devin · created:2026-11-13 · #demo · #docs · links:T-092,P-065
 - [ ] T-100 Observability: verify OTLP export end-to-end against real collector (otelcol spike locally, then staging/prod backend) · created:2026-11-13 · #observability · links:T-099
 - [ ] T-101 Observability: stand up telemetry backend (Grafana LGTM/vendor) + dashboards, alerts, SLOs and on-call runbook · created:2026-11-13 · #observability · links:T-099
+- [ ] T-102 Observability: evaluate tail-based sampling + metric cardinality/load tuning under real traffic · pri:low · created:2026-11-13 · #observability · links:T-099
