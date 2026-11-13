@@ -23,4 +23,3 @@
 - [ ] T-091 Propose specialty.\*/locale.\* pack model against plugin architecture (P-065 invariant) · owner:devin · created:2026-11-13 · #architecture-platform · #plugins · links:P-065
 - [ ] T-092 Demo environment: seeded patient + synthetic consult for golden-path demo (ties to T-042) · owner:devin · created:2026-11-13 · #demo · #product · links:T-042,P-065
 - [ ] T-095 Demo env docs: AI\_STUB=1 / AI\_BASE\_URL local-AI-server options for running golden path without Workers AI (wrangler.dev.jsonc already documents; surface in demo runbook) · owner:devin · created:2026-11-13 · #demo · #docs · links:T-092,P-065
-- [ ] T-103 DevSecOps: production secrets/config rollout — OTEL\_EXPORTER\_OTLP\_ENDPOINT, OTEL\_EXPORTER\_OTLP\_HEADERS, METRICS\_SCRAPE\_TOKEN via Cuora/Alchemy · status:in-progress · created:2026-11-13 · #devsecops · #observability · links:T-099
