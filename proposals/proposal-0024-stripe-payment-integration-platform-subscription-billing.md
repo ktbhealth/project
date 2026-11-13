@@ -4,7 +4,7 @@ title = "Stripe payment integration: platform subscription billing"
 status = "open"
 created = "2026-11-08"
 priority = "med"
-labels = ["billing"]
+labels = ["billing", "business"]
 +++
 
 ## Idea
