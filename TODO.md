@@ -52,3 +52,4 @@
 - [ ] T-099 M1: Eta script templates — .eta files + persona slot tables, seed-deterministic, gold.entities emitted by context · pri:high · owner:devin · created:2026-11-13 · #dataset · links:T-042,PL-006 · epic:audio-pipeline · ms:M1
 - [ ] T-100 M1: TtsPort local — edge-tts CLI shell-out w/ retry+backoff, ffmpeg degradation (noise/resample/bandpass) driven by AcousticProfile · pri:high · owner:devin · created:2026-11-13 · #dataset · links:T-042,PL-006 · epic:audio-pipeline · ms:M1
 - [ ] T-101 M1: AsrPort local — faster-whisper HTTP microservice (model kept warm; base default per Pareto bench) · owner:devin · created:2026-11-13 · #dataset · links:T-042,PL-006 · epic:audio-pipeline · ms:M1
+- [ ] T-102 M1: eval:generate runner — personas x Eta templates -> Sample manifests -> TTS synth -> store (batch, per-sample failure isolation) · pri:high · owner:devin · created:2026-11-13 · #dataset · links:T-042,PL-006 · epic:audio-pipeline · ms:M1
