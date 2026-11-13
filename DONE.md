@@ -41,3 +41,4 @@
 - T-097 Verify consent recording end-to-end: audit drive showed 'Consent not recorded' chip after checking consent box + saving — confirm recordConsent wiring or fix checkbox/state · pri:high · owner:devin · created:2026-11-13 · #bug · #product · links:P-065
 - T-094 Audit follow-up: after hydration fix, complete golden-path drive (patient→sample→anamnesis→detail→PDF) and file remaining gaps · pri:high · owner:devin · created:2026-11-13 · #demo · #product · links:P-065
 - T-090 Align website/deck/docs copy to wedge sentence 'specialty-first, locale-native clinical scribe' (extends T-082) · owner:devin · created:2026-11-13 · #business · #landing · links:T-082,P-065
+- T-098 Cosmetic: 'downloading model 100%' indicator stuck visible in post-consultation dictation mode on /consultations/new · pri:low · owner:devin · created:2026-11-13 · #product · #ui
