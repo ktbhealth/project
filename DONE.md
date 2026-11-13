@@ -56,3 +56,4 @@
   - T-112 Redeploy app + verify /api/ready all-otlp, Grafana dashboards populate, enable ntfy alerts · pri:high · created:2026-11-13 · #infra · #observability
 - T-100 Observability: verify OTLP export end-to-end against real collector (otelcol spike locally, then staging/prod backend) · created:2026-11-13 · #observability · links:T-099
 - T-103 DevSecOps: production secrets/config rollout — OTEL\_EXPORTER\_OTLP\_ENDPOINT, OTEL\_EXPORTER\_OTLP\_HEADERS, METRICS\_SCRAPE\_TOKEN via Cuora/Alchemy · created:2026-11-13 · #devsecops · #observability · links:T-099
+- T-113 OCI IaC validation: tofu init && tofu validate infra/oci/tofu, first real apply when a second host is needed · pri:low · owner:devin · created:2026-11-13
