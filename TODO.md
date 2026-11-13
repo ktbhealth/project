@@ -25,10 +25,10 @@
 - [ ] T-095 Demo env docs: AI\_STUB=1 / AI\_BASE\_URL local-AI-server options for running golden path without Workers AI (wrangler.dev.jsonc already documents; surface in demo runbook) · owner:devin · created:2026-11-13 · #demo · #docs · links:T-092,P-065
 - [ ] T-100 Observability: verify OTLP export end-to-end against real collector (otelcol spike locally, then staging/prod backend) · created:2026-11-13 · #observability · links:T-099
 - [ ] T-101 Observability: stand up telemetry backend (Grafana LGTM/vendor) + dashboards, alerts, SLOs and on-call runbook · created:2026-11-13 · #observability · links:T-099
-- [ ] T-102 Observability: evaluate tail-based sampling + metric cardinality/load tuning under real traffic · pri:low · created:2026-11-13 · #observability · links:T-099
 - [ ] T-103 DevSecOps: production secrets/config rollout — OTEL\_EXPORTER\_OTLP\_ENDPOINT, OTEL\_EXPORTER\_OTLP\_HEADERS, METRICS\_SCRAPE\_TOKEN via Cuora/Alchemy · created:2026-11-13 · #devsecops · #observability · links:T-099
 - [ ] T-104 Observability: investigate ktb\_app\_invocations\_total exporting IsMonotonic=false via Effect OtlpMetrics counter mapping · pri:low · created:2026-11-13 · #observability · links:T-099
 - [ ] T-105 Observability: route http.access logs through Effect logger so they reach OTLP exporters (currently console.info → Workers Logs only) · created:2026-11-13 · #observability · links:T-099
 - [ ] T-106 Observability: complete telemetry ENV\_KEYS forwarding in node-cloudflare-workers (export interval, batch size, shutdown timeout, client flag, log level, resource attributes, compression, per-signal endpoints) · pri:low · created:2026-11-13 · #observability · links:T-099
 - [ ] T-107 Observability: configure otelcol tail\_sampling processor (error status + latency policies) in deployed collector config · created:2026-11-13 · #observability · links:T-102
 - [ ] T-108 Observability: wire ktb\_telemetry\_errors\_total into flush/ingest failure paths or remove the dead metric · pri:low · created:2026-11-13 · #observability · links:T-102
+- [ ] T-102 Observability: evaluate tail-based sampling + metric cardinality/load tuning under real traffic · status:in-progress · pri:low · created:2026-11-13 · #observability · links:T-099
