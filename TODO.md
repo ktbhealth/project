@@ -21,3 +21,4 @@
 - [ ] T-082 Copy decisions across deck/website/docs: 'a KTB Health' vs 'o KTB Health' (pt-BR), and '100% on-premise' vs 'self-hosting by arrangement' · owner:human:emanuel · created:2026-11-11 · #landing
 - [ ] T-089 Pilot recruitment plan (P-065): channels, 10 target doctors, 2-week pilot success criteria, signup CTA tracking · pri:high · owner:human:luis · created:2026-11-13 · #validacao · links:P-065
 - [ ] T-090 Align website/deck/docs copy to wedge sentence 'specialty-first, locale-native clinical scribe' (extends T-082) · owner:devin · created:2026-11-13 · #landing · links:T-082,P-065
+- [ ] T-091 Propose specialty.\*/locale.\* pack model against plugin architecture (P-065 invariant) · owner:devin · created:2026-11-13 · #plugins · links:P-065
