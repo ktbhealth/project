@@ -1,7 +1,7 @@
 +++
 id = "P-068"
 title = "OCI IaC for LGTM host: infra/oci OpenTofu adapter behind infra-ports"
-status = "open"
+status = "done"
 created = "2026-11-13"
 priority = "med"
 labels = ["architecture-platform", "infra", "observability"]
