@@ -54,3 +54,4 @@
   - T-110 Create OCI Always-Free VM (VM.Standard.A1.Flex, Ubuntu 24.04 aarch64) for LGTM host · pri:high · created:2026-11-13 · #infra · #observability
   - T-111 On LGTM host: install docker+cloudflared, tunnel login/create/route-dns (otel.+grafana.luisfuturist.com), compose up infra/lgtm · pri:high · created:2026-11-13 · #infra · #observability
   - T-112 Redeploy app + verify /api/ready all-otlp, Grafana dashboards populate, enable ntfy alerts · pri:high · created:2026-11-13 · #infra · #observability
+- T-100 Observability: verify OTLP export end-to-end against real collector (otelcol spike locally, then staging/prod backend) · created:2026-11-13 · #observability · links:T-099
