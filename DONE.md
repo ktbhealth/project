@@ -49,3 +49,4 @@
 - T-106 Observability: complete telemetry ENV\_KEYS forwarding in node-cloudflare-workers (export interval, batch size, shutdown timeout, client flag, log level, resource attributes, compression, per-signal endpoints) · pri:low · created:2026-11-13 · #observability · links:T-099
 - T-108 Observability: wire ktb\_telemetry\_errors\_total into flush/ingest failure paths or remove the dead metric · pri:low · created:2026-11-13 · #observability · links:T-102
 - T-101 Observability: stand up telemetry backend (Grafana LGTM/vendor) + dashboards, alerts, SLOs and on-call runbook · created:2026-11-13 · #observability · links:T-099
+- T-107 Observability: configure otelcol tail\_sampling processor (error status + latency policies) in deployed collector config · created:2026-11-13 · #observability · links:T-102
