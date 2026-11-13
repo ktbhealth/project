@@ -27,3 +27,4 @@
 - [ ] T-103 DevSecOps: production secrets/config rollout — OTEL\_EXPORTER\_OTLP\_ENDPOINT, OTEL\_EXPORTER\_OTLP\_HEADERS, METRICS\_SCRAPE\_TOKEN via Cuora/Alchemy · created:2026-11-13 · #devsecops · #observability · links:T-099
 - [ ] T-109 Provision LGTM host per P-066: pick Hetzner/Fly.io, docker compose up infra/lgtm, cloudflared tunnel otel.\<domain>→4318, set OTEL\_EXPORTER\_OTLP\_ENDPOINT, redeploy, verify /api/ready=otlp · pri:high · created:2026-11-13 · #infra · #observability · links:T-100,T-103,P-066
   - [ ] T-110 Create OCI Always-Free VM (VM.Standard.A1.Flex, Ubuntu 24.04 aarch64) for LGTM host · pri:high · created:2026-11-13 · #infra · #observability
+  - [ ] T-111 On LGTM host: install docker+cloudflared, tunnel login/create/route-dns (otel.+grafana.luisfuturist.com), compose up infra/lgtm · pri:high · created:2026-11-13 · #infra · #observability
