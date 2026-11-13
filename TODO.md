@@ -27,3 +27,4 @@
 - [ ] T-101 Observability: stand up telemetry backend (Grafana LGTM/vendor) + dashboards, alerts, SLOs and on-call runbook · created:2026-11-13 · #observability · links:T-099
 - [ ] T-102 Observability: evaluate tail-based sampling + metric cardinality/load tuning under real traffic · pri:low · created:2026-11-13 · #observability · links:T-099
 - [ ] T-103 DevSecOps: production secrets/config rollout — OTEL\_EXPORTER\_OTLP\_ENDPOINT, OTEL\_EXPORTER\_OTLP\_HEADERS, METRICS\_SCRAPE\_TOKEN via Cuora/Alchemy · created:2026-11-13 · #devsecops · #observability · links:T-099
+- [ ] T-104 Observability: investigate ktb\_app\_invocations\_total exporting IsMonotonic=false via Effect OtlpMetrics counter mapping · pri:low · created:2026-11-13 · #observability · links:T-099
