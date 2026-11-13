@@ -1,7 +1,7 @@
 +++
 id = "P-065"
 title = "Strategy: specialty-first locale-native scribe — Brazil wedge, global architecture"
-status = "open"
+status = "in-progress"
 created = "2026-11-12"
 owner = "human:luis"
 priority = "high"
