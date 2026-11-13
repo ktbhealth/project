@@ -37,3 +37,4 @@
   - T-036 Admin billing views: subscriptions, invoices, plan overrides (P-029, needs P-024) · created:2026-11-08 · #admin · blocks:T-032 · epic:admin
 - T-017 HackBrasil: record and upload presentation video (~3 min) · pri:high · owner:human:team · created:2026-11-07 · epic:hackbrasil
 - T-093 CRITICAL: pdfkit leaks into client bundle via /api/consultations/\$id/pdf route in routeTree.gen.ts — crashes on every page, kills hydration, entire app non-interactive in browser. Fix: lazy-import @ktb/export-pdf inside GET handler (or exclude api-routes from client route tree). Audit found 2026-11-12 · pri:crit · owner:devin · created:2026-11-13 · #bug · links:P-065
+- T-096 Hydration mismatch: SSR HTML != client on /consultations/new (and possibly other routes) — React regenerates tree client-side; likely locale/date or plugin-state divergence. Investigate root cause · pri:high · owner:devin · created:2026-11-13 · #bug · #product
