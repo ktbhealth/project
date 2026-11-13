@@ -45,3 +45,4 @@
 - T-099 Observability platform: OTel traces/logs/metrics, port-adapter, structured logs, client telemetry · pri:high · owner:devin · created:2026-11-13
 - T-102 Observability: evaluate tail-based sampling + metric cardinality/load tuning under real traffic · pri:low · created:2026-11-13 · #observability · links:T-099
 - T-104 Observability: investigate ktb\_app\_invocations\_total exporting IsMonotonic=false via Effect OtlpMetrics counter mapping · pri:low · created:2026-11-13 · #observability · links:T-099
+- T-105 Observability: route http.access logs through Effect logger so they reach OTLP exporters (currently console.info → Workers Logs only) · created:2026-11-13 · #observability · links:T-099
