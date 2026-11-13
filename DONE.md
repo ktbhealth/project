@@ -43,3 +43,4 @@
 - T-090 Align website/deck/docs copy to wedge sentence 'specialty-first, locale-native clinical scribe' (extends T-082) · owner:devin · created:2026-11-13 · #business · #landing · links:T-082,P-065
 - T-098 Cosmetic: 'downloading model 100%' indicator stuck visible in post-consultation dictation mode on /consultations/new · pri:low · owner:devin · created:2026-11-13 · #product · #ui
 - T-099 Observability platform: OTel traces/logs/metrics, port-adapter, structured logs, client telemetry · pri:high · owner:devin · created:2026-11-13
+- T-102 Observability: evaluate tail-based sampling + metric cardinality/load tuning under real traffic · pri:low · created:2026-11-13 · #observability · links:T-099
