@@ -4,7 +4,7 @@ title = "Patient register: full clinical-administrative record fields"
 status = "open"
 created = "2026-11-08"
 priority = "med"
-labels = ["directory"]
+labels = ["directory", "product"]
 epic = "directory"
 +++
 

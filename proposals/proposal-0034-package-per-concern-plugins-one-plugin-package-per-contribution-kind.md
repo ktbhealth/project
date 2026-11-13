@@ -5,6 +5,7 @@ status = "deferred"
 created = "2026-11-09"
 owner = "devin"
 priority = "med"
+labels = ["architecture-platform"]
 epic = "platform"
 +++
 

@@ -1,7 +1,7 @@
 # TODO — ktbhealth org board
 
 - [ ] T-026 Set up peregrin as CI · pri:high · created:2026-11-08 · #devops
-- [ ] T-028 Update branding: new logo, favicon, and related assets · owner:human:charles · created:2026-11-08
+- [ ] T-028 Update branding: new logo, favicon, and related assets · owner:human:charles · created:2026-11-08 · #product
 - [ ] T-030 Configure GitHub Actions CI; later integrate Peregrin as CI orchestrator inside GHA · owner:human:emanuel · created:2026-11-08 · #devops · #github-actions
   - [ ] T-053 CI deploy workflows: plan/deploy via cuora + alchemy for storybook, website-draft, product; decide secrets strategy (deferred from T-030) · owner:human:emanuel · created:2026-11-09 · #devops · #github-actions
   - [ ] T-054 GitHub: main protection applied org-wide (2026-11-11) — direct push allowed for all members, no PR gate (decision: CI can't gate direct pushes); rulesets on all 8 repos block deletion + non-fast-forward; luisfuturist bypass actor (always). Residual: revisit CI gating if PR workflow returns · owner:human:emanuel · created:2026-11-09 · #devops · #github-actions
@@ -13,18 +13,18 @@
     - [ ] T-064 Cross-repo CI: when ui changes, build storybook and product against the ui ref (integration check) before tagging; add real checks to ui (see T-052) · pri:high · owner:human:emanuel · created:2026-11-09 · #ci-hardening · #devops · #github-actions
     - [ ] T-065 PR hygiene CI (org-wide via ktbhealth/.github): PR template requiring the myco T-NNN reference, conventional-commit title lint · owner:human:emanuel · created:2026-11-09 · #ci-hardening · #devops · #github-actions
     - [ ] T-066 product e2e (Playwright test:e2e): opt-in only — local script plus manual workflow\_dispatch / label trigger; NOT in the default CI because it is slow · pri:low · owner:human:emanuel · created:2026-11-09 · #ci-hardening · #devops · #github-actions
-- [ ] T-031 Platform QoL features around core consult flow: scheduling/agenda, reminders, patient follow-up nudges, quick notes — doctor-facing conveniences that increase daily value beyond documentation · owner:human:vini · created:2026-11-08 · #platform-qol
+- [ ] T-031 Platform QoL features around core consult flow: scheduling/agenda, reminders, patient follow-up nudges, quick notes — doctor-facing conveniences that increase daily value beyond documentation · owner:human:vini · created:2026-11-08 · #platform-qol · #product
 - [ ] T-041 Interview doctors: run roteiro (mom test) + ask 'which app runs the consult?' + 'would you send our link?' — pilot signal · pri:high · owner:human:luis · created:2026-11-09 · #business · #validacao
-- [ ] T-042 Create synthetic dataset: pt-BR consult transcripts (multi-specialty, diarized, noisy) for extractor eval + demo · owner:devin · created:2026-11-09 · #dataset
+- [ ] T-042 Create synthetic dataset: pt-BR consult transcripts (multi-specialty, diarized, noisy) for extractor eval + demo · owner:devin · created:2026-11-09 · #dataset · #product
 - [ ] T-058 CI: AI PR reviewer after the pipeline — PRs open as draft, an AI agent reviews the diff once CI is green and approves/rejects with cited technical evidence (plan PL-004: design, security for public repos, rubric, phases, acceptance criteria) · owner:human:emanuel · created:2026-11-09 · #ai-review · #devops · #github-actions
 - [ ] T-048 Docs: add screenshots/GIFs to doctors tutorials and key flows (consent→record→review→export, pipeline states, troubleshooting) — embed in en + pt-BR MDX; revisit after pilot UI stabilizes · pri:low · created:2026-11-10 · #docs
 - [ ] T-082 Copy decisions across deck/website/docs: 'a KTB Health' vs 'o KTB Health' (pt-BR), and '100% on-premise' vs 'self-hosting by arrangement' · owner:human:emanuel · created:2026-11-11 · #business · #landing
 - [ ] T-089 Pilot recruitment plan (P-065): channels, 10 target doctors, 2-week pilot success criteria, signup CTA tracking · pri:high · owner:human:luis · created:2026-11-13 · #business · #validacao · links:P-065
 - [ ] T-090 Align website/deck/docs copy to wedge sentence 'specialty-first, locale-native clinical scribe' (extends T-082) · owner:devin · created:2026-11-13 · #business · #landing · links:T-082,P-065
-- [ ] T-091 Propose specialty.\*/locale.\* pack model against plugin architecture (P-065 invariant) · owner:devin · created:2026-11-13 · #plugins · links:P-065
-- [ ] T-092 Demo environment: seeded patient + synthetic consult for golden-path demo (ties to T-042) · owner:devin · created:2026-11-13 · #demo · links:T-042,P-065
-- [ ] T-094 Audit follow-up: after hydration fix, complete golden-path drive (patient→sample→anamnesis→detail→PDF) and file remaining gaps · pri:high · owner:devin · created:2026-11-13 · #demo · links:P-065
+- [ ] T-091 Propose specialty.\*/locale.\* pack model against plugin architecture (P-065 invariant) · owner:devin · created:2026-11-13 · #architecture-platform · #plugins · links:P-065
+- [ ] T-092 Demo environment: seeded patient + synthetic consult for golden-path demo (ties to T-042) · owner:devin · created:2026-11-13 · #demo · #product · links:T-042,P-065
+- [ ] T-094 Audit follow-up: after hydration fix, complete golden-path drive (patient→sample→anamnesis→detail→PDF) and file remaining gaps · pri:high · owner:devin · created:2026-11-13 · #demo · #product · links:P-065
 - [ ] T-095 Demo env docs: AI\_STUB=1 / AI\_BASE\_URL local-AI-server options for running golden path without Workers AI (wrangler.dev.jsonc already documents; surface in demo runbook) · owner:devin · created:2026-11-13 · #demo · #docs · links:T-092,P-065
-- [ ] T-096 Hydration mismatch: SSR HTML != client on /consultations/new (and possibly other routes) — React regenerates tree client-side; likely locale/date or plugin-state divergence. Investigate root cause · pri:high · owner:devin · created:2026-11-13 · #bug
-- [ ] T-097 Verify consent recording end-to-end: audit drive showed 'Consent not recorded' chip after checking consent box + saving — confirm recordConsent wiring or fix checkbox/state · pri:high · owner:devin · created:2026-11-13 · #bug · links:P-065
-- [ ] T-098 Cosmetic: 'downloading model 100%' indicator stuck visible in post-consultation dictation mode on /consultations/new · pri:low · owner:devin · created:2026-11-13 · #ui
+- [ ] T-096 Hydration mismatch: SSR HTML != client on /consultations/new (and possibly other routes) — React regenerates tree client-side; likely locale/date or plugin-state divergence. Investigate root cause · pri:high · owner:devin · created:2026-11-13 · #bug · #product
+- [ ] T-097 Verify consent recording end-to-end: audit drive showed 'Consent not recorded' chip after checking consent box + saving — confirm recordConsent wiring or fix checkbox/state · pri:high · owner:devin · created:2026-11-13 · #bug · #product · links:P-065
+- [ ] T-098 Cosmetic: 'downloading model 100%' indicator stuck visible in post-consultation dictation mode on /consultations/new · pri:low · owner:devin · created:2026-11-13 · #product · #ui

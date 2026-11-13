@@ -5,7 +5,7 @@ status = "open"
 created = "2026-11-12"
 owner = "devin"
 priority = "med"
-labels = ["plugins"]
+labels = ["architecture-platform", "plugins"]
 links = ["P-047", "P-058"]
 epic = "platform"
 +++

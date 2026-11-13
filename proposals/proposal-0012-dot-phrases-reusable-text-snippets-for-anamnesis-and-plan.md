@@ -4,7 +4,7 @@ title = "Dot phrases: reusable text snippets for anamnesis and plan"
 status = "open"
 created = "2026-11-08"
 priority = "low"
-labels = ["platform-qol"]
+labels = ["platform-qol", "product"]
 +++
 
 ## Idea

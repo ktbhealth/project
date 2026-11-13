@@ -4,7 +4,7 @@ title = "Patient history sharing across clinics (consent-scoped)"
 status = "open"
 created = "2026-11-08"
 priority = "med"
-labels = ["v2"]
+labels = ["product", "v2"]
 +++
 
 ## Idea

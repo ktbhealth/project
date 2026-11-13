@@ -4,6 +4,7 @@ title = "Transcription adapters: meeting bot, upload, desktop loopback"
 status = "open"
 created = "2026-11-08"
 priority = "med"
+labels = ["product"]
 +++
 
 ## Idea

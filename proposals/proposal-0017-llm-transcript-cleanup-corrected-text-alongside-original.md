@@ -4,7 +4,7 @@ title = "LLM transcript cleanup: corrected text alongside original"
 status = "open"
 created = "2026-11-08"
 priority = "med"
-labels = ["audio-pipeline"]
+labels = ["audio-pipeline", "product"]
 epic = "audio-pipeline"
 +++
 

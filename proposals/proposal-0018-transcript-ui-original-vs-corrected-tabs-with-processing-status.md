@@ -4,7 +4,7 @@ title = "Transcript UI: original vs corrected tabs with processing status"
 status = "open"
 created = "2026-11-08"
 priority = "med"
-labels = ["audio-pipeline"]
+labels = ["audio-pipeline", "product"]
 epic = "audio-pipeline"
 +++
 

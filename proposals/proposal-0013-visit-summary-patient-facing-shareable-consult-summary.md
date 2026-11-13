@@ -4,7 +4,7 @@ title = "Visit summary: patient-facing shareable consult summary"
 status = "open"
 created = "2026-11-08"
 priority = "low"
-labels = ["platform-qol"]
+labels = ["platform-qol", "product"]
 +++
 
 ## Idea

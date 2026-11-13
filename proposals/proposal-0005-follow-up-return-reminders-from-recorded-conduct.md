@@ -4,7 +4,7 @@ title = "Follow-up return reminders from recorded conduct"
 status = "open"
 created = "2026-11-08"
 priority = "med"
-labels = ["v2"]
+labels = ["product", "v2"]
 +++
 
 ## Idea

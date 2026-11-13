@@ -4,7 +4,7 @@ title = "Day dashboard: today's consults with prep context"
 status = "open"
 created = "2026-11-08"
 priority = "med"
-labels = ["platform-qol"]
+labels = ["platform-qol", "product"]
 +++
 
 ## Idea

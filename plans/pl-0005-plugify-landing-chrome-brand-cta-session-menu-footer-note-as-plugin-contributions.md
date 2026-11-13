@@ -4,7 +4,7 @@ title = "Plugify landing chrome: brand, CTA, session menu, footer note as plugin
 status = "deferred"
 created = "2026-11-11"
 priority = "med"
-labels = ["plugins"]
+labels = ["architecture-platform", "plugins"]
 links = ["P-058", "P-060"]
 epic = "platform"
 +++
