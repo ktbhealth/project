@@ -4,7 +4,7 @@ title = "Own call platform: be the channel, not the capturer"
 status = "open"
 created = "2026-11-06"
 priority = "high"
-labels = ["strategy"]
+labels = ["business", "strategy"]
 +++
 
 # P-001: Own call platform — be the channel, not the capturer
