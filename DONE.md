@@ -50,3 +50,7 @@
 - T-108 Observability: wire ktb\_telemetry\_errors\_total into flush/ingest failure paths or remove the dead metric · pri:low · created:2026-11-13 · #observability · links:T-102
 - T-101 Observability: stand up telemetry backend (Grafana LGTM/vendor) + dashboards, alerts, SLOs and on-call runbook · created:2026-11-13 · #observability · links:T-099
 - T-107 Observability: configure otelcol tail\_sampling processor (error status + latency policies) in deployed collector config · created:2026-11-13 · #observability · links:T-102
+- T-109 Provision LGTM host per P-066: pick Hetzner/Fly.io, docker compose up infra/lgtm, cloudflared tunnel otel.\<domain>→4318, set OTEL\_EXPORTER\_OTLP\_ENDPOINT, redeploy, verify /api/ready=otlp · pri:high · created:2026-11-13 · #infra · #observability · links:T-100,T-103,P-066
+  - T-110 Create OCI Always-Free VM (VM.Standard.A1.Flex, Ubuntu 24.04 aarch64) for LGTM host · pri:high · created:2026-11-13 · #infra · #observability
+  - T-111 On LGTM host: install docker+cloudflared, tunnel login/create/route-dns (otel.+grafana.luisfuturist.com), compose up infra/lgtm · pri:high · created:2026-11-13 · #infra · #observability
+  - T-112 Redeploy app + verify /api/ready all-otlp, Grafana dashboards populate, enable ntfy alerts · pri:high · created:2026-11-13 · #infra · #observability
