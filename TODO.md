@@ -27,3 +27,4 @@
 - [ ] T-094 Audit follow-up: after hydration fix, complete golden-path drive (patient→sample→anamnesis→detail→PDF) and file remaining gaps · pri:high · owner:devin · created:2026-11-13 · #demo · links:P-065
 - [ ] T-095 Demo env docs: AI\_STUB=1 / AI\_BASE\_URL local-AI-server options for running golden path without Workers AI (wrangler.dev.jsonc already documents; surface in demo runbook) · owner:devin · created:2026-11-13 · #demo · links:T-092,P-065
 - [ ] T-096 Hydration mismatch: SSR HTML != client on /consultations/new (and possibly other routes) — React regenerates tree client-side; likely locale/date or plugin-state divergence. Investigate root cause · pri:high · owner:devin · created:2026-11-13 · #bug
+- [ ] T-097 Verify consent recording end-to-end: audit drive showed 'Consent not recorded' chip after checking consent box + saving — confirm recordConsent wiring or fix checkbox/state · pri:high · owner:devin · created:2026-11-13 · #bug · links:P-065
