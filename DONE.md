@@ -40,3 +40,4 @@
 - T-096 Hydration mismatch: SSR HTML != client on /consultations/new (and possibly other routes) — React regenerates tree client-side; likely locale/date or plugin-state divergence. Investigate root cause · pri:high · owner:devin · created:2026-11-13 · #bug · #product
 - T-097 Verify consent recording end-to-end: audit drive showed 'Consent not recorded' chip after checking consent box + saving — confirm recordConsent wiring or fix checkbox/state · pri:high · owner:devin · created:2026-11-13 · #bug · #product · links:P-065
 - T-094 Audit follow-up: after hydration fix, complete golden-path drive (patient→sample→anamnesis→detail→PDF) and file remaining gaps · pri:high · owner:devin · created:2026-11-13 · #demo · #product · links:P-065
+- T-090 Align website/deck/docs copy to wedge sentence 'specialty-first, locale-native clinical scribe' (extends T-082) · owner:devin · created:2026-11-13 · #business · #landing · links:T-082,P-065
