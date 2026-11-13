@@ -1,6 +1,6 @@
 # TODO — ktbhealth org board
 
-- [ ] T-026 Set up peregrin as CI · pri:high · created:2026-11-08
+- [ ] T-026 Set up peregrin as CI · pri:high · created:2026-11-08 · #devops
 - [ ] T-028 Update branding: new logo, favicon, and related assets · owner:human:charles · created:2026-11-08
 - [ ] T-030 Configure GitHub Actions CI; later integrate Peregrin as CI orchestrator inside GHA · owner:human:emanuel · created:2026-11-08 · #github-actions
   - [ ] T-053 CI deploy workflows: plan/deploy via cuora + alchemy for storybook, website-draft, product; decide secrets strategy (deferred from T-030) · owner:human:emanuel · created:2026-11-09 · #github-actions
