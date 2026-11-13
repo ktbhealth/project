@@ -1,7 +1,7 @@
 +++
 id = "P-067"
 title = "LGTM edge + ops decisions: tunnel mode, alert receiver, endpoint env"
-status = "open"
+status = "done"
 created = "2026-11-13"
 priority = "med"
 labels = ["infra", "observability"]
