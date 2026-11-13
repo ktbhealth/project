@@ -54,3 +54,4 @@
 - [ ] T-101 M1: AsrPort local — faster-whisper HTTP microservice (model kept warm; base default per Pareto bench) · owner:devin · created:2026-11-13 · #dataset · links:T-042,PL-006 · epic:audio-pipeline · ms:M1
 - [ ] T-102 M1: eval:generate runner — personas x Eta templates -> Sample manifests -> TTS synth -> store (batch, per-sample failure isolation) · pri:high · owner:devin · created:2026-11-13 · #dataset · links:T-042,PL-006 · epic:audio-pipeline · ms:M1
 - [ ] T-103 M1: acp.ts serialization contract — TaskEnvelope wire format + typed session response (freeze before adapters) · owner:devin · created:2026-11-13 · #dataset · links:T-042,PL-006 · epic:audio-pipeline · ms:M1
+- [ ] T-104 M1 (last): LlmPort ACP adapter — devin acp session over JSON-RPC, envelopes validated against outputSchema · owner:devin · created:2026-11-13 · #dataset · links:T-042,PL-006 · epic:audio-pipeline · ms:M1
