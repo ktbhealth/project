@@ -5,7 +5,7 @@ status = "in-progress"
 created = "2026-11-12"
 owner = "human:luis"
 priority = "high"
-labels = ["strategy", "wedge"]
+labels = ["business", "strategy", "wedge"]
 +++
 
 ## Context
