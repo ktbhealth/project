@@ -60,3 +60,4 @@
 - T-114 OCI IaC via Pulumi: replace infra/oci OpenTofu adapter with Pulumi OCI provider (user prefers Pulumi); keep DeployHost port, validate pulumi-oci provider coverage for Always-Free shapes · owner:devin · created:2026-11-13
 - T-115 Rate-limit /api/telemetry ingest endpoint — anonymous by design, payload-bounded but request-rate-unbounded; add edge fixed-window limiter · owner:devin · created:2026-11-13
 - T-116 Observability audit fixes + self-hosted ntfy auth + A1 cloud-init · owner:human:Luis-Emidio · created:2026-11-14 · done:2026-11-14
+- T-118 Decouple pt-BR from eval platform into a locale/profile port (normalize, numberToWords, entity categories, personas, speaker regex) so eval-dataset core is language-agnostic · created:2026-11-14 · links:T-042 · done:2026-11-14
