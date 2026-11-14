@@ -1,7 +1,7 @@
 +++
 id = "P-074"
 title = "Composable eval framework v4: hardened manifests, versioned runs, registry fallback path"
-status = "open"
+status = "in-progress"
 created = "2026-11-14"
 priority = "med"
 labels = ["architecture-platform"]
