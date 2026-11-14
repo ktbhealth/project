@@ -1,11 +1,12 @@
 +++
 id = "P-079"
 title = "Eval framework v6c: domain packs as pure data — parametrized, composable domain definitions"
-status = "in-progress"
+status = "done"
 created = "2026-11-14"
 priority = "med"
 labels = ["architecture-platform"]
 links = ["P-075", "P-076", "P-077"]
+done = "2026-11-14"
 +++
 
 P-075 moves domain packs to `evals/<domain>/` as TypeScript packages. Next ceiling: can a domain pack be **mostly data** — parametrized, composable, extensible without code?
