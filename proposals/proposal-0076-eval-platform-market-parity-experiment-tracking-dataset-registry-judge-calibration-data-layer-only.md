@@ -1,7 +1,7 @@
 +++
 id = "P-076"
 title = "Eval platform market-parity: experiment tracking, dataset registry, judge calibration — data layer only"
-status = "open"
+status = "in-progress"
 created = "2026-11-14"
 priority = "med"
 labels = ["architecture-platform"]
