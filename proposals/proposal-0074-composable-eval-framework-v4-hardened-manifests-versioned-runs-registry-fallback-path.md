@@ -1,11 +1,12 @@
 +++
 id = "P-074"
 title = "Composable eval framework v4: hardened manifests, versioned runs, registry fallback path"
-status = "in-progress"
+status = "done"
 created = "2026-11-14"
 priority = "med"
 labels = ["architecture-platform"]
 links = ["T-042", "T-118", "P-070", "P-071", "P-072", "P-073"]
+done = "2026-11-14"
 +++
 
 Supersedes P-073. Same architecture; adds the hardening gaps found in design review.
