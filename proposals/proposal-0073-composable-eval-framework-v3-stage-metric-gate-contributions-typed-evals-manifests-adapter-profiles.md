@@ -1,7 +1,7 @@
 +++
 id = "P-073"
 title = "Composable eval framework v3: stage/metric/gate contributions, typed evals/ manifests, adapter profiles"
-status = "open"
+status = "deferred"
 created = "2026-11-14"
 priority = "med"
 labels = ["architecture-platform"]
