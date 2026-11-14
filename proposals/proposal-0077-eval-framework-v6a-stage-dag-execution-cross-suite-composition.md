@@ -1,7 +1,7 @@
 +++
 id = "P-077"
 title = "Eval framework v6a: stage DAG execution + cross-suite composition"
-status = "open"
+status = "in-progress"
 created = "2026-11-14"
 priority = "med"
 labels = ["architecture-platform"]
