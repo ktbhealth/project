@@ -1,7 +1,7 @@
 +++
 id = "P-079"
 title = "Eval framework v6c: domain packs as pure data — parametrized, composable domain definitions"
-status = "open"
+status = "in-progress"
 created = "2026-11-14"
 priority = "med"
 labels = ["architecture-platform"]
