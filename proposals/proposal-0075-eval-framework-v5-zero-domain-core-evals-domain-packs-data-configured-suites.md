@@ -1,7 +1,7 @@
 +++
 id = "P-075"
 title = "Eval framework v5: zero-domain core — evals/<domain>/ packs + data-configured suites"
-status = "open"
+status = "in-progress"
 created = "2026-11-14"
 priority = "med"
 labels = ["architecture-platform"]
