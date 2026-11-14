@@ -1,7 +1,7 @@
 +++
 id = "P-072"
 title = "Composable eval framework v2: shared product capabilities + eval domain packs + evals/ suite manifests"
-status = "open"
+status = "deferred"
 created = "2026-11-14"
 priority = "med"
 labels = ["architecture-platform"]
