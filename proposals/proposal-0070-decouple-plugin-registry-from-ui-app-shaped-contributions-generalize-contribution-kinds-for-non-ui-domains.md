@@ -1,10 +1,11 @@
 +++
 id = "P-070"
 title = "Decouple plugin registry from UI/app-shaped contributions — generalize contribution kinds for non-UI domains"
-status = "open"
+status = "done"
 created = "2026-11-14"
 priority = "med"
 links = ["P-069"]
+done = "2026-11-14"
 +++
 
 ## Problem
