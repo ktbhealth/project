@@ -1,11 +1,12 @@
 +++
 id = "P-076"
 title = "Eval platform market-parity: experiment tracking, dataset registry, judge calibration — data layer only"
-status = "in-progress"
+status = "done"
 created = "2026-11-14"
 priority = "med"
 labels = ["architecture-platform"]
 links = ["T-042", "P-074", "P-075"]
+done = "2026-11-14"
 +++
 
 Gap analysis vs market eval platforms (LangSmith, Braintrust, Promptfoo, DeepEval, Inspect AI). Our foundation (typed contracts, RunRecord audit, Wilson gates, PHI policy) is ahead; these are the missing capabilities — all data/model layer, NO UI required yet.
