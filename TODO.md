@@ -25,3 +25,4 @@
 - [ ] T-117 Retry A1.Flex LGTM VM provisioning when OCI capacity frees (Pulumi stack ktb-lgtm-iac; retry loop exhausted ~6h — rerun make-spec.sh + pulumi up; cloud-init self-bootstraps) · created:2026-11-14
 - [ ] T-058 CI: AI PR reviewer after the pipeline — PRs open as draft, an AI agent reviews the diff once CI is green and approves/rejects with cited technical evidence (plan PL-004: design, security for public repos, rubric, phases, acceptance criteria) · owner:human:emanuel · created:2026-11-09 · #ai-review · #devops · #github-actions
 - [ ] T-119 Runtime-loaded eval plugins (WASM/Lua/dynamic) — BACKLOG, revisit only if third-party eval plugins become real · pri:low · created:2026-11-14
+- [ ] T-120 cloud eval profile cannot satisfy llm/eval caps — cloud suite resolution fails early; needs cloud judge/eval adapters or profile-capability validation in manifests · created:2026-11-14 · links:P-074
