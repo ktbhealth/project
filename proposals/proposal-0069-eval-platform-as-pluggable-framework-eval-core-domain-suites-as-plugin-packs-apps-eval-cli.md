@@ -1,7 +1,7 @@
 +++
 id = "P-069"
 title = "Eval platform as pluggable framework: eval-core + domain suites as plugin packs + apps/eval CLI"
-status = "open"
+status = "deferred"
 created = "2026-11-14"
 priority = "med"
 labels = ["architecture-platform"]
