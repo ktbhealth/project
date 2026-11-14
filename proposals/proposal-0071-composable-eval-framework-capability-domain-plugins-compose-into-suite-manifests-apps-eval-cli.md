@@ -1,7 +1,7 @@
 +++
 id = "P-071"
 title = "Composable eval framework: capability + domain plugins compose into suite manifests; apps/eval CLI"
-status = "open"
+status = "deferred"
 created = "2026-11-14"
 priority = "med"
 labels = ["architecture-platform"]
