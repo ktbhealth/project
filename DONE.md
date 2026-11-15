@@ -61,3 +61,4 @@
 - T-115 Rate-limit /api/telemetry ingest endpoint — anonymous by design, payload-bounded but request-rate-unbounded; add edge fixed-window limiter · owner:devin · created:2026-11-13
 - T-116 Observability audit fixes + self-hosted ntfy auth + A1 cloud-init · owner:human:Luis-Emidio · created:2026-11-14 · done:2026-11-14
 - T-118 Decouple pt-BR from eval platform into a locale/profile port (normalize, numberToWords, entity categories, personas, speaker regex) so eval-dataset core is language-agnostic · created:2026-11-14 · links:T-042 · done:2026-11-14
+- T-058 CI: AI PR reviewer after the pipeline — PRs open as draft, an AI agent reviews the diff once CI is green and approves/rejects with cited technical evidence (plan PL-004: design, security for public repos, rubric, phases, acceptance criteria) · status:cancelled · owner:human:emanuel · created:2026-11-09 · #ai-review · #devops · #github-actions
