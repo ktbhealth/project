@@ -71,3 +71,4 @@
 - [ ] T-131 eval.validator plugin: schema for persona batches, review state machine, feedback, run progress · status:in-progress · pri:high · owner:devin · created:2026-11-15 · links:P-081
 - [ ] T-132 RBAC role eval.validator + separate validator login/scope in portal · status:in-progress · pri:high · owner:devin · created:2026-11-15 · links:P-081
 - [ ] T-137 F0 @ktb/crypto primitives: AES-256-GCM envelope, ECDH P-256+HKDF wrap, ECDSA P-256 sign, SHA-256+canonicalize, PBKDF2, chunked blob cipher — WebCrypto only (PL-007) · pri:high · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
+- [ ] T-138 F1 integrity chain: document\_versions table + consultations.anamnesis\_hash/version + server-side interim hashing on save/attach + blob\_hash + backfill (PL-007) · pri:high · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
