@@ -69,3 +69,4 @@
 - [ ] T-133 Persona gallery UI: cards, per-turn script, audio preview, approve/reject + feedback · pri:high · owner:devin · created:2026-11-15 · links:P-081
 - [ ] T-134 Eval run trigger + live progress polling UI (done/total, %, stage) · pri:high · owner:devin · created:2026-11-15 · links:P-081
 - [ ] T-135 Results view: word-diff component, metrics, judge verdicts, demographic slices (region/class/register) · pri:high · owner:devin · created:2026-11-15 · links:P-081
+- [ ] T-136 Port inspect\_gen.py word-alignment diff to shared domain component used by the UI · pri:high · owner:devin · created:2026-11-15 · links:P-081
