@@ -1,7 +1,7 @@
 +++
 id = "PL-006"
 title = "Theme plugin (P-082): white-label tokens, brand assets, accessible palettes"
-status = "open"
+status = "in-progress"
 created = "2026-11-15"
 priority = "med"
 links = ["P-053", "P-060", "P-070", "P-081", "P-082"]
