@@ -6,7 +6,6 @@ created = "2026-11-14"
 priority = "med"
 labels = ["architecture-platform"]
 links = ["T-042", "T-118", "P-070", "P-074"]
-done = "2026-11-14"
 +++
 
 Evolution of P-074 (implemented in PR #26). Pushes the boundary one level further: the framework must have **zero domain logic or knowledge** — not just "no transcript knowledge" but no eval-domain knowledge at all. The first eval (consultation) becomes one data-configured suite; everything consult-specific lives under `evals/`.

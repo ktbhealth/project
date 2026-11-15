@@ -6,7 +6,6 @@ created = "2026-11-14"
 priority = "med"
 labels = ["architecture-platform"]
 links = ["P-074", "P-075", "P-076", "P-077"]
-done = "2026-11-14"
 +++
 
 Manifest expressiveness ceiling: today manifests are pure data but shallow — stages/metrics/gates are id refs with flat params. Push expressiveness WITHOUT losing diff-ability: **plugins contribute serializable config schemas**, manifests instantiate them.

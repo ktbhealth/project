@@ -6,7 +6,6 @@ created = "2026-11-14"
 priority = "med"
 labels = ["architecture-platform"]
 links = ["P-074", "P-075", "P-076"]
-done = "2026-11-14"
 +++
 
 Next composability ceiling after P-075/P-076. Two related execution-model upgrades.
