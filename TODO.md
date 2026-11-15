@@ -24,3 +24,4 @@
 - [ ] T-117 Retry A1.Flex LGTM VM provisioning when OCI capacity frees (Pulumi stack ktb-lgtm-iac; retry loop exhausted ~6h — rerun make-spec.sh + pulumi up; cloud-init self-bootstraps) · created:2026-11-14
 - [ ] T-119 Runtime-loaded eval plugins (WASM/Lua/dynamic) — BACKLOG, revisit only if third-party eval plugins become real · pri:low · created:2026-11-14
 - [ ] T-120 cloud eval profile cannot satisfy llm/eval caps — cloud suite resolution fails early; needs cloud judge/eval adapters or profile-capability validation in manifests · created:2026-11-14 · links:P-074
+- [ ] T-121 product+docs: merge PR stack #29-#35 (email verification, doctor profiles, secretary delegation, patient portal, invite tokens, patient documents) + docs#3; fix patient-access mid-request delete race; fix docs build — pin nitro compatibilityDate and repair generated ERD .mdx links (product#36, docs#4); both mains green · created:2026-11-15
