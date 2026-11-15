@@ -55,6 +55,31 @@ New registered kinds consumed via `collectKindContributions`:
   the theme plugin contributes `kind: "component"` chrome into them,
   filtered by its `portal` scope.
 
+### Why CSS vars (confirmed mechanism)
+
+`@ktbhealth/ui`'s `globals.css` uses Tailwind v4 `@theme inline`, mapping
+`--color-*` → `var(--*)` — every utility (`bg-primary`, `text-ring`, …)
+resolves the custom property at runtime. Overriding `--primary` &
+friends on `:root`/`.dark` re-skins all components with zero build-time
+per-tenant CSS. This is the shadcn/Tailwind-v4 model; `@ktb/*` aliases
+(`--ktb-*` from Terrazzo) are overridden the same way for consumers
+that read them directly.
+
+### SSR / rendering guarantees
+
+- **No flash, no FOUC.** Brand scope comes from the request (session →
+  tenant/portal host), resolved in the root loader — the `<style>`
+  block, favicon links, and title ship in the initial HTML. No
+  client-side theme detection script, no hydration-time swap.
+- **Brand ≠ color scheme.** The plugin emits BOTH `:root` and `.dark`
+  override blocks derived from the same seeds; `.dark` remains the
+  user's light/dark preference, orthogonal to brand.
+- **No layout shift.** The brand slot reserves a fixed aspect-ratio box
+  for logo/wordmark (sizing via `[&_svg]`/aspect utilities, never
+  intrinsic image size); favicons never affect layout. Webfont tokens
+  (`--font-sans` → `--font-geist`) are NOT theme-overridable in v1 —
+  font swap is the one remaining CLS source, deliberately excluded.
+
 ### Accessibility — automatic, not advisory
 
 "Accessible" is enforced by construction, not by reviewer discipline:
@@ -83,10 +108,20 @@ New registered kinds consumed via `collectKindContributions`:
 
 - `panel.pages` entry `/platform/theme`: pick scope (platform default /
   tenant / portal instance), edit seed colors with a live preview
-  iframe, upload logo + favicon (via `storage-dataset` or a dedicated
-  asset table + R2 binding), see the contrast report, publish.
-- `chrome` contribution `kind: "headerAction"` for a quick "preview as
-  tenant" toggle during editing.
+  iframe, see the contrast report, publish.
+- **Asset uploads are async jobs, never request-path work.** Upload →
+  R2 (`THEME_ASSETS_BUCKET` binding, same shape as `AUDIO_BUCKET`) →
+  enqueue → worker validates the image and derives variants (favicon
+  16/32/180, resized logo svg/png/webp/avif, optional dominant-color
+  extraction to *suggest* accessible seeds) → writes asset refs on
+  `theme_definitions`. Port/adapter at the edge per ADR-0001; progress
+  surfaces in the jobs console feed like audio jobs.
+- **Theme switch in the platform header.** A `headerAction` chrome
+  contribution into `portal.header.actions` with
+  `optionalDeps: [platformHeaderPlugin.id]` — the exact graceful-
+  degradation contract `jobs.header` already uses: renders only when
+  the `platform.header` marker plugin is registered. Popover lists
+  `theme_definitions` by scope for admin preview/switch.
 
 ### Non-goals / invariants
 
