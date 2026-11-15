@@ -63,3 +63,4 @@
 - [ ] T-127 M1 (last): LlmPort ACP adapter — devin acp session over JSON-RPC, envelopes validated against outputSchema · owner:devin · created:2026-11-13 · #dataset · links:T-042,PL-006 · epic:audio-pipeline · ms:M1
 - [ ] T-128 Persona model: gender/age/social-class/education/name + doctor personas (cohort = patient+doctor pair) · pri:high · owner:devin · created:2026-11-15 · links:P-081
 - [ ] T-129 Persona-aware scriptgen: vocabulary per education/class (lay 'dor de cabeça' vs technical 'cefaleia'), age speech style · pri:high · owner:devin · created:2026-11-15 · links:P-081
+- [ ] T-130 Voice resolution from persona gender+region — per-speaker voices, no static speakerVoices · pri:high · owner:devin · created:2026-11-15 · links:P-081
