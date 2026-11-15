@@ -67,3 +67,4 @@
 - [ ] T-131 eval.validator plugin: schema for persona batches, review state machine, feedback, run progress · pri:high · owner:devin · created:2026-11-15 · links:P-081
 - [ ] T-132 RBAC role eval.validator + separate validator login/scope in portal · pri:high · owner:devin · created:2026-11-15 · links:P-081
 - [ ] T-133 Persona gallery UI: cards, per-turn script, audio preview, approve/reject + feedback · pri:high · owner:devin · created:2026-11-15 · links:P-081
+- [ ] T-134 Eval run trigger + live progress polling UI (done/total, %, stage) · pri:high · owner:devin · created:2026-11-15 · links:P-081
