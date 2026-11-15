@@ -18,7 +18,7 @@ Execution plan for P-082. Conventions: ports/adapters at the edge (ADR-0001), pl
 
 ## Phase 2 — `plugins/theme` domain core
 
-- `plugins/theme/src/index.ts` (+ client.ts parity): tables plugin `theme_definitions` (scope: platform|tenant|portal-instance + scope id, seeds JSON, derived tokens JSON, asset refs, enabled, version) and `theme_assets` (r2 key, kind, variants JSON, status).
+- `plugins/theme/src/index.ts` (+ client.ts parity): tables plugin `theme_definitions` (scope: platform|tenant|portal-instance + scope id, seeds JSON, derived tokens JSON, font config { families, weights, delivery: self-host|google-fonts }, asset refs, enabled, version) and `theme_assets` (r2 key, kind, variants JSON, status).
 - `Theme` Effect service behind a port: `resolve(scope)` → `{ tokens: {light, dark}, brand, appName }` with fallback chain portal-instance → tenant → platform → null (ui defaults). Authz: reads open to session; writes PlatformAdmin (+ tenant admin later).
 - Token engine (`src/palette.ts`): seeds → full shadcn var set. OKLCH math, WCAG contrast, AA clamp for every `*-foreground`, `--ring` contrast floor vs background+card, `.dark` block derived from same seeds. Pure functions → trivially testable to 100%.
 
@@ -29,12 +29,13 @@ Resolution is PER-SHELL, not root-global: the portal instance id isn't knowable 
 - App shell (`__root__.tsx` loader): resolve theme for session scope (tenant → platform) alongside `sessionFn`/`pluginStatesFn`; `head()` emits favicon links + title/og from brand; `RootDocument` renders the `<style>` block (app chrome pages only — `isConsole` children path must NOT double-emit).
 - Portal shells (`platform.tsx`, `portal.$instance.$.tsx` loaders): resolve instance → tenant → platform; each defines `head()` for favicon/title and passes resolved theme into `PortalShell`, which renders the `<style>` block + brand slot. Exactly one `<style>` emitter per page (a route is either app-chrome or portal).
 - `<style>` contains BOTH `:root` and `.dark` override blocks from the same seeds; `.dark` stays the user pref (orthogonal to brand). No client detection, no flash — all server-rendered.
+- Typography: `head()` emits the font delivery per theme — self-hosted `@font-face` (served from R2 via an app route) with metric-matched fallback, or Google Fonts `<link>` when the theme opts in. `--font-sans`/`--font-heading`/`--font-mono` overrides ride the same `<style>` block.
 
 ## Phase 4 — Async asset pipeline
 
-- `wrangler.jsonc`/`wrangler.dev.jsonc`: `THEME_ASSETS_BUCKET` R2 binding (mirror `AUDIO_BUCKET`).
-- Upload api-route in `plugins/theme/src/api-routes/`: authz → R2 put → enqueue job message (same shape as consultations audio upload: `AUDIO_QUEUE` producer pattern — see `consultations.$id.audio.ts`).
-- Queue consumer: the `ktb-transcription` consumer lives in app lib (`audio-jobs.ts`) — add a `theme-asset` message kind dispatched to the theme pipeline, or a dedicated `ktb-theme-assets` queue (open decision below). Worker validates image → derives variants (favicon 16/32/180, logo png/webp/avif, optional dominant-color → suggested seeds) → updates `theme_assets` + `theme_definitions` refs. No sync image work in request path.
+- `wrangler.jsonc`/`wrangler.dev.jsonc`: `THEME_ASSETS_BUCKET` R2 binding (mirror `AUDIO_BUCKET`) + dedicated `ktb-theme-assets` queue (producer+consumer bindings — DECIDED: dedicated, not shared with transcription).
+- Upload api-route in `plugins/theme/src/api-routes/`: authz → R2 put → enqueue job message (same shape as consultations audio upload).
+- Queue consumer (new, mirrors `audio-jobs.ts` pattern): validates image → derives variants (favicon 16/32/180, logo png/webp/avif, optional dominant-color → suggested seeds) → updates `theme_assets` + `theme_definitions` refs. Font jobs: download woff2 (Google Fonts or upload) → R2 → emit `@font-face` manifest with metric-matched fallback metrics. No sync image/font work in request path.
 - Optional: surface theme-asset jobs in jobs console feed (jobs plugin consumes projections).
 
 ## Phase 5 — Admin UI + theme switch
@@ -44,12 +45,18 @@ Resolution is PER-SHELL, not root-global: the portal instance id isn't knowable 
 
 ## Phase 6 — Verify
 
-- Unit: palette contrast/clamp edge cases, resolve() fallback chain, schema validation.
-- Service/component tests per package scope (`cd plugins/theme && bunx vitest run`); `bun run check` green; SSR smoke: curl HTML contains `<style>` overrides + favicon links pre-hydration.
+- Unit: palette contrast/clamp edge cases, resolve() fallback chain, schema validation, font fallback metric generation.
+- Service/component tests per package scope (`cd plugins/theme && bunx vitest run`); `bun run check` green; SSR smoke: curl HTML contains `<style>` overrides + favicon links + `@font-face` pre-hydration.
 
-## Open decisions
+## Phase 7 — Legacy brand retirement
 
-- Reuse audio queue vs dedicated theme queue (lean: same queue infra, distinct message kind).
-- `theme_definitions` scope modeling: polymorphic scope columns vs per-scope tables.
-- Tenant-admin (non-platform) theme writes — v1 PlatformAdmin only?
-- Preview mechanism: `?theme=` query override gated to PlatformAdmin.
+- Platform-default theme row carries the KTB brand (logo, palette, fonts, meta).
+- Remove hardcoded fallbacks: `PortalShell` "KTB" wordmark → `portal.brand` chrome only; `plugins/site` `app.header.brand` contribution → theme plugin's; static `__root__` meta/favicon → theme-driven `head()`.
+- ui token defaults remain the final fallback (no theme row = stock KTB look).
+
+## Decisions (from review)
+
+- Fonts: themeable; self-host woff2 in R2 default, Google Fonts `<link>` opt-in per theme.
+- Queue: dedicated `ktb-theme-assets` (not shared with transcription).
+- Theme writes: PlatformAdmin only in v1; tenant-admin self-serve deferred.
+- Preview: `?theme=<id>` query override gated to PlatformAdmin (recommended over cookie — explicit, shareable, no state).

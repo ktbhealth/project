@@ -81,9 +81,9 @@ that read them directly.
   user's light/dark preference, orthogonal to brand.
 - **No layout shift.** The brand slot reserves a fixed aspect-ratio box
   for logo/wordmark (sizing via `[&_svg]`/aspect utilities, never
-  intrinsic image size); favicons never affect layout. Webfont tokens
-  (`--font-sans` → `--font-geist`) are NOT theme-overridable in v1 —
-  font swap is the one remaining CLS source, deliberately excluded.
+  intrinsic image size); favicons never affect layout. Fonts ARE
+  themeable (see Typography) but ship with a metric-matched fallback so
+  the swap can't shift layout.
 
 ### Accessibility — automatic, not advisory
 
@@ -108,6 +108,30 @@ that read them directly.
 - **Honest limits.** Auto-derivation covers color contrast only; themes
   can't break semantics because components never consume raw hex —
   they consume the token layer.
+
+### Typography — fonts are themeable
+
+`--font-sans`/`--font-heading`/`--font-mono` (currently `--font-geist*`)
+join the overridable token set. Two delivery modes, chosen per theme:
+
+- **Self-hosted (default).** The asset job downloads the woff2 files
+  (from Google Fonts or a user upload) into `THEME_ASSETS_BUCKET` and
+  the shell emits `@font-face` + a **metric-matched fallback**
+  (`size-adjust`/`ascent-override` etc.) so the swap can't cause CLS.
+  Private, fast, and consistent with the on-prem/self-hosting
+  positioning (T-082) — no visitor requests leave our origin.
+- **Google Fonts `<link>` (opt-in).** Convenience mode for tenants who
+  don't mind the external request; the trade-off (IP leak to Google,
+  on-prem conflict) is explicit in the admin UI, not hidden.
+
+### Legacy brand retirement
+
+Today's brand is hardcoded host chrome, not a theme: the "KTB"
+wordmark + instance badge in `PortalShell`, the `app.header.brand`
+contribution in `plugins/site`, static meta/favicon in `__root__`. The
+**platform-default theme row** subsumes all of it — once themes ship,
+a final phase removes the hardcoded fallbacks so brand lives in
+exactly one place (theme data).
 
 ### Admin surface
 
