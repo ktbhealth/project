@@ -78,3 +78,4 @@
 - [ ] T-142 F2 plugins/vault: clinic\_keys + entity\_deks tables, member-device approval service, groups.zk flag (PL-007) · pri:high · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
 - [ ] T-143 F2 clinic key onboarding: keypair generation, recovery phrase encoding master key, admin device-approval UX (PL-007) · pri:high · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
 - [ ] T-144 F3 patients cipher: all PII fields ciphered, ids/flags plaintext, client decrypt in loaders (PL-007) · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
+- [ ] T-145 F3 consultations cipher: transcript/anamnesis/review/serverTranscript/correctedTranscript + opaque wire schema + client-signed versions (PL-007) · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
