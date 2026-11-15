@@ -65,3 +65,4 @@
 - [ ] T-129 Persona-aware scriptgen: vocabulary per education/class (lay 'dor de cabeça' vs technical 'cefaleia'), age speech style · pri:high · owner:devin · created:2026-11-15 · links:P-081
 - [ ] T-130 Voice resolution from persona gender+region — per-speaker voices, no static speakerVoices · pri:high · owner:devin · created:2026-11-15 · links:P-081
 - [ ] T-131 eval.validator plugin: schema for persona batches, review state machine, feedback, run progress · pri:high · owner:devin · created:2026-11-15 · links:P-081
+- [ ] T-132 RBAC role eval.validator + separate validator login/scope in portal · pri:high · owner:devin · created:2026-11-15 · links:P-081
