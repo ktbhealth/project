@@ -1,7 +1,7 @@
 +++
 id = "PL-007"
 title = "Extract @ktb/jobs port: generic enqueue/consumer/status backbone from the audio pipeline"
-status = "open"
+status = "in-progress"
 created = "2026-11-15"
 priority = "med"
 links = ["P-082", "PL-006"]
