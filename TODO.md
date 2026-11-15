@@ -75,3 +75,4 @@
 - [ ] T-139 F1 integrity surface: admin\_audit.prev\_hash chain + consultations.verifyIntegrity fn + integrity badge on ConsultationDetailPage (PL-007) · pri:high · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
 - [ ] T-140 F2 @ktb/crypto/cipher: declarative entity cipher specs (fields/plaintext classes) + encryptRow/decryptRow/encryptPatch codec (PL-007) · pri:high · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
 - [ ] T-141 F2 @ktb/crypto/keyring: client vault — non-extractable device CryptoKeys in IndexedDB, clinic master unwrap, session DEK cache (PL-007) · pri:high · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
+- [ ] T-142 F2 plugins/vault: clinic\_keys + entity\_deks tables, member-device approval service, groups.zk flag (PL-007) · pri:high · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
