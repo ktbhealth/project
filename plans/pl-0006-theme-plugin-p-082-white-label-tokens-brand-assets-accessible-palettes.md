@@ -12,8 +12,9 @@ Execution plan for P-082. Conventions: ports/adapters at the edge (ADR-0001), pl
 ## Phase 1 — Kernel kinds + shell brand slots
 
 - `packages/kernel/src/kinds.ts`: register `theme.tokens` and `theme.brand` kind descriptors (meta schemas: token map = JSON object of CSS var → oklch/color string; brand = { logoLight, logoDark, wordmark, favicon, appName, ogImage } asset refs).
-- `apps/web/src/lib/registry.ts`: add `app.brand` + `portal.brand` to `KNOWN_CHROME_REGIONS`.
-- `__root__.tsx` + portal shell: declare brand regions; render resolved brand (logo/wordmark) in a fixed-aspect slot (CLS guard — never intrinsic image size).
+- `packages/kernel/src/chrome.ts`: `app.header.brand` ALREADY exists (PL-005 landed) — only add `portal.brand` to `KNOWN_CHROME_REGIONS`.
+- App shell: `__root__.tsx` already renders `app.header.brand` entries — no slot work needed there.
+- Portal shell: `plugins/portal/src/views/PortalShell.tsx` `SidebarHeader` hardcodes the "KTB" wordmark + instance badge — add a `brand` ReactNode prop rendered in that fixed slot (keep the instance badge host-owned); `platform.tsx` + `portal.$instance.$.tsx` collect `portal.brand` chrome per instance and pass it down. Fixed aspect box (CLS guard — never intrinsic image size).
 
 ## Phase 2 — `plugins/theme` domain core
 
@@ -23,15 +24,17 @@ Execution plan for P-082. Conventions: ports/adapters at the edge (ADR-0001), pl
 
 ## Phase 3 — Host injection (SSR guarantees)
 
-- Root loader: resolve active theme from request scope (session → tenant → portal host) alongside `sessionFn`/`pluginStatesFn`.
-- `head()`: favicon links (svg/png/apple-touch) + localized title/og from `theme.brand.appName`.
-- Render `<style>` block with `:root`/`.dark` var overrides in `RootDocument` — initial HTML, no client detection, no flash. Brand ≠ color-scheme: `.dark` stays user pref.
+Resolution is PER-SHELL, not root-global: the portal instance id isn't knowable in the root loader, and `head` ctx carries `loaderData` (verified in router-core types) so each shell's own `head()` can emit its theme's favicon/title.
+
+- App shell (`__root__.tsx` loader): resolve theme for session scope (tenant → platform) alongside `sessionFn`/`pluginStatesFn`; `head()` emits favicon links + title/og from brand; `RootDocument` renders the `<style>` block (app chrome pages only — `isConsole` children path must NOT double-emit).
+- Portal shells (`platform.tsx`, `portal.$instance.$.tsx` loaders): resolve instance → tenant → platform; each defines `head()` for favicon/title and passes resolved theme into `PortalShell`, which renders the `<style>` block + brand slot. Exactly one `<style>` emitter per page (a route is either app-chrome or portal).
+- `<style>` contains BOTH `:root` and `.dark` override blocks from the same seeds; `.dark` stays the user pref (orthogonal to brand). No client detection, no flash — all server-rendered.
 
 ## Phase 4 — Async asset pipeline
 
 - `wrangler.jsonc`/`wrangler.dev.jsonc`: `THEME_ASSETS_BUCKET` R2 binding (mirror `AUDIO_BUCKET`).
-- Upload api-route in `plugins/theme/src/api-routes/`: authz → R2 put → enqueue job message (same shape as consultations audio upload).
-- Queue worker/handler: validate image → derive variants (favicon 16/32/180, logo png/webp/avif, optional dominant-color → suggested seeds) → update `theme_assets` + `theme_definitions` refs. No sync image work in request path.
+- Upload api-route in `plugins/theme/src/api-routes/`: authz → R2 put → enqueue job message (same shape as consultations audio upload: `AUDIO_QUEUE` producer pattern — see `consultations.$id.audio.ts`).
+- Queue consumer: the `ktb-transcription` consumer lives in app lib (`audio-jobs.ts`) — add a `theme-asset` message kind dispatched to the theme pipeline, or a dedicated `ktb-theme-assets` queue (open decision below). Worker validates image → derives variants (favicon 16/32/180, logo png/webp/avif, optional dominant-color → suggested seeds) → updates `theme_assets` + `theme_definitions` refs. No sync image work in request path.
 - Optional: surface theme-asset jobs in jobs console feed (jobs plugin consumes projections).
 
 ## Phase 5 — Admin UI + theme switch

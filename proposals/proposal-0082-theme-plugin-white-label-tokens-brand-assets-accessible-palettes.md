@@ -45,15 +45,20 @@ New registered kinds consumed via `collectKindContributions`:
   (P-053); per-portal-instance theming uses the `portal` field already on
   chrome contributions (P-081) — a clinic's doctor portal and its
   patient-facing portal can carry different brands.
-- The host resolves the active theme in the root loader (alongside
-  `sessionFn`/`pluginStatesFn`) and injects it as:
-  1. a `<style>` block of var overrides scoped to `:root`/`.dark`,
-  2. `<link rel="icon">` + apple-touch-icon in `head()`,
-  3. localized title/og meta from `theme.brand.appName`.
-- New shell regions `app.brand` / `portal.brand` (declared alongside the
-  existing `app.header.nav`, `portal.sidebar`) render the logo/wordmark;
-  the theme plugin contributes `kind: "component"` chrome into them,
-  filtered by its `portal` scope.
+- Theme resolution is PER-SHELL (the portal instance id isn't knowable
+  in the root loader): the app shell resolves session → tenant →
+  platform in the root loader; each portal shell (`platform.tsx`,
+  `portal.$instance.$.tsx`) resolves instance → tenant → platform in
+  its own loader and emits its own `head()` favicon/title (`head` ctx
+  carries `loaderData`). Exactly one `<style>` emitter per page.
+- Injections per shell: a `<style>` block of var overrides scoped to
+  `:root`/`.dark`, `<link rel="icon">` + apple-touch-icon, and localized
+  title/og meta from `theme.brand.appName`.
+- Brand slots: `app.header.brand` already exists (PL-005) and renders in
+  `__root__.tsx`; add `portal.brand` for the portal shells —
+  `PortalShell`'s `SidebarHeader` currently hardcodes the "KTB"
+  wordmark and gets a `brand` slot instead. The theme plugin contributes
+  `kind: "component"` chrome into both regions, `portal`-scoped.
 
 ### Why CSS vars (confirmed mechanism)
 
@@ -68,9 +73,9 @@ that read them directly.
 ### SSR / rendering guarantees
 
 - **No flash, no FOUC.** Brand scope comes from the request (session →
-  tenant/portal host), resolved in the root loader — the `<style>`
-  block, favicon links, and title ship in the initial HTML. No
-  client-side theme detection script, no hydration-time swap.
+  tenant/portal host), resolved server-side in each shell's loader —
+  the `<style>` block, favicon links, and title ship in the initial
+  HTML. No client-side theme detection script, no hydration-time swap.
 - **Brand ≠ color scheme.** The plugin emits BOTH `:root` and `.dark`
   override blocks derived from the same seeds; `.dark` remains the
   user's light/dark preference, orthogonal to brand.
