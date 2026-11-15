@@ -49,3 +49,8 @@
 # file_prefix = "pl"
 # done_state = "done"
 # zero_pad = 3
+
+# This repo is the ktbhealth workspace's org ledger — ledger-less
+# sibling clones resolve here via the index org fallback.
+[index]
+ledger = "org"
