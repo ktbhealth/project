@@ -40,7 +40,8 @@ Resolution is PER-SHELL, not root-global: the portal instance id isn't knowable 
 
 ## Phase 5 — Admin UI + theme switch
 
-- `panel.pages` `/platform/theme`: scope picker (platform/tenant/portal-instance), seed color editors, live preview (iframe `?theme=<id>` preview mode), contrast report per pairing, publish.
+- `panel.pages` `/platform/theme`: scope picker (platform/tenant/portal-instance), seed color editors, live preview, contrast report per pairing, publish.
+- Preview = **cookie** (DECIDED): admin picks a theme → server fn sets `ktb-theme-preview=<themeId>` (httpOnly, short-lived); every shell loader checks it AFTER the PlatformAdmin gate and honors it over resolved scope; a dismissible banner marks preview mode; clearing the cookie exits. Works across app + portal shells since it's request-scoped.
 - `chrome` `headerAction` into `portal.header.actions`, `optionalDeps: [platformHeaderPlugin.id]` (jobs.header degradation contract): popover listing themes by scope for preview/switch.
 
 ## Phase 6 — Verify
@@ -59,4 +60,4 @@ Resolution is PER-SHELL, not root-global: the portal instance id isn't knowable 
 - Fonts: themeable; self-host woff2 in R2 default, Google Fonts `<link>` opt-in per theme.
 - Queue: dedicated `ktb-theme-assets` (not shared with transcription).
 - Theme writes: PlatformAdmin only in v1; tenant-admin self-serve deferred.
-- Preview: `?theme=<id>` query override gated to PlatformAdmin (recommended over cookie — explicit, shareable, no state).
+- Preview: `ktb-theme-preview` cookie (httpOnly, admin-gated in loaders) — DECIDED over `?theme=` query.
