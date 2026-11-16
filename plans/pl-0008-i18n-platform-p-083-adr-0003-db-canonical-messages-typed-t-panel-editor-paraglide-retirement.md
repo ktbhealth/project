@@ -158,10 +158,12 @@ bundle budget (T-063). All custom code stays pure/testable.
 - **Stamp TTL** ~15s/isolate; local writes invalidate immediately —
   `t()` never queries per call.
 - **Missing key** → scope → locale → default locale → `namespace.key`
-  literal; CI gap report for non-default locales.
-- **Plural categories**: CLDR-derived static table generated once into
-  `@ktb/i18n` (`Intl.PluralRules` can't enumerate categories); the
-  validator enforces per-locale coverage against it.
+  sentinel (never blank/English-in-disguise); literal fallbacks counted
+  (metric + access log); CI gap report for non-default locales.
+- **Plural categories**: CLDR plural rules baked into `@ktb/i18n` by
+  one-time codegen as a static, versioned table (DECIDED: no
+  per-locale override in v1); `Intl.PluralRules` can't enumerate
+  categories, so the validator enforces coverage against the table.
 - **Rich text IS supported**: `rich` message kind = sanitized HTML via
   the `@ktbhealth/ui` PlateJS `RichTextEditor` (added upstream in the
   ui repo, consumed by git-tag bump); allowlist enforced on write and

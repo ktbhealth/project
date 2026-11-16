@@ -105,8 +105,9 @@ Paraglide and the per-plugin `i18n.ts` catalogs.
   params must match the key's declared signature exactly; `text`
   messages reject markup, `rich` messages pass the HTML allowlist;
   length caps; plural/select category coverage per locale (against a
-  CLDR-derived categories table — `Intl.PluralRules` can't enumerate
-  categories). Missing keys resolve `scope → locale → default locale →`
+  CLDR-derived categories table baked into `@ktb/i18n` by one-time
+  codegen — `Intl.PluralRules` can't enumerate categories; no
+  per-locale override in v1). Missing keys resolve `scope → locale → default locale →`
   the literal `namespace.key` — the key is a visible sentinel, never a
   silent blank or English masquerading as localized; every
   fallback-to-literal is counted (metric + access log) so untranslated
