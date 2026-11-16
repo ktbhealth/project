@@ -139,3 +139,4 @@
 - T-140 F2 @ktb/crypto/cipher: declarative entity cipher specs (fields/plaintext classes) + encryptRow/decryptRow/encryptPatch codec (PL-007) · pri:high · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
 - T-141 F2 @ktb/crypto/keyring: client vault — non-extractable device CryptoKeys in IndexedDB, clinic master unwrap, session DEK cache (PL-007) · pri:high · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
 - T-142 F2 plugins/vault: clinic\_keys + entity\_deks tables, member-device approval service, groups.zk flag (PL-007) · pri:high · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
+- T-143 F2 clinic key onboarding: keypair generation, recovery phrase encoding master key, admin device-approval UX (PL-007) · pri:high · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge

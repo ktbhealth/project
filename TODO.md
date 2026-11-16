@@ -76,4 +76,3 @@
 - [ ] T-147 F3 audio: optional client-encrypted R2 upload (chunked AES-GCM); ZK tenants bypass server Whisper pipeline (PL-007) · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
 - [ ] T-148 F3 patient portal: wrap consultation DEK to patient key in invite flow, browser-side decrypt (PL-007) · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
 - [ ] T-149 F3 notifications under ZK: metadata-only title/body/payload — no PHI server can no longer read (PL-007) · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
-- [ ] T-143 F2 clinic key onboarding: keypair generation, recovery phrase encoding master key, admin device-approval UX (PL-007) · status:in-progress · pri:high · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
