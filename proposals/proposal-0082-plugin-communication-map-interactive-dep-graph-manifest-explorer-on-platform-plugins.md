@@ -180,6 +180,56 @@ Manager catalog gains the map copy (view names, legend, empty states,
 manifest-sheet labels) in all three locales (en, pt-BR, es) — same
 `managerMessages(locale)` convention.
 
+## Bundle cost
+
+`@xyflow/react` is already shipped through `@ktbhealth/ui`, but the
+map tab should not tax the table view: the canvas mounts lazily
+(`React.lazy` + `Suspense`, or mounted only when the Map tab is
+active) so the table stays the fast default path. Node/edge objects
+derive in `useMemo` from `plugins` + `states` — re-derived only when
+the loader data changes (a toggle invalidates the loader → the map
+repaints with fresh status, same as the table).
+
+## Rollout
+
+1. **Manifests** — kernel `PluginMeta.keywords` + `PLUGIN_KEYWORDS`
+   vocabulary + validation test; fill all ~70 manifests in `index.ts`
+   / `client.ts` pairs. Shippable alone: keywords already improve the
+   table's search.
+2. **Graph core** — `logic.ts` derives `graphFromPlugins`,
+   `layeredLayout`, `focusNeighborhood`, `REGION_OWNERS`; full unit
+   coverage (100% gate).
+3. **Map view** — `PluginsMapPage` (canvas + node type + manifest
+   `Sheet` + view switcher + legend), i18n, tabs wiring on
+   `PluginsPage`, view test. Reuses existing toggle/config dialogs.
+
+## Testing
+
+- `logic.test.ts`: edge derivation per kind, region-owner resolution
+  incl. unknown-region fallback, layering invariants (depth respects
+  every required edge), neighborhood focus = the two existing
+  closures.
+- Keyword vocabulary test over the real registry (imports the client
+  registry, not fixtures — rot is caught where it happens).
+- View test: rendered map shows every registry plugin exactly once;
+  click opens the manifest sheet; disabled/blocked states paint.
+- Parity test (`apps/web plugins.test.ts`) unchanged — keywords are
+  `meta` data and mirrors must match like the rest of `meta`.
+- `bun run check` + scoped `bunx vitest run` in `plugins/manager`.
+
+## Risks
+
+- **Region-owner drift** — new shells/regions appear without updating
+  `REGION_OWNERS`. Mitigation: a vitest asserting every
+  `chrome[].region` prefix in the registry resolves to a known owner
+  (same "test the real registry" pattern as keywords).
+- **Readability at ~70 nodes** — layered columns can get tall.
+  Mitigation: domain lanes collapse intra-domain edges; search +
+  focus mode shrink the visible set; a future barycenter pass and
+  per-domain collapse are layout-internal upgrades.
+- **Keyword vocabulary drift** — mitigated by the vocabulary test;
+  adding a keyword is a one-line kernel change, reviewable.
+
 ## Open questions
 
 - Layout: hand-rolled longest-path layering (zero deps, deterministic)
@@ -194,5 +244,9 @@ manifest-sheet labels) in all three locales (en, pt-BR, es) — same
 ## Non-goals
 
 - Editing the graph (drag-to-redeclare deps) — the map is read-only.
-- Runtime/event telemetry on edges.
+- Persisted/manual node arrangement, saved layouts, or export (PNG /
+  SVG) — revisit if the map becomes a docs artifact.
+- Runtime/event telemetry on edges (CQRS traffic, dispatch counts).
 - Per-tenant state visualization (P-053 follow-up).
+- A graph DSL or new manifest fields beyond `meta.keywords` — the map
+  is a projection of what plugins already declare.
