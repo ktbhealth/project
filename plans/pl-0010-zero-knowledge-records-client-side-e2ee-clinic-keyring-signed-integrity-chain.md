@@ -1,5 +1,5 @@
 +++
-id = "PL-007"
+id = "PL-010"
 title = "Zero-knowledge records: client-side E2EE, clinic keyring, signed integrity chain"
 status = "open"
 created = "2026-11-15"

@@ -1,5 +1,5 @@
 +++
-id = "PL-006"
+id = "PL-009"
 title = "Transcript eval platform: M0 stubs-first, M1 synth dataset, M2 Jev eval, M3 calibration+CI, M4 cloud+real ingest"
 status = "open"
 created = "2026-11-13"

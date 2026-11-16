@@ -1,5 +1,5 @@
 +++
-id = "P-080"
+id = "P-084"
 title = "Transcript eval platform: hybrid synthetic/real dataset, hexagonal ports, staged clinical metrics"
 status = "open"
 created = "2026-11-13"

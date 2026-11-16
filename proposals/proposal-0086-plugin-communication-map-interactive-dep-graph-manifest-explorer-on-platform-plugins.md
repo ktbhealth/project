@@ -1,5 +1,5 @@
 +++
-id = "P-082"
+id = "P-086"
 title = "Plugin communication map: interactive dep-graph + manifest explorer on /platform/plugins"
 status = "open"
 created = "2026-11-16"
