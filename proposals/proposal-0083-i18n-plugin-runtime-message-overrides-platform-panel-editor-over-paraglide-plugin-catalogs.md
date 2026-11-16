@@ -1,131 +1,182 @@
 +++
 id = "P-083"
-title = "i18n plugin: runtime message overrides + platform panel editor over Paraglide/plugin catalogs"
+title = "i18n plugin: DB-canonical message platform — typed t(), validated runtime copy, platform panel editor"
 status = "open"
 created = "2026-11-15"
 priority = "med"
 links = ["T-082", "P-065", "P-070", "P-081", "P-082"]
 +++
 
-# i18n plugin — runtime message overrides + platform panel editor
+# i18n plugin — DB-canonical message platform
 
 ## Problem
 
-Copy is split across two disjoint systems with no runtime seam:
+Copy is compile-time data in two disjoint systems:
 
 - **Host chrome** — Paraglide JS compiles `apps/web/messages/{en,es,pt-BR}.json`
-  into typed functions (`m.nav_patients()`). Compile-time only: no dynamic
-  key lookup, no DB overrides, locale set is fixed at build time.
+  into typed functions (`m.nav_patients()`). No runtime key lookup, no
+  DB, locale set fixed at build time. Paraglide was built for this
+  compile-time model — it is not made for runtime-editable messages.
 - **Plugin copy** — each plugin hand-rolls a typed catalog in
-  `plugins/*/src/i18n.ts` (plugins cannot import Paraglide output — arch
-  lint). The host injects `locale` via `PageContext`/`PanelPageContext`/
-  `ChromeProps`.
-- **Plugin chrome labels** — nav/sidebar/footer strings are English
-  literals in manifests, localized through hand-maintained lookup maps in
-  `apps/web/src/lib/i18n.ts` (`NAV_LABELS`, `PANEL_LABELS`, …).
+  `plugins/*/src/i18n.ts` (plugins cannot import Paraglide output —
+  arch lint). The host injects `locale` via `PageContext`/
+  `PanelPageContext`/`ChromeProps`.
+- **Plugin chrome labels** — English literals in manifests, localized
+  through hand-maintained maps in `apps/web/src/lib/i18n.ts`
+  (`NAV_LABELS`, `PANEL_LABELS`, …).
 
-There is no way to fix a typo, adjust tone, or white-label wording
-without a code change + deploy. T-082 already shows copy decisions are
-contested; P-065 makes locale-native quality a core wedge. A platform
-panel to view/edit effective messages — with base copy still in code —
-is the missing ops surface.
+Every wording fix is a code change + deploy. T-082 shows copy decisions
+are contested; P-065 makes locale-native quality the wedge; P-082
+white-label and P-081 portals both want per-scope wording. Messages
+should be **data**, editable at runtime, validated, and reviewable —
+not compiled artifacts.
 
 ## Proposal
 
 An i18n system plugin (`plugins/i18n.*` pieces + a `@ktb/i18n` port,
-following the `packages/rbac` + `plugins/rbac` precedent) that adds a
-**runtime override layer** on top of existing catalogs — Paraglide stays
-the compile-time base, plugin `i18n.ts` catalogs stay the typed base.
-Overrides are deltas, never replacements of source copy.
+following the `packages/rbac` + `plugins/rbac` precedent) that makes
+the database the canonical store for ALL UI copy and retires both
+Paraglide and the per-plugin `i18n.ts` catalogs.
 
-### Contribution kinds (generic channel, P-070)
+### Data model
 
-- `i18n.locale` — `{ code, endonym, fallback?, enabled }`. Governs which
-  compiled locales are selectable and their display names at runtime.
-  NOTE: adding a *new* locale still requires a rebuild (Paraglide
-  compiles per-locale modules); this kind governs enable/disable +
-  metadata, not locale authoring.
-- `i18n.messages` — optional contributed catalogs for plugins that want
-  data-driven copy without hand-rolled `i18n.ts` (escape hatch, not the
-  default — typed catalogs keep compile-time completeness).
+- `i18n_namespaces` — namespace registry: id, owning plugin, key manifest
+  hash, default locale.
+- `i18n_messages` — the canonical store: `namespace.key × locale ×
+  scope → { value, status: draft|published, params signature }`.
+  Scope = `global | tenant | portal instance` (P-082 theme precedent).
+  Rows are full messages, not deltas — the DB is the source of truth.
+- Seed bundle: a JSON snapshot generated at build (`gen:i18n-seed`)
+  from the last DB export, shipped with the worker so the app renders
+  on cold start / empty DB / DB outage. DB rows override seed per key.
+
+### Codegen keeps type safety
+
+- `gen:i18n-types` emits a `.d.ts` from the message manifest (keys +
+  declared params per namespace) → `t("nav.patients", { name })` stays
+  fully typed with param checking. CI regenerates and diffs — drift
+  fails the build. Compile-time checking becomes CI-time checking.
+- `gen:i18n-manifest` walks plugin contributions + the seed bundle to
+  produce the key/param manifest the panel and validator share.
 
 ### Resolution service
 
-`@ktb/i18n` port: `I18n.t(scope, key, params)` / `I18n.catalog(pluginId)`
-resolves, per request scope:
+`@ktb/i18n` port: `I18n.t(key, params)` resolves per request scope:
 
-`portal/tenant override → global override → plugin catalog / Paraglide fn`
+`portal instance → tenant → global` scope chain, then locale fallback
+(`pt-BR → en` etc. per `i18n.locale` declarations).
 
-- Overrides live in a contributed `i18n_overrides` table: namespaced key
-  (`plugin.key` or Paraglide message id), locale, scope
-  (global | tenant | portal instance — same scoping precedent as
-  P-082 theme), value, updated-by/at. Per-portal-instance overrides give
-  a clinic's pt-BR portal its own wording for free.
-- Plugin catalogs plug in through a uniform `I18nCatalog` contract so
-  `resolveMessages(catalog, locale)` feeds the same override lookup —
-  `i18n.ts` files migrate incrementally, no big-bang.
-- Host Paraglide messages become overridable via a small generated
-  key→function map emitted alongside `src/paraglide` (the message ids
-  are already stable identifiers); `lib/i18n.ts` wrappers consult the
-  override store first. Overrides use Paraglide's message syntax
-  (ICU MessageFormat params) so panel edits stay valid if exported back
-  into `messages/*.json`.
+- Per request, load applicable published rows once into an immutable
+  `Map`; `t()` is a pure lookup + render. Version-stamped per-isolate
+  cache, invalidated on write — never query per `t()` call (T-063
+  bundle/request budget).
+- **Message format**: ICU MessageFormat subset — `{param}`
+  interpolation plus `plural`/`select` where needed. v1 implements a
+  ~100-line safe subset in-house (no formatjs — worker bundle cost);
+  full ICU is a later option.
+- **Validation** (shared parser, enforced on write AND in CI):
+  params must match the key's declared signature exactly; no markup;
+  length caps; plural/select category coverage per locale.
+
+### Contribution kinds (generic channel, P-070)
+
+- `i18n.locale` — `{ code, endonym, fallback?, enabled }`. Runtime
+  locale enable/disable + picker metadata. New locales are data rows —
+  **no rebuild required** (the whole point of data-first).
+- `i18n.messages` — optional contributed seed catalogs for plugins that
+  ship copy with the package; imported into `i18n_messages` on sync.
+  Existing `plugins/*/src/i18n.ts` files become seed sources, then
+  retire.
+
+### Migration (full — this is the point)
+
+- `apps/web/messages/*.json` → one-time import into `i18n_messages`
+  (en/es/pt-BR rows, global scope). Paraglide vite plugin removed;
+  `m.*` call sites migrate to `t()` (`lib/i18n.ts` chrome first, codemod
+  for route-level usage).
+- Plugin `i18n.ts` catalogs → seed import via `I18nCatalog` shim during
+  transition, then deleted. Host injects locale/catalog through
+  `@ktb/i18n` instead of per-plugin props over time.
+- English manifest literals in chrome contributions resolve through
+  `t()` with the literal as fallback during transition.
 
 ### Platform panel
 
-`/platform/i18n` page (PanelPlugin, platform portal instance):
+`/platform/i18n` (PanelPlugin + chrome sidebar entry):
 
-- Namespace → key → locale matrix; edit override per locale with
-  base-message preview and effective-message preview.
-- Missing-translation report (keys lacking pt-BR/es) and ICU param-parity
-  lint across locales.
-- Export JSON per namespace/locale — the path back into code when a
-  runtime edit should be promoted to source copy.
-- Sidebar entry via `chrome` into `console.*` regions.
+- **Matrix view**: rows = keys grouped by namespace, columns = locales
+  × scopes. Badges: draft, overridden-from-seed, missing translation,
+  param mismatch. This is the primary editing surface.
+- Cell editing with live preview rendered with sample params
+  (`{name}` → "Maria"), pseudo-locale toggle for truncation checks,
+  base-vs-effective diff, reset-to-seed per cell/namespace.
+- Bulk ops: copy locale column, fill-missing from fallback locale.
+- Import/export JSON per namespace×locale with a validation report —
+  nothing partially applied.
+- Filters: draft/published, missing-in-locale, has-override, fuzzy
+  full-text search.
+- Optional scheduled JSON export committed to the repo for diffable
+  copy history if git-backed review is wanted alongside draft→publish.
+
+### Access control
+
+Permission-scoped via rbac, NOT admin-only: `i18n.messages.edit`
+granted per scope — an actor can edit tenant/portal rows only where
+authorized; global rows stay platform-level. Read is broader (matrix
+visible to console users); write checks happen inside the service
+layer like every other panel loader. Permission scope and data scope
+line up by construction.
 
 ## Why this shape
 
-- **Paraglide-compatible**: it remains the compile pipeline and typed
-  base. The override layer sits at the service boundary, so we keep
-  type safety, tree-shaking, and the 100% coverage gate's compile-time
-  guarantees. Runtime catalogs replacing Paraglide entirely was
-  considered and rejected — it loses all of that for no gain.
-- **System, not feature**: like `platform.*`/`rbac`, it sits below
-  feature plugins; ids follow `<domain>.<concern>` (`i18n.tables`,
-  `i18n.services`, `i18n.panel`, `i18n.chrome` — split by concern since
-  a plugin object carries one typed contribution kind).
-- **Matches existing precedents**: generic `contributions[]` kinds
-  (P-070), portal-instance scoping (P-081), DB-backed definitions with
-  code fallback (P-082 theme).
+- **Data-first is the product fit**: multi-tenant, white-label, and
+  locale-native (P-065) all want runtime-editable, per-scope copy.
+  Compile-time catalogs were the wrong tool; Paraglide is retired, not
+  wrapped.
+- **Safety is preserved, relocated**: typed `t()` + param signatures
+  via codegen, CI drift check, write-path validation, draft→publish +
+  audit (P-080) replace PR review for copy. T-082 decisions land as
+  data with full history.
+- **System, not feature**: `i18n.tables`, `i18n.services`,
+  `i18n.panel`, `i18n.chrome` — split by concern (one typed
+  contribution kind per plugin object).
+- **Precedents**: generic kinds (P-070), portal scoping (P-081),
+  DB-backed definitions (P-082), rbac-scoped panel writes.
 
 ## Phasing
 
-- **P0** — `i18n_overrides` table, `@ktb/i18n` service, panel editor
-  scoped to plugin catalogs only.
-- **P1** — `I18nCatalog` contract; migrate plugin `i18n.ts` files
-  incrementally; `i18n.locale` kind drives the picker/labels;
-  missing-translation report.
-- **P2** — Paraglide host messages editable via the key map; export
-  workflow back to `messages/*.json`.
-- **P3 (optional)** — per-portal-instance forced locale / default
-  locale (clinic portal pinned to pt-BR).
+- **P0** — `i18n_namespaces`/`i18n_messages` tables, `@ktb/i18n`
+  service (resolve + validate + render), seed bundle pipeline,
+  `gen:i18n-types`, panel matrix reader.
+- **P1** — panel editing (draft→publish), import/export, missing-
+  translation + param-parity reports; migrate ONE plugin catalog
+  end-to-end as the reference.
+- **P2** — migrate all plugin `i18n.ts` catalogs and chrome label
+  maps; `i18n.locale` kind drives picker/locales; retire Paraglide
+  for plugin copy.
+- **P3** — host `messages/*.json` import, `m.*` → `t()` migration,
+  remove paraglideVitePlugin; per-portal-instance forced/default
+  locale.
 
 ## Risks / open questions
 
-- ICU param parity between Paraglide syntax and DB overrides — needs a
-  shared validator in `@ktb/i18n`, enforced in the panel and on write.
-- Coverage gate: resolution service + panel fns need full tests; keep
-  the override lookup a pure, easily-tested function.
-- Workerd bundle/request cost (T-063): override maps must be cached
-  per-isolate with invalidation on write, not re-queried per `t()` call.
-- Copy governance: runtime edits can diverge from reviewed source copy —
-  panel is platform-admin only; export-promote flow keeps code as the
-  source of truth. T-082 decisions should land in `messages/*.json`
-  first, then be overridden if ever needed.
-- Locale *authoring* stays build-time; the proposal should say so
-  explicitly so nobody expects runtime locale addition.
+- **Review workflow**: copy changes leave the PR flow — draft→publish
+  + audit must be disciplined; optional git export mitigates.
+- **Type pipeline**: `gen:i18n-types` must run in CI before
+  typecheck; ordering with `gen:route-types` needs care.
+- **Seed drift**: seed bundle vs DB divergence on fresh envs — seed
+  sync on deploy, CI check that seed ⊆ published messages.
+- **Cold-start correctness**: empty-DB fallback must render complete
+  UI; test the seed-only path explicitly.
+- **ICU subset scope**: plural/select categories differ per locale —
+  validator warns; full ICU deferred.
+- **Bundle/request cost** (T-063): message maps cached per-isolate by
+  version stamp; renderer must stay dependency-light.
+- **100% coverage gate**: resolver, validator, and panel fns need
+  full tests — keep `t()` resolution a pure function.
 
 ## Links
 
 P-065 (locale-native wedge), P-070 (generic kinds), P-081 (portal
-instances), P-082 (theme scoping precedent), T-082 (copy decisions).
+instances), P-082 (scoped definitions precedent), T-082 (copy
+decisions), P-080 (audit feed for edit history).
