@@ -165,9 +165,11 @@ bundle budget (T-063). All custom code stays pure/testable.
   per-locale override in v1); `Intl.PluralRules` can't enumerate
   categories, so the validator enforces coverage against the table.
 - **Rich text IS supported**: `rich` message kind = sanitized HTML via
-  the `@ktbhealth/ui` PlateJS `RichTextEditor` (added upstream in the
-  ui repo, consumed by git-tag bump); allowlist enforced on write and
-  render — never ad-hoc HTML.
+  the `@ktbhealth/ui` PlateJS `RichTextEditor` (v0.3.1@react, in the
+  ui repo); allowlist enforced on write and render — never ad-hoc
+  HTML. Plate renders SSR-safe; only HTML→doc parsing (`htmlToRichText`,
+  needs DOM) and `onChange` (async, batched) are client-only concerns —
+  SSR emits sanitized HTML, the editor mounts client-side.
 - **Concurrency = Loro CRDT** (`@loro-crdt/loro`): per-message doc,
   op log in `i18n_crdt_updates`, materialized `value` on the row for
   fast reads; CRDT only on the edit path. P0 spike verifies WASM in
