@@ -83,4 +83,3 @@
 - [ ] T-148 F3 patient portal: wrap consultation DEK to patient key in invite flow, browser-side decrypt (PL-007) · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
 - [ ] T-149 F3 notifications under ZK: metadata-only title/body/payload — no PHI server can no longer read (PL-007) · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
 - [ ] T-150 F4 availability: D1 PITR + restore runbook, ciphertext backups per tenant, DEK re-wrap on member revocation (PL-007) · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
-- [ ] T-137 F0 @ktb/crypto primitives: AES-256-GCM envelope, ECDH P-256+HKDF wrap, ECDSA P-256 sign, SHA-256+canonicalize, PBKDF2, chunked blob cipher — WebCrypto only (PL-007) · status:in-progress · pri:high · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
