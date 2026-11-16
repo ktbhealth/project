@@ -44,8 +44,10 @@ guarantees cold-start rendering. Paraglide and the per-plugin
   discipline; optional scheduled git export keeps a diffable history.
 - Type safety becomes CI-time: `gen:i18n-types` must run before
   typecheck; ordering with `gen:route-types` must be wired.
-- Seed bundle vs DB drift is managed by deploy-time seed sync + CI
-  check (seed ⊆ published); empty-DB path must render the full UI.
+- Baseline copy is DB-seeded (`global`/`published` rows via migrations
+  + import): the DB is canonical store and fallback — no message JSON
+  in the worker bundle. Namespace chunking + per-route lazy slices +
+  per-isolate `Ref`-stamped cache bound payload and request cost.
 - Message format is an in-house ICU MF1 subset (`{param}`,
   `plural`/`select` via `Intl.PluralRules`); full ICU via formatjs
   parser remains an upgrade path. MF2 deferred.

@@ -46,9 +46,11 @@ Paraglide and the per-plugin `i18n.ts` catalogs.
   scope → { value, status: draft|published, params signature }`.
   Scope = `global | tenant | portal instance` (P-082 theme precedent).
   Rows are full messages, not deltas — the DB is the source of truth.
-- Seed bundle: a JSON snapshot generated at build (`gen:i18n-seed`)
-  from the last DB export, shipped with the worker so the app renders
-  on cold start / empty DB / DB outage. DB rows override seed per key.
+- **Defaults are DB rows, not a bundle**: baseline copy is seeded into
+  `i18n_messages` as `global`/`published` rows via migrations + the
+  one-time import. The DB is both canonical store and fallback — no
+  message JSON ships inside the worker bundle, and "empty DB" only
+  exists pre-migration when the app isn't serving anyway.
 
 ### Codegen keeps type safety
 
@@ -66,10 +68,18 @@ Paraglide and the per-plugin `i18n.ts` catalogs.
 `portal instance → tenant → global` scope chain, then locale fallback
 (`pt-BR → en` etc. per `i18n.locale` declarations).
 
-- Per request, load applicable published rows once into an immutable
-  `Map`; `t()` is a pure lookup + render. Version-stamped per-isolate
-  cache, invalidated on write — never query per `t()` call (T-063
-  bundle/request budget).
+- Per request scope, load applicable published rows once into an
+  immutable `Map`; `t()` is a pure lookup + render. **Caching**:
+  per-isolate `Map` per (scope-chain × locale) behind a `Ref`
+  version stamp, invalidated on write — DB reads only on stamp change,
+  never per `t()` call (T-063 budget).
+- **Chunking**: namespace is the unit everywhere — tables, manifest,
+  generated types, panel tree, client payload (`patients.*`,
+  `consultations.*`, `platform.*`, …).
+- **Lazy loading**: SSR injects only the namespaces a route needs;
+  the client fetches per-route namespace slices via server fn on
+  navigation. Locale switch stays full-reload, so only the active
+  locale × active namespaces ever ship — no per-locale chunk graph.
 - **Message format**: ICU MessageFormat subset — `{param}`
   interpolation plus `plural`/`select` where needed. v1 implements a
   ~100-line safe subset in-house (no formatjs — worker bundle cost);
@@ -199,16 +209,13 @@ line up by construction.
   + audit must be disciplined; optional git export mitigates.
 - **Type pipeline**: `gen:i18n-types` must run in CI before
   typecheck; ordering with `gen:route-types` needs care.
-- **Seed drift**: seed bundle vs DB divergence on fresh envs — seed
-  sync on deploy, CI check that seed ⊆ published messages.
-- **Cold-start correctness**: empty-DB fallback must render complete
-  UI; test the seed-only path explicitly.
+- **Catalog growth**: namespace chunking + per-route lazy slices +
+  scope filtering bound payload; revisit if catalogs grow large.
 - **ICU subset scope**: plural/select categories differ per locale —
   validator warns; full ICU deferred.
-- **Bundle/request cost** (T-063): message maps cached per-isolate by
-  version stamp; renderer must stay dependency-light.
-- **100% coverage gate**: resolver, validator, and panel fns need
-  full tests — keep `t()` resolution a pure function.
+- **Bundle/request cost** (T-063): per-isolate `Ref`-stamped cache,
+  dependency-light renderer, no message data in the bundle; resolver,
+  validator, and panel fns stay pure for the 100% coverage gate.
 
 ## Links
 

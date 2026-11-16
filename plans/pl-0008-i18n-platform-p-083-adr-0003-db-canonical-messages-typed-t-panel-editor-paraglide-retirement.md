@@ -39,8 +39,10 @@ bundle budget (T-063). All custom code stays pure/testable.
   `t()` signatures (closed key union + per-key param shapes, craft-ts
   style). CI step: regen + `git diff --exit-code` before typecheck;
   ordering vs `gen:route-types` documented.
-- `gen:i18n-seed`: DB export → seed JSON committed/generated at build;
-  worker ships it as cold-start/empty-DB fallback. Deploy syncs seed.
+- **Defaults are DB rows, not a bundle**: baseline copy lands in
+  `i18n_messages` as `global`/`published` rows via migrations + the
+  one-time import — the DB is canonical store AND fallback; no message
+  JSON ships in the worker bundle.
 - One-time importer: `apps/web/messages/*.json` → `i18n_messages`
   (en/es/pt-BR, global scope, published).
 
@@ -49,6 +51,15 @@ bundle budget (T-063). All custom code stays pure/testable.
 - Scoped resolver: portal instance → tenant → global, then locale
   fallback chain from `i18n_locales`; published rows only; draft rows
   visible to editors in panel preview only.
+- **Caching**: per-isolate immutable `Map` per (scope-chain × locale)
+  behind a `Ref` version stamp; writes bump the stamp. `t()` = O(1)
+  pure lookup + render; DB reads only on stamp change.
+- **Chunking**: namespace is the unit everywhere — tables, manifest,
+  types, panel tree, payload.
+- **Lazy loading**: SSR injects only route-needed namespaces; client
+  fetches per-route namespace slices via server fn on navigation.
+  Locale switch stays full-reload → only active locale × active
+  namespaces ship; no per-locale chunk graph.
 - Request locale resolution: cookie (`ktb-locale`) → `i18n_locales`
   enabled check → default; replaces Paraglide `requestLocale` internals
   (same external contract during transition).
