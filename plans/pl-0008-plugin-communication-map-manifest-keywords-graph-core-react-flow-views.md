@@ -1,7 +1,7 @@
 +++
 id = "PL-008"
 title = "Plugin communication map: manifest keywords, graph core, React Flow views"
-status = "open"
+status = "in-progress"
 created = "2026-11-16"
 owner = "devin"
 priority = "med"
