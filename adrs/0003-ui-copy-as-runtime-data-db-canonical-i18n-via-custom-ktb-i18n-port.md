@@ -4,7 +4,7 @@ title = "UI copy as runtime data: DB-canonical i18n via custom @ktb/i18n port"
 status = "open"
 created = "2026-11-16"
 priority = "high"
-links = ["T-082", "P-065", "P-070", "P-081", "P-082", "P-083"]
+links = ["T-082", "P-065", "P-070", "P-081", "P-082", "P-083", "PL-008"]
 +++
 
 # ADR-0003: UI copy as runtime data — DB-canonical i18n
@@ -15,9 +15,11 @@ All UI copy is **data**, not code. Messages live in `i18n_messages`
 (DB: `namespace.key × locale × scope → value`, `draft|published`),
 scoped `global | tenant | portal instance`. A custom `@ktb/i18n`
 Effect port resolves `t(key, params)` per request; codegen emits typed
-key/param signatures and the key manifest; a build-time seed bundle
-guarantees cold-start rendering. Paraglide and the per-plugin
-`i18n.ts` catalogs are retired after seed import. Copy is edited in a
+key/param signatures and the key manifest; baseline copy is DB-seeded
+(`global`/`published` rows via migrations + import) so the DB is both
+canonical store and fallback — no message JSON ships in the worker
+bundle. Paraglide and the per-plugin
+`i18n.ts` catalogs are retired after baseline import. Copy is edited in a
 `/platform/i18n` matrix panel under rbac-scoped permissions.
 
 ## Rationale
@@ -53,6 +55,12 @@ guarantees cold-start rendering. Paraglide and the per-plugin
   parser remains an upgrade path. MF2 deferred.
 - `m.*` → `t()` migration across routes is the long pole (P-083 P3);
   plugin catalogs migrate first via an `I18nCatalog` shim.
-- Workerd budget (T-063): per-isolate `Ref`-stamped cache, dependency-
-  light renderer; resolver/validator/panel stay pure for the 100%
-  coverage gate.
+- Workerd budget (T-063): per-isolate `Ref`-stamped cache (stamp
+  re-read ≤ ~15s/isolate), dependency-light renderer; resolver/
+  validator/panel stay pure for the 100% coverage gate.
+- Hard requirements: locale switch is a full reload (hydration
+  safety); missing keys fall back scope → locale → default → key
+  literal; writes are optimistic-concurrency checked; plural-category
+  coverage uses a CLDR-derived table (`Intl.PluralRules` can't
+  enumerate categories); namespace slices ride loader data — no
+  separate client fetch.

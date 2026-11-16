@@ -25,16 +25,18 @@ bundle budget (T-063). All custom code stays pure/testable.
   default locale), `i18n_messages` (namespace.key × locale × scope →
   value, status draft|published, params signature), `i18n_locales`
   (code, endonym, fallback, enabled — runtime locale rows, no rebuild).
-- `plugins/i18n.services`: seed sync service (import `i18n.messages`
-  contributions + JSON seeds → DB, idempotent upsert).
+- `plugins/i18n.services`: baseline sync service (import
+  `i18n.messages` contributions + JSON baselines → DB, idempotent
+  upsert) + version-stamp bump on every write.
 - Register plugin ids `i18n.tables`/`i18n.services`/`i18n.panel`/
   `i18n.chrome` in the registry; arch-policy clean.
 
-## Phase 1 — Codegen + seed pipeline
+## Phase 1 — Codegen + baseline pipeline
 
 - `tools/gen-i18n-manifest.mjs`: walk plugin `i18n.messages`
-  contributions + seed bundle → key/param manifest JSON (the shared
-  contract for validator, types, panel).
+  contributions + baseline message files + DB-declared namespaces →
+  key/param manifest JSON (the shared contract for validator, types,
+  panel).
 - `tools/gen-i18n-types.mjs`: manifest → `i18n-messages.d.ts` typed
   `t()` signatures (closed key union + per-key param shapes, craft-ts
   style). CI step: regen + `git diff --exit-code` before typecheck;
@@ -52,14 +54,21 @@ bundle budget (T-063). All custom code stays pure/testable.
   fallback chain from `i18n_locales`; published rows only; draft rows
   visible to editors in panel preview only.
 - **Caching**: per-isolate immutable `Map` per (scope-chain × locale)
-  behind a `Ref` version stamp; writes bump the stamp. `t()` = O(1)
-  pure lookup + render; DB reads only on stamp change.
+  behind a `Ref` version stamp; writes bump the stamp. Stamp re-read at
+  most every ~15s per isolate + immediately after local writes — `t()`
+  never hits the DB. `t()` = O(1) pure lookup + render.
+- **Missing-key policy**: scope → locale → default locale → literal
+  `namespace.key` (never blank); CI report flags non-default-locale
+  gaps.
 - **Chunking**: namespace is the unit everywhere — tables, manifest,
   types, panel tree, payload.
-- **Lazy loading**: SSR injects only route-needed namespaces; client
-  fetches per-route namespace slices via server fn on navigation.
-  Locale switch stays full-reload → only active locale × active
-  namespaces ship; no per-locale chunk graph.
+- **Lazy loading**: SSR injects only route-needed namespaces; namespace
+  slices ride the TanStack loader response (server fns already run per
+  navigation — no extra client roundtrip).
+- **Locale switch is a HARD full-reload**: `setLocale` clears isolate
+  caches and reloads the page — SSR and client never disagree on
+  locale/catalog (hydration safety). Only active locale × active
+  namespaces ever ship; no per-locale chunk graph.
 - **Namespace resolution is automatic**: route → contributing plugins
   → namespaces, derived from the registry — `pages`/`chrome`/`routes`
   contributions already declare which plugin owns which paths, so the
@@ -85,7 +94,9 @@ bundle budget (T-063). All custom code stays pure/testable.
 ## Phase 3 — Panel editing
 
 - Cell editing: live preview with sample params, pseudo-locale toggle,
-  base-vs-effective diff, reset-to-seed per cell/namespace.
+  base-vs-effective diff, reset-to-baseline per cell/namespace.
+- Write concurrency: optimistic — each write carries the row `version`;
+  stale → 409 + panel refreshes. Audit event per write (P-080).
 - draft→publish workflow + audit events (P-080 feed integration).
 - Bulk ops: copy locale column, fill-missing from fallback.
 - Import/export JSON per namespace×locale with validation report
@@ -98,7 +109,7 @@ bundle budget (T-063). All custom code stays pure/testable.
 ## Phase 4 — Plugin catalog migration (reference first)
 
 - `I18nCatalog` shim: existing `plugins/*/src/i18n.ts` catalogs import
-  into `i18n_messages` via seed sync; views switch from
+  into `i18n_messages` via baseline sync; views switch from
   `catalog.messages[locale]` to bound `t()` incrementally.
 - Migrate smallest catalog first (doctors) end-to-end as reference;
   then patients, consultations, secretaries, etc.
@@ -115,7 +126,8 @@ bundle budget (T-063). All custom code stays pure/testable.
   `src/paraglide/` output + `project.inlang`, drop `@inlang/paraglide-js`
   dep; locale picker reads `i18n_locales`.
 - `bun run gen:route-types` + full `bun run check` green; SSR smoke:
-  curl HTML contains resolved-locale strings with DB override applied.
+  curl HTML contains resolved-locale strings with a scoped message
+  applied.
 
 ## Phase 6 — Portal locale + polish
 
@@ -125,6 +137,26 @@ bundle budget (T-063). All custom code stays pure/testable.
   docs (ties to T-095 runbook).
 - Optional later: AI-draft translations via LLM port (P-065/T-095
   `AI_STUB`), in-context editing (Tolgee-style), MF2 evaluation.
+
+## Production hardening (decisions locked in review)
+
+- **Stamp TTL** ~15s/isolate; local writes invalidate immediately —
+  `t()` never queries per call.
+- **Missing key** → scope → locale → default locale → `namespace.key`
+  literal; CI gap report for non-default locales.
+- **Plural categories**: CLDR-derived static table generated once into
+  `@ktb/i18n` (`Intl.PluralRules` can't enumerate categories); the
+  validator enforces per-locale coverage against it.
+- **Write concurrency**: optimistic `version` check → 409 + refresh;
+  audit event per write.
+- **Rich text**: plain text v1; a `rich` message kind + tag allowlist
+  is the deferred escape hatch — never ad-hoc HTML.
+- **Param signatures** carry formatter hints (`number`, `date`,
+  `datetime`, `relative`, `list`) rendered via `Intl.*`.
+- **Locale switch = hard full-reload** (cache clear + reload) —
+  hydration never mixes locales.
+- **Namespace slices ride loader data** — no separate client fetch
+  roundtrip on navigation.
 
 ## Delivery workflow (applies to every phase)
 

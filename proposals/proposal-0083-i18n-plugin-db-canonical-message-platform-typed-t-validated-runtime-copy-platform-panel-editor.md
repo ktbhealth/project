@@ -3,7 +3,7 @@ id = "P-083"
 title = "i18n plugin: DB-canonical message platform — typed t(), validated runtime copy, platform panel editor"
 status = "open"
 created = "2026-11-15"
-priority = "med"
+priority = "high"
 links = ["T-082", "P-065", "P-070", "P-081", "P-082", "ADR-0003", "PL-008"]
 +++
 
@@ -43,9 +43,13 @@ Paraglide and the per-plugin `i18n.ts` catalogs.
 - `i18n_namespaces` — namespace registry: id, owning plugin, key manifest
   hash, default locale.
 - `i18n_messages` — the canonical store: `namespace.key × locale ×
-  scope → { value, status: draft|published, params signature }`.
-  Scope = `global | tenant | portal instance` (P-082 theme precedent).
-  Rows are full messages, not deltas — the DB is the source of truth.
+  scope → { value, status: draft|published, params signature,
+  version }` (`version` = optimistic-concurrency token for panel
+  writes). Scope = `global | tenant | portal instance` (P-082 theme
+  precedent). Rows are full messages, not deltas — the DB is the
+  source of truth.
+- `i18n_locales` — runtime locale rows: code, endonym, fallback chain,
+  enabled flag. New locales are data, no rebuild.
 - **Defaults are DB rows, not a bundle**: baseline copy is seeded into
   `i18n_messages` as `global`/`published` rows via migrations + the
   one-time import. The DB is both canonical store and fallback — no
@@ -58,8 +62,10 @@ Paraglide and the per-plugin `i18n.ts` catalogs.
   declared params per namespace) → `t("nav.patients", { name })` stays
   fully typed with param checking. CI regenerates and diffs — drift
   fails the build. Compile-time checking becomes CI-time checking.
-- `gen:i18n-manifest` walks plugin contributions + the seed bundle to
-  produce the key/param manifest the panel and validator share.
+- `gen:i18n-manifest` walks plugin `i18n.messages` contributions +
+  baseline message files (`messages/*.json`, plugin catalogs during
+  transition) + DB-declared namespaces → the key/param manifest the
+  panel, validator, and CI drift check share.
 
 ### Resolution service
 
@@ -71,8 +77,9 @@ Paraglide and the per-plugin `i18n.ts` catalogs.
 - Per request scope, load applicable published rows once into an
   immutable `Map`; `t()` is a pure lookup + render. **Caching**:
   per-isolate `Map` per (scope-chain × locale) behind a `Ref`
-  version stamp, invalidated on write — DB reads only on stamp change,
-  never per `t()` call (T-063 budget).
+  version stamp, invalidated on write — the stamp itself is re-read at
+  most every ~15s per isolate (and immediately after local writes), so
+  `t()` never hits the DB (T-063 budget).
 - **Chunking**: namespace is the unit everywhere — tables, manifest,
   generated types, panel tree, client payload (`patients.*`,
   `consultations.*`, `platform.*`, …).
@@ -81,22 +88,30 @@ Paraglide and the per-plugin `i18n.ts` catalogs.
   navigation. Locale switch stays full-reload, so only the active
   locale × active namespaces ever ship — no per-locale chunk graph.
 - **Message format**: ICU MessageFormat subset — `{param}`
-  interpolation plus `plural`/`select` where needed. v1 implements a
-  ~100-line safe subset in-house (no formatjs — worker bundle cost);
-  full ICU is a later option.
+  interpolation, formatter hints (`{amount, number}`,
+  `{joined, list}`, `{when, date|datetime|relative}`) rendered via
+  `Intl.*`, plus `plural`/`select` via `Intl.PluralRules`. Plain text
+  only — no markup in v1; inline rich text, if ever needed, arrives as
+  an explicit `rich` message kind with a tag allowlist, not ad-hoc
+  HTML. v1 implements a ~200-line safe subset in-house (no formatjs —
+  worker bundle cost); full ICU is a later option.
 - **Validation** (shared parser, enforced on write AND in CI):
   params must match the key's declared signature exactly; no markup;
-  length caps; plural/select category coverage per locale.
+  length caps; plural/select category coverage per locale (against a
+  CLDR-derived categories table — `Intl.PluralRules` can't enumerate
+  categories). Missing keys resolve `scope → locale → default locale →`
+  the literal `namespace.key` — visible and debuggable, never a silent
+  blank; CI reports keys missing in non-default locales.
 
 ### Contribution kinds (generic channel, P-070)
 
 - `i18n.locale` — `{ code, endonym, fallback?, enabled }`. Runtime
   locale enable/disable + picker metadata. New locales are data rows —
   **no rebuild required** (the whole point of data-first).
-- `i18n.messages` — optional contributed seed catalogs for plugins that
-  ship copy with the package; imported into `i18n_messages` on sync.
-  Existing `plugins/*/src/i18n.ts` files become seed sources, then
-  retire.
+- `i18n.messages` — optional contributed baseline catalogs for plugins
+  that ship copy with the package; imported into `i18n_messages` on
+  sync. Existing `plugins/*/src/i18n.ts` files become baseline sources,
+  then retire.
 
 ### Migration (full — this is the point)
 
@@ -104,8 +119,8 @@ Paraglide and the per-plugin `i18n.ts` catalogs.
   (en/es/pt-BR rows, global scope). Paraglide vite plugin removed;
   `m.*` call sites migrate to `t()` (`lib/i18n.ts` chrome first, codemod
   for route-level usage).
-- Plugin `i18n.ts` catalogs → seed import via `I18nCatalog` shim during
-  transition, then deleted. Host injects locale/catalog through
+- Plugin `i18n.ts` catalogs → baseline import via `I18nCatalog` shim
+  during transition, then deleted. Host injects locale/catalog through
   `@ktb/i18n` instead of per-plugin props over time.
 - English manifest literals in chrome contributions resolve through
   `t()` with the literal as fallback during transition.
@@ -115,11 +130,14 @@ Paraglide and the per-plugin `i18n.ts` catalogs.
 `/platform/i18n` (PanelPlugin + chrome sidebar entry):
 
 - **Matrix view**: rows = keys grouped by namespace, columns = locales
-  × scopes. Badges: draft, overridden-from-seed, missing translation,
+  × scopes. Badges: draft, differs-from-baseline, missing translation,
   param mismatch. This is the primary editing surface.
 - Cell editing with live preview rendered with sample params
   (`{name}` → "Maria"), pseudo-locale toggle for truncation checks,
-  base-vs-effective diff, reset-to-seed per cell/namespace.
+  base-vs-effective diff, reset-to-baseline per cell/namespace.
+- Writes are optimistic-concurrency checked (row `version` → 409 +
+  panel refresh) so two editors can't silently clobber each other;
+  every write hits the audit log.
 - Bulk ops: copy locale column, fill-missing from fallback locale.
 - Import/export JSON per namespace×locale with a validation report —
   nothing partially applied.
@@ -186,13 +204,13 @@ line up by construction.
   for plurals, `Intl.*` for number/date formatting, ~zero-cost React
   binding (locale switch reloads; `t()` is a sync lookup). The custom
   code is ~1–2k lines of pure, testable functions: schema, resolver,
-  MF1-subset parser doubling as validator, codegen, seed pipeline.
+  MF1-subset parser doubling as validator, codegen, baseline import.
 
 ## Phasing
 
-- **P0** — `i18n_namespaces`/`i18n_messages` tables, `@ktb/i18n`
-  service (resolve + validate + render), seed bundle pipeline,
-  `gen:i18n-types`, panel matrix reader.
+- **P0** — `i18n_namespaces`/`i18n_messages`/`i18n_locales` tables,
+  `@ktb/i18n` service (resolve + validate + render), baseline import
+  pipeline, `gen:i18n-types`, panel matrix reader.
 - **P1** — panel editing (draft→publish), import/export, missing-
   translation + param-parity reports; migrate ONE plugin catalog
   end-to-end as the reference.
