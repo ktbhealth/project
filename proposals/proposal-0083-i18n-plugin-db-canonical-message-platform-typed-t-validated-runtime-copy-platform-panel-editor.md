@@ -143,6 +143,33 @@ line up by construction.
 - **Precedents**: generic kinds (P-070), portal scoping (P-081),
   DB-backed definitions (P-082), rbac-scoped panel writes.
 
+## Alternatives considered
+
+- **Compile-time libs** (Paraglide, Lingui, typesafe-i18n): same
+  model mismatch that motivated this proposal — messages are data,
+  not build artifacts. Out.
+- **i18next**: closest runtime-resolver model, but ~18kB, suffix-plural
+  format (ICU needs a plugin), weakest typing; scoped resolution would
+  still be custom. Rejected.
+- **react-intl / FormatJS**: full ICU MF1 but ~15kB and the weakest
+  typing of the set — a format engine to bolt on, not the framework.
+  Its parser remains an option if full ICU is ever needed.
+- **Tolgee**: the UX reference (in-context editing, translation
+  states, TM, MT) but a whole Spring/Kotlin/Postgres service — wrong
+  stack for a Workers monorepo. Steal UX ideas, don't adopt.
+- **Native `Intl.MessageFormat`**: TC39 Stage 1, stalled — cannot be
+  a dependency.
+- **MF2 / `messageformat` lib**: successor format with real
+  momentum (~340k weekly downloads) but early adoption; MF1 remains
+  the translator/tooling standard. Revisit later.
+- **Custom thin framework** (chosen): the novel surface — scoped
+  resolution, DB-canonical store, codegen types, validation — has no
+  off-the-shelf answer. Commodity parts stay native: `Intl.PluralRules`
+  for plurals, `Intl.*` for number/date formatting, ~zero-cost React
+  binding (locale switch reloads; `t()` is a sync lookup). The custom
+  code is ~1–2k lines of pure, testable functions: schema, resolver,
+  MF1-subset parser doubling as validator, codegen, seed pipeline.
+
 ## Phasing
 
 - **P0** — `i18n_namespaces`/`i18n_messages` tables, `@ktb/i18n`
