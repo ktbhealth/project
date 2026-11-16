@@ -4,7 +4,7 @@ title = "i18n plugin: DB-canonical message platform — typed t(), validated run
 status = "open"
 created = "2026-11-15"
 priority = "med"
-links = ["T-082", "P-065", "P-070", "P-081", "P-082"]
+links = ["T-082", "P-065", "P-070", "P-081", "P-082", "ADR-0003", "PL-008"]
 +++
 
 # i18n plugin — DB-canonical message platform
@@ -212,6 +212,8 @@ line up by construction.
 
 ## Links
 
-P-065 (locale-native wedge), P-070 (generic kinds), P-081 (portal
+ADR-0003 (decision record), PL-008 (execution plan). P-065
+(locale-native wedge), P-070 (generic kinds), P-081 (portal
 instances), P-082 (scoped definitions precedent), T-082 (copy
-decisions), P-080 (audit feed for edit history).
+decisions), P-080 (audit feed for edit history), T-063 (bundle
+budget).
