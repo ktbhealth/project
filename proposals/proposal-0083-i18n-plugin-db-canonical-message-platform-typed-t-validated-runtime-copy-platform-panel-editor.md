@@ -5,7 +5,6 @@ status = "done"
 created = "2026-11-15"
 priority = "high"
 links = ["T-082", "P-065", "P-070", "P-081", "P-082", "ADR-0003", "PL-008"]
-done = "2026-11-16"
 +++
 
 # i18n plugin — DB-canonical message platform

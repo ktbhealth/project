@@ -5,7 +5,6 @@ status = "done"
 created = "2026-11-15"
 priority = "med"
 links = ["P-082", "PL-006"]
-done = "2026-11-15"
 +++
 
 Prerequisite hardening for PL-006 Phase 4 (theme asset jobs) — and every future async workload. Today the only job pipeline is hand-rolled in `apps/web/src/lib/audio-jobs.ts` (queue consumer hardcoded to audio), `AudioJobMessage` in `@ktb/server-fns`, `AUDIO_QUEUE`/`AUDIO_BUCKET` bindings, state on the consultations row, manual admin retry. `plugins/jobs` is console UI only — it renders projections, runs nothing.
