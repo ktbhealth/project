@@ -70,7 +70,6 @@
 - [ ] T-136 Port inspect\_gen.py word-alignment diff to shared domain component used by the UI · pri:high · owner:devin · created:2026-11-15 · links:P-081
 - [ ] T-131 eval.validator plugin: schema for persona batches, review state machine, feedback, run progress · status:in-progress · pri:high · owner:devin · created:2026-11-15 · links:P-081
 - [ ] T-132 RBAC role eval.validator + separate validator login/scope in portal · status:in-progress · pri:high · owner:devin · created:2026-11-15 · links:P-081
-- [ ] T-138 F1 integrity chain: document\_versions table + consultations.anamnesis\_hash/version + server-side interim hashing on save/attach + blob\_hash + backfill (PL-007) · pri:high · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
 - [ ] T-139 F1 integrity surface: admin\_audit.prev\_hash chain + consultations.verifyIntegrity fn + integrity badge on ConsultationDetailPage (PL-007) · pri:high · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
 - [ ] T-140 F2 @ktb/crypto/cipher: declarative entity cipher specs (fields/plaintext classes) + encryptRow/decryptRow/encryptPatch codec (PL-007) · pri:high · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
 - [ ] T-141 F2 @ktb/crypto/keyring: client vault — non-extractable device CryptoKeys in IndexedDB, clinic master unwrap, session DEK cache (PL-007) · pri:high · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
@@ -83,3 +82,4 @@
 - [ ] T-148 F3 patient portal: wrap consultation DEK to patient key in invite flow, browser-side decrypt (PL-007) · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
 - [ ] T-149 F3 notifications under ZK: metadata-only title/body/payload — no PHI server can no longer read (PL-007) · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
 - [ ] T-150 F4 availability: D1 PITR + restore runbook, ciphertext backups per tenant, DEK re-wrap on member revocation (PL-007) · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
+- [ ] T-138 F1 integrity chain: document\_versions table + consultations.anamnesis\_hash/version + server-side interim hashing on save/attach + blob\_hash + backfill (PL-007) · status:in-progress · pri:high · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
