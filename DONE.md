@@ -146,3 +146,4 @@
 - T-146 F3 client consult pipeline for ZK tenants: webspeech default, clinic BYOK LLM, client patientHistory, client PDF render (PL-007) · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
 - T-147 F3 audio: optional client-encrypted R2 upload (chunked AES-GCM); ZK tenants bypass server Whisper pipeline (PL-007) · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
 - T-148 F3 patient portal: wrap consultation DEK to patient key in invite flow, browser-side decrypt (PL-007) · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
+- T-154 product F3a: split llm adapters into ai-adapter-{openai,acp,node} · created:2026-11-16
