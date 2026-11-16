@@ -162,6 +162,14 @@ line up by construction.
 - **MF2 / `messageformat` lib**: successor format with real
   momentum (~340k weekly downloads) but early adoption; MF1 remains
   the translator/tooling standard. Revisit later.
+- **Effect-ecosystem check**: no Effect-native i18n library fits.
+  `@craft-ts/i18n-effect` has the right typed-key/Layer shape but is
+  bound to the CraftTS framework with compile-time catalogs;
+  KrakStack `localization` is locale-resolution middleware only;
+  `@effuse/i18n` targets a different framework. Confirms the custom
+  port — and Effect makes it natural: `I18n` as `Context.Tag`+`Layer`,
+  scoped catalog load via `Effect.cached`, `Ref` version-stamp cache,
+  Schema-based write validation.
 - **Custom thin framework** (chosen): the novel surface — scoped
   resolution, DB-canonical store, codegen types, validation — has no
   off-the-shelf answer. Commodity parts stay native: `Intl.PluralRules`
