@@ -15,19 +15,27 @@ bundle budget (T-063). All custom code stays pure/testable.
 ## Phase 0 — `@ktb/i18n` core + schema
 
 - `packages/i18n` port package: message model + MF1-subset parser/
-  renderer/validator as pure functions (`{param}` interpolation,
-  `plural`/`select` via `Intl.PluralRules`/`Intl.*`; no markup; param
-  signature extraction). Unit tests to 100% before anything consumes it.
+  renderer/validator as pure functions (`{param}` interpolation +
+  formatter hints via `Intl.*`, `plural`/`select` via
+  `Intl.PluralRules`; param signature extraction). Two kinds: `text`
+  (plain) and `rich` (sanitized HTML — tag/attr allowlist enforced on
+  write AND render). Unit tests to 100% before anything consumes it.
 - `I18n` `Context.Tag` + `Layer`: `t(key, params)` (pure over a loaded
   catalog map) and `catalog(scope)` loader; per-isolate cache =
   `Ref` version stamp invalidated on write.
 - `plugins/i18n.tables`: `i18n_namespaces` (id, plugin, manifest hash,
   default locale), `i18n_messages` (namespace.key × locale × scope →
-  value, status draft|published, params signature), `i18n_locales`
-  (code, endonym, fallback, enabled — runtime locale rows, no rebuild).
+  materialized value, kind text|rich, status draft|published, params
+  signature), `i18n_locales` (code, endonym, fallback, enabled —
+  runtime locale rows, no rebuild), `i18n_crdt_updates` (per-message
+  Loro op log).
 - `plugins/i18n.services`: baseline sync service (import
   `i18n.messages` contributions + JSON baselines → DB, idempotent
-  upsert) + version-stamp bump on every write.
+  upsert) + version-stamp bump on every write; CRDT service — apply
+  op → append to `i18n_crdt_updates` → re-materialize `value`
+  (`@loro-crdt/loro`; **P0 spike: verify WASM works in workerd**).
+- `@ktbhealth/ui` `RichTextEditor` (PlateJS) — lands in the ui repo
+  first, consumed here via git-tag bump once tagged.
 - Register plugin ids `i18n.tables`/`i18n.services`/`i18n.panel`/
   `i18n.chrome` in the registry; arch-policy clean.
 
@@ -94,9 +102,13 @@ bundle budget (T-063). All custom code stays pure/testable.
 ## Phase 3 — Panel editing
 
 - Cell editing: live preview with sample params, pseudo-locale toggle,
-  base-vs-effective diff, reset-to-baseline per cell/namespace.
-- Write concurrency: optimistic — each write carries the row `version`;
-  stale → 409 + panel refreshes. Audit event per write (P-080).
+  base-vs-effective diff, reset-to-baseline per cell/namespace. `text`
+  cells use input/textarea; `rich` cells use the `@ktbhealth/ui`
+  PlateJS `RichTextEditor` (HTML in/out, sanitized).
+- **Concurrency = Loro CRDT** (`@loro-crdt/loro`): per-message CRDT
+  doc; panel edits produce ops appended to `i18n_crdt_updates`, then
+  `value` re-materializes on the row — concurrent editors merge, no
+  409s. Audit event per materialized write (P-080).
 - draft→publish workflow + audit events (P-080 feed integration).
 - Bulk ops: copy locale column, fill-missing from fallback.
 - Import/export JSON per namespace×locale with validation report
@@ -147,10 +159,14 @@ bundle budget (T-063). All custom code stays pure/testable.
 - **Plural categories**: CLDR-derived static table generated once into
   `@ktb/i18n` (`Intl.PluralRules` can't enumerate categories); the
   validator enforces per-locale coverage against it.
-- **Write concurrency**: optimistic `version` check → 409 + refresh;
-  audit event per write.
-- **Rich text**: plain text v1; a `rich` message kind + tag allowlist
-  is the deferred escape hatch — never ad-hoc HTML.
+- **Rich text IS supported**: `rich` message kind = sanitized HTML via
+  the `@ktbhealth/ui` PlateJS `RichTextEditor` (added upstream in the
+  ui repo, consumed by git-tag bump); allowlist enforced on write and
+  render — never ad-hoc HTML.
+- **Concurrency = Loro CRDT** (`@loro-crdt/loro`): per-message doc,
+  op log in `i18n_crdt_updates`, materialized `value` on the row for
+  fast reads; CRDT only on the edit path. P0 spike verifies WASM in
+  workerd; cursors/presence optional later.
 - **Param signatures** carry formatter hints (`number`, `date`,
   `datetime`, `relative`, `list`) rendered via `Intl.*`.
 - **Locale switch = hard full-reload** (cache clear + reload) —

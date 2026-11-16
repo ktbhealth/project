@@ -60,7 +60,10 @@ bundle. Paraglide and the per-plugin
   validator/panel stay pure for the 100% coverage gate.
 - Hard requirements: locale switch is a full reload (hydration
   safety); missing keys fall back scope → locale → default → key
-  literal; writes are optimistic-concurrency checked; plural-category
-  coverage uses a CLDR-derived table (`Intl.PluralRules` can't
-  enumerate categories); namespace slices ride loader data — no
-  separate client fetch.
+  literal; writes merge via Loro CRDT (`@loro-crdt/loro`, op log in
+  `i18n_crdt_updates`, materialized value on the row) — no optimistic
+  locks; rich messages are sanitized HTML edited via the
+  `@ktbhealth/ui` PlateJS `RichTextEditor`; plural-category coverage
+  uses a CLDR-derived table (`Intl.PluralRules` can't enumerate
+  categories); namespace slices ride loader data — no separate client
+  fetch.

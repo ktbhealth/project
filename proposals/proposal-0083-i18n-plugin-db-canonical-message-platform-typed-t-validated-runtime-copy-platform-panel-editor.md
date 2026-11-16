@@ -43,11 +43,14 @@ Paraglide and the per-plugin `i18n.ts` catalogs.
 - `i18n_namespaces` — namespace registry: id, owning plugin, key manifest
   hash, default locale.
 - `i18n_messages` — the canonical store: `namespace.key × locale ×
-  scope → { value, status: draft|published, params signature,
-  version }` (`version` = optimistic-concurrency token for panel
-  writes). Scope = `global | tenant | portal instance` (P-082 theme
+  scope → { value, status: draft|published, params signature }`.
+  Scope = `global | tenant | portal instance` (P-082 theme
   precedent). Rows are full messages, not deltas — the DB is the
-  source of truth.
+  source of truth. `value` is the materialized read model.
+- `i18n_crdt_updates` — per-message Loro CRDT op log
+  (`@loro-crdt/loro`): concurrent panel edits merge automatically;
+  writes append ops and re-materialize `value` on the row, so reads
+  (`t()`) never touch CRDT state — only the edit path does.
 - `i18n_locales` — runtime locale rows: code, endonym, fallback chain,
   enabled flag. New locales are data, no rebuild.
 - **Defaults are DB rows, not a bundle**: baseline copy is seeded into
@@ -90,13 +93,17 @@ Paraglide and the per-plugin `i18n.ts` catalogs.
 - **Message format**: ICU MessageFormat subset — `{param}`
   interpolation, formatter hints (`{amount, number}`,
   `{joined, list}`, `{when, date|datetime|relative}`) rendered via
-  `Intl.*`, plus `plural`/`select` via `Intl.PluralRules`. Plain text
-  only — no markup in v1; inline rich text, if ever needed, arrives as
-  an explicit `rich` message kind with a tag allowlist, not ad-hoc
-  HTML. v1 implements a ~200-line safe subset in-house (no formatjs —
-  worker bundle cost); full ICU is a later option.
+  `Intl.*`, plus `plural`/`select` via `Intl.PluralRules`. Two message
+  kinds: `text` (plain, no markup) and `rich` (sanitized HTML produced
+  by the `@ktbhealth/ui` PlateJS `RichTextEditor` — paragraphs,
+  h2/h3, bold/italic/underline, links, lists; rendered through the
+  same component read-only). v1 implements a ~200-line safe subset
+  in-house for `text` (no formatjs — worker bundle cost); full ICU is
+  a later option. Rich HTML is sanitized on write AND on render
+  (tag/attr allowlist — no scripts, handlers, or unknown tags).
 - **Validation** (shared parser, enforced on write AND in CI):
-  params must match the key's declared signature exactly; no markup;
+  params must match the key's declared signature exactly; `text`
+  messages reject markup, `rich` messages pass the HTML allowlist;
   length caps; plural/select category coverage per locale (against a
   CLDR-derived categories table — `Intl.PluralRules` can't enumerate
   categories). Missing keys resolve `scope → locale → default locale →`
@@ -135,9 +142,12 @@ Paraglide and the per-plugin `i18n.ts` catalogs.
 - Cell editing with live preview rendered with sample params
   (`{name}` → "Maria"), pseudo-locale toggle for truncation checks,
   base-vs-effective diff, reset-to-baseline per cell/namespace.
-- Writes are optimistic-concurrency checked (row `version` → 409 +
-  panel refresh) so two editors can't silently clobber each other;
-  every write hits the audit log.
+  `rich` messages edit through the `@ktbhealth/ui` PlateJS
+  `RichTextEditor`; `text` messages through a plain input/textarea.
+- Concurrent edits merge via **Loro CRDT** (`@loro-crdt/loro`) —
+  per-message CRDT doc, op log in `i18n_crdt_updates`, materialized
+  `value` re-written on the row; cursors/presence come free if we
+  want them later. Every write hits the audit log.
 - Bulk ops: copy locale column, fill-missing from fallback locale.
 - Import/export JSON per namespace×locale with a validation report —
   nothing partially applied.
@@ -208,9 +218,10 @@ line up by construction.
 
 ## Phasing
 
-- **P0** — `i18n_namespaces`/`i18n_messages`/`i18n_locales` tables,
-  `@ktb/i18n` service (resolve + validate + render), baseline import
-  pipeline, `gen:i18n-types`, panel matrix reader.
+- **P0** — `i18n_namespaces`/`i18n_messages`/`i18n_locales`/
+  `i18n_crdt_updates` tables, `@ktb/i18n` service (resolve + validate
+  + render + CRDT apply/materialize), baseline import pipeline,
+  `gen:i18n-types`, panel matrix reader.
 - **P1** — panel editing (draft→publish), import/export, missing-
   translation + param-parity reports; migrate ONE plugin catalog
   end-to-end as the reference.
