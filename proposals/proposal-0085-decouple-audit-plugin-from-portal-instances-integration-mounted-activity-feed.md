@@ -1,9 +1,10 @@
 +++
 id = "P-085"
 title = "Decouple audit plugin from portal instances — integration-mounted activity feed"
-status = "open"
+status = "done"
 created = "2026-11-16"
 priority = "med"
+done = "2026-11-16"
 +++
 
 ## Problem
