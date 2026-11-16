@@ -60,22 +60,57 @@ All structure comes from the client registry `ctx.plugins` — already
 injected into the panel view — and runtime state from the existing
 loader (`PluginStates.entries`). No new server fn for structure.
 
-Edge types derived per plugin pair:
+**Nodes** — one per `Plugin` object plus *host pseudo-nodes* for
+surfaces that consume contributions but are not plugins (app
+marketing shell, `apps/eval` CLI). Pseudo-nodes render dashed/muted
+and are sinks only.
 
-- `required` — `requiredDeps` entries; solid edge, dep → dependent
-  (same orientation as `orderPlugins`).
-- `optional` — `optionalDeps` entries; dashed edge.
-- `region` — `chrome[]` entries publishing into a named region owned
-  by a shell plugin (e.g. `portal.sidebar`, `portal.header`); thin
-  edge to the region owner.
-- `kind` — generic `contributions[]` entries collected by another
-  surface (e.g. `eval.*` kinds); dotted edge to the collecting plugin
-  where the kind descriptor names one.
+```ts
+interface PluginNodeData {
+  plugin: Plugin;              // manifest source of truth
+  status: "enabled" | "disabled" | "blocked" | "system";
+  missing: readonly string[];  // disabled requiredDeps, for "blocked"
+  kinds: readonly string[];    // contributionKinds() — already exists
+  depth: number;               // longest-path layer, for layout
+}
+```
 
-`graphFromPlugins(plugins) → { nodes, edges }` plus
-`layeredLayout(graph)` — longest-path layering over the topo order,
-deterministic, no layout dependency — are pure functions unit-tested
-alongside the existing closure walkers.
+**Edges** — derived per plugin pair, aggregated: at most one edge per
+(source, target, kind); a pair carrying several kinds gets parallel
+edges or one composite edge whose style follows the strongest kind
+(required > region > kind > optional).
+
+| kind       | source                                                        | style  |
+| ---------- | ------------------------------------------------------------- | ------ |
+| `required` | `requiredDeps` — dep → dependent (same orientation as `orderPlugins`) | solid  |
+| `optional` | `optionalDeps` — ordering hint only                            | dashed |
+| `region`   | `chrome[]` entry's `region` field → region owner               | thin   |
+| `kind`     | `contributions[]` entry → collecting surface named by the kind descriptor's `consumers` | dotted |
+
+**Region ownership** — chrome `region` ids are shell-owned slot
+names, so `logic.ts` carries a static `REGION_OWNERS` table mapping
+prefixes to owners: `portal.*` → `portal.shell`, `platform.*` /
+`console.*` → `platform.panel`, `app.*` / unknown → the host
+pseudo-node. Unknown region ids degrade to the host node rather than
+being dropped — the map never hides declared communication.
+
+**Kind edges** — `ContributionKindDescriptor.consumers` already names
+the collecting surface per kind (`app-host.server`, `plugin-manager`,
+`eval-cli`, …); consumers that map to a plugin id draw a real edge,
+host consumers draw to the pseudo-node.
+
+**Layout** — `layeredLayout(graph)`: longest-path depth per node
+(sinks at the far right), x = depth × column width, y = order within
+layer following registry (topo) order so adjacent dependents cluster.
+Deterministic, dependency-free, and unit-tested next to the existing
+closure walkers. One optional barycenter pass can reduce crossings
+later without changing the contract.
+
+```ts
+graphFromPlugins(plugins) → { nodes: Map<PluginId, PluginNode>, edges: GraphEdge[] }
+layeredLayout(graph)        → Map<PluginId, { x, y }>
+focusNeighborhood(graph, id) → { upstream: Set, downstream: Set }   // reuses requiredClosure/dependentClosure
+```
 
 ### Views
 
