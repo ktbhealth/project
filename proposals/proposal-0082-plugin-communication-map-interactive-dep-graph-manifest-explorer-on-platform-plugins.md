@@ -6,7 +6,7 @@ created = "2026-11-16"
 owner = "devin"
 priority = "med"
 labels = ["plugins"]
-links = ["P-050", "P-058", "P-062", "P-070"]
+links = ["P-050", "P-058", "P-062", "P-070", "PL-008"]
 +++
 
 ## Context
