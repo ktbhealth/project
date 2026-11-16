@@ -66,8 +66,9 @@ bundle budget (T-063). All custom code stays pure/testable.
   most every ~15s per isolate + immediately after local writes — `t()`
   never hits the DB. `t()` = O(1) pure lookup + render.
 - **Missing-key policy**: scope → locale → default locale → literal
-  `namespace.key` (never blank); CI report flags non-default-locale
-  gaps.
+  `namespace.key` sentinel (never blank, never English-in-disguise);
+  every literal fallback counted (metric + access log) so gaps are
+  measurable; CI report flags non-default-locale gaps.
 - **Chunking**: namespace is the unit everywhere — tables, manifest,
   types, panel tree, payload.
 - **Lazy loading**: SSR injects only route-needed namespaces; namespace
@@ -101,7 +102,9 @@ bundle budget (T-063). All custom code stays pure/testable.
 
 ## Phase 3 — Panel editing
 
-- Cell editing: live preview with sample params, pseudo-locale toggle,
+- Cell editing: live preview via **Streamdown** + custom param-chip
+  plugin (`{param}`/`{param, hint}` → styled chips with live sample
+  values; click chip to edit sample), pseudo-locale toggle,
   base-vs-effective diff, reset-to-baseline per cell/namespace. `text`
   cells use input/textarea; `rich` cells use the `@ktbhealth/ui`
   PlateJS `RichTextEditor` (HTML in/out, sanitized).

@@ -107,8 +107,11 @@ Paraglide and the per-plugin `i18n.ts` catalogs.
   length caps; plural/select category coverage per locale (against a
   CLDR-derived categories table — `Intl.PluralRules` can't enumerate
   categories). Missing keys resolve `scope → locale → default locale →`
-  the literal `namespace.key` — visible and debuggable, never a silent
-  blank; CI reports keys missing in non-default locales.
+  the literal `namespace.key` — the key is a visible sentinel, never a
+  silent blank or English masquerading as localized; every
+  fallback-to-literal is counted (metric + access log) so untranslated
+  keys are measurable, and CI/panel reports flag non-default-locale
+  gaps.
 
 ### Contribution kinds (generic channel, P-070)
 
@@ -139,8 +142,11 @@ Paraglide and the per-plugin `i18n.ts` catalogs.
 - **Matrix view**: rows = keys grouped by namespace, columns = locales
   × scopes. Badges: draft, differs-from-baseline, missing translation,
   param mismatch. This is the primary editing surface.
-- Cell editing with live preview rendered with sample params
-  (`{name}` → "Maria"), pseudo-locale toggle for truncation checks,
+- Cell editing with live preview: the message template renders via
+  **Streamdown** with a custom plugin mapping `{param}` /
+  `{param, hint}` tokens to styled chips showing live sample values
+  (`{name}` → "Maria", `{amount, number}` → "€1,234.50"); clicking a
+  chip edits its sample. Pseudo-locale toggle for truncation checks,
   base-vs-effective diff, reset-to-baseline per cell/namespace.
   `rich` messages edit through the `@ktbhealth/ui` PlateJS
   `RichTextEditor`; `text` messages through a plain input/textarea.
