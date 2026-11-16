@@ -47,12 +47,24 @@ views that explain the system's architecture at a glance.
 - `PluginMeta` gains `keywords?: readonly string[]` — plain strings,
   serializable, so client mirrors (`src/client.ts`) declare them
   identically and the server/client parity test keeps holding.
-- Fill keywords for all ~70 manifests: a controlled vocabulary —
-  domain (`patients`, `consultations`, `eval`, `transcription`,
-  `platform`, `portal`, `billing`-adjacent…), role (`services`,
-  `ui`, `routes`, `shell`, `admin`, `adapter`, `marker`), and
-  audience where relevant (`doctor`, `patient`, `secretary`).
-- Keywords feed search, the domain-cluster view, and node badges.
+- Controlled flat vocabulary (no `domain:` prefixes — prefix namespacing
+  re-invents fields; the facet comes from position in the list).
+  Convention: **first keyword is the domain** (drives Domains lanes),
+  the rest are free descriptors. Kernel exports
+  `PLUGIN_KEYWORDS` — the documented valid set — and a vitest asserts
+  every manifest's keywords ⊆ the set and non-empty, so the taxonomy
+  can't rot.
+
+  | facet    | keywords (initial set)                                              |
+  | -------- | ------------------------------------------------------------------ |
+  | domain   | `patients` `consultations` `transcription` `eval` `portal` `platform` `groups` `notifications` `tenant` `audit` `site` `pages` `dashboard` |
+  | role     | `services` `ui` `routes` `shell` `admin` `marker` `tables`         |
+  | audience | `doctor` `patient` `secretary` `admin`                             |
+
+- Fill keywords for all ~70 manifests in both `index.ts` and
+  `client.ts` mirrors.
+- Keywords feed search (map + existing table toolbar), the
+  domain-cluster view lanes, and node badges.
 
 ### Graph model (pure derivation, `logic.ts`)
 
@@ -114,30 +126,53 @@ focusNeighborhood(graph, id) → { upstream: Set, downstream: Set }   // reuses 
 
 ### Views
 
-A view switcher (design-system `Tabs`/`ToggleGroup`) on
-`/platform/plugins` adds a "Map" surface beside the table, with
-sub-views:
+The map lands as a `Tabs` pane beside the existing table on
+`/platform/plugins` (one sidebar item; the same `plugins` + `states`
+props feed both panes — no loader changes). Inside the map, a
+`ToggleGroup` switches sub-views — each answers one architectural
+question:
 
-- **Dependencies** — layered columns by topo depth; required solid /
-  optional dashed; node color = runtime status (enabled / disabled /
-  blocked-by-dep), `system` badge.
-- **Communication** — region + kind edges emphasized: who publishes
-  into which chrome region, which services plugins the dependents
-  consume, generic contribution flow.
-- **Domains** — nodes clustered into keyword lanes (first domain
-  keyword = lane); only cross-domain edges drawn, making domain
-  boundaries and coupling visible.
+- **Dependencies** — "what breaks if I turn this off?" Layered topo
+  columns; required solid / optional dashed; node color = runtime
+  status (enabled / disabled / blocked-by-dep), `system` badge;
+  blocked edges (dep → disabled requiredDep) tinted destructive.
+- **Channels** — "who talks to whom, through what?" Only `region`
+  and `kind` edges drawn; `required`/`optional` fade to ghost so
+  structural deps stop dominating. Pseudo-nodes for host surfaces
+  show the boundary between plugin space and host space.
+- **Domains** — "where are the boundaries?" Nodes grouped into
+  swimlanes by first keyword; only cross-domain edges drawn,
+  intra-domain edges hidden — coupling between domains is the signal.
+
+Every view shares the toolbar: text search (matches id / name /
+keywords), status filter (same semantics as the table), a legend
+(`Panel` explaining edge styles + status colors), and a
+highlight-on-hover neighborhood. Fit-view / zoom controls via
+`Controls`; `MiniMap` from `@xyflow/react` styled on tokens.
 
 ### Interactive nodes
 
-Custom node type on the design-system `Node` card: `meta.icon` +
-display name + status indicator + keyword badges. Clicking a node
-opens a `Sheet`/`Dialog` with the full manifest — meta (incl.
-keywords), `config` schema, contribution kinds, declared deps with
-jump-to-node links — and reuses the existing enable/disable and
-config dialogs so the map is a management surface, not a picture.
-Neighbor highlighting on hover/focus (transitive deps + dependents,
-which `logic.ts` already computes).
+Custom node type on the design-system `Node` card (`ai-elements`):
+`meta.icon` + display name + status dot + keyword `Badge`s, sized
+compact with `NodeHeader`/`NodeContent`. Clicking a node opens a
+right-side `Sheet` — the **manifest panel**:
+
+- **Identity** — icon, name, id, description, version, keywords,
+  system marker.
+- **Runtime** — enabled/disabled/blocked with the same
+  enable/disable flow the table row runs (cascade `AlertDialog`
+  reuse), `Configure` reusing `ConfigDialog` when `meta.config`
+  exists.
+- **Dependencies** — required/optional dep ids as buttons that
+  focus the target node (fit-view + select), plus the derived
+  closures (`requiredClosure`, `dependentClosure`) already computed
+  by `logic.ts`.
+- **Contributions** — `contributionKinds()` list plus chrome regions
+  and generic `contributions[]` entries with their target surface.
+
+Hover/selection dims everything outside the transitive neighborhood
+(`focusNeighborhood`) — one click answers "what does this need, and
+what needs it".
 
 ## i18n
 
@@ -150,9 +185,9 @@ manifest-sheet labels) in all three locales (en, pt-BR, es) — same
 - Layout: hand-rolled longest-path layering (zero deps, deterministic)
   vs `dagre`/`elkjs` (better edge routing, new dep). Leaning to
   hand-rolled v1 given ~70 nodes and mostly-sparse edges.
-- Map as a `Tabs` pane inside `/platform/plugins` vs a second
-  `panel.pages` entry (`/platform/plugins/map`) — tabs keep one
-  sidebar item; a page enables deep-linking.
+- ~~Map placement~~ — decided: `Tabs` pane on `/platform/plugins`.
+  If deep-linking a view becomes valuable, search-param state
+  (`?view=domains`) is a follow-up that doesn't change the contract.
 - Runtime traffic (CQRS/events) is not observable from manifests —
   out of scope, but the edge model leaves room for it later.
 
