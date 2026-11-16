@@ -1,7 +1,7 @@
 +++
 id = "P-080"
 title = "Audit feed: permission-scoped activity view — decouple audit from PlatformAdmin"
-status = "open"
+status = "in-progress"
 created = "2026-11-15"
 priority = "med"
 +++
