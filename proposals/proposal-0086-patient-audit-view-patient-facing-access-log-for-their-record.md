@@ -1,9 +1,10 @@
 +++
 id = "P-086"
 title = "Patient audit view: patient-facing access log for their record"
-status = "open"
+status = "done"
 created = "2026-11-16"
 priority = "med"
+done = "2026-11-16"
 +++
 
 ## Problem
