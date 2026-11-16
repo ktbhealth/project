@@ -1,10 +1,11 @@
 +++
 id = "PL-006"
 title = "Theme plugin (P-082): white-label tokens, brand assets, accessible palettes"
-status = "in-progress"
+status = "done"
 created = "2026-11-15"
 priority = "med"
 links = ["P-053", "P-060", "P-070", "P-081", "P-082"]
+done = "2026-11-16"
 +++
 
 Execution plan for P-082. Conventions: ports/adapters at the edge (ADR-0001), plugin contract single-concern fields + generic `contributions` (P-070), 100% vitest coverage gate.
