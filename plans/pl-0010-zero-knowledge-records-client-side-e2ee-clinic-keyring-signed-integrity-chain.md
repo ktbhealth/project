@@ -1,7 +1,7 @@
 +++
 id = "PL-010"
 title = "Zero-knowledge records: client-side E2EE, clinic keyring, signed integrity chain"
-status = "open"
+status = "in-progress"
 created = "2026-11-15"
 owner = "devin"
 priority = "high"
