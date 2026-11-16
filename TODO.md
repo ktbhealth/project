@@ -64,4 +64,3 @@
 - [ ] T-136 Port inspect\_gen.py word-alignment diff to shared domain component used by the UI · pri:high · owner:devin · created:2026-11-15 · links:P-081
 - [ ] T-131 eval.validator plugin: schema for persona batches, review state machine, feedback, run progress · status:in-progress · pri:high · owner:devin · created:2026-11-15 · links:P-081
 - [ ] T-132 RBAC role eval.validator + separate validator login/scope in portal · status:in-progress · pri:high · owner:devin · created:2026-11-15 · links:P-081
-- [ ] T-148 F3 patient portal: wrap consultation DEK to patient key in invite flow, browser-side decrypt (PL-007) · status:in-progress · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
