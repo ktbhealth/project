@@ -143,3 +143,4 @@
 - T-144 F3 patients cipher: all PII fields ciphered, ids/flags plaintext, client decrypt in loaders (PL-007) · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
 - T-149 F3 notifications under ZK: metadata-only title/body/payload — no PHI server can no longer read (PL-007) · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
 - T-145 F3 consultations cipher: transcript/anamnesis/review/serverTranscript/correctedTranscript + opaque wire schema + client-signed versions (PL-007) · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
+- T-146 F3 client consult pipeline for ZK tenants: webspeech default, clinic BYOK LLM, client patientHistory, client PDF render (PL-007) · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
