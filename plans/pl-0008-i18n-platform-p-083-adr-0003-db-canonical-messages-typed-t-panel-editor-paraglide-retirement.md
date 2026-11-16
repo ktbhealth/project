@@ -60,6 +60,14 @@ bundle budget (T-063). All custom code stays pure/testable.
   fetches per-route namespace slices via server fn on navigation.
   Locale switch stays full-reload → only active locale × active
   namespaces ship; no per-locale chunk graph.
+- **Namespace resolution is automatic**: route → contributing plugins
+  → namespaces, derived from the registry — `pages`/`chrome`/`routes`
+  contributions already declare which plugin owns which paths, so the
+  host maps a matched route to its plugins' `i18n.messages`
+  namespaces with zero manual wiring. Host namespaces (`platform.*`,
+  app chrome) always load; namespaces of disabled plugins
+  (plugin_state) are skipped. Wildcard `pages` entries resolve via
+  the same longest-match rule the dispatcher uses.
 - Request locale resolution: cookie (`ktb-locale`) → `i18n_locales`
   enabled check → default; replaces Paraglide `requestLocale` internals
   (same external contract during transition).
@@ -117,6 +125,29 @@ bundle budget (T-063). All custom code stays pure/testable.
   docs (ties to T-095 runbook).
 - Optional later: AI-draft translations via LLM port (P-065/T-095
   `AI_STUB`), in-context editing (Tolgee-style), MF2 evaluation.
+
+## Delivery workflow (applies to every phase)
+
+- **One worktree + branch + PR per unit of work**: phases 0–3 and 5–6
+  are sequential single PRs; phase 4 is one PR per plugin catalog
+  migration (each plugin = its own worktree/branch/PR so reviews stay
+  small and catalog migrations don't block each other).
+- Worktree per unit under the repo's normal flow (`git worktree add`),
+  branch named `feat/i18n-<unit>`; never commit ledger changes and
+  product changes in the same PR.
+- **PR + review gate**: every unit lands via PR with `bun run check`
+  green + scoped vitest; reviewer (human or AI-review per PL-004)
+  comments → adjust → re-review. **Max 3 review iterations per unit**;
+  on the 3rd unresolved round, stop and escalate to a design note in
+  the proposal rather than iterating forever.
+- **Cleanup**: after merge, remove the worktree (`git worktree
+  remove`), delete the local+remote branch, verify no unpushed
+  commits / stashes / nested `.git` (repo-deletion checklist applies
+  to worktrees too). `myco item set <unit> --status done` + handoff
+  entry when the unit's PR merges.
+- Phase 4 ordering: `doctors` first (smallest, reference), then by
+  catalog size ascending; each migration PR also deletes that
+  plugin's `i18n.ts` and updates its `PageContext` consumers.
 
 ## Verification (every phase)
 
