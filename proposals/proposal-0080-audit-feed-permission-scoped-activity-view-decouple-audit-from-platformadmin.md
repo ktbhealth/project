@@ -1,9 +1,10 @@
 +++
 id = "P-080"
 title = "Audit feed: permission-scoped activity view — decouple audit from PlatformAdmin"
-status = "in-progress"
+status = "done"
 created = "2026-11-15"
 priority = "med"
+done = "2026-11-16"
 +++
 
 ## Problem
