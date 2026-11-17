@@ -1,7 +1,7 @@
 +++
 id = "P-091"
 title = "data.timeseries: append-only time-series pattern plugin (retention, downsampling, windowed aggregates)"
-status = "open"
+status = "deferred"
 created = "2026-11-17"
 owner = "devin"
 priority = "low"
