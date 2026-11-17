@@ -69,3 +69,4 @@
 - T-125 Decouple dashboard plugin from domain plugins: move consultations/patients/notifications cards into owning plugins via portal.dashboard.\* chrome + host-provided contexts · owner:devin · created:2026-11-17 · done:2026-11-17
 - T-136 Declare missing optionalDeps edges: patients→vault, consultations→vault/patient-access, patient-portal→4 plugins, patient-access→3, secretaries→invites/doctors, auth→doctors, ai-endpoints/credentials→eval-validator, jobs.routes→consultations, notifications→vault · owner:devin · created:2026-11-17 · done:2026-11-17
 - T-137 Move domain job pipelines out of apps/web/src/lib (audio-jobs.ts whisper pipeline, theme-jobs.ts font/image pipeline) into plugins behind @ktb/jobs-port registry · pri:high · owner:devin · created:2026-11-17 · done:2026-11-17
+- T-138 Fix plugins/audit relative imports into sibling plugin sources (schema cycle workaround invisible to lint/dep graph) · owner:devin · created:2026-11-17 · done:2026-11-17
