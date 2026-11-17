@@ -35,3 +35,4 @@
 - [ ] T-132 document-store: docs — 'when NOT to use' guide + escape hatch to typed drizzle tables for hot paths · pri:low · owner:devin · created:2026-11-17 · links:P-089
 - [ ] T-133 Observability 6c: audit-chain external anchoring — emit head hash to LGTM/Loki after verify (tamper evidence) · created:2026-11-17
 - [ ] T-134 Secrets lifecycle: EntityCipher keyring, rotation, audit trail for credentials key column · created:2026-11-17
+- [ ] T-135 Eval/AI surface: model+prompt versioning queryable, eval regression gates in CI · created:2026-11-17
