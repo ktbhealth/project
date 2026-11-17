@@ -1,11 +1,12 @@
 +++
 id = "P-090"
 title = "plugins/kv: TTL'd namespaced key/value state service for plugins (data.kv pattern)"
-status = "in-progress"
+status = "done"
 created = "2026-11-17"
 owner = "devin"
 priority = "med"
 links = ["P-053", "P-084", "P-089"]
+done = "2026-11-17"
 +++
 
 ## Problem
