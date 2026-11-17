@@ -1,7 +1,7 @@
 +++
 id = "P-090"
 title = "plugins/kv: TTL'd namespaced key/value state service for plugins (data.kv pattern)"
-status = "open"
+status = "in-progress"
 created = "2026-11-17"
 owner = "devin"
 priority = "med"
