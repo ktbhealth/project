@@ -75,3 +75,4 @@
 - T-141 Decouple patient-portal raw @ktb/db/schema reads across patients/consultations/doctors/patient-access/vault tables into service/port calls · owner:devin · created:2026-11-17 · done:2026-11-17
 - T-148 CI coverage gate red on main (pre-existing, NOT from #122/#123/#124): global 99.4% lines / 98.7% branches vs 100% threshold — gaps in plugins/manager views (~92%), patient-portal, portal; bring uncovered files to 100% or scope-exclude with justification · pri:high · owner:devin · created:2026-11-17 · done:2026-11-17
 - T-128 document-store: collection-level RBAC permissions + query guards (ReDoS-safe regex, doc size/count limits, field-level read/write) · pri:high · owner:devin · created:2026-11-17 · links:P-084,P-089 · done:2026-11-17
+- T-144 Spike: discardable document-store consumer — prove plugin-dep path end-to-end (P-089); throwaway code, not a real feature · owner:devin · created:2026-11-17 · links:P-012,P-089 · done:2026-11-17
