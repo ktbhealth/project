@@ -38,3 +38,4 @@
 - [ ] T-136 Declare missing optionalDeps edges: patients→vault, consultations→vault/patient-access, patient-portal→4 plugins, patient-access→3, secretaries→invites/doctors, auth→doctors, ai-endpoints/credentials→eval-validator, jobs.routes→consultations, notifications→vault · owner:devin · created:2026-11-17
 - [ ] T-137 Move domain job pipelines out of apps/web/src/lib (audio-jobs.ts whisper pipeline, theme-jobs.ts font/image pipeline) into plugins behind @ktb/jobs-port registry · pri:high · owner:devin · created:2026-11-17
 - [ ] T-138 Fix plugins/audit relative imports into sibling plugin sources (schema cycle workaround invisible to lint/dep graph) · owner:devin · created:2026-11-17
+- [ ] T-139 Deduplicate cross-plugin constants: AUDIO\_RETRY\_STATUSES, CONSULTATION\_ENTITY\_TYPE (ZK key material), AudioJobRow/STATUS\_MAP, MAX\_AUDIO\_BYTES/bytesToBase64 · owner:devin · created:2026-11-17
