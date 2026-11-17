@@ -25,3 +25,4 @@
 - [ ] T-119 Runtime-loaded eval plugins (WASM/Lua/dynamic) — BACKLOG, revisit only if third-party eval plugins become real · pri:low · created:2026-11-14
 - [ ] T-120 cloud eval profile cannot satisfy llm/eval caps — cloud suite resolution fails early; needs cloud judge/eval adapters or profile-capability validation in manifests · created:2026-11-14 · links:P-074
 - [ ] T-124 Add Vinicius and Emanuel as OCI members (IAM users/groups) for ktb tenancy · owner:human:luis · created:2026-11-16 · #devops
+- [ ] T-125 Decouple dashboard plugin from domain plugins: move consultations/patients/notifications cards into owning plugins via portal.dashboard.\* chrome + host-provided contexts · owner:devin · created:2026-11-17
