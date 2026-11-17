@@ -36,3 +36,4 @@
 - [ ] T-134 Secrets lifecycle: EntityCipher keyring, rotation, audit trail for credentials key column · created:2026-11-17
 - [ ] T-135 Eval/AI surface: model+prompt versioning queryable, eval regression gates in CI · created:2026-11-17
 - [ ] T-136 Declare missing optionalDeps edges: patients→vault, consultations→vault/patient-access, patient-portal→4 plugins, patient-access→3, secretaries→invites/doctors, auth→doctors, ai-endpoints/credentials→eval-validator, jobs.routes→consultations, notifications→vault · owner:devin · created:2026-11-17
+- [ ] T-137 Move domain job pipelines out of apps/web/src/lib (audio-jobs.ts whisper pipeline, theme-jobs.ts font/image pipeline) into plugins behind @ktb/jobs-port registry · pri:high · owner:devin · created:2026-11-17
