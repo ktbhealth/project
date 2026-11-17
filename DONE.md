@@ -78,3 +78,4 @@
 - T-144 Spike: discardable document-store consumer — prove plugin-dep path end-to-end (P-089); throwaway code, not a real feature · owner:devin · created:2026-11-17 · links:P-012,P-089 · done:2026-11-17
 - T-126 document-store: multi-doc transactions — batch writes and atomic cascade/ref-integrity operations · owner:devin · created:2026-11-17 · links:P-089 · done:2026-11-17
 - T-130 document-store: schema versioning — migration/backfill hooks for collection schema bumps · owner:devin · created:2026-11-17 · links:P-089 · done:2026-11-17
+- T-127 document-store: optimistic concurrency (per-doc version/etag, If-Match) + idempotent insert keys · owner:devin · created:2026-11-17 · links:P-089 · done:2026-11-17
