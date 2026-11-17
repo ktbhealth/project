@@ -1,11 +1,12 @@
 +++
 id = "P-089"
 title = "plugins/document-store: runtime JSON-schema entity store for plugin-contributed data"
-status = "in-progress"
+status = "done"
 created = "2026-11-17"
 owner = "devin"
 priority = "med"
 links = ["P-064", "P-065", "ADR-0004"]
+done = "2026-11-17"
 +++
 
 ## Problem
