@@ -77,3 +77,4 @@
 - T-128 document-store: collection-level RBAC permissions + query guards (ReDoS-safe regex, doc size/count limits, field-level read/write) · pri:high · owner:devin · created:2026-11-17 · links:P-084,P-089 · done:2026-11-17
 - T-144 Spike: discardable document-store consumer — prove plugin-dep path end-to-end (P-089); throwaway code, not a real feature · owner:devin · created:2026-11-17 · links:P-012,P-089 · done:2026-11-17
 - T-126 document-store: multi-doc transactions — batch writes and atomic cascade/ref-integrity operations · owner:devin · created:2026-11-17 · links:P-089 · done:2026-11-17
+- T-130 document-store: schema versioning — migration/backfill hooks for collection schema bumps · owner:devin · created:2026-11-17 · links:P-089 · done:2026-11-17
