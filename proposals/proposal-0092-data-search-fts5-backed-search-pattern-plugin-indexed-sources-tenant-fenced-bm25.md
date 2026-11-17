@@ -1,7 +1,7 @@
 +++
 id = "P-092"
 title = "data.search: FTS5-backed search pattern plugin (indexed sources, tenant-fenced, bm25)"
-status = "open"
+status = "deferred"
 created = "2026-11-17"
 owner = "devin"
 priority = "low"
