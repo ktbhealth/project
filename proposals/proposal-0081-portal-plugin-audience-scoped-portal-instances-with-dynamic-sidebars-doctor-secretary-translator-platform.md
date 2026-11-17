@@ -1,10 +1,11 @@
 +++
 id = "P-081"
 title = "Portal plugin: audience-scoped portal instances with dynamic sidebars (doctor/secretary/translator/platform)"
-status = "in-progress"
+status = "done"
 created = "2026-11-15"
 priority = "med"
 links = ["P-031", "P-050", "P-058", "P-059", "P-060", "P-070"]
+done = "2026-11-17"
 +++
 
 ## Context
