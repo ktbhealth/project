@@ -25,7 +25,6 @@
 - [ ] T-119 Runtime-loaded eval plugins (WASM/Lua/dynamic) — BACKLOG, revisit only if third-party eval plugins become real · pri:low · created:2026-11-14
 - [ ] T-120 cloud eval profile cannot satisfy llm/eval caps — cloud suite resolution fails early; needs cloud judge/eval adapters or profile-capability validation in manifests · created:2026-11-14 · links:P-074
 - [ ] T-124 Add Vinicius and Emanuel as OCI members (IAM users/groups) for ktb tenancy · owner:human:luis · created:2026-11-16 · #devops
-- [ ] T-125 Decouple dashboard plugin from domain plugins: move consultations/patients/notifications cards into owning plugins via portal.dashboard.\* chrome + host-provided contexts · owner:devin · created:2026-11-17
 - [ ] T-126 document-store: multi-doc transactions — batch writes and atomic cascade/ref-integrity operations · owner:devin · created:2026-11-17 · links:P-089
 - [ ] T-127 document-store: optimistic concurrency (per-doc version/etag, If-Match) + idempotent insert keys · owner:devin · created:2026-11-17 · links:P-089
 - [ ] T-128 document-store: collection-level RBAC permissions + query guards (ReDoS-safe regex, doc size/count limits, field-level read/write) · pri:high · owner:devin · created:2026-11-17 · links:P-084,P-089
@@ -36,3 +35,4 @@
 - [ ] T-133 Observability 6c: audit-chain external anchoring — emit head hash to LGTM/Loki after verify (tamper evidence) · created:2026-11-17
 - [ ] T-134 Secrets lifecycle: EntityCipher keyring, rotation, audit trail for credentials key column · created:2026-11-17
 - [ ] T-135 Eval/AI surface: model+prompt versioning queryable, eval regression gates in CI · created:2026-11-17
+- [ ] T-125 Decouple dashboard plugin from domain plugins: move consultations/patients/notifications cards into owning plugins via portal.dashboard.\* chrome + host-provided contexts · status:in-progress · owner:devin · created:2026-11-17
