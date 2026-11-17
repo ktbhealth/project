@@ -27,7 +27,6 @@
 - [ ] T-124 Add Vinicius and Emanuel as OCI members (IAM users/groups) for ktb tenancy · owner:human:luis · created:2026-11-16 · #devops
 - [ ] T-126 document-store: multi-doc transactions — batch writes and atomic cascade/ref-integrity operations · owner:devin · created:2026-11-17 · links:P-089
 - [ ] T-127 document-store: optimistic concurrency (per-doc version/etag, If-Match) + idempotent insert keys · owner:devin · created:2026-11-17 · links:P-089
-- [ ] T-128 document-store: collection-level RBAC permissions + query guards (ReDoS-safe regex, doc size/count limits, field-level read/write) · pri:high · owner:devin · created:2026-11-17 · links:P-084,P-089
 - [ ] T-129 document-store: performance — per-isolate collection cache, batched ref validation, hot-field expression indexes; benchmark + documented scale ceiling · owner:devin · created:2026-11-17 · links:P-089
 - [ ] T-130 document-store: schema versioning — migration/backfill hooks for collection schema bumps · owner:devin · created:2026-11-17 · links:P-089
 - [ ] T-131 document-store: observability — trace spans + metrics hooks matching the telemetry pipeline (#105) · pri:low · owner:devin · created:2026-11-17 · links:P-089
@@ -41,3 +40,4 @@
 - [ ] T-145 Move tenant-directory.ts groups role/meta semantics out of apps/web host into groups plugin (schema knowledge duplicated in host) · pri:low · owner:devin · created:2026-11-17
 - [ ] T-146 Resolve evals/consultation (@ktb/eval-consultation) third workspace location — not plugins/ or packages/; document or relocate per AGENTS.md packages/plugins rule · pri:low · owner:devin · created:2026-11-17
 - [ ] T-147 document-store: harden against corrupt document\_collections.schema\_json — one bad row currently throws SyntaxError globally on delete/ref checks · owner:devin · created:2026-11-17 · links:P-089
+- [ ] T-128 document-store: collection-level RBAC permissions + query guards (ReDoS-safe regex, doc size/count limits, field-level read/write) · status:in-progress · pri:high · owner:devin · created:2026-11-17 · links:P-084,P-089
