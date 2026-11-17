@@ -41,4 +41,3 @@
 - [ ] T-145 Move tenant-directory.ts groups role/meta semantics out of apps/web host into groups plugin (schema knowledge duplicated in host) · pri:low · owner:devin · created:2026-11-17
 - [ ] T-146 Resolve evals/consultation (@ktb/eval-consultation) third workspace location — not plugins/ or packages/; document or relocate per AGENTS.md packages/plugins rule · pri:low · owner:devin · created:2026-11-17
 - [ ] T-147 document-store: harden against corrupt document\_collections.schema\_json — one bad row currently throws SyntaxError globally on delete/ref checks · owner:devin · created:2026-11-17 · links:P-089
-- [ ] T-148 CI coverage gate red on main (pre-existing, NOT from #122/#123/#124): global 99.4% lines / 98.7% branches vs 100% threshold — gaps in plugins/manager views (~92%), patient-portal, portal; bring uncovered files to 100% or scope-exclude with justification · status:in-progress · pri:high · owner:devin · created:2026-11-17
