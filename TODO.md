@@ -31,3 +31,4 @@
 - [ ] T-128 document-store: collection-level RBAC permissions + query guards (ReDoS-safe regex, doc size/count limits, field-level read/write) · pri:high · owner:devin · created:2026-11-17 · links:P-084,P-089
 - [ ] T-129 document-store: performance — per-isolate collection cache, batched ref validation, hot-field expression indexes; benchmark + documented scale ceiling · owner:devin · created:2026-11-17 · links:P-089
 - [ ] T-130 document-store: schema versioning — migration/backfill hooks for collection schema bumps · owner:devin · created:2026-11-17 · links:P-089
+- [ ] T-131 document-store: observability — trace spans + metrics hooks matching the telemetry pipeline (#105) · pri:low · owner:devin · created:2026-11-17 · links:P-089
