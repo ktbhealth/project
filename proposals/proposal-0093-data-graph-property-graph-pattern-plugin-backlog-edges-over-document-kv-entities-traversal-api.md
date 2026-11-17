@@ -1,7 +1,7 @@
 +++
 id = "P-093"
 title = "data.graph: property-graph pattern plugin (BACKLOG — edges over document/kv entities, traversal API)"
-status = "open"
+status = "deferred"
 created = "2026-11-17"
 owner = "devin"
 priority = "low"
