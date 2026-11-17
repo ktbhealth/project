@@ -72,3 +72,4 @@
 - T-138 Fix plugins/audit relative imports into sibling plugin sources (schema cycle workaround invisible to lint/dep graph) · owner:devin · created:2026-11-17 · done:2026-11-17
 - T-139 Deduplicate cross-plugin constants: AUDIO\_RETRY\_STATUSES, CONSULTATION\_ENTITY\_TYPE (ZK key material), AudioJobRow/STATUS\_MAP, MAX\_AUDIO\_BYTES/bytesToBase64 · owner:devin · created:2026-11-17 · done:2026-11-17
 - T-140 Close lint gaps: provider-literal patterns miss googleapis.com/LLM preset URLs; @ktb/db/auth unexported forces ../../../ relative schema imports; consider banning cross-package relative imports · owner:devin · created:2026-11-17 · done:2026-11-17
+- T-141 Decouple patient-portal raw @ktb/db/schema reads across patients/consultations/doctors/patient-access/vault tables into service/port calls · owner:devin · created:2026-11-17 · done:2026-11-17
