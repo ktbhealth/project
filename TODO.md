@@ -25,7 +25,6 @@
 - [ ] T-119 Runtime-loaded eval plugins (WASM/Lua/dynamic) — BACKLOG, revisit only if third-party eval plugins become real · pri:low · created:2026-11-14
 - [ ] T-120 cloud eval profile cannot satisfy llm/eval caps — cloud suite resolution fails early; needs cloud judge/eval adapters or profile-capability validation in manifests · created:2026-11-14 · links:P-074
 - [ ] T-124 Add Vinicius and Emanuel as OCI members (IAM users/groups) for ktb tenancy · owner:human:luis · created:2026-11-16 · #devops
-- [ ] T-129 document-store: performance — per-isolate collection cache, batched ref validation, hot-field expression indexes; benchmark + documented scale ceiling · owner:devin · created:2026-11-17 · links:P-089
 - [ ] T-131 document-store: observability — trace spans + metrics hooks matching the telemetry pipeline (#105) · pri:low · owner:devin · created:2026-11-17 · links:P-089
 - [ ] T-132 document-store: docs — 'when NOT to use' guide + escape hatch to typed drizzle tables for hot paths · pri:low · owner:devin · created:2026-11-17 · links:P-089
 - [ ] T-133 Observability 6c: audit-chain external anchoring — emit head hash to LGTM/Loki after verify (tamper evidence) · created:2026-11-17
@@ -37,3 +36,4 @@
 - [ ] T-146 Resolve evals/consultation (@ktb/eval-consultation) third workspace location — not plugins/ or packages/; document or relocate per AGENTS.md packages/plugins rule · pri:low · owner:devin · created:2026-11-17
 - [ ] T-147 document-store: harden against corrupt document\_collections.schema\_json — one bad row currently throws SyntaxError globally on delete/ref checks · owner:devin · created:2026-11-17 · links:P-089
 - [ ] T-149 document-store consumer ergonomics: client.ts boilerplate for service-only plugins, cross-store refs gap (can't ref drizzle entities like patients), server-fns not gated on plugin enablement, shared test-helper for server-fn mocks · owner:devin · created:2026-11-17 · links:T-144,P-089
+- [ ] T-129 document-store: performance — per-isolate collection cache, batched ref validation, hot-field expression indexes; benchmark + documented scale ceiling · status:in-progress · owner:devin · created:2026-11-17 · links:P-089
