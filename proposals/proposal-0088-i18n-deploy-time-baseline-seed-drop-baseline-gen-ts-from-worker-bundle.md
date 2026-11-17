@@ -1,7 +1,7 @@
 +++
 id = "P-088"
 title = "i18n: deploy-time baseline seed — drop baseline.gen.ts from worker bundle"
-status = "open"
+status = "in-progress"
 created = "2026-11-17"
 priority = "med"
 links = ["P-083"]
