@@ -35,7 +35,6 @@
 - [ ] T-133 Observability 6c: audit-chain external anchoring — emit head hash to LGTM/Loki after verify (tamper evidence) · created:2026-11-17
 - [ ] T-134 Secrets lifecycle: EntityCipher keyring, rotation, audit trail for credentials key column · created:2026-11-17
 - [ ] T-135 Eval/AI surface: model+prompt versioning queryable, eval regression gates in CI · created:2026-11-17
-- [ ] T-136 Declare missing optionalDeps edges: patients→vault, consultations→vault/patient-access, patient-portal→4 plugins, patient-access→3, secretaries→invites/doctors, auth→doctors, ai-endpoints/credentials→eval-validator, jobs.routes→consultations, notifications→vault · owner:devin · created:2026-11-17
 - [ ] T-137 Move domain job pipelines out of apps/web/src/lib (audio-jobs.ts whisper pipeline, theme-jobs.ts font/image pipeline) into plugins behind @ktb/jobs-port registry · pri:high · owner:devin · created:2026-11-17
 - [ ] T-138 Fix plugins/audit relative imports into sibling plugin sources (schema cycle workaround invisible to lint/dep graph) · owner:devin · created:2026-11-17
 - [ ] T-139 Deduplicate cross-plugin constants: AUDIO\_RETRY\_STATUSES, CONSULTATION\_ENTITY\_TYPE (ZK key material), AudioJobRow/STATUS\_MAP, MAX\_AUDIO\_BYTES/bytesToBase64 · owner:devin · created:2026-11-17
@@ -48,3 +47,4 @@
 - [ ] T-146 Resolve evals/consultation (@ktb/eval-consultation) third workspace location — not plugins/ or packages/; document or relocate per AGENTS.md packages/plugins rule · pri:low · owner:devin · created:2026-11-17
 - [ ] T-147 document-store: harden against corrupt document\_collections.schema\_json — one bad row currently throws SyntaxError globally on delete/ref checks · owner:devin · created:2026-11-17 · links:P-089
 - [ ] T-148 CI coverage gate red on main (pre-existing, NOT from #122/#123/#124): global 99.4% lines / 98.7% branches vs 100% threshold — gaps in plugins/manager views (~92%), patient-portal, portal; bring uncovered files to 100% or scope-exclude with justification · pri:high · owner:devin · created:2026-11-17
+- [ ] T-136 Declare missing optionalDeps edges: patients→vault, consultations→vault/patient-access, patient-portal→4 plugins, patient-access→3, secretaries→invites/doctors, auth→doctors, ai-endpoints/credentials→eval-validator, jobs.routes→consultations, notifications→vault · status:in-progress · owner:devin · created:2026-11-17
