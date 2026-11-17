@@ -1,7 +1,7 @@
 +++
 id = "P-089"
 title = "plugins/document-store: runtime JSON-schema entity store for plugin-contributed data"
-status = "open"
+status = "in-progress"
 created = "2026-11-17"
 owner = "devin"
 priority = "med"
