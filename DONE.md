@@ -94,3 +94,4 @@
 - T-120 cloud eval profile cannot satisfy llm/eval caps — cloud suite resolution fails early; needs cloud judge/eval adapters or profile-capability validation in manifests · created:2026-11-14 · links:P-074 · done:2026-11-18
 - T-135 Eval/AI surface: model+prompt versioning queryable, eval regression gates in CI · created:2026-11-17 · done:2026-11-18
 - T-042 Create synthetic dataset: pt-BR consult transcripts (multi-specialty, diarized, noisy) for extractor eval + demo · owner:devin · created:2026-11-09 · #dataset · #product · done:2026-11-18
+- T-155 product: reduce Worker bundle (37.7 MiB, budget 48/64) — 74% is WASM: ort-wasm 26.2MiB (whisper/onnx) + photon\_rs 1.5MiB. Trace what pulls them into apps/web/dist/server; check if eval/transcription deps leak into prod bundle; candidates: exclude from prod build, lazy-load, or move off-worker. Budget job: tools/bundle-budget.mjs (T-063, PR #152) · pri:high · created:2026-11-18 · done:2026-11-18
