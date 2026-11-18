@@ -34,3 +34,4 @@
 - [ ] T-167 Mutation testing rollout: run kill-mutants campaign per package + org-wide (ui, libs); trend scores · pri:high · created:2026-11-18
 - [ ] T-168 CI: duration-weighted Vitest shard balancing (8 shards are file-count balanced, not time balanced) · pri:low · created:2026-11-18 · #CI
 - [ ] T-169 CI: cheaper coverage-gate — mergeReports cost (~40s) + restore/install overhead; explore lighter merge path · pri:low · created:2026-11-18 · #CI
+- [ ] T-170 Rebuild /platform/theme as searchable theme list with tabbed create/edit dialog and asset uploads · owner:devin · created:2026-11-18
