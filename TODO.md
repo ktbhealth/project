@@ -19,7 +19,6 @@
 - [ ] T-095 Demo env docs: AI\_STUB=1 / AI\_BASE\_URL local-AI-server options for running golden path without Workers AI (wrangler.dev.jsonc already documents; surface in demo runbook) · owner:devin · created:2026-11-13 · #demo · #docs · links:T-092,P-065
 - [ ] T-117 Retry A1.Flex LGTM VM provisioning when OCI capacity frees (Pulumi stack ktb-lgtm-iac; retry loop exhausted ~6h — rerun make-spec.sh + pulumi up; cloud-init self-bootstraps) · created:2026-11-14
 - [ ] T-119 Runtime-loaded eval plugins (WASM/Lua/dynamic) — BACKLOG, revisit only if third-party eval plugins become real · pri:low · created:2026-11-14
-- [ ] T-120 cloud eval profile cannot satisfy llm/eval caps — cloud suite resolution fails early; needs cloud judge/eval adapters or profile-capability validation in manifests · created:2026-11-14 · links:P-074
 - [ ] T-124 Add Vinicius and Emanuel as OCI members (IAM users/groups) for ktb tenancy · owner:human:luis · created:2026-11-16 · #devops
 - [ ] T-133 Observability 6c: audit-chain external anchoring — emit head hash to LGTM/Loki after verify (tamper evidence) · created:2026-11-17
 - [ ] T-134 Secrets lifecycle: EntityCipher keyring, rotation, audit trail for credentials key column · created:2026-11-17
@@ -35,3 +34,4 @@
 - [ ] T-158 Swap workspace ORG\_ADMIN\_TOKEN secret from gh OAuth token to fine-grained PAT (org Administration + Webhooks + Contents read) · created:2026-11-18
 - [ ] T-159 product: audit logs UI — server-side filters/pagination/facets (branch feat/audit-logs-ui pushed; PR+merge pending gh auth) · created:2026-11-18
 - [ ] T-160 Mutation testing for test quality: inject code mutants that must obviously fail tests — surviving mutants expose weak/absent assertions → fix the tests. Pilot on product (bun test), evaluate StrykerJS vs mutatest/TS tools, then roll org-wide (product, ui, libs). Report mutation score per package; gate or trend it in CI once baseline is known · created:2026-11-18 · #ci-hardening · #testing
+- [ ] T-120 cloud eval profile cannot satisfy llm/eval caps — cloud suite resolution fails early; needs cloud judge/eval adapters or profile-capability validation in manifests · status:in-progress · created:2026-11-14 · links:P-074
