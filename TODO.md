@@ -34,4 +34,3 @@
 - [ ] T-158 Swap workspace ORG\_ADMIN\_TOKEN secret from gh OAuth token to fine-grained PAT (org Administration + Webhooks + Contents read) · created:2026-11-18
 - [ ] T-159 product: audit logs UI — server-side filters/pagination/facets (branch feat/audit-logs-ui pushed; PR+merge pending gh auth) · created:2026-11-18
 - [ ] T-160 Mutation testing for test quality: inject code mutants that must obviously fail tests — surviving mutants expose weak/absent assertions → fix the tests. Pilot on product (bun test), evaluate StrykerJS vs mutatest/TS tools, then roll org-wide (product, ui, libs). Report mutation score per package; gate or trend it in CI once baseline is known · created:2026-11-18 · #ci-hardening · #testing
-- [ ] T-120 cloud eval profile cannot satisfy llm/eval caps — cloud suite resolution fails early; needs cloud judge/eval adapters or profile-capability validation in manifests · status:in-progress · created:2026-11-14 · links:P-074
