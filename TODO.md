@@ -31,5 +31,4 @@
 - [ ] T-163 eval-cli: guard 'eval generate' against authored datasets (consult-ptbr-real footgun — generates template samples under authored datasetVersion) · created:2026-11-18
 - [ ] T-164 evals: TTS render step for consult-ptbr-real — replace pending:// audio refs with file:// so real ASR adapters produce true WER · created:2026-11-18
 - [ ] T-165 eval: consider System One / calibrated judge for gate-grade cloud runs (workers-ai judge is generative, self-reported probabilities) · created:2026-11-18
-- [ ] T-162 Implement P-099: loginTile chrome contribution + picker rewrite · status:in-progress · created:2026-11-18
 - [ ] T-159 product: audit logs UI — server-side filters/pagination/facets (branch feat/audit-logs-ui pushed; PR+merge pending gh auth) · status:in-progress · created:2026-11-18

@@ -97,3 +97,4 @@
 - T-155 product: reduce Worker bundle (37.7 MiB, budget 48/64) — 74% is WASM: ort-wasm 26.2MiB (whisper/onnx) + photon\_rs 1.5MiB. Trace what pulls them into apps/web/dist/server; check if eval/transcription deps leak into prod bundle; candidates: exclude from prod build, lazy-load, or move off-worker. Budget job: tools/bundle-budget.mjs (T-063, PR #152) · pri:high · created:2026-11-18 · done:2026-11-18
 - T-156 Smoke test runtime-stack routes post-merge: /wizards/patient-intake + /v/patients-intake render live (dev server :3000) · created:2026-11-18 · done:2026-11-18
 - T-147 document-store: harden against corrupt document\_collections.schema\_json — one bad row currently throws SyntaxError globally on delete/ref checks · owner:devin · created:2026-11-17 · links:P-089 · done:2026-11-18
+- T-162 Implement P-099: loginTile chrome contribution + picker rewrite · created:2026-11-18 · done:2026-11-18
