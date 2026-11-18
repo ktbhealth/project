@@ -1,10 +1,11 @@
 +++
 id = "P-100"
 title = "Shared <LocalDateTime> component for SSR-safe timestamps"
-status = "in-progress"
+status = "done"
 created = "2026-11-18"
 priority = "med"
 labels = ["CI"]
+done = "2026-11-18"
 +++
 
 ## Problem
