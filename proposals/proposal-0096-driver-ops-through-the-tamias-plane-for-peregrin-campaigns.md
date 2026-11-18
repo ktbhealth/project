@@ -1,11 +1,12 @@
 +++
 id = "P-096"
 title = "driver ops through the tamias plane for peregrin campaigns"
-status = "open"
+status = "done"
 created = "2026-11-18"
 owner = "devin"
 priority = "med"
 labels = ["orchestration", "tamias"]
+done = "2026-11-18"
 +++
 
 ## Context
