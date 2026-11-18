@@ -89,3 +89,4 @@
 - T-152 Org GitHub policies as IaC: infra/github Pulumi (squash-only merges, public visibility, rulesets codified, org webhook to ci-hook, R2 state backend) · created:2026-11-18 · done:2026-11-18
 - T-153 R2 S3 credentials for Pulumi backend: user must create R2 API token in CF dashboard (Object R\&W on ktbhealth-pulumi-state) and cuora put cuora://ktb/r2-access-key-id + r2-secret-access-key · created:2026-11-18 · done:2026-11-18
 - T-149 document-store consumer ergonomics: client.ts boilerplate for service-only plugins, cross-store refs gap (can't ref drizzle entities like patients), server-fns not gated on plugin enablement, shared test-helper for server-fn mocks · owner:devin · created:2026-11-17 · links:T-144,P-089 · done:2026-11-18
+- T-026 Set up peregrin as CI · pri:high · created:2026-11-08 · #devops · done:2026-11-18
