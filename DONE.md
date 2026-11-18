@@ -86,3 +86,4 @@
 - T-132 document-store: docs — 'when NOT to use' guide + escape hatch to typed drizzle tables for hot paths · pri:low · owner:devin · created:2026-11-17 · links:P-089 · done:2026-11-18
 - T-131 document-store: observability — trace spans + metrics hooks matching the telemetry pipeline (#105) · pri:low · owner:devin · created:2026-11-17 · links:P-089 · done:2026-11-18
 - T-063 product CI: Worker bundle size budget — fail when the Cloudflare Worker bundle approaches the plan limit (compressed size concern); print size delta in the job summary · pri:high · owner:human:emanuel · created:2026-11-09 · #ci-hardening · #devops · #github-actions · done:2026-11-18
+- T-152 Org GitHub policies as IaC: infra/github Pulumi (squash-only merges, public visibility, rulesets codified, org webhook to ci-hook, R2 state backend) · created:2026-11-18 · done:2026-11-18
