@@ -87,3 +87,4 @@
 - T-131 document-store: observability — trace spans + metrics hooks matching the telemetry pipeline (#105) · pri:low · owner:devin · created:2026-11-17 · links:P-089 · done:2026-11-18
 - T-063 product CI: Worker bundle size budget — fail when the Cloudflare Worker bundle approaches the plan limit (compressed size concern); print size delta in the job summary · pri:high · owner:human:emanuel · created:2026-11-09 · #ci-hardening · #devops · #github-actions · done:2026-11-18
 - T-152 Org GitHub policies as IaC: infra/github Pulumi (squash-only merges, public visibility, rulesets codified, org webhook to ci-hook, R2 state backend) · created:2026-11-18 · done:2026-11-18
+- T-153 R2 S3 credentials for Pulumi backend: user must create R2 API token in CF dashboard (Object R\&W on ktbhealth-pulumi-state) and cuora put cuora://ktb/r2-access-key-id + r2-secret-access-key · created:2026-11-18 · done:2026-11-18
