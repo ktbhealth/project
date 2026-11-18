@@ -98,3 +98,4 @@
 - T-156 Smoke test runtime-stack routes post-merge: /wizards/patient-intake + /v/patients-intake render live (dev server :3000) · created:2026-11-18 · done:2026-11-18
 - T-147 document-store: harden against corrupt document\_collections.schema\_json — one bad row currently throws SyntaxError globally on delete/ref checks · owner:devin · created:2026-11-17 · links:P-089 · done:2026-11-18
 - T-162 Implement P-099: loginTile chrome contribution + picker rewrite · created:2026-11-18 · done:2026-11-18
+- T-159 product: audit logs UI — server-side filters/pagination/facets (branch feat/audit-logs-ui pushed; PR+merge pending gh auth) · created:2026-11-18 · done:2026-11-18
