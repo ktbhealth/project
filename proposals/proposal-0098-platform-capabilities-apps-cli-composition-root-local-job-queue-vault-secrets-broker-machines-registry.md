@@ -1,12 +1,13 @@
 +++
 id = "P-098"
 title = "Platform capabilities: apps/cli composition root, local job queue, vault secrets broker, machines registry"
-status = "in-progress"
+status = "done"
 created = "2026-11-18"
 owner = "devin"
 priority = "high"
 labels = ["architecture-platform", "eval"]
 links = ["T-120", "T-135", "P-097", "PL-007", "PL-009"]
+done = "2026-11-18"
 +++
 
 ## Context
