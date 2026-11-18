@@ -85,3 +85,4 @@
 - T-057 product: guard the 100% coverage gate — add CODEOWNERS on vitest.config.ts so thresholds can't be lowered without review (branch-protection PR gate dropped, see T-054) · pri:high · owner:human:emanuel · created:2026-11-09 · #coverage · #devops · #github-actions · done:2026-11-18
 - T-132 document-store: docs — 'when NOT to use' guide + escape hatch to typed drizzle tables for hot paths · pri:low · owner:devin · created:2026-11-17 · links:P-089 · done:2026-11-18
 - T-131 document-store: observability — trace spans + metrics hooks matching the telemetry pipeline (#105) · pri:low · owner:devin · created:2026-11-17 · links:P-089 · done:2026-11-18
+- T-063 product CI: Worker bundle size budget — fail when the Cloudflare Worker bundle approaches the plan limit (compressed size concern); print size delta in the job summary · pri:high · owner:human:emanuel · created:2026-11-09 · #ci-hardening · #devops · #github-actions · done:2026-11-18
