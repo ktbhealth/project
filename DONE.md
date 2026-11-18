@@ -80,3 +80,4 @@
 - T-130 document-store: schema versioning — migration/backfill hooks for collection schema bumps · owner:devin · created:2026-11-17 · links:P-089 · done:2026-11-17
 - T-127 document-store: optimistic concurrency (per-doc version/etag, If-Match) + idempotent insert keys · owner:devin · created:2026-11-17 · links:P-089 · done:2026-11-17
 - T-129 document-store: performance — per-isolate collection cache, batched ref validation, hot-field expression indexes; benchmark + documented scale ceiling · owner:devin · created:2026-11-17 · links:P-089 · done:2026-11-17
+- T-060 product CI: coverage report (job summary + HTML artifact + sticky PR comment with delta) and vitest github-actions reporter for failure annotations; gate stays in vitest thresholds · pri:high · owner:human:emanuel · created:2026-11-09 · #ci-hardening · #devops · #github-actions · done:2026-11-18
