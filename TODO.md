@@ -30,7 +30,6 @@
 - [ ] T-163 eval-cli: guard 'eval generate' against authored datasets (consult-ptbr-real footgun — generates template samples under authored datasetVersion) · created:2026-11-18
 - [ ] T-164 evals: TTS render step for consult-ptbr-real — replace pending:// audio refs with file:// so real ASR adapters produce true WER · created:2026-11-18
 - [ ] T-165 eval: consider System One / calibrated judge for gate-grade cloud runs (workers-ai judge is generative, self-reported probabilities) · created:2026-11-18
-- [ ] T-166 PR fix/p098-test-helper-exports — unblocks main check+test-shards (erd still red) · status:in-progress · created:2026-11-18
 - [ ] T-167 Mutation testing rollout: run kill-mutants campaign per package + org-wide (ui, libs); trend scores · pri:high · created:2026-11-18
 - [ ] T-168 CI: duration-weighted Vitest shard balancing (8 shards are file-count balanced, not time balanced) · pri:low · created:2026-11-18 · #CI
 - [ ] T-169 CI: cheaper coverage-gate — mergeReports cost (~40s) + restore/install overhead; explore lighter merge path · pri:low · created:2026-11-18 · #CI
