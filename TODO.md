@@ -22,7 +22,6 @@
 - [ ] T-124 Add Vinicius and Emanuel as OCI members (IAM users/groups) for ktb tenancy · owner:human:luis · created:2026-11-16 · #devops
 - [ ] T-133 Observability 6c: audit-chain external anchoring — emit head hash to LGTM/Loki after verify (tamper evidence) · created:2026-11-17
 - [ ] T-134 Secrets lifecycle: EntityCipher keyring, rotation, audit trail for credentials key column · created:2026-11-17
-- [ ] T-135 Eval/AI surface: model+prompt versioning queryable, eval regression gates in CI · created:2026-11-17
 - [ ] T-143 Solve drizzle-kit CJS-resolver limitation so plugin schema.ts files can use @ktb/\* imports instead of ../../ relative paths — investigate: drizzle-kit esbuild bundling of workspace deps, package.json ./schema exports per plugin, or extracting FK-target table defs into packages/db; then remove the schema.ts exemption from the cross-package relative-import ban (T-140) · created:2026-11-17
 - [ ] T-145 Move tenant-directory.ts groups role/meta semantics out of apps/web host into groups plugin (schema knowledge duplicated in host) · pri:low · owner:devin · created:2026-11-17
 - [ ] T-146 Resolve evals/consultation (@ktb/eval-consultation) third workspace location — not plugins/ or packages/; document or relocate per AGENTS.md packages/plugins rule · pri:low · owner:devin · created:2026-11-17
@@ -34,3 +33,4 @@
 - [ ] T-158 Swap workspace ORG\_ADMIN\_TOKEN secret from gh OAuth token to fine-grained PAT (org Administration + Webhooks + Contents read) · created:2026-11-18
 - [ ] T-159 product: audit logs UI — server-side filters/pagination/facets (branch feat/audit-logs-ui pushed; PR+merge pending gh auth) · created:2026-11-18
 - [ ] T-160 Mutation testing for test quality: inject code mutants that must obviously fail tests — surviving mutants expose weak/absent assertions → fix the tests. Pilot on product (bun test), evaluate StrykerJS vs mutatest/TS tools, then roll org-wide (product, ui, libs). Report mutation score per package; gate or trend it in CI once baseline is known · created:2026-11-18 · #ci-hardening · #testing
+- [ ] T-135 Eval/AI surface: model+prompt versioning queryable, eval regression gates in CI · status:in-progress · created:2026-11-17
