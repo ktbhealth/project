@@ -1,7 +1,7 @@
 +++
 id = "PL-009"
 title = "Eval platform unification + AI capability plugins — execution"
-status = "open"
+status = "in-progress"
 created = "2026-11-18"
 owner = "devin"
 priority = "high"
