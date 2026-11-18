@@ -1,7 +1,7 @@
 +++
 id = "P-098"
 title = "Platform capabilities: apps/cli composition root, local job queue, vault secrets broker, machines registry"
-status = "open"
+status = "in-progress"
 created = "2026-11-18"
 owner = "devin"
 priority = "high"
