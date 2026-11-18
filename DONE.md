@@ -93,3 +93,4 @@
 - T-161 Roll out pr-review campaign to org repos — per-repo BUPHA\_WH\_\<ORG>\_\<REPO> cuora secret + GitHub webhook registration (live + dogfooded on ktbhealth/workspace, pr-review@0.1.3) · created:2026-11-18 · links:PL-004 · done:2026-11-18
 - T-120 cloud eval profile cannot satisfy llm/eval caps — cloud suite resolution fails early; needs cloud judge/eval adapters or profile-capability validation in manifests · created:2026-11-14 · links:P-074 · done:2026-11-18
 - T-135 Eval/AI surface: model+prompt versioning queryable, eval regression gates in CI · created:2026-11-17 · done:2026-11-18
+- T-042 Create synthetic dataset: pt-BR consult transcripts (multi-specialty, diarized, noisy) for extractor eval + demo · owner:devin · created:2026-11-09 · #dataset · #product · done:2026-11-18
