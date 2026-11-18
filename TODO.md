@@ -31,4 +31,3 @@
 - [ ] T-146 Resolve evals/consultation (@ktb/eval-consultation) third workspace location — not plugins/ or packages/; document or relocate per AGENTS.md packages/plugins rule · pri:low · owner:devin · created:2026-11-17
 - [ ] T-147 document-store: harden against corrupt document\_collections.schema\_json — one bad row currently throws SyntaxError globally on delete/ref checks · owner:devin · created:2026-11-17 · links:P-089
 - [ ] T-149 document-store consumer ergonomics: client.ts boilerplate for service-only plugins, cross-store refs gap (can't ref drizzle entities like patients), server-fns not gated on plugin enablement, shared test-helper for server-fn mocks · owner:devin · created:2026-11-17 · links:T-144,P-089
-- [ ] T-131 document-store: observability — trace spans + metrics hooks matching the telemetry pipeline (#105) · status:in-progress · pri:low · owner:devin · created:2026-11-17 · links:P-089
