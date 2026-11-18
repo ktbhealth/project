@@ -101,3 +101,4 @@
 - T-159 product: audit logs UI — server-side filters/pagination/facets (branch feat/audit-logs-ui pushed; PR+merge pending gh auth) · created:2026-11-18 · done:2026-11-18
 - T-160 Mutation testing for test quality: inject code mutants that must obviously fail tests — surviving mutants expose weak/absent assertions → fix the tests. Pilot on product (bun test), evaluate StrykerJS vs mutatest/TS tools, then roll org-wide (product, ui, libs). Report mutation score per package; gate or trend it in CI once baseline is known · created:2026-11-18 · #ci-hardening · #testing · done:2026-11-18
 - T-170 Rebuild /platform/theme as searchable theme list with tabbed create/edit dialog and asset uploads · owner:devin · created:2026-11-18 · done:2026-11-18
+- T-174 LocalDateTime shared component + migrate all SSR-unsafe date views (PRs #185 #188 #189) · pri:low · created:2026-11-18 · links:P-100 · done:2026-11-18
