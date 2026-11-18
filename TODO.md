@@ -34,3 +34,4 @@
 - [ ] T-156 Smoke test runtime-stack routes post-merge: /wizards/patient-intake + /v/patients-intake render live (dev server :3000) · created:2026-11-18
 - [ ] T-157 Adopt clientStub in plugins/\*/src/client.ts — blocked on upstream @ktbhealth/workspace plugin-contract lint rule accepting clientStub (or relax parity for server-only plugins); helper already in @ktb/kernel · owner:devin · created:2026-11-18 · links:T-149,P-089
 - [ ] T-158 Swap workspace ORG\_ADMIN\_TOKEN secret from gh OAuth token to fine-grained PAT (org Administration + Webhooks + Contents read) · created:2026-11-18
+- [ ] T-159 product: audit logs UI — server-side filters/pagination/facets (branch feat/audit-logs-ui pushed; PR+merge pending gh auth) · created:2026-11-18
