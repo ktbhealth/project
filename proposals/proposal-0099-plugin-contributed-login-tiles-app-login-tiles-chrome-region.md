@@ -1,11 +1,12 @@
 +++
 id = "P-099"
 title = "Plugin-contributed login tiles (app.login.tiles chrome region)"
-status = "open"
+status = "done"
 created = "2026-11-18"
 owner = "devin"
 priority = "med"
 links = ["P-058"]
+done = "2026-11-18"
 +++
 
 ## Problem
