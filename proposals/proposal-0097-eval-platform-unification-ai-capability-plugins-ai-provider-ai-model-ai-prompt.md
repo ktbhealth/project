@@ -1,12 +1,13 @@
 +++
 id = "P-097"
 title = "Eval platform unification + AI capability plugins (ai-provider, ai-model, ai-prompt)"
-status = "open"
+status = "done"
 created = "2026-11-18"
 owner = "devin"
 priority = "high"
 labels = ["architecture-platform", "eval"]
 links = ["T-042", "T-120", "T-135", "T-155", "P-069", "P-076", "P-081"]
+done = "2026-11-18"
 +++
 
 ## Problem
