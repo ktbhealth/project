@@ -34,4 +34,4 @@
 - [ ] T-167 Mutation testing rollout: run kill-mutants campaign per package + org-wide (ui, libs); trend scores · pri:high · created:2026-11-18
 - [ ] T-168 CI: duration-weighted Vitest shard balancing (8 shards are file-count balanced, not time balanced) · pri:low · created:2026-11-18 · #CI
 - [ ] T-169 CI: cheaper coverage-gate — mergeReports cost (~40s) + restore/install overhead; explore lighter merge path · pri:low · created:2026-11-18 · #CI
-- [ ] T-174 LocalDateTime shared component + migrate all SSR-unsafe date views (PRs #185 #188 #189) · pri:low · created:2026-11-18 · links:P-100
+- [ ] T-174 LocalDateTime shared component + migrate all SSR-unsafe date views (PRs #185 #188 #189) · status:in-progress · pri:low · created:2026-11-18 · links:P-100
