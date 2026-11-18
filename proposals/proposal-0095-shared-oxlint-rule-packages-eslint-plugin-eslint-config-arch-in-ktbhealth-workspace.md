@@ -1,10 +1,11 @@
 +++
 id = "P-095"
 title = "Shared oxlint rule packages: eslint-plugin-* + eslint-config-arch in ktbhealth/workspace"
-status = "open"
+status = "done"
 created = "2026-11-18"
 owner = "devin"
 priority = "med"
+done = "2026-11-18"
 +++
 
 ## Problem
