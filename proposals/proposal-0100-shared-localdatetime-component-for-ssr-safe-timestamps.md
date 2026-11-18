@@ -1,7 +1,7 @@
 +++
 id = "P-100"
 title = "Shared <LocalDateTime> component for SSR-safe timestamps"
-status = "open"
+status = "in-progress"
 created = "2026-11-18"
 priority = "med"
 labels = ["CI"]
