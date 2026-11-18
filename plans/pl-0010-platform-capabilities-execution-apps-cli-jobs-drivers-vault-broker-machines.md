@@ -1,7 +1,7 @@
 +++
 id = "PL-010"
 title = "Platform capabilities execution: apps/cli, jobs drivers, vault broker, machines"
-status = "open"
+status = "in-progress"
 created = "2026-11-18"
 owner = "devin"
 priority = "high"
