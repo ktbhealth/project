@@ -34,4 +34,3 @@
 - [ ] T-169 CI: cheaper coverage-gate — mergeReports cost (~40s) + restore/install overhead; explore lighter merge path · pri:low · created:2026-11-18 · #CI
 - [ ] T-180 i18n: unused-key report — diff DB i18n\_messages keys vs static t() usage scan; per-namespace orphan list + bulk delete. Low priority. · pri:low · created:2026-11-19
 - [ ] T-167 Mutation testing rollout: run kill-mutants campaign per package + org-wide (ui, libs); trend scores · status:in-progress · pri:high · created:2026-11-18
-- [ ] T-184 P-084 decision: per-resource tenant-grant semantics — global-inherit list (i18n.\*) vs tenant-pinned required (audit.read, document-store specs, patient.\*/consultation.\*); also thread ambient Tenant into views/wizards/api def-permission checks · status:in-progress · created:2026-11-19
