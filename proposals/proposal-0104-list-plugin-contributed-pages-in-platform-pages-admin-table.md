@@ -1,10 +1,11 @@
 +++
 id = "P-104"
 title = "List plugin-contributed pages in /platform/pages admin table"
-status = "in-progress"
+status = "done"
 created = "2026-11-19"
 owner = "devin"
 priority = "med"
+done = "2026-11-19"
 +++
 
 ## Problem
