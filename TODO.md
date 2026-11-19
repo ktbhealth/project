@@ -32,4 +32,3 @@
 - [ ] T-169 CI: cheaper coverage-gate — mergeReports cost (~40s) + restore/install overhead; explore lighter merge path · pri:low · created:2026-11-18 · #CI
 - [ ] T-180 i18n: unused-key report — diff DB i18n\_messages keys vs static t() usage scan; per-namespace orphan list + bulk delete. Low priority. · pri:low · created:2026-11-19
 - [ ] T-167 Mutation testing rollout: run kill-mutants campaign per package + org-wide (ui, libs); trend scores · status:in-progress · pri:high · created:2026-11-18
-- [ ] T-143 Solve drizzle-kit CJS-resolver limitation so plugin schema.ts files can use @ktb/\* imports instead of ../../ relative paths — investigate: drizzle-kit esbuild bundling of workspace deps, package.json ./schema exports per plugin, or extracting FK-target table defs into packages/db; then remove the schema.ts exemption from the cross-package relative-import ban (T-140) · status:in-progress · created:2026-11-17
