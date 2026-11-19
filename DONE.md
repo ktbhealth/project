@@ -103,3 +103,4 @@
 - T-170 Rebuild /platform/theme as searchable theme list with tabbed create/edit dialog and asset uploads · owner:devin · created:2026-11-18 · done:2026-11-18
 - T-174 LocalDateTime shared component + migrate all SSR-unsafe date views (PRs #185 #188 #189) · pri:low · created:2026-11-18 · links:P-100 · done:2026-11-18
 - T-166 PR fix/p098-test-helper-exports — unblocks main check+test-shards (erd still red) · created:2026-11-18 · done:2026-11-18
+- T-175 document-store console: split into Collections + Documents pages (two sidebar entries); add cross-collection documents browser · owner:devin · created:2026-11-19 · done:2026-11-19
