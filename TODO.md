@@ -34,4 +34,3 @@
 - [ ] T-180 i18n: unused-key report — diff DB i18n\_messages keys vs static t() usage scan; per-namespace orphan list + bulk delete. Low priority. · pri:low · created:2026-11-19
 - [ ] T-167 Mutation testing rollout: run kill-mutants campaign per package + org-wide (ui, libs); trend scores · status:in-progress · pri:high · created:2026-11-18
 - [ ] T-188 Re-pin tenant grants: strict tenantPolicy hides tenant\_id NULL tuples — audit/document-store/views/wizards/api/flows deny in tenant contexts until grants are re-pinned (P-084 follow-up) · status:in-progress · created:2026-11-19
-- [ ] T-154 Release @ktbhealth/ui v0.3.3: --overlay token + semantic color-token fixes + oxlint/arch.ui() lint (merged in ui#6, not yet tagged — consumers pick it up on next tag) · status:in-progress · created:2026-11-18

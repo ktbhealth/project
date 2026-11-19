@@ -116,3 +116,4 @@
 - T-183 P-101 follow-up: RBAC admin UI + repo fns on relation\_tuples directly, then drop roles/role\_permissions/subject\_roles tables · created:2026-11-19 · done:2026-11-19
 - T-184 P-084 decision: per-resource tenant-grant semantics — global-inherit list (i18n.\*) vs tenant-pinned required (audit.read, document-store specs, patient.\*/consultation.\*); also thread ambient Tenant into views/wizards/api def-permission checks · created:2026-11-19 · done:2026-11-19
 - T-189 Migrate native selects to shadcn Select (PR #233) · owner:human:Luis-Emidio · created:2026-11-19 · done:2026-11-19
+- T-154 Release @ktbhealth/ui v0.3.3: --overlay token + semantic color-token fixes + oxlint/arch.ui() lint (merged in ui#6, not yet tagged — consumers pick it up on next tag) · created:2026-11-18 · done:2026-11-19
