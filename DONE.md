@@ -110,3 +110,4 @@
 - T-176 Rich-text plugin leftovers: manual smoke (/platform/rich-text create→edit→empty-delete, page doc picker, public render); review/drop stash@{0} autostash once i18n-console WIP lands; re-link custom\_pages to rich\_text docs (old markdown content dropped in migration 0056) · created:2026-11-19 · done:2026-11-19
 - T-178 Fix red main CI: erd rich\_text unmapped table, knip unused deps (platejs, @ktb/auth x2), coverage-gate gaps (document-store, rich-text, pages, i18n, server-fns testing.ts) — pre-existing since ~4b9f45c8, blocks clean merges · pri:high · owner:devin · created:2026-11-19 · #ci-hardening · #product · done:2026-11-19
 - T-186 x · status:cancelled · created:2026-11-19
+- T-185 Plugin-owned app pages: move /login, /login/patient, /verify-email, /capture-test + 404/error boundaries out of host file routes into plugin page descriptors (PR #212, merged 2026-11-19, deployed to prod) · owner:devin · created:2026-11-19 · done:2026-11-19
