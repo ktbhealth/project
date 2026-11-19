@@ -33,3 +33,4 @@
 - [ ] T-167 Mutation testing rollout: run kill-mutants campaign per package + org-wide (ui, libs); trend scores · pri:high · created:2026-11-18
 - [ ] T-168 CI: duration-weighted Vitest shard balancing (8 shards are file-count balanced, not time balanced) · pri:low · created:2026-11-18 · #CI
 - [ ] T-169 CI: cheaper coverage-gate — mergeReports cost (~40s) + restore/install overhead; explore lighter merge path · pri:low · created:2026-11-18 · #CI
+- [ ] T-176 Rich-text plugin leftovers: manual smoke (/platform/rich-text create→edit→empty-delete, page doc picker, public render); review/drop stash@{0} autostash once i18n-console WIP lands; re-link custom\_pages to rich\_text docs (old markdown content dropped in migration 0056) · created:2026-11-19
