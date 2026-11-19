@@ -34,4 +34,3 @@
 - [ ] T-169 CI: cheaper coverage-gate — mergeReports cost (~40s) + restore/install overhead; explore lighter merge path · pri:low · created:2026-11-18 · #CI
 - [ ] T-180 i18n: unused-key report — diff DB i18n\_messages keys vs static t() usage scan; per-namespace orphan list + bulk delete. Low priority. · pri:low · created:2026-11-19
 - [ ] T-167 Mutation testing rollout: run kill-mutants campaign per package + org-wide (ui, libs); trend scores · status:in-progress · pri:high · created:2026-11-18
-- [ ] T-178 Fix red main CI: erd rich\_text unmapped table, knip unused deps (platejs, @ktb/auth x2), coverage-gate gaps (document-store, rich-text, pages, i18n, server-fns testing.ts) — pre-existing since ~4b9f45c8, blocks clean merges · status:in-progress · pri:high · owner:devin · created:2026-11-19 · #ci-hardening · #product
