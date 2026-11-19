@@ -112,3 +112,4 @@
 - T-186 x · status:cancelled · created:2026-11-19
 - T-185 Plugin-owned app pages: move /login, /login/patient, /verify-email, /capture-test + 404/error boundaries out of host file routes into plugin page descriptors (PR #212, merged 2026-11-19, deployed to prod) · owner:devin · created:2026-11-19 · done:2026-11-19
 - T-187 Route collapse: single /\$ dispatcher for landing/platform/portal/app pages · owner:human:Luis-Emidio · created:2026-11-19 · done:2026-11-19
+- T-182 P-101 follow-up: cut entity authz checks over to canObject tuples (patients/consultations/agenda requireCanAs sites), then retire permix rulesFor · pri:high · created:2026-11-19 · done:2026-11-19
