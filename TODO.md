@@ -34,7 +34,7 @@
 - [ ] T-168 CI: duration-weighted Vitest shard balancing (8 shards are file-count balanced, not time balanced) · pri:low · created:2026-11-18 · #CI
 - [ ] T-169 CI: cheaper coverage-gate — mergeReports cost (~40s) + restore/install overhead; explore lighter merge path · pri:low · created:2026-11-18 · #CI
 - [ ] T-176 Rich-text plugin leftovers: manual smoke (/platform/rich-text create→edit→empty-delete, page doc picker, public render); review/drop stash@{0} autostash once i18n-console WIP lands; re-link custom\_pages to rich\_text docs (old markdown content dropped in migration 0056) · created:2026-11-19
-- [ ] T-177 Admin table-page kit: defineAdminTable + TablePage primitives in @ktb/views; migrate admin table pages · created:2026-11-19
 - [ ] T-178 Fix red main CI: erd rich\_text unmapped table, knip unused deps (platejs, @ktb/auth x2), coverage-gate gaps (document-store, rich-text, pages, i18n, server-fns testing.ts) — pre-existing since ~4b9f45c8, blocks clean merges · pri:high · owner:devin · created:2026-11-19 · #ci-hardening · #product
 - [ ] T-180 i18n: unused-key report — diff DB i18n\_messages keys vs static t() usage scan; per-namespace orphan list + bulk delete. Low priority. · pri:low · created:2026-11-19
 - [ ] T-181 Concurrency console: Queue + Cronjobs + Pubsub platform pages (plugins per feature; cloud-agnostic ports incl. Redis local) · status:in-progress · pri:high · created:2026-11-19
+- [ ] T-177 Admin table-page kit: defineAdminTable + TablePage primitives in @ktb/views; migrate admin table pages · status:in-progress · created:2026-11-19
