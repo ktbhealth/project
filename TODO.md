@@ -38,4 +38,3 @@
 - [ ] T-183 P-101 follow-up: RBAC admin UI + repo fns on relation\_tuples directly, then drop roles/role\_permissions/subject\_roles tables · created:2026-11-19
 - [ ] T-184 P-084 decision: per-resource tenant-grant semantics — global-inherit list (i18n.\*) vs tenant-pinned required (audit.read, document-store specs, patient.\*/consultation.\*); also thread ambient Tenant into views/wizards/api def-permission checks · created:2026-11-19
 - [ ] T-185 Plugin-owned app pages: move /login, /login/patient, /verify-email, /capture-test + 404/error boundaries out of host file routes into plugin page descriptors (PR #212, merged 2026-11-19, deployed to prod) · owner:devin · created:2026-11-19
-- [ ] T-186 x · created:2026-11-19
