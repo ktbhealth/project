@@ -37,4 +37,4 @@
 - [ ] T-182 P-101 follow-up: cut entity authz checks over to canObject tuples (patients/consultations/agenda requireCanAs sites), then retire permix rulesFor · pri:high · created:2026-11-19
 - [ ] T-183 P-101 follow-up: RBAC admin UI + repo fns on relation\_tuples directly, then drop roles/role\_permissions/subject\_roles tables · created:2026-11-19
 - [ ] T-184 P-084 decision: per-resource tenant-grant semantics — global-inherit list (i18n.\*) vs tenant-pinned required (audit.read, document-store specs, patient.\*/consultation.\*); also thread ambient Tenant into views/wizards/api def-permission checks · created:2026-11-19
-- [ ] T-187 Route collapse: single /\$ dispatcher for landing/platform/portal/app pages · status:claimed · owner:human:Luis-Emidio · created:2026-11-19
+- [ ] T-187 Route collapse: single /\$ dispatcher for landing/platform/portal/app pages · status:in-progress · owner:human:Luis-Emidio · created:2026-11-19
