@@ -106,3 +106,4 @@
 - T-175 document-store console: split into Collections + Documents pages (two sidebar entries); add cross-collection documents browser · owner:devin · created:2026-11-19 · done:2026-11-19
 - T-179 users admin: updateUser must reset emailVerified when the email changes (pr-review fix saved at ~/GitHub/ktbhealth/pr192-review-fix-emailverified.patch — merged PR #192 left flag stale) · owner:devin · created:2026-11-19 · #product · links:T-178 · done:2026-11-19
 - T-177 Admin table-page kit: defineAdminTable + TablePage primitives in @ktb/views; migrate admin table pages · created:2026-11-19 · done:2026-11-19
+- T-181 Concurrency console: Queue + Cronjobs + Pubsub platform pages (plugins per feature; cloud-agnostic ports incl. Redis local) · pri:high · created:2026-11-19 · done:2026-11-19
