@@ -1,10 +1,10 @@
 +++
 id = "P-101"
 title = "ReBAC: serializable relationship tuples for record-level authz (Zanzibar-style)"
-status = "open"
+status = "in-progress"
 created = "2026-11-18"
 priority = "high"
-links = ["P-084", "P-054"]
+links = ["P-054", "P-084"]
 +++
 
 ## Context
