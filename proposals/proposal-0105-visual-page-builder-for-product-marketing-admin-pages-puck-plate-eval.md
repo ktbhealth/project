@@ -29,3 +29,17 @@ We may want an Elementor-like experience for building pages (landing pages, pati
 ## Next step
 
 Spike: embed Puck in a scratch route, register 3-4 `@ktbhealth/ui` components + a Plate-backed rich-text field, render a sample landing page. Evaluate DX, token fidelity, JSON schema stability, and bundle cost before committing.
+
+## Platform mapping (product repo findings)
+
+- `/platform` sidebar **Site group already exists**: Pages, Layouts, Rich text, Schemas, Fonts, Theme — all `portal.sidebar` contributions with `group: "Site"`.
+- **Pages** (`plugins/pages`, T-083): `custom_pages` table — path, published, `showInNav`, optional `richTextId` / `layoutId` / `searchSchemaId`. Rendered by a `/*` wildcard page descriptor; admin CRUD at `/platform/pages`.
+- **Layouts** (`plugins/layouts`): `layouts` table — ordered named sections, each slot binds a rich-text document. Pages compose their body via `layoutId`.
+- **Templates**: no first-class entity today; closest analogs are reusable rich-text docs and layouts as page skeletons.
+
+### Direction
+
+- Puck is the **editor surface of Pages**, not a separate sidebar item — "edit page" opens the Puck canvas. Sidebar unchanged (Pages entry stays the entry point).
+- **Additive data model**: new `builderJson` column on `custom_pages` holding the Puck document. `richTextId`/`layoutId` path keeps working for simple/legacy pages; builder pages render via Puck `<Render>`.
+- **Templates** emerge later as saved Puck documents instantiated into new pages — no schema needed now.
+- Layouts stay as-is initially; possible later convergence (Puck sections subsuming layout slots) is a separate migration.
