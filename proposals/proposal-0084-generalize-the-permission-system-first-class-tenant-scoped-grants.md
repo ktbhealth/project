@@ -1,7 +1,7 @@
 +++
 id = "P-084"
 title = "Generalize the permission system: first-class tenant-scoped grants"
-status = "open"
+status = "in-progress"
 created = "2026-11-16"
 priority = "high"
 +++
