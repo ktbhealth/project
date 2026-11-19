@@ -21,7 +21,6 @@
 - [ ] T-124 Add Vinicius and Emanuel as OCI members (IAM users/groups) for ktb tenancy · owner:human:luis · created:2026-11-16 · #devops
 - [ ] T-133 Observability 6c: audit-chain external anchoring — emit head hash to LGTM/Loki after verify (tamper evidence) · created:2026-11-17
 - [ ] T-134 Secrets lifecycle: EntityCipher keyring, rotation, audit trail for credentials key column · created:2026-11-17
-- [ ] T-143 Solve drizzle-kit CJS-resolver limitation so plugin schema.ts files can use @ktb/\* imports instead of ../../ relative paths — investigate: drizzle-kit esbuild bundling of workspace deps, package.json ./schema exports per plugin, or extracting FK-target table defs into packages/db; then remove the schema.ts exemption from the cross-package relative-import ban (T-140) · created:2026-11-17
 - [ ] T-145 Move tenant-directory.ts groups role/meta semantics out of apps/web host into groups plugin (schema knowledge duplicated in host) · pri:low · owner:devin · created:2026-11-17
 - [ ] T-146 Resolve evals/consultation (@ktb/eval-consultation) third workspace location — not plugins/ or packages/; document or relocate per AGENTS.md packages/plugins rule · pri:low · owner:devin · created:2026-11-17
 - [ ] T-157 Adopt clientStub in plugins/\*/src/client.ts — blocked on upstream @ktbhealth/workspace plugin-contract lint rule accepting clientStub (or relax parity for server-only plugins); helper already in @ktb/kernel · owner:devin · created:2026-11-18 · links:T-149,P-089
@@ -33,3 +32,4 @@
 - [ ] T-169 CI: cheaper coverage-gate — mergeReports cost (~40s) + restore/install overhead; explore lighter merge path · pri:low · created:2026-11-18 · #CI
 - [ ] T-180 i18n: unused-key report — diff DB i18n\_messages keys vs static t() usage scan; per-namespace orphan list + bulk delete. Low priority. · pri:low · created:2026-11-19
 - [ ] T-167 Mutation testing rollout: run kill-mutants campaign per package + org-wide (ui, libs); trend scores · status:in-progress · pri:high · created:2026-11-18
+- [ ] T-143 Solve drizzle-kit CJS-resolver limitation so plugin schema.ts files can use @ktb/\* imports instead of ../../ relative paths — investigate: drizzle-kit esbuild bundling of workspace deps, package.json ./schema exports per plugin, or extracting FK-target table defs into packages/db; then remove the schema.ts exemption from the cross-package relative-import ban (T-140) · status:in-progress · created:2026-11-17
