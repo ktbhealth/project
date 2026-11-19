@@ -1,7 +1,7 @@
 +++
 id = "P-104"
 title = "List plugin-contributed pages in /platform/pages admin table"
-status = "open"
+status = "in-progress"
 created = "2026-11-19"
 owner = "devin"
 priority = "med"
