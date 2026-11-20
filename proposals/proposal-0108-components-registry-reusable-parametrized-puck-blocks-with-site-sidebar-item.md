@@ -28,3 +28,7 @@ A first-class **Components** concept for the site builder: reusable, parametrize
 
 - Build on Puck's component config directly vs own registry that compiles to Puck config (own registry keeps us editor-agnostic if we ever swap builders).
 - Where do component definitions live: `@ktbhealth/ui` (design system) vs product plugins (domain blocks)? Likely split: primitives in ui, domain blocks in plugins.
+
+## Relation to P-102 (done)
+
+P-102 phase 3's "element-kind registry" (`{kind, label, editor, renderer, hooks}`) is the ancestor of this proposal. P-108 narrows it for the builder context: elements become *parametrized components* with typed props (Puck fields model) rather than free documents, and gains the `/platform/components` catalog. If the elements registry lands first, this proposal should extend it rather than fork it.

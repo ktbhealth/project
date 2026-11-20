@@ -27,3 +27,7 @@ Templates as a **platform capability**, not a page feature: a `templates` regist
 ## Dependencies
 
 - P-105 (builder eval) informs the `page`/`layout` kinds' payload shape but the registry itself is builder-agnostic.
+
+## Relation to P-102 (done)
+
+P-102 phase 3 sketched exactly this: an element-kind registry where "templates = saved element graphs; pages instantiate a template and fill slots." P-107 is the concrete proposal for that phase — the registry is builder-agnostic (opaque kind payloads), so it survives any editor choice. The open P-102 question "one `elements` table vs per-kind tables" resolves here as: `templates` table stores `{kind, payload}`; per-kind *content* stays in its own table (pages/layouts keep their rows; a template is a snapshot, not a live reference).
