@@ -5,7 +5,7 @@ status = "open"
 created = "2026-11-20"
 priority = "med"
 blocks = ["T-190", "PL-017"]
-links = ["T-190", "P-102", "P-105", "P-106", "P-107", "P-108", "P-109"]
+links = ["T-190", "P-102", "P-105", "P-106", "P-107", "P-108", "P-109", "P-111"]
 epic = "site-builder"
 +++
 
