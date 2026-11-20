@@ -1,8 +1,9 @@
 +++
 id = "PL-011"
 title = "Implement routes registry plugin"
-status = "open"
+status = "claimed"
 created = "2026-11-20"
+owner = "devin"
 priority = "med"
 links = ["P-106"]
 epic = "site-builder"
