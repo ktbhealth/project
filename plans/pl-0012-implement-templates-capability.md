@@ -5,6 +5,7 @@ status = "open"
 created = "2026-11-20"
 priority = "med"
 links = ["P-107"]
+epic = "site-builder"
 +++
 
 # Plan: templates capability (P-107)
