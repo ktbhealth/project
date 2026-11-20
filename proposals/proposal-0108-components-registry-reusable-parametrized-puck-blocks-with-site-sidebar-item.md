@@ -18,17 +18,16 @@ A first-class **Components** concept for the site builder: reusable, parametrize
 - `/platform/components` (Site group) lists registered components with live preview + prop schema docs.
 - Components are the design-token fidelity checkpoint: every block must render through `@ktbhealth/ui` tokens.
 
-## Shape (proposal)
+## Shape (decided)
 
-- Registry contribution kind `builder.components` (or reuse Puck's config registry): `{ id, label, description, fields schema, render, category, preview? }`.
-- Core set first: layout primitives (section/container/columns), content (heading, rich-text→Plate, image, CTA), data (metric, table).
-- Plugin-contributed: e.g. `patients` could expose a "PatientCard" block; `consultations` a "ConsultSummary" block — same registry, domain blocks.
+- Registry = existing `elementKinds` contribution (P-102), extended with optional `fields` prop-schema in `@ktb/kernel` — editor-agnostic; Puck config is compiled from it by `plugins/site-builder`.
+- Core primitives ship from new `plugins/builder-blocks`; `rich-text` and `image` stay in their own plugins (P-111) as element kinds; domain blocks (e.g. `patients` → PatientCard) are contributed by their plugins.
 - Admin page is read-only catalog + "insert into page/layout" affordance later.
 
-## Open questions
+## Resolved questions
 
-- Build on Puck's component config directly vs own registry that compiles to Puck config (own registry keeps us editor-agnostic if we ever swap builders).
-- Where do component definitions live: `@ktbhealth/ui` (design system) vs product plugins (domain blocks)? Likely split: primitives in ui, domain blocks in plugins.
+- Own registry compiling to Puck config — DECIDED (elementKinds, not Puck's config directly).
+- Definitions placement: composite/domain blocks in product plugins; pure ui primitives would come from `@ktbhealth/ui` via P-113 (future) — not vendored.
 
 ## Relation to P-102 (done)
 

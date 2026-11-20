@@ -10,14 +10,16 @@ epic = "site-builder"
 
 # Plan: components registry (P-108)
 
-## Phase 1 — Registry contract
-- Decide: own registry compiling to Puck config (preferred — editor-agnostic) vs direct Puck config. Own registry: `{ id, label, description, category, fields(schema), render, preview? }`.
-- Contribution point in kernel (`builder.components` region or plugin manifest field); declaration-merged typing for component ids.
+## Phase 1 — Registry contract (decided)
+- Reuse the existing `elementKinds` contribution (P-102) — extend `ElementKind` in `@ktb/kernel` with optional `fields` (prop schema → palette docs + validation). NO new `builder.components` kind; Puck is one consumer, the registry stays editor-agnostic.
+- New plugin `plugins/builder-blocks` ships the core primitives as element-kind contributions (`src/index.ts` manifest + `src/client.ts` renderer/editor, rich-text pattern).
+- `plugins/site-builder` (PL-014) compiles the ElementKinds registry → Puck config; blocks never import Puck types directly.
 
-## Phase 2 — Core block set
-- Layout primitives: section, container, columns.
-- Content: heading, rich-text (embeds Plate `RichTextEditor`), image, CTA/button.
+## Phase 2 — Core block set (`plugins/builder-blocks`)
+- Layout primitives: section, container, columns, divider/spacer.
+- Content: heading, CTA/button.
 - Data: metric/stat, simple table.
+- NOT included: `rich-text` (owned by `plugins/rich-text`, already an element kind) and `image` (owned by `plugins/image`, P-111/PL-016) — the palette composes all kinds from the registry automatically.
 - All render through `@ktbhealth/ui` + Tailwind tokens — no hardcoded styles.
 
 ## Phase 3 — Site catalog page
@@ -25,8 +27,8 @@ epic = "site-builder"
 - Read-only v1; "insert into page" wiring lands with P-109 editor.
 
 ## Phase 4 — Plugin-contributed blocks (stretch)
-- One domain example: e.g. patients `PatientCard` or consultations summary block — proves plugins can contribute.
-- Split decision: primitives live in `@ktbhealth/ui`, domain blocks in plugins.
+- One domain example: e.g. patients `PatientCard` or consultations summary block — proves plugins can contribute element kinds with builder fields.
+- Placement rule: composite/domain blocks live in their product plugin; pure ui primitives would come from `@ktbhealth/ui` (P-113, future) — not vendored here.
 
 ## Phase 5 — Verify
 - Every block renders in catalog preview AND inside Puck canvas (once P-109 editor exists) with identical output.

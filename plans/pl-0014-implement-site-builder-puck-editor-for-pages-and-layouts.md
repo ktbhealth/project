@@ -11,6 +11,8 @@ epic = "site-builder"
 
 # Plan: site builder (P-109) — sequenced
 
+Approved structure: `plugins/site-builder` = thin Puck host (editor route + `toPuckConfig(elementKinds)` adapter + builderJson load/save); `plugins/builder-blocks` (PL-013) supplies primitives; `plugins/rich-text`/`plugins/image` kinds join the palette automatically via `ElementKinds`; `plugins/pages`/`plugins/layouts` own their tables and gain `builderJson` + "Open in builder" links via `optionalDeps` on site-builder.
+
 ## Phase 0 — Spike (P-105)
 - Embed `<Puck>` in scratch route; register 3-4 `@ktbhealth/ui` components + Plate-backed rich-text field.
 - Validate: token fidelity (light/dark), JSON schema, bundle cost, DX. Go/no-go.
@@ -19,8 +21,9 @@ epic = "site-builder"
 - `custom_pages` → `pages` table, `CustomPages` → `Pages` service, `CustomPageView` → `PageView`, route/plugin ids where user-facing. Migration + all references. Do BEFORE builderJson to avoid double rename.
 
 ## Phase 2 — Pages builderJson
-- Add `builderJson` (versioned) column to `pages`; `PagesAdminConsolePage` gains "Open in builder" → Puck editor route `/platform/pages/:id/edit` (or side panel).
-- `CustomPageView` render path: builderJson → `<Render>`; fallback to richTextId/layoutId path.
+- Scaffold `plugins/site-builder`: Puck editor route component + registry→Puck config adapter + versioned `builderJson` load/save helpers.
+- Add `builderJson` column to `pages`; `PagesAdminConsolePage` gains "Open in builder" → `/platform/pages/:id/edit` (optionalDep on site-builder).
+- Page render path: builderJson → Puck `<Render>`; fallback to richTextId/layoutId path.
 - Puck data migrations registered for schema versioning.
 
 ## Phase 3 — Layouts builderJson
