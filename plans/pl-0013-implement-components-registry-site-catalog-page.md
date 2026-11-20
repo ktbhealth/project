@@ -5,6 +5,7 @@ status = "open"
 created = "2026-11-20"
 priority = "med"
 links = ["P-108", "P-109"]
+epic = "site-builder"
 +++
 
 # Plan: components registry (P-108)
