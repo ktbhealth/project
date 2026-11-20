@@ -1,8 +1,9 @@
 +++
 id = "PL-017"
 title = "Migrate content pages to site page system (phased)"
-status = "open"
+status = "claimed"
 created = "2026-11-20"
+owner = "human:Luis-Emidio"
 priority = "med"
 links = ["P-107", "P-109", "P-112", "PL-014"]
 epic = "site-builder"
