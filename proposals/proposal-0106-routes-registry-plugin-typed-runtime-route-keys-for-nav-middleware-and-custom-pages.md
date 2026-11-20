@@ -4,6 +4,7 @@ title = "Routes registry plugin: typed runtime route keys for nav, middleware, a
 status = "open"
 created = "2026-11-20"
 priority = "med"
+links = ["P-104"]
 +++
 
 ## Vision
