@@ -32,4 +32,4 @@
 - [ ] T-169 CI: cheaper coverage-gate — mergeReports cost (~40s) + restore/install overhead; explore lighter merge path · pri:low · created:2026-11-18 · #CI
 - [ ] T-180 i18n: unused-key report — diff DB i18n\_messages keys vs static t() usage scan; per-namespace orphan list + bulk delete. Low priority. · pri:low · created:2026-11-19
 - [ ] T-167 Mutation testing rollout: run kill-mutants campaign per package + org-wide (ui, libs); trend scores · status:in-progress · pri:high · created:2026-11-18
-- [ ] T-190 Rename custom\_pages table + CustomPages service to pages/Pages (product repo) — do before P-109 builderJson lands · created:2026-11-20
+- [ ] T-190 Rename custom\_pages table + CustomPages service to pages/Pages (product repo) — do before P-109 builderJson lands · created:2026-11-20 · epic:site-builder
