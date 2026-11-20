@@ -5,6 +5,7 @@ status = "open"
 created = "2026-11-20"
 priority = "med"
 links = ["P-106"]
+epic = "site-builder"
 +++
 
 # Plan: routes registry plugin (P-106)
