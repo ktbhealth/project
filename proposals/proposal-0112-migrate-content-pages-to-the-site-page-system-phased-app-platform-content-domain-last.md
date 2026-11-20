@@ -4,7 +4,7 @@ title = "Migrate content pages to the site page system ( phased: app → platfor
 status = "open"
 created = "2026-11-20"
 priority = "med"
-links = ["P-102", "P-109", "P-111"]
+links = ["P-102", "P-107", "P-109", "P-111"]
 epic = "site-builder"
 +++
 
