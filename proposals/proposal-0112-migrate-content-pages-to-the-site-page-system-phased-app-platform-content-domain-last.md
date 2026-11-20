@@ -1,7 +1,7 @@
 +++
 id = "P-112"
 title = "Migrate content pages to the site page system ( phased: app → platform content → domain last )"
-status = "open"
+status = "in-progress"
 created = "2026-11-20"
 priority = "med"
 links = ["P-102", "P-107", "P-109", "P-111"]
