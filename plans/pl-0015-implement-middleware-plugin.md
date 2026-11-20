@@ -1,8 +1,9 @@
 +++
 id = "PL-015"
 title = "Implement middleware plugin"
-status = "open"
+status = "claimed"
 created = "2026-11-20"
+owner = "devin"
 priority = "med"
 links = ["P-106", "P-110", "PL-011"]
 +++
