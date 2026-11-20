@@ -4,7 +4,7 @@ title = "Implement templates capability"
 status = "open"
 created = "2026-11-20"
 priority = "med"
-links = ["P-107"]
+links = ["P-107", "PL-014"]
 epic = "site-builder"
 +++
 
