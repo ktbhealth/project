@@ -4,6 +4,7 @@ title = "Visual page builder for product marketing/admin pages (Puck + Plate eva
 status = "open"
 created = "2026-11-19"
 priority = "med"
+epic = "site-builder"
 +++
 
 ## Context
