@@ -1,12 +1,13 @@
 +++
 id = "P-105"
 title = "Visual page builder for product marketing/admin pages (Puck + Plate eval)"
-status = "in-progress"
+status = "done"
 created = "2026-11-19"
 owner = "human:Luis-Emidio"
 priority = "med"
 links = ["P-109"]
 epic = "site-builder"
+done = "2026-11-20"
 +++
 
 ## Context
