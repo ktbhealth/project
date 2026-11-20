@@ -1,7 +1,7 @@
 +++
 id = "P-105"
 title = "Visual page builder for product marketing/admin pages (Puck + Plate eval)"
-status = "claimed"
+status = "in-progress"
 created = "2026-11-19"
 owner = "human:Luis-Emidio"
 priority = "med"
