@@ -4,7 +4,7 @@ title = "Implement components registry + Site catalog page"
 status = "open"
 created = "2026-11-20"
 priority = "med"
-links = ["P-108", "P-109"]
+links = ["P-108", "P-109", "PL-014"]
 epic = "site-builder"
 +++
 
