@@ -1,7 +1,7 @@
 +++
 id = "P-109"
 title = "Site builder: Puck editor for pages and layouts with builderJson + Plate rich-text field"
-status = "open"
+status = "in-progress"
 created = "2026-11-20"
 priority = "med"
 links = ["P-094", "P-102", "P-105", "P-106", "P-107", "P-108", "P-111"]
