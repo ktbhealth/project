@@ -4,7 +4,7 @@ title = "Site builder: Puck editor for pages and layouts with builderJson + Plat
 status = "open"
 created = "2026-11-20"
 priority = "med"
-links = ["P-105", "P-106", "P-107", "P-108"]
+links = ["P-094", "P-102", "P-105", "P-106", "P-107", "P-108"]
 +++
 
 ## Vision
