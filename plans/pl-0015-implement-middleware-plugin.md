@@ -4,7 +4,7 @@ title = "Implement middleware plugin"
 status = "open"
 created = "2026-11-20"
 priority = "med"
-links = ["P-106", "P-110"]
+links = ["P-106", "P-110", "PL-011"]
 +++
 
 # Plan: middleware plugin (P-110)
