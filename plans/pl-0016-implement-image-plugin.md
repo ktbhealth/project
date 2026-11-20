@@ -1,8 +1,9 @@
 +++
 id = "PL-016"
 title = "Implement image plugin"
-status = "open"
+status = "claimed"
 created = "2026-11-20"
+owner = "devin"
 priority = "med"
 links = ["P-108", "P-111", "PL-014"]
 epic = "site-builder"
