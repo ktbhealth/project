@@ -1,7 +1,7 @@
 +++
 id = "PL-015"
 title = "Implement middleware plugin"
-status = "claimed"
+status = "in-progress"
 created = "2026-11-20"
 owner = "devin"
 priority = "med"
