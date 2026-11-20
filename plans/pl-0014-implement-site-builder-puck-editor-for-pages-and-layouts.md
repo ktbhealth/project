@@ -1,7 +1,7 @@
 +++
 id = "PL-014"
 title = "Implement site builder: Puck editor for pages and layouts"
-status = "claimed"
+status = "in-progress"
 created = "2026-11-20"
 owner = "human:Luis-Emidio"
 priority = "med"
