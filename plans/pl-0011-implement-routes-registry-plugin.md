@@ -1,7 +1,7 @@
 +++
 id = "PL-011"
 title = "Implement routes registry plugin"
-status = "claimed"
+status = "in-progress"
 created = "2026-11-20"
 owner = "devin"
 priority = "med"
