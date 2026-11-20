@@ -1,7 +1,7 @@
 +++
 id = "PL-012"
 title = "Implement templates capability"
-status = "claimed"
+status = "in-progress"
 created = "2026-11-20"
 owner = "devin"
 priority = "med"
