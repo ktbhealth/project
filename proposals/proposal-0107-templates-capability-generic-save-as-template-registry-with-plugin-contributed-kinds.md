@@ -4,7 +4,7 @@ title = "Templates capability: generic save-as-template registry with plugin-con
 status = "open"
 created = "2026-11-20"
 priority = "med"
-links = ["P-105"]
+links = ["P-102", "P-105"]
 +++
 
 ## Vision
