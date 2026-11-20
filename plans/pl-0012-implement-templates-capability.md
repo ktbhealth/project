@@ -1,8 +1,9 @@
 +++
 id = "PL-012"
 title = "Implement templates capability"
-status = "open"
+status = "claimed"
 created = "2026-11-20"
+owner = "devin"
 priority = "med"
 links = ["P-107", "PL-014"]
 epic = "site-builder"
