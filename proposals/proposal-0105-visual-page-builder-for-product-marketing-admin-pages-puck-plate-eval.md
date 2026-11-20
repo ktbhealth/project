@@ -1,8 +1,9 @@
 +++
 id = "P-105"
 title = "Visual page builder for product marketing/admin pages (Puck + Plate eval)"
-status = "open"
+status = "claimed"
 created = "2026-11-19"
+owner = "human:Luis-Emidio"
 priority = "med"
 links = ["P-109"]
 epic = "site-builder"
