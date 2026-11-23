@@ -36,3 +36,4 @@
 - [ ] T-192 Adopt wedge sentence 'specialty-first, locale-native clinical scribe' — website hero\_subtitle + docs positioning.mdx (flagged in evening-stitch, never filed) · created:2026-11-23
 - [ ] T-193 Exercise untested consult sources live: record / tab-capture / upload / teleconsult-bot legs (only sample+paste verified) · created:2026-11-23
 - [ ] T-194 L3 proposal triage: cut/keep pass over ~50 open proposals against the wedge strategy · created:2026-11-23
+- [ ] T-195 Fix pre-existing fmt drift: bun run check fails on generate-erd.mjs, local-studio-db.mjs, audit-flow.mjs · created:2026-11-23
