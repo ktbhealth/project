@@ -33,4 +33,3 @@
 - [ ] T-180 i18n: unused-key report — diff DB i18n\_messages keys vs static t() usage scan; per-namespace orphan list + bulk delete. Low priority. · pri:low · created:2026-11-19
 - [ ] T-167 Mutation testing rollout: run kill-mutants campaign per package + org-wide (ui, libs); trend scores · status:in-progress · pri:high · created:2026-11-18
 - [ ] T-190 Rename custom\_pages table + CustomPages service to pages/Pages (product repo) — do before P-109 builderJson lands · status:in-progress · owner:devin · created:2026-11-20 · epic:site-builder
-- [ ] T-191 Post-merge: run bun run db:erd in repos/product to regen ERD docs (custom\_pages→pages) into sibling docs repo — worktree lacked docs clone · status:in-progress · owner:human:Luis-Emidio · created:2026-11-20
