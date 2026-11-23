@@ -35,3 +35,4 @@
 - [ ] T-190 Rename custom\_pages table + CustomPages service to pages/Pages (product repo) — do before P-109 builderJson lands · status:in-progress · owner:devin · created:2026-11-20 · epic:site-builder
 - [ ] T-192 Adopt wedge sentence 'specialty-first, locale-native clinical scribe' — website hero\_subtitle + docs positioning.mdx (flagged in evening-stitch, never filed) · created:2026-11-23
 - [ ] T-193 Exercise untested consult sources live: record / tab-capture / upload / teleconsult-bot legs (only sample+paste verified) · created:2026-11-23
+- [ ] T-194 L3 proposal triage: cut/keep pass over ~50 open proposals against the wedge strategy · created:2026-11-23
