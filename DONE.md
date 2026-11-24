@@ -124,3 +124,4 @@
 - T-146 Resolve evals/consultation (@ktb/eval-consultation) third workspace location — not plugins/ or packages/; document or relocate per AGENTS.md packages/plugins rule · pri:low · owner:devin · created:2026-11-17 · done:2026-11-24
 - T-157 Adopt clientStub in plugins/\*/src/client.ts — blocked on upstream @ktbhealth/workspace plugin-contract lint rule accepting clientStub (or relax parity for server-only plugins); helper already in @ktb/kernel · owner:devin · created:2026-11-18 · links:T-149,P-089 · done:2026-11-24
 - T-195 Fix pre-existing fmt drift: bun run check fails on generate-erd.mjs, local-studio-db.mjs, audit-flow.mjs · created:2026-11-23 · done:2026-11-24
+- T-197 Hackathon: confirm judging criteria (technical/traction/social) — feeds T-194 proposal triage and pitch emphasis · pri:high · owner:human:luis · created:2026-11-24 · #business · #hackathon · links:T-194,P-065 · epic:mvp · ms:hackathon · due:2026-11-30 · done:2026-11-24
