@@ -1,11 +1,12 @@
 +++
 id = "P-065"
 title = "Strategy: specialty-first locale-native scribe — Brazil wedge, global architecture"
-status = "in-progress"
+status = "done"
 created = "2026-11-12"
 owner = "human:luis"
 priority = "high"
 labels = ["business", "strategy", "wedge"]
+done = "2026-11-24"
 +++
 
 ## Context
