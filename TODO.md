@@ -30,7 +30,7 @@
 - [ ] T-169 CI: cheaper coverage-gate — mergeReports cost (~40s) + restore/install overhead; explore lighter merge path · pri:low · created:2026-11-18 · #CI
 - [ ] T-180 i18n: unused-key report — diff DB i18n\_messages keys vs static t() usage scan; per-namespace orphan list + bulk delete. Low priority. · pri:low · created:2026-11-19
 - [ ] T-167 Mutation testing rollout: run kill-mutants campaign per package + org-wide (ui, libs); trend scores · status:in-progress · pri:high · created:2026-11-18
-- [ ] T-192 Adopt wedge sentence 'specialty-first, locale-native clinical scribe' — website hero\_subtitle + docs positioning.mdx (flagged in evening-stitch, never filed) · created:2026-11-23 · ms:hackathon
+- [ ] T-192 Adopt wedge sentence 'specialty-first, locale-native clinical scribe' — website hero\_subtitle + docs positioning.mdx (flagged in evening-stitch, never filed) · created:2026-11-23 · ms:hackathon · due:2026-11-30
 - [ ] T-193 Exercise untested consult sources live: record / tab-capture / upload / teleconsult-bot legs (only sample+paste verified) · pri:high · created:2026-11-23 · ms:hackathon
 - [ ] T-194 L3 proposal triage: cut/keep pass over ~50 open proposals against the wedge strategy · created:2026-11-23 · ms:hackathon
 - [ ] T-196 Hackathon: record backup demo video of golden path (consent→record→review→export) — live demos fail, judges accept video · pri:high · owner:devin · created:2026-11-24 · #demo · #hackathon · links:T-092,T-095,P-065 · epic:mvp · ms:hackathon
