@@ -1,11 +1,12 @@
 +++
 id = "P-019"
 title = "Patient register: full clinical-administrative record fields"
-status = "open"
+status = "done"
 created = "2026-11-08"
 priority = "med"
 labels = ["directory", "product"]
 epic = "directory"
+done = "2026-11-24"
 +++
 
 ## Idea
