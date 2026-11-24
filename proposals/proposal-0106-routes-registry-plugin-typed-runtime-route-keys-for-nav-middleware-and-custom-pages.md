@@ -1,11 +1,12 @@
 +++
 id = "P-106"
 title = "Routes registry plugin: typed runtime route keys for nav, middleware, and custom pages"
-status = "open"
+status = "done"
 created = "2026-11-20"
 priority = "med"
 links = ["P-104"]
 epic = "site-builder"
+done = "2026-11-24"
 +++
 
 ## Vision
