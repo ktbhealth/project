@@ -1,12 +1,13 @@
 +++
 id = "PL-011"
 title = "Implement routes registry plugin"
-status = "in-progress"
+status = "done"
 created = "2026-11-20"
 owner = "devin"
 priority = "med"
 links = ["P-106"]
 epic = "site-builder"
+done = "2026-11-24"
 +++
 
 # Plan: routes registry plugin (P-106)
