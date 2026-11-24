@@ -9,6 +9,7 @@ labels = ["demo", "hackathon"]
 links = ["T-042", "T-091", "P-065"]
 epic = "mvp"
 milestone = "hackathon"
+due = "2026-11-30"
 +++
 
 ## Context
