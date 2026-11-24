@@ -40,3 +40,4 @@
 - [ ] T-207 Productize LLM transcript cleanup in eval pipeline — fix I-003 corrector prompt, then wire cleanup into eval run (local-devin profile) and measure corrected-vs-ASR WER on consult-ptbr-real; consider timestamped-segment input with output sanitization · pri:high · owner:devin · created:2026-11-24 · #evals · #hackathon · links:T-164,T-198,I-003 · epic:mvp · ms:hackathon · due:2026-11-28 · est:200
 - [ ] T-208 Realtime consult transcription with chunked LLM cleanup · pri:low · created:2026-11-24 · #eval · #post-hackathon
 - [ ] T-209 Harden consult-ptbr-real dataset: real consults, harder cases, held-out split · pri:low · created:2026-11-24 · #eval · #post-hackathon
+  - [ ] T-211 Dataset v2: real recorded consults (3-5, consented + anonymized) — only fix for synthetic≠reality; needs recruitment/consent flow, LGPD review · owner:human:luis · created:2026-11-24 · #dataset · #eval · #post-hackathon · epic:mvp · ms:post-hackathon · est:500
