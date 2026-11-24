@@ -1,7 +1,7 @@
 +++
 id = "P-014"
 title = "Review queue: end-of-day batch approval of consult drafts"
-status = "open"
+status = "deferred"
 created = "2026-11-08"
 priority = "low"
 labels = ["platform-qol", "product"]
