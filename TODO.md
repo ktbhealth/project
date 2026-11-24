@@ -22,7 +22,6 @@
 - [ ] T-133 Observability 6c: audit-chain external anchoring — emit head hash to LGTM/Loki after verify (tamper evidence) · created:2026-11-17
 - [ ] T-134 Secrets lifecycle: EntityCipher keyring, rotation, audit trail for credentials key column · created:2026-11-17
 - [ ] T-145 Move tenant-directory.ts groups role/meta semantics out of apps/web host into groups plugin (schema knowledge duplicated in host) · pri:low · owner:devin · created:2026-11-17
-- [ ] T-146 Resolve evals/consultation (@ktb/eval-consultation) third workspace location — not plugins/ or packages/; document or relocate per AGENTS.md packages/plugins rule · pri:low · owner:devin · created:2026-11-17
 - [ ] T-157 Adopt clientStub in plugins/\*/src/client.ts — blocked on upstream @ktbhealth/workspace plugin-contract lint rule accepting clientStub (or relax parity for server-only plugins); helper already in @ktb/kernel · owner:devin · created:2026-11-18 · links:T-149,P-089
 - [ ] T-158 Swap workspace ORG\_ADMIN\_TOKEN secret from gh OAuth token to fine-grained PAT (org Administration + Webhooks + Contents read) · created:2026-11-18
 - [ ] T-163 eval-cli: guard 'eval generate' against authored datasets (consult-ptbr-real footgun — generates template samples under authored datasetVersion) · created:2026-11-18
@@ -36,3 +35,4 @@
 - [ ] T-193 Exercise untested consult sources live: record / tab-capture / upload / teleconsult-bot legs (only sample+paste verified) · created:2026-11-23
 - [ ] T-194 L3 proposal triage: cut/keep pass over ~50 open proposals against the wedge strategy · created:2026-11-23
 - [ ] T-195 Fix pre-existing fmt drift: bun run check fails on generate-erd.mjs, local-studio-db.mjs, audit-flow.mjs · created:2026-11-23
+- [ ] T-146 Resolve evals/consultation (@ktb/eval-consultation) third workspace location — not plugins/ or packages/; document or relocate per AGENTS.md packages/plugins rule · status:in-progress · pri:low · owner:devin · created:2026-11-17
