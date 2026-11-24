@@ -1,10 +1,11 @@
 +++
 id = "P-004"
 title = "Patient timeline UI: full consultation history view"
-status = "open"
+status = "done"
 created = "2026-11-08"
 priority = "med"
 labels = ["product", "v2"]
+done = "2026-11-24"
 +++
 
 ## Idea
