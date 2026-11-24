@@ -1,11 +1,12 @@
 +++
 id = "P-017"
 title = "LLM transcript cleanup: corrected text alongside original"
-status = "open"
+status = "done"
 created = "2026-11-08"
 priority = "med"
 labels = ["audio-pipeline", "product"]
 epic = "audio-pipeline"
+done = "2026-11-24"
 +++
 
 ## Idea
