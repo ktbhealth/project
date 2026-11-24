@@ -1,10 +1,11 @@
 +++
 id = "P-052"
 title = "Docs IA: split by audience (doctors/patients/developers/business)"
-status = "open"
+status = "done"
 created = "2026-11-10"
 priority = "med"
 labels = ["docs"]
+done = "2026-11-24"
 +++
 
 ## Proposal
