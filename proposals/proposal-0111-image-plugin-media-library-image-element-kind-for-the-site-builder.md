@@ -1,11 +1,12 @@
 +++
 id = "P-111"
 title = "Image plugin: media library + image element kind for the site builder"
-status = "open"
+status = "done"
 created = "2026-11-20"
 priority = "med"
 links = ["P-108", "P-109"]
 epic = "site-builder"
+done = "2026-11-24"
 +++
 
 ## Vision
