@@ -24,7 +24,7 @@
 - [ ] T-145 Move tenant-directory.ts groups role/meta semantics out of apps/web host into groups plugin (schema knowledge duplicated in host) · pri:low · owner:devin · created:2026-11-17
 - [ ] T-158 Swap workspace ORG\_ADMIN\_TOKEN secret from gh OAuth token to fine-grained PAT (org Administration + Webhooks + Contents read) · created:2026-11-18
 - [ ] T-163 eval-cli: guard 'eval generate' against authored datasets (consult-ptbr-real footgun — generates template samples under authored datasetVersion) · created:2026-11-18
-- [ ] T-164 evals: TTS render step for consult-ptbr-real — replace pending:// audio refs with file:// so real ASR adapters produce true WER · created:2026-11-18 · ms:hackathon
+- [ ] T-164 evals: TTS render step for consult-ptbr-real — replace pending:// audio refs with file:// so real ASR adapters produce true WER · created:2026-11-18 · ms:hackathon · due:2026-11-30
 - [ ] T-165 eval: consider System One / calibrated judge for gate-grade cloud runs (workers-ai judge is generative, self-reported probabilities) · created:2026-11-18
 - [ ] T-168 CI: duration-weighted Vitest shard balancing (8 shards are file-count balanced, not time balanced) · pri:low · created:2026-11-18 · #CI
 - [ ] T-169 CI: cheaper coverage-gate — mergeReports cost (~40s) + restore/install overhead; explore lighter merge path · pri:low · created:2026-11-18 · #CI
