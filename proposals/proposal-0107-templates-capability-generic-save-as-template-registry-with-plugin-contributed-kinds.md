@@ -1,11 +1,12 @@
 +++
 id = "P-107"
 title = "Templates capability: generic save-as-template registry with plugin-contributed kinds"
-status = "open"
+status = "done"
 created = "2026-11-20"
 priority = "med"
 links = ["P-102", "P-105"]
 epic = "site-builder"
+done = "2026-11-24"
 +++
 
 ## Vision
