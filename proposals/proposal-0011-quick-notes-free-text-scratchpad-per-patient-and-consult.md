@@ -1,7 +1,7 @@
 +++
 id = "P-011"
 title = "Quick notes: free-text scratchpad per patient and consult"
-status = "open"
+status = "deferred"
 created = "2026-11-08"
 priority = "low"
 labels = ["platform-qol", "product"]
