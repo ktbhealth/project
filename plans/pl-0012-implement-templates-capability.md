@@ -1,12 +1,13 @@
 +++
 id = "PL-012"
 title = "Implement templates capability"
-status = "in-progress"
+status = "done"
 created = "2026-11-20"
 owner = "devin"
 priority = "med"
 links = ["P-107", "PL-014"]
 epic = "site-builder"
+done = "2026-11-24"
 +++
 
 # Plan: templates capability (P-107)
