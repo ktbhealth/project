@@ -1,7 +1,7 @@
 +++
 id = "P-005"
 title = "Follow-up return reminders from recorded conduct"
-status = "open"
+status = "deferred"
 created = "2026-11-08"
 priority = "med"
 labels = ["product", "v2"]
