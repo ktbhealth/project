@@ -1,12 +1,13 @@
 +++
 id = "PL-013"
 title = "Implement components registry + Site catalog page"
-status = "in-progress"
+status = "done"
 created = "2026-11-20"
 owner = "devin"
 priority = "med"
 links = ["P-108", "P-109", "PL-014"]
 epic = "site-builder"
+done = "2026-11-24"
 +++
 
 # Plan: components registry (P-108)
