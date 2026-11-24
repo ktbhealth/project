@@ -1,7 +1,7 @@
 +++
 id = "P-012"
 title = "Dot phrases: reusable text snippets for anamnesis and plan"
-status = "open"
+status = "deferred"
 created = "2026-11-08"
 priority = "low"
 labels = ["platform-qol", "product"]
