@@ -10,6 +10,7 @@ links = ["T-092", "T-193", "T-196", "T-197", "P-065", "P-114"]
 epic = "mvp"
 milestone = "hackathon"
 due = "2026-11-30"
+estimate = 100
 +++
 
 ## Context
