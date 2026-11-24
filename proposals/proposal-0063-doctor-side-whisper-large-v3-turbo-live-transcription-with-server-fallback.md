@@ -1,12 +1,13 @@
 +++
 id = "P-063"
 title = "Doctor-side whisper-large-v3-turbo live transcription with server fallback"
-status = "open"
+status = "done"
 created = "2026-11-12"
 owner = "devin"
 priority = "med"
 labels = ["product"]
 links = ["P-007", "P-016", "P-017"]
+done = "2026-11-24"
 +++
 
 ## Context
