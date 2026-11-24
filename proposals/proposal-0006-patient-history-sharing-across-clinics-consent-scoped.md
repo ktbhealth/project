@@ -1,7 +1,7 @@
 +++
 id = "P-006"
 title = "Patient history sharing across clinics (consent-scoped)"
-status = "open"
+status = "deferred"
 created = "2026-11-08"
 priority = "med"
 labels = ["product", "v2"]
