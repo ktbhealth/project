@@ -1,11 +1,12 @@
 +++
 id = "P-018"
 title = "Transcript UI: original vs corrected tabs with processing status"
-status = "open"
+status = "done"
 created = "2026-11-08"
 priority = "med"
 labels = ["audio-pipeline", "product"]
 epic = "audio-pipeline"
+done = "2026-11-24"
 +++
 
 ## Idea
