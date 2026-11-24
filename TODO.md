@@ -33,3 +33,4 @@
 - [ ] T-192 Adopt wedge sentence 'specialty-first, locale-native clinical scribe' — website hero\_subtitle + docs positioning.mdx (flagged in evening-stitch, never filed) · created:2026-11-23 · ms:hackathon
 - [ ] T-193 Exercise untested consult sources live: record / tab-capture / upload / teleconsult-bot legs (only sample+paste verified) · pri:high · created:2026-11-23 · ms:hackathon
 - [ ] T-194 L3 proposal triage: cut/keep pass over ~50 open proposals against the wedge strategy · created:2026-11-23 · ms:hackathon
+- [ ] T-196 Hackathon: record backup demo video of golden path (consent→record→review→export) — live demos fail, judges accept video · pri:high · owner:devin · created:2026-11-24 · #demo · #hackathon · links:T-092,T-095,P-065 · epic:mvp · ms:hackathon
