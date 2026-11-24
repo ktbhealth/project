@@ -1,10 +1,11 @@
 +++
 id = "P-007"
 title = "Transcription adapters: meeting bot, upload, desktop loopback"
-status = "open"
+status = "done"
 created = "2026-11-08"
 priority = "med"
 labels = ["product"]
+done = "2026-11-24"
 +++
 
 ## Idea
