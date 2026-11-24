@@ -1,7 +1,7 @@
 +++
 id = "P-024"
 title = "Stripe payment integration: platform subscription billing"
-status = "open"
+status = "deferred"
 created = "2026-11-08"
 priority = "med"
 labels = ["billing", "business"]
