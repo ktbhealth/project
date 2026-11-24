@@ -41,3 +41,4 @@
 - [ ] T-208 Realtime consult transcription with chunked LLM cleanup · pri:low · created:2026-11-24 · #eval · #post-hackathon
 - [ ] T-209 Harden consult-ptbr-real dataset: real consults, harder cases, held-out split · pri:low · created:2026-11-24 · #eval · #post-hackathon
   - [ ] T-211 Dataset v2: real recorded consults (3-5, consented + anonymized) — only fix for synthetic≠reality; needs recruitment/consent flow, LGPD review · owner:human:luis · created:2026-11-24 · #dataset · #eval · #post-hackathon · epic:mvp · ms:post-hackathon · est:500
+  - [ ] T-212 Dataset v2: harder synthetic cases — crosstalk/overlap, interruptions, heavier disfluency, whispered/quiet speech, distance-mic simulation; stress-tests where ASR+cleanup break · owner:human:luis · created:2026-11-24 · #dataset · #eval · #post-hackathon · epic:mvp · ms:post-hackathon · est:200
