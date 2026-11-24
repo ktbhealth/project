@@ -1,10 +1,11 @@
 +++
 id = "P-110"
 title = "Middleware plugin: ordered request-pipeline registry with admin page"
-status = "open"
+status = "done"
 created = "2026-11-20"
 priority = "med"
 links = ["P-101", "P-106"]
+done = "2026-11-24"
 +++
 
 ## Vision
