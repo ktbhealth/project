@@ -1,11 +1,12 @@
 +++
 id = "P-020"
 title = "Patient profile page: consolidated patient view"
-status = "open"
+status = "done"
 created = "2026-11-08"
 priority = "med"
 labels = ["directory", "product"]
 epic = "directory"
+done = "2026-11-24"
 +++
 
 ## Idea
