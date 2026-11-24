@@ -1,10 +1,11 @@
 +++
 id = "P-008"
 title = "Doctor agenda: scheduling and appointment management"
-status = "open"
+status = "done"
 created = "2026-11-08"
 priority = "med"
 labels = ["platform-qol", "product"]
+done = "2026-11-24"
 +++
 
 ## Idea
