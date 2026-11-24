@@ -1,11 +1,12 @@
 +++
 id = "P-035"
 title = "Domain packages, concern-level plugin objects: deps target plugin ids"
-status = "deferred"
+status = "done"
 created = "2026-11-09"
 owner = "devin"
 priority = "med"
 epic = "platform"
+done = "2026-11-24"
 +++
 
 ## Context
