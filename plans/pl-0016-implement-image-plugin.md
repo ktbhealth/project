@@ -1,12 +1,13 @@
 +++
 id = "PL-016"
 title = "Implement image plugin"
-status = "in-progress"
+status = "done"
 created = "2026-11-20"
 owner = "devin"
 priority = "med"
 links = ["P-108", "P-111", "PL-014"]
 epic = "site-builder"
+done = "2026-11-24"
 +++
 
 # Plan: image plugin (P-111)
