@@ -14,7 +14,7 @@
 - [ ] T-082 Copy decisions across deck/website/docs: 'a KTB Health' vs 'o KTB Health' (pt-BR), and '100% on-premise' vs 'self-hosting by arrangement' · owner:human:emanuel · created:2026-11-11 · #business · #landing
 - [ ] T-089 Pilot recruitment plan (P-065): channels, 10 target doctors, 2-week pilot success criteria, signup CTA tracking · pri:high · owner:human:luis · created:2026-11-13 · #business · #validacao · links:P-065 · ms:hackathon · due:2026-11-30
 - [ ] T-091 Propose specialty.\*/locale.\* pack model against plugin architecture (P-065 invariant) · owner:devin · created:2026-11-13 · #architecture-platform · #plugins · links:P-065
-- [ ] T-092 Demo environment: seeded patient + synthetic consult for golden-path demo (ties to T-042) · owner:devin · created:2026-11-13 · #demo · #product · links:T-042,P-065 · ms:hackathon · due:2026-11-30
+- [ ] T-092 Demo environment: seeded patient + synthetic consult for golden-path demo (ties to T-042) · owner:human:vini · created:2026-11-13 · #demo · #product · links:T-042,P-065 · ms:hackathon · due:2026-11-30 · est:300
 - [ ] T-095 Demo env docs: AI\_STUB=1 / AI\_BASE\_URL local-AI-server options for running golden path without Workers AI (wrangler.dev.jsonc already documents; surface in demo runbook) · owner:devin · created:2026-11-13 · #demo · #docs · links:T-092,P-065 · ms:hackathon · due:2026-11-30
 - [ ] T-117 Retry A1.Flex LGTM VM provisioning when OCI capacity frees (Pulumi stack ktb-lgtm-iac; retry loop exhausted ~6h — rerun make-spec.sh + pulumi up; cloud-init self-bootstraps) · created:2026-11-14
 - [ ] T-119 Runtime-loaded eval plugins (WASM/Lua/dynamic) — BACKLOG, revisit only if third-party eval plugins become real · pri:low · created:2026-11-14
