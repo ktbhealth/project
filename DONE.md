@@ -122,3 +122,4 @@
 - T-191 Post-merge: run bun run db:erd in repos/product to regen ERD docs (custom\_pages→pages) into sibling docs repo — worktree lacked docs clone · owner:human:Luis-Emidio · created:2026-11-20 · done:2026-11-23
 - T-190 Rename custom\_pages table + CustomPages service to pages/Pages (product repo) — do before P-109 builderJson lands · owner:devin · created:2026-11-20 · epic:site-builder · done:2026-11-23
 - T-146 Resolve evals/consultation (@ktb/eval-consultation) third workspace location — not plugins/ or packages/; document or relocate per AGENTS.md packages/plugins rule · pri:low · owner:devin · created:2026-11-17 · done:2026-11-24
+- T-157 Adopt clientStub in plugins/\*/src/client.ts — blocked on upstream @ktbhealth/workspace plugin-contract lint rule accepting clientStub (or relax parity for server-only plugins); helper already in @ktb/kernel · owner:devin · created:2026-11-18 · links:T-149,P-089 · done:2026-11-24
