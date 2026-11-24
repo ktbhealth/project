@@ -28,7 +28,7 @@
 - [ ] T-168 CI: duration-weighted Vitest shard balancing (8 shards are file-count balanced, not time balanced) · pri:low · created:2026-11-18 · #CI
 - [ ] T-169 CI: cheaper coverage-gate — mergeReports cost (~40s) + restore/install overhead; explore lighter merge path · pri:low · created:2026-11-18 · #CI
 - [ ] T-180 i18n: unused-key report — diff DB i18n\_messages keys vs static t() usage scan; per-namespace orphan list + bulk delete. Low priority. · pri:low · created:2026-11-19
-- [ ] T-193 Exercise untested consult sources live: record / tab-capture / upload / teleconsult-bot legs (only sample+paste verified) · pri:high · owner:human:emanuel · created:2026-11-23 · ms:hackathon · due:2026-11-30 · est:200
+- [ ] T-193 Exercise untested consult sources live: record / tab-capture / upload / teleconsult-bot legs (only sample+paste verified) · pri:high · owner:human:emanuel · created:2026-11-23 · ms:mvp · due:2026-11-30 · est:200
 - [ ] T-194 L3 proposal triage: cut/keep pass over ~50 open proposals against the wedge strategy · owner:human:vini · created:2026-11-23 · ms:hackathon · due:2026-11-30 · est:200
 - [ ] T-196 Hackathon: record backup demo video of golden path (consent→record→review→export) — live demos fail, judges accept video · pri:high · owner:human:emanuel · created:2026-11-24 · #demo · #hackathon · links:T-092,T-095,P-065 · epic:mvp · ms:hackathon · due:2026-11-30 · est:200
 - [ ] T-198 Hackathon: measure demo metrics — time-to-structured-note vs manual baseline on T-042 synthetic consult; WER from T-164; capture numbers for pitch · pri:high · owner:human:emanuel · created:2026-11-24 · #demo · #hackathon · links:T-042,T-164,PL-018 · epic:mvp · ms:hackathon · due:2026-11-30 · est:200
