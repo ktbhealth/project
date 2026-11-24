@@ -8,7 +8,7 @@ priority = "high"
 labels = ["hackathon", "mvp"]
 links = ["T-092", "T-193", "T-196", "T-197", "T-201", "T-204", "T-205", "P-065", "P-114"]
 epic = "mvp"
-milestone = "hackathon"
+milestone = "mvp"
 due = "2026-11-30"
 estimate = 100
 +++
