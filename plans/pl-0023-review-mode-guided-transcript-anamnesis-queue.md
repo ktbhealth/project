@@ -129,7 +129,7 @@ ritual from P-014, now with a screen built for it.
   `reviewTranscript` stamps `transcript_reviewed_edits`.
   Migration + ERD. Client `projectTranscript(base, edits)` via
   `loro-crdt@1.18.0` — spike WASM load in vitest/browser first.
-- [ ] **F2 Queue data + badge** — the rail reuses the existing
+- [x] **F2 Queue data + badge** — the rail reuses the existing
   `list` query (post-PL-022 it already carries id/patient/date/
   review fields) filtered client-side — NO new `reviewQueue`
   query. Pending count for the nav badge: lightweight fn. GAP:
