@@ -5,8 +5,8 @@ status = "in-progress"
 created = "2026-11-24"
 owner = "devin"
 priority = "high"
-labels = ["review-queue", "product"]
-links = ["P-014", "PL-022", "T-220"]
+labels = ["product", "review-queue"]
+links = ["T-220", "P-014", "PL-022"]
 +++
 
 ## Goal

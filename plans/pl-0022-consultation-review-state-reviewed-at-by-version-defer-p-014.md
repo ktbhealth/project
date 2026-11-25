@@ -5,7 +5,7 @@ status = "open"
 created = "2026-11-24"
 owner = "devin"
 priority = "high"
-labels = ["review-queue", "product"]
+labels = ["product", "review-queue"]
 links = ["P-014"]
 +++
 
