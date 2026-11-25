@@ -51,15 +51,15 @@
 - [ ] T-123 Theme fonts: WOFF2 metric parsing — workerd lacks Brotli; options wasm brotli decoder, capsize/@capsizecss metrics lookup for Google-Fonts families, or metrics sidecar at upload · status:in-progress · pri:low · created:2026-11-16 · links:P-082,PL-006
 - [ ] T-153 M1: Eta script templates — .eta files + persona slot tables, seed-deterministic, gold.entities emitted by context · pri:high · owner:devin · created:2026-11-13 · #dataset · links:T-042,PL-006 · epic:audio-pipeline · ms:M1
 - [ ] T-152 M1: TtsPort local — edge-tts CLI shell-out w/ retry+backoff, ffmpeg degradation (noise/resample/bandpass) driven by AcousticProfile · pri:high · owner:devin · created:2026-11-13 · #dataset · links:T-042,PL-006 · epic:audio-pipeline · ms:M1
-- [ ] T-124 M1: AsrPort local — faster-whisper HTTP microservice (model kept warm; base default per Pareto bench) · owner:devin · created:2026-11-13 · #dataset · links:T-042,PL-006 · epic:audio-pipeline · ms:M1
+- [ ] T-217 M1: AsrPort local — faster-whisper HTTP microservice (model kept warm; base default per Pareto bench) · owner:devin · created:2026-11-13 · #dataset · links:T-042,PL-006 · epic:audio-pipeline · ms:M1
 - [ ] T-125 M1: eval:generate runner — personas x Eta templates -> Sample manifests -> TTS synth -> store (batch, per-sample failure isolation) · pri:high · owner:devin · created:2026-11-13 · #dataset · links:T-042,PL-006 · epic:audio-pipeline · ms:M1
 - [ ] T-126 M1: acp.ts serialization contract — TaskEnvelope wire format + typed session response (freeze before adapters) · owner:devin · created:2026-11-13 · #dataset · links:T-042,PL-006 · epic:audio-pipeline · ms:M1
 - [ ] T-127 M1 (last): LlmPort ACP adapter — devin acp session over JSON-RPC, envelopes validated against outputSchema · owner:devin · created:2026-11-13 · #dataset · links:T-042,PL-006 · epic:audio-pipeline · ms:M1
 - [ ] T-128 Persona model: gender/age/social-class/education/name + doctor personas (cohort = patient+doctor pair) · pri:high · owner:devin · created:2026-11-15 · links:P-081
 - [ ] T-129 Persona-aware scriptgen: vocabulary per education/class (lay 'dor de cabeça' vs technical 'cefaleia'), age speech style · pri:high · owner:devin · created:2026-11-15 · links:P-081
 - [ ] T-130 Voice resolution from persona gender+region — per-speaker voices, no static speakerVoices · pri:high · owner:devin · created:2026-11-15 · links:P-081
-- [ ] T-133 Persona gallery UI: cards, per-turn script, audio preview, approve/reject + feedback · pri:high · owner:devin · created:2026-11-15 · links:P-081
-- [ ] T-134 Eval run trigger + live progress polling UI (done/total, %, stage) · pri:high · owner:devin · created:2026-11-15 · links:P-081
+- [ ] T-218 Persona gallery UI: cards, per-turn script, audio preview, approve/reject + feedback · pri:high · owner:devin · created:2026-11-15 · links:P-081
+- [ ] T-219 Eval run trigger + live progress polling UI (done/total, %, stage) · pri:high · owner:devin · created:2026-11-15 · links:P-081
 - [ ] T-135 Results view: word-diff component, metrics, judge verdicts, demographic slices (region/class/register) · pri:high · owner:devin · created:2026-11-15 · links:P-081
 - [ ] T-136 Port inspect\_gen.py word-alignment diff to shared domain component used by the UI · pri:high · owner:devin · created:2026-11-15 · links:P-081
 - [ ] T-131 eval.validator plugin: schema for persona batches, review state machine, feedback, run progress · status:in-progress · pri:high · owner:devin · created:2026-11-15 · links:P-081
