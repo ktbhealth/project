@@ -65,3 +65,4 @@
 - [ ] T-131 eval.validator plugin: schema for persona batches, review state machine, feedback, run progress · status:in-progress · pri:high · owner:devin · created:2026-11-15 · links:P-081
 - [ ] T-132 RBAC role eval.validator + separate validator login/scope in portal · status:in-progress · pri:high · owner:devin · created:2026-11-15 · links:P-081
 - [ ] T-220 Consultation review state · status:in-progress: approve/defer fns, review facet + badges on list, approve button + approve-and-next on detail (PL-022, P-014) · pri:high · owner:devin · created:2026-11-24 · #review-queue · #product · links:P-014,PL-022
+- [ ] T-221 Review mode · status:open: guided transcript+anamnesis review queue, karaoke sync, transcript mini-editor, legacy-audio degraded mode (PL-023) · pri:high · owner:devin · created:2026-11-24 · #review-queue · #product · links:P-014,PL-023
