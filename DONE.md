@@ -144,3 +144,4 @@
 - T-238 F3 audio: optional client-encrypted R2 upload (chunked AES-GCM); ZK tenants bypass server Whisper pipeline (PL-007) · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
 - T-239 F3 patient portal: wrap consultation DEK to patient key in invite flow, browser-side decrypt (PL-007) · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
 - T-240 product F3a: split llm adapters into ai-adapter-{openai,acp,node} · created:2026-11-16
+- T-253 Fix /portal/\*/activity 404: actor-scoped staff feed (self + delegated doctors) replacing tenant+audit.read gate · owner:human:Luis-Emidio · created:2026-11-25 · done:2026-11-25
