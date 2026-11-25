@@ -24,9 +24,11 @@ ritual from P-014, now with a screen built for it.
   discards them: `extractWhisperText` keeps only `.text`
   (`audio-consumer.ts`), while Workers AI / the OpenAI-compatible
   adapter return `verbose_json` segments
-  `{start, end, text, avg_logprob}`. Persist `transcript_segments`
-  going forward — they power karaoke sync, uncertainty markers and
-  the per-segment editor.
+  `{start, end, text, avg_logprob}` (whisper-large-v3-turbo returns
+  them by default; add `response_format: "verbose_json"` to
+  `whisperInputs` only if the bound model needs it). Persist
+  `transcript_segments` going forward — they power karaoke sync,
+  uncertainty markers and the per-segment editor.
 - **"Legacy audio" is a class, not an error.** Rows that have audio
   but no stored segments get a degraded review mode (player +
   text + confirm, no sync/incertainty markers) and are backfillable
@@ -45,10 +47,23 @@ ritual from P-014, now with a screen built for it.
   is client-side only. The anamnesis-regenerate fn accepts the
   client-supplied projection (the physician is the trusted
   principal; audit records `editCount`, never text — PHI).
+- **Base is pinned once per record** — `transcript_edits_base`
+  column (`"corrected"|"server"|"transcript"`), set by the first
+  `appendTranscriptEdits` when NULL. Projection base =
+  `correctedTranscript ?? serverTranscript ?? transcript`
+  resolved AT first-edit time (audio-less rows only carry
+  `transcript`). If the LLM cleanup lands AFTER edits exist, ops
+  keep projecting over the pinned base — never a silent
+  misalignment; per-batch bases would need multi-doc projection
+  and are rejected.
 - **Stale/confirm binds on edits**: "anamnese desatualizada" =
-  `max(edits.at) > anamnesis.createdAt`; `transcript_reviewed_edits`
-  (op count at confirm time) mirrors `anamnesis_reviewed_version` —
-  post-confirm edits surface as "edições novas não conferidas".
+  `max(edits.at) > record_versions[anamnesisVersion].createdAt`
+  (the version row is already loaded for the integrity report —
+  `consultations.anamnesis` has no timestamp of its own);
+  `transcript_reviewed_edits` (op count at confirm time) mirrors
+  `anamnesis_reviewed_version` — post-confirm edits surface as
+  "edições novas não conferidas" — `reviewTranscript` fn updated
+  to stamp it.
 - **Order suggested, not enforced.** Review mode opens on the
   transcript step by default; anamnesis approval stays possible but
   shows the stale-source warning when the transcript changed after
@@ -86,32 +101,42 @@ ritual from P-014, now with a screen built for it.
   capture `verbose_json` (Workers AI shape; local adapter maps the
   same) and store `{start,end,text,avg_logprob}[]` per row.
 - `AudioTranscriptPanel` already resolves `audioSrc` (incl. the ZK
-  decrypt path) — the review player reuses it; ZK ciphertext audio
-  works unchanged since segments are metadata about ciphertext-era
-  content... NOTE: segments contain PHI text — under ZK they must be
-  encrypted into the row envelope like `transcript`, not stored
-  plaintext (check `rowTenantIsZk` handling in the consumer).
-- `nextPendingReview` exists; the rail needs the full queue —
-  `reviewQueue` query (same predicates, ordered, limit N).
+  decrypt path) — the review player reuses it. Segments/edits
+  contain PHI — under ZK they join `CONSULTATION_CIPHERED_FIELDS`
+  (per-column cipher in `cipher.ts`, consumer already routes
+  through it via `rowTenantIsZk`).
+- `nextPendingReview` exists for sequential nav; the rail needs
+  the full queue — the `list` query already returns every field
+  the rail needs post-PL-022, so reuse it filtered client-side
+  instead of a new `reviewQueue` query.
 - Evidence→audio seek needs evidence sentences mapped to segment
   indices — substring match against segment text (same regex
   approach as `markedText`), fallback: highlight only.
 
 ## Phases
 
-- [ ] **F1 Schema + pipeline** — `transcript_segments` (JSON,
-  nullable; ZK-encrypted on ZK rows) + `transcript_edits` (JSON
-  append-only `[{at, by, u}]`; ZK: inside the envelope) +
-  `transcript_reviewed_edits` (int, confirm binding); consumer
-  persists verbose_json; backfill = retry path re-transcribing
-  legacy rows (admin-triggered, not a sweep); service
-  `appendTranscriptEdits(id, updates[])` (+ audit
+- [ ] **F1 Schema + pipeline** — `transcript_segments` +
+  `transcript_edits` (JSON append-only `[{at, by, u}]`) +
+  `transcript_edits_base` + `transcript_reviewed_edits` (int,
+  confirm binding). ZK = add `transcriptSegments` +
+  `transcriptEdits` to `CONSULTATION_CIPHERED_FIELDS` (per-column
+  cipher, no envelope work). Consumer persists verbose_json
+  segments; backfill via existing admin retry path (T-035)
+  re-transcribing legacy rows — teach it to persist segments, no
+  sweep. Service `appendTranscriptEdits(id, updates[])` pins
+  `transcript_edits_base` on first call (+ audit
   `consultations.transcript.edit`, ids + op count only) and fn;
-  migration + ERD. Client projection helper
-  `projectTranscript(base, edits)` via `loro-crdt@1.18.0` — spike
-  WASM load in vitest/browser first.
-- [ ] **F2 Queue data** — `reviewQueue` (ordered pending +
-  deferred tail) + pending-count fn for the nav badge.
+  `reviewTranscript` stamps `transcript_reviewed_edits`.
+  Migration + ERD. Client `projectTranscript(base, edits)` via
+  `loro-crdt@1.18.0` — spike WASM load in vitest/browser first.
+- [ ] **F2 Queue data + badge** — the rail reuses the existing
+  `list` query (post-PL-022 it already carries id/patient/date/
+  review fields) filtered client-side — NO new `reviewQueue`
+  query. Pending count for the nav badge: lightweight fn. GAP:
+  `PanelSidebarItem` has no badge slot — either extend kernel
+  (`badge` field + host-supplied count, kernel change) or ship a
+  `kind:"component"` chrome contribution rendering its own row.
+  Decide with user at F2.
 - [ ] **F3 Review shell** — `/consultations/review` route, queue
   rail, progress header, `?id=` deep-link, session state.
 - [ ] **F4 Transcript step** — player + karaoke, uncertainty
