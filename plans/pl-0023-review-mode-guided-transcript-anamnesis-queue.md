@@ -1,7 +1,7 @@
 +++
 id = "PL-023"
 title = "Review mode: guided transcript + anamnesis review queue (PR-review UX)"
-status = "open"
+status = "in-progress"
 created = "2026-11-24"
 owner = "devin"
 priority = "high"
@@ -115,7 +115,7 @@ ritual from P-014, now with a screen built for it.
 
 ## Phases
 
-- [ ] **F1 Schema + pipeline** — `transcript_segments` +
+- [x] **F1 Schema + pipeline** — `transcript_segments` +
   `transcript_edits` (JSON append-only `[{at, by, u}]`) +
   `transcript_edits_base` + `transcript_reviewed_edits` (int,
   confirm binding). ZK = add `transcriptSegments` +
