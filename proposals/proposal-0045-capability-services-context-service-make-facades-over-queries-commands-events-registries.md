@@ -1,7 +1,7 @@
 +++
 id = "P-045"
 title = "Capability services: Context.Service.make facades over Queries/Commands/Events registries"
-status = "deferred"
+status = "open"
 created = "2026-11-09"
 owner = "devin"
 priority = "high"
