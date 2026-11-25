@@ -32,13 +32,23 @@ ritual from P-014, now with a screen built for it.
   text + confirm, no sync/incertainty markers) and are backfillable
   via the existing idempotent transcription retry path — it just
   needs to persist segments too.
-- **Correction = new artifact layer, never destructive.**
-  `doctor_transcript` column: the physician's edited transcript.
-  `server_transcript` (ASR) and `corrected_transcript` (LLM cleanup)
-  stay immutable — suggestion-mode diff, auditable. Editing the
-  transcript after the anamnesis was generated flags "anamnese
-  desatualizada" + "Regenerar" (from doctor_transcript); never
-  auto-regenerates.
+- **Correction = Loro CRDT event log, never a snapshot** (user
+  requirement: diffs only, always a projection). `transcript_edits`
+  JSON column: `[{at, by, u: "<base64 loro update>"}, ...]`
+  append-only. Projection = seed `LoroDoc` with the base
+  (`corrected_transcript ?? server_transcript`), sequential
+  `import` of updates, `toString()`. Multi-device edits merge
+  conflict-free; undo = inverse op (append-only is native).
+  Pin `loro-crdt@1.18.0` (≥7d rule; 1.19.x too fresh).
+- **Server stays WASM-free**: the service validates the update
+  envelope with `effect/Schema` and stores opaquely — projection
+  is client-side only. The anamnesis-regenerate fn accepts the
+  client-supplied projection (the physician is the trusted
+  principal; audit records `editCount`, never text — PHI).
+- **Stale/confirm binds on edits**: "anamnese desatualizada" =
+  `max(edits.at) > anamnesis.createdAt`; `transcript_reviewed_edits`
+  (op count at confirm time) mirrors `anamnesis_reviewed_version` —
+  post-confirm edits surface as "edições novas não conferidas".
 - **Order suggested, not enforced.** Review mode opens on the
   transcript step by default; anamnesis approval stays possible but
   shows the stale-source warning when the transcript changed after
@@ -56,14 +66,14 @@ ritual from P-014, now with a screen built for it.
   (current sentence highlighted, click-to-seek), ASR uncertainty
   markers (low `avg_logprob` segments = "conflict" hunks, "next
   uncertainty" jump), 1.5–2x default speed, inline segment editor
-  writing `doctor_transcript` with struck-through original, keyboard
+  appending `transcript_edits` updates with struck-through original, keyboard
   map (space / arrows / C confirm / N next). Legacy rows: plain
   player + read + confirm + "legacy audio" badge.
 - Step 2 — anamnesis: section click auto-highlights evidence in the
   transcript (replaces per-section "Ver evidência" toggles) and seeks
   audio when segments exist; low-confidence sections pinned first
   ("files with conflicts"); "Aprovar e próxima" is the primary
-  action; stale-source warning when `doctor_transcript` postdates
+  action; stale-source warning when `transcript_edits` postdates
   generation.
 - Header: "n de m revisadas" + elapsed; end of queue → session
   summary (count, time, deferred left).
@@ -90,12 +100,16 @@ ritual from P-014, now with a screen built for it.
 ## Phases
 
 - [ ] **F1 Schema + pipeline** — `transcript_segments` (JSON,
-  nullable; ZK-encrypted on ZK rows) + `doctor_transcript` +
-  `doctor_transcript_at`; consumer persists verbose_json; backfill
-  = retry path re-transcribing legacy rows (admin-triggered, not a
-  sweep); service `saveDoctorTranscript(id, text)` (+ audit
-  `consultations.transcript.edit`, ids + segment count only) and
-  fn; migration + ERD.
+  nullable; ZK-encrypted on ZK rows) + `transcript_edits` (JSON
+  append-only `[{at, by, u}]`; ZK: inside the envelope) +
+  `transcript_reviewed_edits` (int, confirm binding); consumer
+  persists verbose_json; backfill = retry path re-transcribing
+  legacy rows (admin-triggered, not a sweep); service
+  `appendTranscriptEdits(id, updates[])` (+ audit
+  `consultations.transcript.edit`, ids + op count only) and fn;
+  migration + ERD. Client projection helper
+  `projectTranscript(base, edits)` via `loro-crdt@1.18.0` — spike
+  WASM load in vitest/browser first.
 - [ ] **F2 Queue data** — `reviewQueue` (ordered pending +
   deferred tail) + pending-count fn for the nav badge.
 - [ ] **F3 Review shell** — `/consultations/review` route, queue
