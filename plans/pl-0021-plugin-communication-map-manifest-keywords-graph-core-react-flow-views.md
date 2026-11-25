@@ -1,5 +1,5 @@
 +++
-id = "PL-011"
+id = "PL-021"
 title = "Plugin communication map: manifest keywords, graph core, React Flow views"
 status = "done"
 created = "2026-11-16"
