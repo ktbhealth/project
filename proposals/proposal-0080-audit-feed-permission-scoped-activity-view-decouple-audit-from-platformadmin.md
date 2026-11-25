@@ -4,7 +4,6 @@ title = "Audit feed: permission-scoped activity view — decouple audit from Pla
 status = "done"
 created = "2026-11-15"
 priority = "med"
-done = "2026-11-16"
 +++
 
 ## Problem

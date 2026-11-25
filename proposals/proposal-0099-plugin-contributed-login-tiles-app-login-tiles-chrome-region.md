@@ -6,7 +6,6 @@ created = "2026-11-18"
 owner = "devin"
 priority = "med"
 links = ["P-058"]
-done = "2026-11-18"
 +++
 
 ## Problem

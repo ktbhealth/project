@@ -4,7 +4,6 @@ title = "Generalize the permission system: first-class tenant-scoped grants"
 status = "done"
 created = "2026-11-16"
 priority = "high"
-done = "2026-11-19"
 +++
 
 ## Context

@@ -5,7 +5,6 @@ status = "done"
 created = "2026-11-19"
 owner = "devin"
 priority = "med"
-done = "2026-11-19"
 +++
 
 ## Problem

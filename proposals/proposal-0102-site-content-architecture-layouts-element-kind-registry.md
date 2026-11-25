@@ -4,7 +4,6 @@ title = "Site content architecture: layouts + element-kind registry"
 status = "done"
 created = "2026-11-19"
 priority = "med"
-done = "2026-11-19"
 +++
 
 ## Context

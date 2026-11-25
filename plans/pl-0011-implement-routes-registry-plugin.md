@@ -7,7 +7,6 @@ owner = "devin"
 priority = "med"
 links = ["P-106"]
 epic = "site-builder"
-done = "2026-11-24"
 +++
 
 # Plan: routes registry plugin (P-106)

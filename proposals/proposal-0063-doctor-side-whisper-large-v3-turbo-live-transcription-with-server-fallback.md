@@ -7,7 +7,6 @@ owner = "devin"
 priority = "med"
 labels = ["product"]
 links = ["P-007", "P-016", "P-017"]
-done = "2026-11-24"
 +++
 
 ## Context

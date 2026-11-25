@@ -7,7 +7,6 @@ owner = "devin"
 priority = "high"
 labels = ["architecture-platform", "eval"]
 links = ["T-042", "T-120", "T-135", "T-155", "P-069", "P-076", "P-081"]
-done = "2026-11-18"
 +++
 
 ## Problem

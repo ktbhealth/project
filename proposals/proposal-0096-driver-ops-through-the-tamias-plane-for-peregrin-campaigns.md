@@ -6,7 +6,6 @@ created = "2026-11-18"
 owner = "devin"
 priority = "med"
 labels = ["orchestration", "tamias"]
-done = "2026-11-18"
 +++
 
 ## Context

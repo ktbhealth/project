@@ -5,7 +5,6 @@ status = "done"
 created = "2026-11-18"
 priority = "high"
 links = ["P-054", "P-084"]
-done = "2026-11-19"
 +++
 
 ## Context

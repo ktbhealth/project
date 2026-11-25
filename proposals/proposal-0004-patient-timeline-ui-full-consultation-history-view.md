@@ -5,7 +5,6 @@ status = "done"
 created = "2026-11-08"
 priority = "med"
 labels = ["product", "v2"]
-done = "2026-11-24"
 +++
 
 ## Idea

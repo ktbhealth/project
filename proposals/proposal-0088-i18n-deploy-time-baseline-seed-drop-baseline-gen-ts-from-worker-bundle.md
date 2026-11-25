@@ -5,7 +5,6 @@ status = "done"
 created = "2026-11-17"
 priority = "med"
 links = ["P-083"]
-done = "2026-11-17"
 +++
 
 Context: PR #77 shipped baseline.gen.ts (~4k rows) inside the worker bundle so I18nRuntime could auto-seed empty DBs. Works, but every worker pays ~300-400KB raw for data only needed once.

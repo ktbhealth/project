@@ -6,7 +6,6 @@ created = "2026-11-09"
 owner = "devin"
 priority = "med"
 epic = "platform"
-done = "2026-11-24"
 +++
 
 ## Context

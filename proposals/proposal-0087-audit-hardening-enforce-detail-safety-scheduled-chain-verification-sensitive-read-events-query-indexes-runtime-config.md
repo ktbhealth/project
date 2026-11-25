@@ -4,7 +4,6 @@ title = "Audit hardening: enforce detail safety, scheduled chain verification, s
 status = "done"
 created = "2026-11-16"
 priority = "med"
-done = "2026-11-16"
 +++
 
 # Audit hardening: enforce detail safety, scheduled chain verification, sensitive-read events, query indexes, runtime config

@@ -5,7 +5,6 @@ status = "done"
 created = "2026-11-10"
 priority = "med"
 labels = ["docs"]
-done = "2026-11-24"
 +++
 
 ## Proposal

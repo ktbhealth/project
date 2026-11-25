@@ -5,7 +5,6 @@ status = "done"
 created = "2026-11-16"
 priority = "high"
 links = ["T-063", "T-082", "P-065", "P-070", "P-081", "P-082", "P-083", "ADR-0003"]
-done = "2026-11-16"
 +++
 
 Execution plan for P-083 / ADR-0003. Conventions: ports/adapters at the

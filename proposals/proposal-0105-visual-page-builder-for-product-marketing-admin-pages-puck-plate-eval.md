@@ -7,7 +7,6 @@ owner = "human:Luis-Emidio"
 priority = "med"
 links = ["P-109"]
 epic = "site-builder"
-done = "2026-11-20"
 +++
 
 ## Context

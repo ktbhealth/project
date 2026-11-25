@@ -6,7 +6,6 @@ created = "2026-11-20"
 priority = "med"
 links = ["P-108", "P-109"]
 epic = "site-builder"
-done = "2026-11-24"
 +++
 
 ## Vision

@@ -5,7 +5,6 @@ status = "done"
 created = "2026-11-18"
 priority = "med"
 labels = ["CI"]
-done = "2026-11-18"
 +++
 
 ## Problem
