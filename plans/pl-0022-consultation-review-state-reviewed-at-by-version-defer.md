@@ -1,0 +1,73 @@
++++
+id = "PL-022"
+title = "Consultation review state: reviewed_at/by/version + defer (P-014)"
+status = "open"
+created = "2026-11-24"
+owner = "devin"
+priority = "high"
+labels = ["review-queue", "product"]
+links = ["P-014"]
++++
+
+## Goal
+
+Give the physician an explicit, persisted "reviewed" state per
+consultation — the missing half of P-014's review queue. The list
+already shows the machine's guess (low-confidence badge); this adds
+the human act: who approved the anamnesis, when, and which version.
+
+## Gaps found vs. first draft (code review)
+
+- `consultations.review` exists but is a **dead legacy column**
+  ("second-opinion review removed") — do NOT reuse; new columns.
+- The anamnesis is **versioned and hash-chained** (`anamnesis_version`,
+  record_versions). Approval must bind to a version —
+  `reviewed_version` — or an edited draft keeps the "reviewed" badge
+  dishonestly.
+- `TablePage` selection already exists — but P-014's own caution bans
+  blind bulk-approve, so "batch" = **approve-and-next-pending**
+  navigation, not a bulk mutation fn.
+- Audit is a direct `audit()` call inside the service (ids only — PHI
+  never in detail), not a CQRS event.
+- ZK rows: review columns are metadata, not PHI — approval works on
+  ciphered rows unchanged.
+
+## Phases
+
+- [ ] **F1 Schema** — `reviewed_at` (ts), `reviewed_by` (text user
+  id), `reviewed_version` (int, links `anamnesis_version`),
+  `deferred_until` (ts, NULL=not deferred). `bun run db:generate` +
+  `db:migrate:local` + ERD regen (docs repo needs same-name branch for
+  the erd CI job).
+- [ ] **F2 Service + fns** — `Consultations.approve(id)` /
+  `defer(id, until)` / `clearDefer(id)`; authz via
+  `requirePrincipalUser` + `consultationScope` (same as `save`);
+  `audit({action:"consultations.approve", targetType:"consultation",
+  targetId, detail:{version}})`. Fns `approveConsultationFn`,
+  `deferConsultationFn` with `effect/Schema` wire validation.
+- [ ] **F3 List** — `ConsultationSummary` + query carry the new
+  fields; facet "revisão" (pendente/aprovada/adiada); badge "revisada"
+  (green, `v{n}`) and "adiada até <date>"; stats "pendentes" =
+  `reviewed_at IS NULL AND (deferred_until IS NULL OR deferred_until
+  <= now)`. Keep low-confidence badge — orthogonal signal.
+- [ ] **F4 Detail** — "Aprovar anamnese" button in the header card →
+  `approveConsultationFn` + toast; approved shows "revisada por <user>
+  em <date> · v<n>"; stale-version state "nova versão v<m> não
+  revisada" when `anamnesis_version > reviewed_version`; "Aprovar e
+  próxima pendente" navigates to the next unreviewed consult (the
+  batch ritual, per-consult).
+- [ ] **F5 i18n + gate** — ~12 keys ×3 locales + gen manifest/types;
+  100% coverage on touched files; `bun run check`; PR.
+
+## Out of scope
+
+Dedicated queue page (facet preset covers it), bulk blind-approve fn
+(P-014 caution), un-approve action (stale-version badge suffices — a
+new approve re-stamps), dropping the legacy `review` column (separate
+cleanup), admin/portal surfaces.
+
+## Defer semantics
+
+Derived, no state machine: `reviewed_at IS NULL AND deferred_until >
+now` → "adiada"; when the date passes the row reappears as pending.
+"Até amanhã" stores tomorrow 00:00 local — no cron, no scheduler.
