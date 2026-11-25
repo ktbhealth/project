@@ -66,3 +66,4 @@
 - [ ] T-132 RBAC role eval.validator + separate validator login/scope in portal · status:in-progress · pri:high · owner:devin · created:2026-11-15 · links:P-081
 - [ ] T-220 Consultation review state — approve/defer fns, review facet + badges on list, approve button + approve-and-next on detail · status:in-progress · pri:high · owner:devin · created:2026-11-24 · #product · #review-queue · links:P-014,PL-022
 - [ ] T-221 Review mode — guided transcript+anamnesis review queue, karaoke sync, transcript mini-editor, legacy-audio degraded mode · status:in-progress · pri:high · owner:devin · created:2026-11-24 · #product · #review-queue · links:P-014,PL-023
+- [ ] T-222 Local-run readiness for judges: AI\_STUB default + realistic stub transcript, dev:node stub defaults, README quickstart (regulamento run-locally) · pri:high · owner:devin · created:2026-11-25 · #demo · #hackathon · links:T-095,T-201,PL-018 · epic:mvp · ms:hackathon · due:2026-11-30
