@@ -137,16 +137,24 @@ ritual from P-014, now with a screen built for it.
   (`badge` field + host-supplied count, kernel change) or ship a
   `kind:"component"` chrome contribution rendering its own row.
   Decide with user at F2.
-- [ ] **F3 Review shell** — `/consultations/review` route, queue
-  rail, progress header, `?id=` deep-link, session state.
-- [ ] **F4 Transcript step** — player + karaoke, uncertainty
-  markers + jump, inline segment editor, keyboard map, legacy
-  degraded mode + "legacy audio" badge.
-- [ ] **F5 Anamnesis step** — auto-evidence on section select,
-  low-confidence ordering, approve&next primary, stale-source
-  warning + regenerate, transcript-confirmed step gating (suggested).
-- [ ] **F6 Polish** — session summary, defer inside mode, i18n ×3,
-  coverage on touched files, check, PR.
+- [x] **F3 Review shell** — `/portal/{doctor,secretary}/review[/<id>]`
+  route (page descriptors + guard/loader in clinician), queue rail,
+  pending count header, deep-link by id, session state. Sidebar
+  "Review" entry carries the badge (moved off Consultations).
+- [x] **F4 Transcript step** — player + segment karaoke (click-to-seek,
+  timeupdate highlight), `avg_logprob` uncertainty ring + "next
+  uncertain" jump, inline per-segment editor appending Loro deltas
+  (genesis op carries the base; `seg`/`text` metadata outside the
+  blob), whole-doc edit for legacy/audio-less rows, space/→/C keys,
+  legacy + no-audio badges.
+- [x] **F5 Anamnesis step** — click-to-evidence (auto marks grounding
+  sentences via AudioTranscriptPanel highlight), sections ordered
+  baixa→alta, approve&next primary, edits-exist warning + regenerate
+  feeding the projected transcript.
+- [x] **F6 Polish** — queue overview doubles as session summary,
+  defer popover inside the mode (router.invalidate), i18n ×3 +
+  `nav_review` host label, 14 view tests + 5 loader tests,
+  `vp check` clean (0 errors).
 
 ## Out of scope
 
