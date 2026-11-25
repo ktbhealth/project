@@ -50,12 +50,16 @@ the human act: who approved the anamnesis, when, and which version.
   (green, `v{n}`) and "adiada até <date>"; stats "pendentes" =
   `reviewed_at IS NULL AND (deferred_until IS NULL OR deferred_until
   <= now)`. Keep low-confidence badge — orthogonal signal.
-- [ ] **F4 Detail** — "Aprovar anamnese" button in the header card →
-  `approveConsultationFn` + toast; approved shows "revisada por <user>
-  em <date> · v<n>"; stale-version state "nova versão v<m> não
-  revisada" when `anamnesis_version > reviewed_version`; "Aprovar e
-  próxima pendente" navigates to the next unreviewed consult (the
-  batch ritual, per-consult).
+- [ ] **F4 Detail** — "Aprovar" button in the header card →
+  `approveConsultationFn` + toast. **Approve is record-level** (intent
+  check): one act covers transcript + anamnesis — the anamnesis is the
+  artifact, but approval stamps the consultation; transcript-only
+  consults are approvable ("conferi a transcrição"). Approved shows
+  "revisada por <user> em <date> · v<n>"; stale-version state "nova
+  versão v<m> não revisada" when `anamnesis_version >
+  reviewed_version` (edit keeps the flag + warns — never loses who
+  approved); "Aprovar e próxima pendente" navigates to the next
+  unreviewed consult — in this delivery.
 - [ ] **F5 i18n + gate** — ~12 keys ×3 locales + gen manifest/types;
   100% coverage on touched files; `bun run check`; PR.
 
@@ -70,4 +74,6 @@ cleanup), admin/portal surfaces.
 
 Derived, no state machine: `reviewed_at IS NULL AND deferred_until >
 now` → "adiada"; when the date passes the row reappears as pending.
-"Até amanhã" stores tomorrow 00:00 local — no cron, no scheduler.
+Defer is an **arbitrary date** (intent check) via the ui `calendar`
+component (convention: agenda/patients date inputs); "até amanhã" is
+just tomorrow's date. No cron, no scheduler.
