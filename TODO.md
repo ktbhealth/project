@@ -57,8 +57,6 @@
 - [ ] T-219 Eval run trigger + live progress polling UI (done/total, %, stage) · pri:high · owner:devin · created:2026-11-15 · links:P-081
 - [ ] T-249 Results view: word-diff component, metrics, judge verdicts, demographic slices (region/class/register) · pri:high · owner:devin · created:2026-11-15 · links:P-081
 - [ ] T-250 Port inspect\_gen.py word-alignment diff to shared domain component used by the UI · pri:high · owner:devin · created:2026-11-15 · links:P-081
-- [ ] T-247 eval.validator plugin: schema for persona batches, review state machine, feedback, run progress · status:in-progress · pri:high · owner:devin · created:2026-11-15 · links:P-081
-- [ ] T-248 RBAC role eval.validator + separate validator login/scope in portal · status:in-progress · pri:high · owner:devin · created:2026-11-15 · links:P-081
 - [ ] T-220 Consultation review state — approve/defer fns, review facet + badges on list, approve button + approve-and-next on detail · status:in-progress · pri:high · owner:devin · created:2026-11-24 · #product · #review-queue · links:P-014,PL-022
 - [ ] T-221 Review mode — guided transcript+anamnesis review queue, karaoke sync, transcript mini-editor, legacy-audio degraded mode · status:in-progress · pri:high · owner:devin · created:2026-11-24 · #product · #review-queue · links:P-014,PL-023
 - [ ] T-254 pr-review hardening residuals: sandbox env-var leakage (service env readable in agent sandbox), pr-review.report node maxFires exhaustion, GITHUB\_TOKEN cuora scope unverified · created:2026-11-26
@@ -69,3 +67,5 @@
 - [ ] T-258 Consult flow: decide patient-portal access up front — access card under the patient picker (send on save / skip), quick-create asks 'send access by email?' + email; invite fires automatically on save · status:in-progress · pri:high · owner:human:vini · created:2026-11-26 · #product · links:T-257 · epic:agenda
 - [ ] T-259 Agenda calendar views: List | Week (time grid, click empty slot to create) | Month (day grid, click day → week); fetch ranges outside the loader window · status:in-progress · owner:human:vini · created:2026-11-26 · #product · links:P-119 · epic:agenda
 - [ ] T-260 Transcription observability (prod): span asr.transcribe on Whisper call in plugins/consultations/src/audio-consumer.ts (promise-land — needs parent-span injection or Effect refactor), ktb\_transcription\_total{outcome}+duration metrics in packages/observability/src/metrics.ts, failure-ratio alert in infra/lgtm/provisioning/alerting/alerting.yaml; optional panel in ktb-platform dashboard · owner:human:emanuel · created:2026-11-26 · #observability · #transcription · links:T-255
+- [ ] T-247 eval.validator plugin: schema for persona batches, review state machine, feedback, run progress · pri:high · owner:devin · created:2026-11-15 · links:P-081
+- [ ] T-248 RBAC role eval.validator + separate validator login/scope in portal · pri:high · owner:devin · created:2026-11-15 · links:P-081
