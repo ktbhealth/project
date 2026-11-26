@@ -146,3 +146,4 @@
 - T-240 product F3a: split llm adapters into ai-adapter-{openai,acp,node} · created:2026-11-16
 - T-253 Fix /portal/\*/activity 404: actor-scoped staff feed (self + delegated doctors) replacing tenant+audit.read gate · owner:human:Luis-Emidio · created:2026-11-25 · done:2026-11-25
 - T-222 Local-run readiness for judges: AI\_STUB default + realistic stub transcript, dev:node stub defaults, README quickstart (regulamento run-locally) · pri:high · owner:devin · created:2026-11-25 · #demo · #hackathon · links:T-095,T-201,PL-018 · epic:mvp · ms:hackathon · due:2026-11-30 · done:2026-11-26
+- T-095 Demo env docs: AI\_STUB=1 / AI\_BASE\_URL local-AI-server options for running golden path without Workers AI (wrangler.dev.jsonc already documents; surface in demo runbook) · owner:human:vini · created:2026-11-13 · #demo · #docs · links:T-092,P-065 · ms:mvp · due:2026-11-30 · est:100 · done:2026-11-26
