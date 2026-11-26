@@ -145,3 +145,4 @@
 - T-239 F3 patient portal: wrap consultation DEK to patient key in invite flow, browser-side decrypt (PL-007) · owner:devin · created:2026-11-15 · #security · #zk · links:PL-007 · epic:zero-knowledge
 - T-240 product F3a: split llm adapters into ai-adapter-{openai,acp,node} · created:2026-11-16
 - T-253 Fix /portal/\*/activity 404: actor-scoped staff feed (self + delegated doctors) replacing tenant+audit.read gate · owner:human:Luis-Emidio · created:2026-11-25 · done:2026-11-25
+- T-222 Local-run readiness for judges: AI\_STUB default + realistic stub transcript, dev:node stub defaults, README quickstart (regulamento run-locally) · pri:high · owner:devin · created:2026-11-25 · #demo · #hackathon · links:T-095,T-201,PL-018 · epic:mvp · ms:hackathon · due:2026-11-30 · done:2026-11-26
