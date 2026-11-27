@@ -76,3 +76,4 @@
 - [ ] T-267 product#359: tenantScopeId now regex-normalizes — audit callers relying on loose Number() coercion ('4.5',' 42','1e3') · created:2026-11-27
 - [ ] T-268 product#364: migrate remaining @ktb/eval-consultation consumers (app-host, plugins/ai-provider, apps/web) off re-exports onto @ktb/eval-core/@ktb/transcript-cleanup · created:2026-11-27
 - [ ] T-269 product#365: revisit telemetry serviceName default "ktb" — kept to preserve LGTM dashboards · created:2026-11-27
+- [ ] T-270 product#366: composite admin guards left inline — i18n rbac-OR-admin, RBAC permission guards in eval plugins · created:2026-11-27
