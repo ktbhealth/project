@@ -73,3 +73,4 @@
 - [ ] T-263 Bug-hunt sweep: widen slices beyond apps-edge and run campaign across product domains · owner:devin · created:2026-11-27 · #bug-hunt
 - [ ] T-264 Hand-written concept guides for plugins · pri:low · owner:devin · created:2026-11-27 · #docs · est:3
 - [ ] T-266 product#353: drop 3 vestigial route-plugin imports (@ktb/credentials, @ktb/eval-persona, @ktb/platform) or document forward-compat · created:2026-11-27
+- [ ] T-267 product#359: tenantScopeId now regex-normalizes — audit callers relying on loose Number() coercion ('4.5',' 42','1e3') · created:2026-11-27
