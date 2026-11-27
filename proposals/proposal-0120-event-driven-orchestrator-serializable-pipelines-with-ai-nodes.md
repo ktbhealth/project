@@ -1,11 +1,12 @@
 +++
 id = "P-120"
 title = "Event-driven orchestrator: serializable pipelines with AI nodes"
-status = "open"
+status = "done"
 created = "2026-11-26"
 owner = "devin"
 priority = "med"
 labels = ["orchestration", "pipelines"]
+done = "2026-11-27"
 +++
 
 ## Goal
