@@ -71,3 +71,4 @@
 - [ ] T-248 RBAC role eval.validator + separate validator login/scope in portal · pri:high · owner:devin · created:2026-11-15 · links:P-081
 - [ ] T-262 Post-hackathon roadmap: pipeline step to help doctors organize patient data chronologically (timeline view/ordering of consultations, documents, exams) · created:2026-11-27 · #pipeline · #post-hackathon · #product
 - [ ] T-263 Bug-hunt sweep: widen slices beyond apps-edge and run campaign across product domains · owner:devin · created:2026-11-27 · #bug-hunt
+- [ ] T-264 Hand-written concept guides for plugins · pri:low · owner:devin · created:2026-11-27 · #docs · est:3
