@@ -14,8 +14,8 @@ epic = "zero-knowledge"
 **Model A (full ZK).** All record content is encrypted in the browser;
 the server stores ciphertext plus the metadata authz needs
 (ids, ownerId/tenantId, status, timestamps, consent). Keys live with
-the clinics: each tenant (`groups.id`) holds an ECDH P-256 wrap pair +
-ECDSA P-256 signing pair; a solo doctor (`tenant_id` NULL) is a clinic
+the clinics: each tenant (`groups.id`) holds an ECDH secp256r1 wrap pair +
+ECDSA secp256r1 signing pair; a solo doctor (`tenant_id` NULL) is a clinic
 of one. Web Crypto API throughout (`globalThis.crypto.subtle` is
 isomorphic across browser / workerd / Node ≥20 and passes the arch
 policy — no `node:*`, no `process`).
@@ -24,8 +24,8 @@ policy — no `node:*`, no `process`).
 
 - [ ] `aead`: AES-256-GCM encrypt/decrypt, versioned envelope
       `v1.<b64url(iv)>.<b64url(ct)>`
-- [ ] `wrap`: ECDH P-256 + HKDF-SHA-256 → DEK wrap/unwrap (ECIES-style)
-- [ ] `sign`: ECDSA P-256 sign/verify of document hashes
+- [ ] `wrap`: ECDH secp256r1 + HKDF-SHA-256 → DEK wrap/unwrap (ECIES-style)
+- [ ] `sign`: ECDSA secp256r1 sign/verify of document hashes
 - [ ] `digest` + `canonicalize`: SHA-256 over stable JSON (sorted keys,
       NFC) — the legal integrity hash input
 - [ ] `kdf`: PBKDF2-SHA-256 ≥600k iters (generic primitive only —
