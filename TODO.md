@@ -72,3 +72,4 @@
 - [ ] T-262 Post-hackathon roadmap: pipeline step to help doctors organize patient data chronologically (timeline view/ordering of consultations, documents, exams) · created:2026-11-27 · #pipeline · #post-hackathon · #product
 - [ ] T-263 Bug-hunt sweep: widen slices beyond apps-edge and run campaign across product domains · owner:devin · created:2026-11-27 · #bug-hunt
 - [ ] T-264 Hand-written concept guides for plugins · pri:low · owner:devin · created:2026-11-27 · #docs · est:3
+- [ ] T-265 Gate clinic vault sidebar + page to tenant admins (product PR #357) · owner:devin · created:2026-11-27 · #vault
