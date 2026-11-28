@@ -84,3 +84,4 @@
   - [ ] T-275 Deploy cuora-prod worker: wrangler.ktbhealth-prod.toml (name=cuora-prod, account 2c03574…), new D1 + schema.sql, CUORA\_VAULT\_TOKENS with fresh prod-scoped token — BLOCKED on CF auth (wrangler login or CLOUDFLARE\_API\_TOKEN) · owner:devin · created:2026-11-28
   - [ ] T-276 Migrate 18 prod-env secrets ktb vault → cuora-prod vault (get+put pipes, values never printed); store new prod token in local vault ktb/cf-token-prod env prod · owner:devin · created:2026-11-28
   - [ ] T-277 Route prod → vault ktb-prod in cuora.tomls: product/, product/infra/lgtm, infra/github, storybook, website-draft, erd-check (+prd worktrees); keep dev/preview on ktb · owner:devin · created:2026-11-28
+  - [ ] T-278 After cutover: drop prod token + prod secrets from old ktb vault worker (CUORA\_VAULT\_TOKENS rotate + D1 cleanup); verify cuora check --env prod per repo · owner:devin · created:2026-11-28
