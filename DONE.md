@@ -149,3 +149,4 @@
 - T-095 Demo env docs: AI\_STUB=1 / AI\_BASE\_URL local-AI-server options for running golden path without Workers AI (wrangler.dev.jsonc already documents; surface in demo runbook) · owner:human:vini · created:2026-11-13 · #demo · #docs · links:T-092,P-065 · ms:mvp · due:2026-11-30 · est:100 · done:2026-11-26
 - T-225 bun run dev (workerd) broken locally: runner-worker EvalError 'Code generation from strings disallowed' at startup — pre-existing on main, blocks judge run-locally path; dev:node unaffected · pri:high · owner:devin · created:2026-11-25 · #demo · #hackathon · links:T-201,T-222 · done:2026-11-26
 - T-265 Gate clinic vault sidebar + page to tenant admins (product PR #357) · owner:devin · created:2026-11-27 · #vault · done:2026-11-27
+- T-279 Deploy workflow: persistent worktree per service + lasius vcs checkout + lasius 0.6.0 release · owner:devin · created:2026-11-28 · #caching · #deploy · done:2026-11-28
