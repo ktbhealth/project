@@ -78,3 +78,4 @@
 - [ ] T-269 product#365: revisit telemetry serviceName default "ktb" — kept to preserve LGTM dashboards · created:2026-11-27
 - [ ] T-270 product#366: composite admin guards left inline — i18n rbac-OR-admin, RBAC permission guards in eval plugins · created:2026-11-27
 - [ ] T-271 product eval-cli: commands.test.ts 'edge-tts absent' test fails when binary exists at ~/.local/bin — make env-independent · created:2026-11-27
+- [ ] T-272 Implement Google Calendar import for doctor agenda · status:in-progress · pri:high · owner:devin · created:2026-11-27 · #calendar · #google · links:P-008,P-119 · epic:agenda
