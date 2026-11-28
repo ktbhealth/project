@@ -81,3 +81,4 @@
 - [ ] T-272 Implement Google Calendar import for doctor agenda · status:in-progress · pri:high · owner:devin · created:2026-11-27 · #calendar · #google · links:P-008,P-119 · epic:agenda
 - [ ] T-273 Google Calendar adapter: ExternalCalendar impl + OAuth connect flow — creds already in cuora dev (ktb/google-oauth-client-\*, GCP ktbhealth-dev) · owner:human:vini · created:2026-11-28 · #product · links:P-008,P-119 · epic:agenda
 - [ ] T-274 Prod vault split: standalone cuora-prod CF vault for ktb prod secrets (isolate prod from dev vault + vini's recipient) · owner:devin · created:2026-11-28 · #infra
+  - [ ] T-275 Deploy cuora-prod worker: wrangler.ktbhealth-prod.toml (name=cuora-prod, account 2c03574…), new D1 + schema.sql, CUORA\_VAULT\_TOKENS with fresh prod-scoped token — BLOCKED on CF auth (wrangler login or CLOUDFLARE\_API\_TOKEN) · owner:devin · created:2026-11-28
