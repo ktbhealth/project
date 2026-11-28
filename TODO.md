@@ -80,3 +80,4 @@
 - [ ] T-271 product eval-cli: commands.test.ts 'edge-tts absent' test fails when binary exists at ~/.local/bin — make env-independent · created:2026-11-27
 - [ ] T-272 Implement Google Calendar import for doctor agenda · status:in-progress · pri:high · owner:devin · created:2026-11-27 · #calendar · #google · links:P-008,P-119 · epic:agenda
 - [ ] T-273 Google Calendar adapter: ExternalCalendar impl + OAuth connect flow — creds already in cuora dev (ktb/google-oauth-client-\*, GCP ktbhealth-dev) · owner:human:vini · created:2026-11-28 · #product · links:P-008,P-119 · epic:agenda
+- [ ] T-274 Prod vault split: standalone cuora-prod CF vault for ktb prod secrets (isolate prod from dev vault + vini's recipient) · owner:devin · created:2026-11-28 · #infra
